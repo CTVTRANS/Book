@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="DFHeiStd-W5.otf">
+            <string>DFHeiStd-W5</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="StoreMarkViewCell" customModule="BookApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="157" height="164"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="157" height="164"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9L-F2-Fma">
+                        <rect key="frame" x="16" y="122" width="133" height="14"/>
+                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="14"/>
+                        <color key="textColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hoM-MW-5dx">
+                        <rect key="frame" x="0.0" y="0.0" width="157" height="110"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="adjustConstantToRealIPhoneSize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nec-AM-fbu">
+                        <rect key="frame" x="16" y="144" width="34" height="13"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aG-Ai-bbl">
+                                <rect key="frame" x="0.0" y="0.0" width="9" height="13"/>
+                                <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="積分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJs-Ob-cUw">
+                                <rect key="frame" x="12" y="0.0" width="22" height="13"/>
+                                <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="11"/>
+                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uJs-Ob-cUw" firstAttribute="leading" secondItem="3aG-Ai-bbl" secondAttribute="trailing" constant="3" id="2j5-to-CeB"/>
+                            <constraint firstItem="3aG-Ai-bbl" firstAttribute="top" secondItem="Nec-AM-fbu" secondAttribute="top" id="9EM-rM-8l4"/>
+                            <constraint firstAttribute="bottom" secondItem="3aG-Ai-bbl" secondAttribute="bottom" id="F2z-Gi-eao"/>
+                            <constraint firstAttribute="trailing" secondItem="uJs-Ob-cUw" secondAttribute="trailing" id="Kdu-5h-tU1"/>
+                            <constraint firstAttribute="bottom" secondItem="uJs-Ob-cUw" secondAttribute="bottom" id="VGl-CX-trM"/>
+                            <constraint firstItem="uJs-Ob-cUw" firstAttribute="top" secondItem="Nec-AM-fbu" secondAttribute="top" id="hEc-rE-abQ"/>
+                            <constraint firstItem="3aG-Ai-bbl" firstAttribute="leading" secondItem="Nec-AM-fbu" secondAttribute="leading" id="xCo-Yt-8EF"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Crs-y1-hOu">
+                        <rect key="frame" x="55" y="144" width="36" height="13"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imw-wK-VMl">
+                                <rect key="frame" x="12" y="0.0" width="9" height="13"/>
+                                <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNx-94-ewX">
+                                <rect key="frame" x="0.0" y="0.0" width="7" height="13"/>
+                                <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBz-10-wt7">
+                                <rect key="frame" x="24" y="0.0" width="12" height="13"/>
+                                <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QNx-94-ewX" firstAttribute="centerY" secondItem="imw-wK-VMl" secondAttribute="centerY" id="0Xi-uC-UzQ"/>
+                            <constraint firstItem="QNx-94-ewX" firstAttribute="leading" secondItem="Crs-y1-hOu" secondAttribute="leading" id="69e-ql-INU"/>
+                            <constraint firstAttribute="bottom" secondItem="IBz-10-wt7" secondAttribute="bottom" id="KIb-8G-1hd"/>
+                            <constraint firstAttribute="bottom" secondItem="imw-wK-VMl" secondAttribute="bottom" id="Xs0-IW-bdh"/>
+                            <constraint firstItem="imw-wK-VMl" firstAttribute="leading" secondItem="QNx-94-ewX" secondAttribute="trailing" constant="5" id="Xs4-Xe-k2S"/>
+                            <constraint firstItem="IBz-10-wt7" firstAttribute="leading" secondItem="imw-wK-VMl" secondAttribute="trailing" constant="3" id="kZY-vd-XTY"/>
+                            <constraint firstItem="imw-wK-VMl" firstAttribute="top" secondItem="Crs-y1-hOu" secondAttribute="top" id="rfX-WG-6xm"/>
+                            <constraint firstItem="IBz-10-wt7" firstAttribute="top" secondItem="Crs-y1-hOu" secondAttribute="top" id="uJu-sg-OPZ"/>
+                            <constraint firstAttribute="trailing" secondItem="IBz-10-wt7" secondAttribute="trailing" id="y5r-9l-08g"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FA1-AV-f1P">
+                        <rect key="frame" x="16" y="144" width="24" height="13"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rt0-7e-iQQ">
+                                <rect key="frame" x="0.0" y="0.0" width="9" height="13"/>
+                                <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMa-hQ-Ynx">
+                                <rect key="frame" x="12" y="0.0" width="12" height="13"/>
+                                <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rt0-7e-iQQ" firstAttribute="top" secondItem="FA1-AV-f1P" secondAttribute="top" id="GhU-IZ-Vri"/>
+                            <constraint firstAttribute="bottom" secondItem="rt0-7e-iQQ" secondAttribute="bottom" id="TNl-l0-58B"/>
+                            <constraint firstAttribute="trailing" secondItem="vMa-hQ-Ynx" secondAttribute="trailing" id="USn-Q4-GUL"/>
+                            <constraint firstAttribute="bottom" secondItem="vMa-hQ-Ynx" secondAttribute="bottom" id="cEf-Eu-D2X"/>
+                            <constraint firstItem="rt0-7e-iQQ" firstAttribute="leading" secondItem="FA1-AV-f1P" secondAttribute="leading" id="fer-a5-qdt"/>
+                            <constraint firstItem="vMa-hQ-Ynx" firstAttribute="top" secondItem="FA1-AV-f1P" secondAttribute="top" id="lSm-Ny-VIw"/>
+                            <constraint firstItem="vMa-hQ-Ynx" firstAttribute="leading" secondItem="rt0-7e-iQQ" secondAttribute="trailing" constant="3" id="ycb-zJ-7A8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="hoM-MW-5dx" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="2/3" id="2nL-mB-LrK"/>
+                <constraint firstItem="Crs-y1-hOu" firstAttribute="top" secondItem="B9L-F2-Fma" secondAttribute="bottom" constant="8" id="7HD-Ag-2FW"/>
+                <constraint firstItem="hoM-MW-5dx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8fm-Rk-aK8"/>
+                <constraint firstItem="B9L-F2-Fma" firstAttribute="top" secondItem="hoM-MW-5dx" secondAttribute="bottom" constant="12" id="CCf-uX-XqI"/>
+                <constraint firstItem="Crs-y1-hOu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="CbW-M1-Qv9"/>
+                <constraint firstItem="FA1-AV-f1P" firstAttribute="top" secondItem="B9L-F2-Fma" secondAttribute="bottom" constant="8" id="MCt-OD-Rws"/>
+                <constraint firstAttribute="trailing" secondItem="hoM-MW-5dx" secondAttribute="trailing" id="NC5-lP-E5j"/>
+                <constraint firstItem="Nec-AM-fbu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="Uxm-6l-RGw"/>
+                <constraint firstItem="FA1-AV-f1P" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="fqb-GK-Z2D"/>
+                <constraint firstItem="hoM-MW-5dx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gPG-JX-geo"/>
+                <constraint firstItem="Crs-y1-hOu" firstAttribute="leading" secondItem="Nec-AM-fbu" secondAttribute="trailing" constant="5" id="mLf-MT-BmT"/>
+                <constraint firstAttribute="trailing" secondItem="B9L-F2-Fma" secondAttribute="trailing" constant="8" id="p0g-Bh-PQ8"/>
+                <constraint firstItem="B9L-F2-Fma" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="uHy-Dk-bPA"/>
+                <constraint firstItem="Nec-AM-fbu" firstAttribute="top" secondItem="B9L-F2-Fma" secondAttribute="bottom" constant="8" id="w7S-s4-4f5"/>
+            </constraints>
+            <size key="customSize" width="156" height="165"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="avatar" destination="hoM-MW-5dx" id="HTO-qO-8Pl"/>
+                <outlet property="moneyBook" destination="imw-wK-VMl" id="j49-VN-dfO"/>
+                <outlet property="moneyBookView" destination="Crs-y1-hOu" id="uIF-Se-pex"/>
+                <outlet property="moneyVip" destination="rt0-7e-iQQ" id="u9Y-XL-wBf"/>
+                <outlet property="moneyVipView" destination="FA1-AV-f1P" id="crO-zq-hoL"/>
+                <outlet property="point" destination="3aG-Ai-bbl" id="Zq4-We-UyE"/>
+                <outlet property="pointBookView" destination="Nec-AM-fbu" id="Iif-4k-7aZ"/>
+                <outlet property="title" destination="B9L-F2-Fma" id="9v3-C3-ess"/>
+            </connections>
+            <point key="canvasLocation" x="52.5" y="100"/>
+        </collectionViewCell>
+    </objects>
+</document>

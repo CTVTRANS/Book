@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="DFHeiStd-W5.otf">
+            <string>DFHeiStd-W5</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopViewShare" customModule="BookApp" customModuleProvider="target">
+            <connections>
+                <outlet property="shareButton" destination="XS0-jW-S99" id="bMh-xJ-JnT"/>
+                <outlet property="titleTop" destination="lWr-vd-9Lz" id="TWq-kB-OAf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="495" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XS0-jW-S99">
+                    <rect key="frame" x="435" y="0.0" width="60" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="iiO-Pa-E6i"/>
+                    </constraints>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWr-vd-9Lz">
+                    <rect key="frame" x="16" y="13" width="39" height="17"/>
+                    <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_share" translatesAutoresizingMaskIntoConstraints="NO" id="qVu-fz-m3D">
+                    <rect key="frame" x="457" y="11" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="PAK-Kr-U4w"/>
+                        <constraint firstAttribute="height" constant="22" id="QeK-ey-Z16"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="lWr-vd-9Lz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="100-nG-dQe"/>
+                <constraint firstItem="qVu-fz-m3D" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="17B-fk-9Ew"/>
+                <constraint firstItem="XS0-jW-S99" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JO5-go-EHB"/>
+                <constraint firstAttribute="bottom" secondItem="XS0-jW-S99" secondAttribute="bottom" id="KxR-lJ-DrS"/>
+                <constraint firstItem="lWr-vd-9Lz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Plg-jj-QfW"/>
+                <constraint firstAttribute="trailing" secondItem="XS0-jW-S99" secondAttribute="trailing" id="ds3-zq-OmG"/>
+                <constraint firstAttribute="trailing" secondItem="qVu-fz-m3D" secondAttribute="trailing" constant="16" id="fFc-Za-m31"/>
+                <constraint firstItem="XS0-jW-S99" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hGG-D3-X5o"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-26.5" y="-257"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_share" width="32" height="32"/>
+    </resources>
+</document>

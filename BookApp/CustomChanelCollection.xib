@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomChanelCollection">
+            <connections>
+                <outlet property="chanelCollection" destination="G4P-1f-539" id="Blk-oZ-bN2"/>
+                <outlet property="name" destination="4Z2-le-Pqe" id="nWS-SF-lCy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQG-GC-yID">
+                    <rect key="frame" x="0.0" y="32" width="8" height="19"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.65098039220000004" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="8" id="FpZ-2V-FSh"/>
+                        <constraint firstAttribute="height" constant="19" id="P6A-4J-b4M"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Z2-le-Pqe">
+                    <rect key="frame" x="13" y="34" width="33" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="G4P-1f-539">
+                    <rect key="frame" x="22" y="63" width="281" height="119"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="A3O-AX-WQ7">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="zBm-yi-3OU"/>
+                        <outlet property="delegate" destination="-1" id="xSI-ld-D7w"/>
+                    </connections>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wj4-SD-Uji">
+                    <rect key="frame" x="22" y="199" width="281" height="1"/>
+                    <color key="backgroundColor" red="0.32156862745098036" green="0.32156862745098036" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="LbI-Gq-M6H"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="wj4-SD-Uji" secondAttribute="bottom" id="78I-r6-kPM"/>
+                <constraint firstAttribute="trailing" secondItem="wj4-SD-Uji" secondAttribute="trailing" constant="17" id="Bro-TL-L1R"/>
+                <constraint firstItem="4Z2-le-Pqe" firstAttribute="leading" secondItem="fQG-GC-yID" secondAttribute="trailing" constant="5" id="CrM-FD-prD"/>
+                <constraint firstItem="fQG-GC-yID" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ENg-WD-wla"/>
+                <constraint firstItem="wj4-SD-Uji" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="22" id="Ln0-x9-nTP"/>
+                <constraint firstAttribute="bottom" secondItem="G4P-1f-539" secondAttribute="bottom" constant="18" id="RfL-eh-3EH"/>
+                <constraint firstItem="fQG-GC-yID" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="Zm2-My-ZwU"/>
+                <constraint firstItem="4Z2-le-Pqe" firstAttribute="centerY" secondItem="fQG-GC-yID" secondAttribute="centerY" id="ZrU-ng-Fq1"/>
+                <constraint firstItem="G4P-1f-539" firstAttribute="top" secondItem="4Z2-le-Pqe" secondAttribute="bottom" constant="13" id="aIV-Dn-a7C"/>
+                <constraint firstAttribute="trailing" secondItem="G4P-1f-539" secondAttribute="trailing" constant="17" id="l68-dr-eUZ"/>
+                <constraint firstItem="G4P-1f-539" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="22" id="tz1-Eg-6wk"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="35" y="-174"/>
+        </view>
+    </objects>
+</document>
