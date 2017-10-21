@@ -58,7 +58,7 @@ class DetailSingleGroupViewController: BaseViewController, UITableViewDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if (groupSelected?.isSubcrible)! {
-            joinButton.setTitle("subcribled", for: .normal)
+            joinButton.setTitle("   已关注   ", for: .normal)
         }
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.barTintColor = UIColor.white
@@ -122,7 +122,7 @@ class DetailSingleGroupViewController: BaseViewController, UITableViewDelegate, 
         requestWithTask(task: subcrible, success: { (data) in
             if let status = data as? Bool {
                 if status {
-                    self.joinButton.setTitle("subcribled", for: .normal)
+                    self.joinButton.setTitle("   已关注   ", for: .normal)
                     self.groupSelected?.isSubcrible = true
                 } else {
                     self.joinButton.setTitle("   關注   ", for: .normal)

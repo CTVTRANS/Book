@@ -45,7 +45,7 @@ class MyprofileViewController: BaseViewController, UITableViewDelegate, UITableV
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.textAlignment = .center
         label.textColor = UIColor.rgb(82, 82, 82)
-        label.text = (memberInstance?.name)! + "\n會員編號: " + (memberInstance?.memberCode!)!
+        label.text = (memberInstance?.name)! + "\n会员编号: " + (memberInstance?.memberCode!)!
         navigationItem.titleView = label
     }
     
@@ -55,10 +55,10 @@ class MyprofileViewController: BaseViewController, UITableViewDelegate, UITableV
 
     func customData() {
         let setting1 = SettingCellModel(name: "姓名", specialName: "", arrrowDetail: true, nameDetail: (ProfileMember.getProfile()!.name))
-        let setting2 = SettingCellModel(name: "郵箱", specialName: "", arrrowDetail: true, nameDetail: (ProfileMember.getProfile()!.email)!)
-        let setting3 = SettingCellModel(name: "密碼", specialName: "", arrrowDetail: true, nameDetail: "")
-        let setting4 = SettingCellModel(name: "完善資料", specialName: "", arrrowDetail: true, nameDetail: "")
-        let setting5 = SettingCellModel(name: "", specialName: "退出登錄", arrrowDetail: false, nameDetail: "")
+        let setting2 = SettingCellModel(name: "邮箱", specialName: "", arrrowDetail: true, nameDetail: (ProfileMember.getProfile()!.email)!)
+        let setting3 = SettingCellModel(name: "密码", specialName: "", arrrowDetail: true, nameDetail: "")
+        let setting4 = SettingCellModel(name: "完善资料", specialName: "", arrrowDetail: true, nameDetail: "")
+        let setting5 = SettingCellModel(name: "", specialName: "退出登录", arrrowDetail: false, nameDetail: "")
 //
         let arraySetting1 = ListSetting(array: [setting1, setting2, setting3, setting4])
         let arraySetting2 = ListSetting(array: [setting5])
@@ -183,7 +183,7 @@ class MyprofileViewController: BaseViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func pressedChangeAvatar(_ sender: Any) {
-        _ = UIAlertController.showActionSheetWith(arrayTitle: ["拍照", "從相冊選擇"],
+        _ = UIAlertController.showActionSheetWith(arrayTitle: ["拍照", "从相册选择"],
                                                   handlerAction: { (index) in
                                                     switch index {
                                                     case 0:

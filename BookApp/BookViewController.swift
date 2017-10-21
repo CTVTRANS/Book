@@ -12,6 +12,7 @@ import FSPagerView
 
 class BookViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FSPagerViewDelegate, FSPagerViewDataSource {
 
+    @IBOutlet weak var viewForNewestBook: UIView!
     @IBOutlet weak var navigationCustom: NavigationCustom!
     @IBOutlet weak var tableBookType: UICollectionView!
     @IBOutlet weak var suggestBookView: CustomBookCollection!
@@ -69,11 +70,11 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
     
     func setUpTitle() {
         suggestBookView.setupView(image: #imageLiteral(resourceName: "ic_reload"))
-        suggestBookView.detailTitle.text = "換一換"
-        suggestBookView.titleView.text = "猜你喜歡"
+        suggestBookView.detailTitle.text = "换一换"
+        suggestBookView.titleView.text = "猜你喜欢"
         freeBookView.setupView(image: #imageLiteral(resourceName: "ic_next"))
         freeBookView.detailTitle.text = "全部"
-        freeBookView.titleView.text = "限時免費"
+        freeBookView.titleView.text = "限时免费"
     }
     
     // MARK: Get Baner From Server
@@ -98,7 +99,6 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
         requestWithTask(task: getTypeTask, success: { (_) in
             self.bookTypeArray = Constants.sharedInstance.listBookType
             self.tableBookType.reloadData()
-            self.stopActivityIndicator()
         }) { (error) in
             self.stopActivityIndicator()
             _ = UIAlertController(title: " ",
@@ -115,9 +115,7 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
             self.suggestBookView.reloadData(arrayOfBook: (data as? [Book])!)
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil,
-                                  message: error as? String,
-                                  preferredStyle: .alert)
+            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
         }
     }
     
@@ -129,9 +127,7 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
             self.freeBookView.reloadData(arrayOfBook: (data as? [Book])!)
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil,
-                                  message: error as? String,
-                                  preferredStyle: .alert)
+            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
         }
     }
     
@@ -140,21 +136,24 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
     func getBookNewest() {
         let getNewestBookTask: GetBookNewestTask = GetBookNewestTask(limit: 1)
         requestWithTask(task: getNewestBookTask, success: { (data) in
-            if let new = data as? Book {
-                self.newestBook = new
-                self.newestBookImage.sd_setImage(with: URL(string: self.newestBook.imageURL), placeholderImage: #imageLiteral(resourceName: "place_holder"))
-                self.newestBooktype.text = " " + self.newestBook.typeName + " "
-                self.newestBookName.text = self.newestBook.name
-                self.newestBookDescription.text = self.newestBook.author
-                self.newestBookNumberView.text = String(self.newestBook.numberHumanReaed)
-                let dateupBook = self.newestBook.timeUpBook.components(separatedBy: " ")
-                self.newestBookTimeUp.text = dateupBook[0]
+            if let news = data as? [Book] {
+                if news.first != nil {
+                    self.newestBook = news.first
+                    self.newestBookImage.sd_setImage(with: URL(string: self.newestBook.imageURL), placeholderImage: #imageLiteral(resourceName: "place_holder"))
+                    self.newestBooktype.text = " " + self.newestBook.typeName + " "
+                    self.newestBookName.text = self.newestBook.name
+                    self.newestBookDescription.text = self.newestBook.author
+                    self.newestBookNumberView.text = String(self.newestBook.numberHumanReaed)
+                    let dateupBook = self.newestBook.timeUpBook.components(separatedBy: " ")
+                    self.newestBookTimeUp.text = dateupBook[0]
+                } else {
+                    self.viewForNewestBook.isHidden = true
+                }
+                self.stopActivityIndicator()
             }
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil,
-                                  message: error as? String,
-                                  preferredStyle: .alert)
+            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
         }
     }
     

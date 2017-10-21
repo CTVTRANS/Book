@@ -17,6 +17,7 @@ class HistoryBuyProductController: BaseViewController, UITableViewDelegate, UITa
         table.tableFooterView = UIView()
         table.estimatedRowHeight = 140
         table.register(UINib.init(nibName: "ListBookFreee", bundle: nil), forCellReuseIdentifier: "bookCell")
+        navigationItem.title = "购物记录"
     }
     
     override func viewWillAppear(_ animated: Bool) {

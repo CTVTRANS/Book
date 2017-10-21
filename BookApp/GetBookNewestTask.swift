@@ -30,14 +30,13 @@ class GetBookNewestTask: BaseTaskNetwork {
     }
     
     override func data(withResponse response: Any!) -> Any! {
-        var bookNewest: Book?
+        var bookNewest: [Book] = []
         if let object = response as? [[String: Any]] {
-            if object.count > 0 {
-                let dictionary = object[0]
-                bookNewest = self.parseBook(dictionary: dictionary)
-                return bookNewest
+            for dictionary in object {
+                let book = parseBook(dictionary: dictionary)
+                bookNewest.append(book)
             }
         }
-        return response
+        return bookNewest
     }
 }

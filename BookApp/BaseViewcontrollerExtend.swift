@@ -190,7 +190,7 @@ extension UIAlertController {
         let alertView = UIAlertController(title: title,
                                           message: message,
                                           preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK",
+        let action = UIAlertAction(title: "确认",
                                    style: UIAlertActionStyle.default) { (_) in
                                     alertView.dismiss(animated: true, completion: nil)
         }

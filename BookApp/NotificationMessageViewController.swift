@@ -22,7 +22,7 @@ class NotificationMessageViewController: BaseViewController, UITableViewDelegate
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "通知列表"
+        navigationItem.title = "学致用书院"
         navigationController?.isNavigationBarHidden = false
     }
     

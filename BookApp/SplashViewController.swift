@@ -16,7 +16,6 @@ class SplashViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        traditionalButton.layer.borderColor = UIColor.rgb(113, 112, 110).cgColor
         simpleButton.layer.borderColor = UIColor.rgb(113, 112, 110).cgColor
 
     }
@@ -38,7 +37,6 @@ class SplashViewController: BaseViewController {
                 
             })
         }
-
     }
     
     @IBAction func pressedTraditionnal(_ sender: Any) {
@@ -70,8 +68,28 @@ class SplashViewController: BaseViewController {
     }
 
     @IBAction func pressSimple(_ sender: Any) {
+        Constants.sharedInstance.language = 0
+        let getData = GetNotificationTask(limit: 1000, page: 1, memberID: (memberInstance?.idMember)!)
+        requestWithTask(task: getData, success: { (data) in
+            if let arrayNotice = data as? (Int, [NotificationApp]) {
+                let numberNotice = UserDefaults.standard.integer(forKey: "numberNotice")
+                if arrayNotice.0 > numberNotice {
+                    Constants.sharedInstance.hasNotification = true
+                    let notificationName = Notification.Name("reciveNotificaton")
+                    NotificationCenter.default.post(name: notificationName, object: nil)
+                }
+            }
+        }) { (_) in
+            
+        }
+        
+        let sendToken = SendTokenTask()
+        requestWithTask(task: sendToken, success: { (_) in
+            
+        }) { (_) in
+            
+        }
         if let vc = storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as? SWRevealViewController {
-            Constants.sharedInstance.language = 0
             self.present(vc, animated: false, completion: nil)
         }
     }

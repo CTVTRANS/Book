@@ -25,28 +25,28 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDG-ag-f4o">
-                        <rect key="frame" x="111" y="28" width="9" height="16"/>
+                        <rect key="frame" x="111" y="28" width="10.5" height="20"/>
                         <color key="backgroundColor" red="0.78823529410000004" green="0.78823529410000004" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="16" id="73J-nj-9K3">
+                            <constraint firstAttribute="height" constant="20" id="73J-nj-9K3">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="adjustConstantToRealIPhoneSize" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                         </constraints>
-                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="13"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="5"/>
+                                <integer key="value" value="3"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZK-5F-PKD">
-                        <rect key="frame" x="111" y="65" width="210" height="13"/>
-                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="13"/>
+                        <rect key="frame" x="111" y="71.5" width="210" height="15.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -54,8 +54,8 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5w-Mp-Cf4">
-                        <rect key="frame" x="111" y="49" width="210" height="13"/>
-                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="13"/>
+                        <rect key="frame" x="111" y="53" width="210" height="15.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>

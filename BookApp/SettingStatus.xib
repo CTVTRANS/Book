@@ -23,7 +23,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3U-MA-sSJ">
                     <rect key="frame" x="33" y="127" width="254" height="230"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="婚姻狀況" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dda-tB-kHa">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="婚姻状况" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dda-tB-kHa">
                             <rect key="frame" x="16" y="16" width="64" height="16"/>
                             <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="16"/>
                             <nil key="textColor"/>
@@ -221,7 +221,7 @@
                                 <constraint firstAttribute="height" constant="40" id="GDj-AK-mHn"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="16"/>
-                            <state key="normal" title="確認送出">
+                            <state key="normal" title="确认送出">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>

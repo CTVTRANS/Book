@@ -23,7 +23,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M13-NI-JSh">
                     <rect key="frame" x="33" y="127" width="254" height="230"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性別" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7U-5P-Ndi">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7U-5P-Ndi">
                             <rect key="frame" x="16" y="16" width="34" height="17"/>
                             <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="17"/>
                             <nil key="textColor"/>

@@ -27,7 +27,7 @@ class HistoryWatchChanelViewController: BaseViewController, UITableViewDataSourc
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        navigationItem.title = "播放記錄"
+        navigationItem.title = "播放记录"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

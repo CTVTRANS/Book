@@ -85,6 +85,9 @@ class DetailNewsController: BaseViewController, UIWebViewDelegate {
         userName.text = news.author
         bodyNews.loadHTMLString(news.content, baseURL: nil)
         imageNews.sd_setImage(with: URL(string: news.imageURL))
+        bottomView.numberComment.text = String(news.numberComment)
+        bottomView.numberLike.text = String(news.numberLike)
+        bottomView.numberBookmark.text = String(news.numberBookMark)
     }
     
     func getNewsRelated() {
@@ -110,10 +113,6 @@ class DetailNewsController: BaseViewController, UIWebViewDelegate {
     private func setupCallBackButton() {
         bottomView.downloadImage.isHidden = true
         bottomView.downloadButton.isHidden = true
-        bottomView.numberComment.text = String(news.numberComment)
-        bottomView.numberLike.text = String(news.numberLike)
-        bottomView.numberBookmark.text = String(news.numberBookMark)
-        
         bottomView.pressedBottomButton = { [weak self] (typeButton: BottomButton) in
             if typeButton == BottomButton.back {
                 self?.navigationController?.popViewController(animated: true)
@@ -190,20 +189,16 @@ class DetailNewsController: BaseViewController, UIWebViewDelegate {
     }
     
     @IBAction func pressChangeNews(_ sender: Any) {
-        bodyNews.scrollView.contentSize.height = 23
+        hightOfWebView.constant = 23
         news = newsRelated
-        showActivity(inView: UIApplication.shared.keyWindow!)
-        setupCallBackButton()
+        showActivity(inView: self.view)
         setupUI()
         getNewsRelated()
         if checkLogin() {
             checkStatusLikeBookmark()
         }
         navigationItem.leftBarButtonItem =
-            UIBarButtonItem(title: news.title,
-                            style: .done,
-                            target: self,
-                            action: nil)
+            UIBarButtonItem(title: news.title, style: .done, target: self, action: nil)
     }
     
     deinit {

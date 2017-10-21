@@ -15,7 +15,7 @@ class GroupJoinedViewController: BaseViewController, UICollectionViewDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "線下活動"
+        navigationItem.title = "线下活动"
         showActivity(inView: self.view)
         let backItem = UIBarButtonItem()
         backItem.title = ""

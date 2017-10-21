@@ -72,7 +72,7 @@ class CommentController: BaseViewController, UITableViewDelegate, UITableViewDat
         requestWithTask(task: getCommentHot, success: { (data) in
             if let arrayCommentHot = data as? [Comment] {
                 if arrayCommentHot.count > 0 {
-                    let hotComment: SpecialComment = SpecialComment(name: "熱評", array: arrayCommentHot)
+                    let hotComment: SpecialComment = SpecialComment(name: "热门评论", array: arrayCommentHot)
                     self.arrayObject.append(hotComment)
                     Constants.sharedInstance.listCommentHot = arrayCommentHot
                 }
@@ -85,7 +85,7 @@ class CommentController: BaseViewController, UITableViewDelegate, UITableViewDat
             self.requestWithTask(task: getComment, success: { (data) in
                 if let arrayOfComment = data as? [Comment] {
                     if arrayOfComment.count > 0 {
-                        let normalComment: SpecialComment = SpecialComment(name: "最新", array: arrayOfComment)
+                        let normalComment: SpecialComment = SpecialComment(name: "最新评论", array: arrayOfComment)
                         self.arrayObject.append(normalComment)
                     }
                     self.table.reloadData()

@@ -24,12 +24,12 @@
                     <rect key="frame" x="20" y="127" width="280" height="280"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9o-IJ-lRP">
-                            <rect key="frame" x="191" y="232" width="73" height="40"/>
+                            <rect key="frame" x="228" y="232" width="36" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="vA1-QO-uwM"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="18"/>
-                            <state key="normal" title="確認送出">
+                            <state key="normal" title="确认">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>

@@ -20,7 +20,7 @@ class VipDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "會員狀態"
+        navigationItem.title = "会员状态"
         getVip()
         nameMember.text = memberInstance?.name
         if memberInstance?.level == 0 {
@@ -42,7 +42,7 @@ class VipDetailViewController: BaseViewController {
             if let arrayVip = data as? [Vip] {
                 self.vip = arrayVip.first
                 self.webView.loadHTMLString( css + (self.vip?.conten)!, baseURL: nil)
-                let titleForButton = "立刻儲值升等 年費: " + String((self.vip?.point)!) +  "元"
+                let titleForButton = "立刻储值升等年费: " + String((self.vip?.point)!) +  "元    "
                 self.buyVipButton.setTitle(titleForButton, for: .normal)
             }
         }, failure: { (_) in
@@ -53,10 +53,13 @@ class VipDetailViewController: BaseViewController {
         if (memberInstance?.point)! > (vip?.point)! {
             let buyVip = BuyVipPointTask(memberiD: (memberInstance?.idMember)!, token: tokenInstance!, type: 0, idVip: (vip?.idVip)!, numberYear: 1)
             requestWithTask(task: buyVip, success: { (data) in
-                if let status = data as? Bool {
-                    if status {
+                if let status = data as? (Bool, ErrorCode) {
+                    if status.0 {
                         self.memberInstance?.point -= (self.vip?.point)!
+                        _ = UIAlertController.initAler(title: "", message: "success", inViewController: self)
+                        return
                     }
+                    _ = UIAlertController.initAler(title: "", message: status.1.decodeError(), inViewController: self)
                 }
             }, failure: { (_) in
                 

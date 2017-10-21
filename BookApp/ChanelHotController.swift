@@ -54,11 +54,11 @@ class ChanelHotController: BaseViewController, UITableViewDelegate, UITableViewD
         cell?.binData(chanel: chanel)
         for chanelHot in Constants.sharedInstance.listChanelSubcribled {
             if chanel.idChanel ==  chanelHot.idChanel {
-                cell?.subcribleButton.setTitle("  已訂閱頻道  ", for: .normal)
+                cell?.subcribleButton.setTitle("  已订阅频道  ", for: .normal)
                 cell?.subcribleButton.isEnabled = false
                 break
             } else {
-                 cell?.subcribleButton.setTitle("  訂閱頻道  ", for: .normal)
+                 cell?.subcribleButton.setTitle("  订阅频道  ", for: .normal)
             }
         }
         cell?.callBackButton = { [weak self] in
@@ -74,7 +74,7 @@ class ChanelHotController: BaseViewController, UITableViewDelegate, UITableViewD
                         return
                     }
                     Constants.sharedInstance.listChanelSubcribled.append(chanel)
-                    cell?.subcribleButton.setTitle("  已訂閱頻道  ", for: .normal)
+                    cell?.subcribleButton.setTitle("  已订阅频道  ", for: .normal)
                     cell?.subcribleButton.isEnabled = false
                 }
             }) { (error) in

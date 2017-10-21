@@ -27,7 +27,6 @@ class BaseViewController: UIViewController {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
-        navigationController?.navigationBar.isTranslucent = false
         AFNetworkReachabilityManager.shared().startMonitoring()
     }
     
@@ -47,7 +46,7 @@ class BaseViewController: UIViewController {
                 failure(error)
             }
         } else {
-            _ = UIAlertController.initAler(title: "Error", message: "No internet access", inViewController: self)
+            _ = UIAlertController.initAler(title: "", message: "No internet access", inViewController: self)
         }
     }
     

@@ -28,7 +28,7 @@ class ForgetPassViewController: BaseViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "忘記密碼"
+        navigationItem.title = "重设密码"
         buttonSendCode.layer.borderColor = UIColor.rgb(255, 101, 0).cgColor
         showAreButton.layer.borderColor = UIColor.rgb(255, 101, 0).cgColor
         phoneNumber.keyboardType = .numberPad
@@ -96,7 +96,7 @@ class ForgetPassViewController: BaseViewController, UITextFieldDelegate {
                                                 confirmPass: confirmNewpass!)
             requestWithTask(task: forgotPass, success: { (data) in
                 if let status = data as? (Bool, ErrorCode) {
-                    let action = UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                    let action = UIAlertAction(title: "确认", style: .default, handler: { (_) in
                         if status.0 {
                             self.navigationController?.popToRootViewController(animated: true)
                         }

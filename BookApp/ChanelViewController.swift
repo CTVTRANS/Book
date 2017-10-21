@@ -39,8 +39,8 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
         showActivity(inView: self.view)
         callBack()
         setupCallBackNavigation()
-        suggestChanel.name.text = "熱門老師"
-        freeChanel.name.text = "猜你喜歡"
+        suggestChanel.name.text = "热门老师"
+        freeChanel.name.text = "猜你喜欢"
         getBaner()
         getData()
         let getChaelSubcrible: GetAllChanelSubcribledTask =

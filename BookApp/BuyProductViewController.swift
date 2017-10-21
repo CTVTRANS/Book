@@ -39,16 +39,16 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
         if let book = product as? Book {
             bookProduct = book
             imageProduct.sd_setImage(with: URL(string: book.imageURL), placeholderImage: #imageLiteral(resourceName: "place_holder"))
-            point1.text = String(book.priceMix[0].point) + " 積分 ＋ " + String(book.priceMix[0].mooney) + " 現金"
-            point2.text = String(book.priceMix[1].point) + " 積分 ＋ " + String(book.priceMix[1].mooney) + " 現金"
+            point1.text = String(book.priceMix[0].point) + " 积分 ＋ " + String(book.priceMix[0].mooney) + " 现金"
+            point2.text = String(book.priceMix[1].point) + " 积分 ＋ " + String(book.priceMix[1].mooney) + " 现金"
             if book.typePay == "point" || book.price != 0 {
-                titleProduct.text = "[積] " + book.name
-                nameproduct = "[積] " + book.name
-                numberMark.text = String(book.price!) + " 積分"
+                titleProduct.text = "[积] " + book.name
+                nameproduct = "[积] " + book.name
+                numberMark.text = String(book.price!) + " 积分"
             } else {
-                titleProduct.text = "[現] " + book.name
-                nameproduct = "[現] " + book.name
-                numberMark.text = String(book.priceMix[0].point) + " 積分 ＋ " + String(book.priceMix[0].mooney) + " 現金"
+                titleProduct.text = "[现] " + book.name
+                nameproduct = "[现] " + book.name
+                numberMark.text = String(book.priceMix[0].point) + " 积分 ＋ " + String(book.priceMix[0].mooney) + " 现金"
                 point1.removeFromSuperview()
                 buyButtonCase1.removeFromSuperview()
             }
@@ -64,8 +64,8 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
             buyButtonCase2.removeFromSuperview()
 
             imageProduct.sd_setImage(with: URL(string: vip.imageURL), placeholderImage: #imageLiteral(resourceName: "place_holder"))
-            titleProduct.text = "[現] " + vip.title
-            numberMark.text = String(vip.price) + " 現金"
+            titleProduct.text = "[现] " + vip.title
+            numberMark.text = String(vip.price) + " 现金"
             detailBody.loadHTMLString(css + vip.conten, baseURL: nil)
         }
     }
@@ -112,11 +112,11 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
         if PeoleReciveProduct.sharedInstance.phone == nil {
             _ = UIAlertController.initAler(title: "", message: "Please fill information recipient", inViewController: self)
         } else {
-            if numberMark.text?.range(of: " 積分") != nil {
-                let array = numberMark.text?.components(separatedBy: " 積分")
+            if numberMark.text?.range(of: " 积分") != nil {
+                let array = numberMark.text?.components(separatedBy: " 积分")
                 let numberPoint = Int((array?.first)!)
                 if numberPoint! > (memberInstance?.point)! {
-                    _ = UIAlertController.initAler(title: "", message: "You haven't enought Point", inViewController: self)
+                    _ = UIAlertController.initAler(title: "", message: "积分不足请多争取更多积分", inViewController: self)
                     return
                 }
             }

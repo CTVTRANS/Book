@@ -37,7 +37,7 @@ class ConfirmBinViewController: BaseViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "確認訂單"
+        navigationItem.title = "确认订单"
     }
     
     func setupUI() {

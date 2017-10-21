@@ -29,8 +29,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGr-15-hug">
-                        <rect key="frame" x="0.0" y="130" width="12.5" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <rect key="frame" x="0.0" y="130" width="73" height="15.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
@@ -49,6 +49,7 @@
                 <constraint firstItem="Vha-hC-17U" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="iHn-7S-RFs"/>
                 <constraint firstItem="Vha-hC-17U" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="p15-aw-bWp"/>
                 <constraint firstAttribute="trailing" secondItem="Vha-hC-17U" secondAttribute="trailing" id="rEl-tJ-57K"/>
+                <constraint firstAttribute="trailing" secondItem="WGr-15-hug" secondAttribute="trailing" constant="8" id="ruh-qy-iau"/>
             </constraints>
             <size key="customSize" width="90" height="97"/>
             <connections>

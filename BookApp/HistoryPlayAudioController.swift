@@ -143,11 +143,10 @@ class HistoryPlayAudioController: BaseViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func pressedDeleteAllMessage(_ sender: Any) {
-        mp3.listPlay.removeAll()
-        if mp3.currentAudio != nil && mp3.isPlaying() {
-            mp3.listPlay.append(mp3.currentAudio!)
+        if mp3.isPlaying() {
+            mp3.pause()
         }
+        mp3.listPlay.removeAll()
         table.reloadData()
     }
-    @IBOutlet weak var pressDeleteAll: UIBarButtonItem!
 }

@@ -44,9 +44,12 @@ class BuyVipPointTask: BaseTaskNetwork {
     override func data(withResponse response: Any!) -> Any! {
         if let dictionary = response as? [String: Any] {
             let status = dictionary[""] as? String ?? ""
+            let statusCode = dictionary["status_code"] as? Int ?? 0
+            let error = ErrorCode(rawValue: statusCode)
             if status == "success" {
-                return true
+                return (true, error)
             }
+            return (false, error)
         }
         return false
     }

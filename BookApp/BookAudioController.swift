@@ -39,10 +39,7 @@ class BookAudioController: BaseViewController, UIWebViewDelegate {
         customSliderBar()
         loadWebView()
         checkAudio()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(stopAudio(notification:)),
-                                               name: NSNotification.Name(rawValue: "videoDidStart"),
-                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(stopAudio(notification:)), name: NSNotification.Name(rawValue: "videoDidStart"), object: nil)
     }
     
     func loadWebView() {

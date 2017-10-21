@@ -105,9 +105,9 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehj-3p-m12">
-                        <rect key="frame" x="343" y="12" width="56" height="26.5"/>
+                        <rect key="frame" x="351" y="12" width="48" height="26.5"/>
                         <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="12"/>
-                        <state key="normal" title="    播放    ">
+                        <state key="normal" title="   播放   ">
                             <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <userDefinedRuntimeAttributes>
@@ -134,9 +134,9 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUU-iW-w0T">
-                        <rect key="frame" x="343" y="46.5" width="56" height="26.5"/>
-                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="12"/>
-                        <state key="normal" title="    刪除    ">
+                        <rect key="frame" x="354" y="46.5" width="45" height="26.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <state key="normal" title="   删除   ">
                             <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <userDefinedRuntimeAttributes>
@@ -153,7 +153,7 @@
                             <action selector="pressedRemoveChanelButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dTa-Wu-NVS"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刪除" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opq-GV-CGL">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opq-GV-CGL">
                         <rect key="frame" x="78" y="55" width="20" height="10"/>
                         <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="10"/>
                         <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -212,6 +212,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="audio_play" width="64" height="64"/>
+        <image name="audio_play" width="32" height="32"/>
     </resources>
 </document>

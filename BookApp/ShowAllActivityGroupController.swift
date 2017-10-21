@@ -34,11 +34,11 @@ class ShowAllActivityGroupController: BaseViewController, UITableViewDelegate, U
     }
     
     func setupNavigation() {
-        navigationItem.title = "分會關注"
+        navigationItem.title = "分会关注"
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "分會圈子", style: .done, target: self, action: #selector(pressRightBarButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "分会圈子", style: .done, target: self, action: #selector(pressRightBarButton))
     }
     
     // MARK: Get Data
@@ -176,7 +176,7 @@ class ShowAllActivityGroupController: BaseViewController, UITableViewDelegate, U
         requestWithTask(task: subcrible, success: { (data) in
             if let status = data as? Bool {
                 if status {
-                    _ = UIAlertController.initAler(title: "", message: "success", inViewController: self)
+                    _ = UIAlertController.initAler(title: "", message: ErrorCode.success.decodeError(), inViewController: self)
                 }
             }
         }) { (error) in

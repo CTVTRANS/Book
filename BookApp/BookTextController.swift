@@ -55,7 +55,7 @@ class BookTextController: BaseViewController, UIWebViewDelegate {
             let newContent = content.substring(to: index)
             return newContent
         }
-        return " "
+        return ""
     }
     
     deinit {

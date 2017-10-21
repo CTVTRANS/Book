@@ -28,7 +28,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "註冊"
+        navigationItem.title = "注册"
         navigationController?.navigationBar.backItem?.title = ""
         showAreButton.layer.borderColor = UIColor.rgb(255, 102, 0).cgColor
         sendCodebutton.layer.borderColor = UIColor.rgb(255, 102, 0).cgColor
@@ -67,7 +67,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
             let register = RegisterTask(countryCode: countryPhone!, phoneNumber: phone!, codeConfirm: codeConfirm!, name: name!, password: pass!)
             requestWithTask(task: register, success: { (data) in
                 if let status = data as? (Bool, ErrorCode) {
-                    let action = UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                    let action = UIAlertAction(title: "确认", style: .default, handler: { (_) in
                         if status.0 {
                             self.navigationController?.popToRootViewController(animated: true)
                         }

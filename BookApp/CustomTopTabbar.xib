@@ -31,7 +31,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Og-6P-cje">
                     <rect key="frame" x="0.0" y="20" width="106.5" height="44"/>
                     <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="20"/>
-                    <state key="normal" title="音頻">
+                    <state key="normal" title="音频">
                         <color key="titleColor" red="1" green="0.396078431372549" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -41,7 +41,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtT-m6-2dg">
                     <rect key="frame" x="213.5" y="20" width="106.5" height="44"/>
                     <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="20"/>
-                    <state key="normal" title="圖文">
+                    <state key="normal" title="图文">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -50,8 +50,8 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57d-nr-fxd">
                     <rect key="frame" x="107.5" y="20" width="105" height="44"/>
-                    <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="20"/>
-                    <state key="normal" title="視頻">
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                    <state key="normal" title="视频">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

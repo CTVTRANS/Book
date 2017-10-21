@@ -102,41 +102,44 @@ enum ErrorCode: Int {
     case passwordEmty = 213
     case numberPhoneExists = 214
     case accountError = 215
+    case limitBuyVip = 216
     
     func decodeError() -> String {
         switch self {
         case .success:
-            return "Success"
+            return "成功！"
         case .emailError:
-            return "Email is invalid"
+            return "邮箱格式不对"
         case .imageFormatError:
-            return "Format of Image is invalid"
+            return "图片类别不对"
         case .imageTooBig:
-            return "Size of Image too big"
+            return "图片容量超过规定"
         case .passwordShort:
-            return "Password too short"
+            return "密码太短（一定要从8个符号以上）"
         case .confirmPassError:
-            return "Confirm Password fail"
+            return "密码及重打密码不重叠"
         case .passwordConfirmEmty:
-            return "Password and Confirm Password can't emty"
+            return "密码及重打密码不能空白"
         case .passwordError:
-            return "Password is wrong"
+            return "密码吗不对"
         case .numberPhoneError:
-            return "Number Phone is invalid"
+            return "电话号码不对"
         case .confirmCodeError:
-            return "Confirmcode is invalid"
+            return "验证码不对"
         case .confirmCodeEmty:
-            return "Confirmcode can't emty"
+            return "验证码不能空白"
         case .numberPhoneEmty:
-            return "Phone can't emty"
+            return "电话号码不能空白"
         case .nameEmty:
-            return "Name of Customer can't emty"
+            return "名称不能空白"
         case .passwordEmty:
-            return "Password can't emty"
+            return "密码不能空白"
         case .numberPhoneExists:
-            return "Number Phone is exists"
+            return "手机号码已经被注册了"
         case .accountError:
-            return "Account is invalid"
+            return "帐号不存在"
+        case .limitBuyVip:
+            return "用点数兑换升级VIP次数被限制"
         }
     }
 }

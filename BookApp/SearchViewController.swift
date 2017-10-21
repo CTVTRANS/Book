@@ -90,8 +90,8 @@ class SearchViewController: BaseViewController, UITableViewDelegate, UITableView
     }
     
     private func setUp() {
-        titleForViewTypes.text = "分類搜索"
-        titleForViewHot.text = "熱門搜索"
+        titleForViewTypes.text = "分类搜素"
+        titleForViewHot.text = "热门搜索"
         for typeNews in Constants.sharedInstance.listNewsType {
             self.listTypeNews.append(typeNews.nameType)
         }

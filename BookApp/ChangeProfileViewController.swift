@@ -151,7 +151,7 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
             requestWithTask(task: change, success: { (_) in
                 let updateInfo = GetProfileMemberTask(idMember: (self.memberInstance?.idMember)!)
                 self.requestWithTask(task: updateInfo, success: { (_) in
-                    _ = UIAlertController.initAler(title: "Success", message: "Change infomation conplete", inViewController: self)
+                    _ = UIAlertController.initAler(title: "", message: "Change infomation conplete", inViewController: self)
                 }, failure: { (_) in
                     
                 })
@@ -178,7 +178,7 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
                 if let status = data as? (Bool, String) {
                     if status.0 {
                         let alert = UIAlertController.init(title: "", message: status.1, preferredStyle: .alert)
-                        let action = UIAlertAction(title: "OK",
+                        let action = UIAlertAction(title: "确认",
                                                    style: UIAlertActionStyle.default) { (_) in
                             self.navigationController?.popViewController(animated: true)
                         }
