@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 import FSPagerView
 
-class BookViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FSPagerViewDelegate, FSPagerViewDataSource {
+class BookViewController: BaseViewController {
 
     @IBOutlet weak var viewForNewestBook: UIView!
     @IBOutlet weak var navigationCustom: NavigationCustom!
@@ -24,16 +24,14 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var newestBookTimeUp: UILabel!
     @IBOutlet weak var newestBookNumberView: UILabel!
     
-    // MARK: Property
+    var bookTypeArray = [BookType]()
+    var suggestArray = [Book]()
+    var freeArray = [Book]()
+    var  newestBook: Book!
     
-    private var bookTypeArray = [BookType]()
-    private var suggestArray = [Book]()
-    private var freeArray = [Book]()
-    private var  newestBook: Book!
+    // MARK: Property Slider Show
     
-    // MARK: Setup Slider Show
-    
-    private var listSlider: [SliderShow] = []
+    var listSlider: [SliderShow] = []
     @IBOutlet weak var sliderShow: FSPagerView! {
         didSet {
             self.sliderShow.scrollDirection = .vertical
@@ -77,7 +75,7 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
         freeBookView.titleView.text = "限时免费"
     }
     
-    // MARK: Get Baner From Server
+    // MARK: Call API
     
     func getBaner() {
         let getBanerTask = GetSliderBanerTask(typeSlider: ScreenShow.book.rawValue)
@@ -92,8 +90,6 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
         }
     }
     
-    // MARK: Get Type Books
-    
     func getTypeBook() {
         let getTypeTask: GetTypeOfBookTask = GetTypeOfBookTask()
         requestWithTask(task: getTypeTask, success: { (_) in
@@ -107,8 +103,6 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
         }
     }
     
-    // MARK: Get Book Suggest
-    
     func getBookSuggest() {
         let getBookSuggest: GetAllBookSuggestTask = GetAllBookSuggestTask(limit: 3, page: 1)
         requestWithTask(task: getBookSuggest, success: { (data) in
@@ -118,8 +112,6 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
             _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
         }
     }
-    
-    // MARK: Get Book Free
     
     func getBookFree() {
         let getBookFree: GetBookFreeTask = GetBookFreeTask(limit: 3, page: 1)
@@ -131,8 +123,6 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
         }
     }
     
-    // MARK: Get Book Newest
-    
     func getBookNewest() {
         let getNewestBookTask: GetBookNewestTask = GetBookNewestTask(limit: 1)
         requestWithTask(task: getNewestBookTask, success: { (data) in
@@ -143,7 +133,12 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
                     self.newestBooktype.text = " " + self.newestBook.typeName + " "
                     self.newestBookName.text = self.newestBook.name
                     self.newestBookDescription.text = self.newestBook.author
-                    self.newestBookNumberView.text = String(self.newestBook.numberHumanReaed)
+                    if self.newestBook.numberHumanReaed < 10000 {
+                        self.newestBookNumberView.text = String(self.newestBook.numberHumanReaed)
+                    } else {
+                        let numberVew = self.newestBook.numberHumanReaed/10000
+                        self.newestBookNumberView.text = String(numberVew) + "万"
+                    }
                     let dateupBook = self.newestBook.timeUpBook.components(separatedBy: " ")
                     self.newestBookTimeUp.text = dateupBook[0]
                 } else {
@@ -157,62 +152,6 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
         }
     }
     
-    // MARK: TableView Data Souce
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return bookTypeArray.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = tableBookType.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? BookTypeViewCell
-        cell?.binData(typeBook: bookTypeArray[indexPath.row])
-        return cell!
-    }
-    
-    // MARK: TableView Delegate
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let myStoryboard = UIStoryboard(name: "Book", bundle: nil)
-        if let vc = myStoryboard.instantiateViewController(withIdentifier: "AllTypeBookController") as? AllTypeBookController {
-            vc.startIndex = indexPath.row
-            vc.listTitles = bookTypeArray
-            navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
-    // MARK: FSPagerView Data Source
-    
-    func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return listSlider.count
-    }
-    
-    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        let cell = sliderShow.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        cell.imageView?.sd_setImage(with: URL(string:listSlider[index].imageURL))
-        cell.imageView?.contentMode = .scaleAspectFill
-        cell.imageView?.clipsToBounds = true
-        return cell
-    }
-    
-    // MARK: FSPagerView Delegate
-    
-    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-        sliderShow.deselectItem(at: index, animated: true)
-        sliderShow.scrollToItem(at: index, animated: true)
-        self.pageControlView.currentPage = index
-        let urlString = listSlider[index].linkBaner
-        if let url = URL(string: urlString!) {
-            UIApplication.shared.openURL(url)
-        }
-    }
-    
-    func pagerViewDidScroll(_ pagerView: FSPagerView) {
-        guard self.pageControlView.currentPage != pagerView.currentIndex else {
-            return
-        }
-        self.pageControlView.currentPage = pagerView.currentIndex // Or Use KVO with property "currentIndex"
-    }
-    
     // MARK: Call Back For CEll
     
     func setupCallBackClickCell() {
@@ -223,13 +162,14 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
             self?.navigationController?.pushViewController(vc!, animated: true)
         }
         suggestBookView.callBackReloadButton = { [weak self] in
+            self?.showActivity(inView: (self?.suggestBookView)!)
             let getBookSuggest: GetAllBookSuggestTask = GetAllBookSuggestTask(limit: 3, page: 2)
             self?.requestWithTask(task: getBookSuggest, success: { (data) in
+                self?.stopActivityIndicator()
                 self?.suggestBookView.reloadData(arrayOfBook: (data as? [Book])!)
             }) { (error) in
-                _ = UIAlertController(title: nil,
-                                      message: error as? String,
-                                      preferredStyle: .alert)
+                self?.stopActivityIndicator()
+                _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
             }
         }
         
@@ -278,6 +218,67 @@ class BookViewController: BaseViewController, UICollectionViewDelegate, UICollec
             default :
                 break
             }
+        }
+    }
+}
+
+extension BookViewController: FSPagerViewDelegate, FSPagerViewDataSource {
+    // MARK: FSPagerView Data Source
+    
+    func numberOfItems(in pagerView: FSPagerView) -> Int {
+        return listSlider.count
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+        let cell = sliderShow.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
+        cell.imageView?.sd_setImage(with: URL(string:listSlider[index].imageURL))
+        cell.imageView?.contentMode = .scaleAspectFill
+        cell.imageView?.clipsToBounds = true
+        return cell
+    }
+    
+    // MARK: FSPagerView Delegate
+    
+    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+        sliderShow.deselectItem(at: index, animated: true)
+        sliderShow.scrollToItem(at: index, animated: true)
+        self.pageControlView.currentPage = index
+        let urlString = listSlider[index].linkBaner
+        if let url = URL(string: urlString!) {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
+    func pagerViewDidScroll(_ pagerView: FSPagerView) {
+        guard self.pageControlView.currentPage != pagerView.currentIndex else {
+            return
+        }
+        self.pageControlView.currentPage = pagerView.currentIndex // Or Use KVO with property "currentIndex"
+    }
+}
+
+extension BookViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    // MARK: CollectionView Data Souce
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return bookTypeArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = tableBookType.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? BookTypeViewCell
+        cell?.binData(typeBook: bookTypeArray[indexPath.row])
+        return cell!
+    }
+    
+    // MARK: CollectionView Delegate
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let myStoryboard = UIStoryboard(name: "Book", bundle: nil)
+        if let vc = myStoryboard.instantiateViewController(withIdentifier: "AllTypeBookController") as? AllTypeBookController {
+            vc.startIndex = indexPath.row
+            vc.listTitles = bookTypeArray
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

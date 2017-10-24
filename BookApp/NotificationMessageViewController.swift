@@ -8,10 +8,10 @@
 
 import UIKit
 
-class NotificationMessageViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class NotificationMessageViewController: BaseViewController {
 
     @IBOutlet weak var table: UITableView!
-    private var listNotification: [NotificationApp] = []
+    var listNotification: [NotificationApp] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +39,44 @@ class NotificationMessageViewController: BaseViewController, UITableViewDelegate
         }
     }
     
-    // MARK: Table Data Source
+    func notPrettyString(from object: Any) -> String? {
+        if let objectData = try? JSONSerialization.data(withJSONObject: object, options: JSONSerialization.WritingOptions.prettyPrinted) {
+            let objectString = String(data: objectData, encoding: .utf8)
+            return objectString
+        }
+        return nil
+    }
+    
+    @IBAction func pressedReadAllMessage(_ sender: Any) {
+        var arrayListIdGroup: [Int] = []
+        for notice in listNotification {
+            arrayListIdGroup.append(notice.idNotification)
+        }
+        let jsonObject: String = notPrettyString(from: arrayListIdGroup)!
+        let sendMarked = MarkRaededNotification(memberID: (memberInstance?.idMember)!, arrayID: jsonObject, token: tokenInstance!)
+        requestWithTask(task: sendMarked, success: { (_) in
+            
+        }) { (_) in
+            
+        }
 
+        table.reloadData()
+    }
+    
+    @IBAction func pressedBackButton(_ sender: Any) {
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionFade
+        self.navigationController?.view.layer.add(transition, forKey: nil)
+        _ = self.navigationController?.popToRootViewController(animated: false)
+    }
+}
+
+extension NotificationMessageViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: Table Data Source
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listNotification.count
     }
@@ -82,38 +118,5 @@ class NotificationMessageViewController: BaseViewController, UITableViewDelegate
             listNotification.remove(at: indexPath.row)
             table.reloadData()
         }
-    }
-
-    func notPrettyString(from object: Any) -> String? {
-        if let objectData = try? JSONSerialization.data(withJSONObject: object, options: JSONSerialization.WritingOptions.prettyPrinted) {
-            let objectString = String(data: objectData, encoding: .utf8)
-            return objectString
-        }
-        return nil
-    }
-    
-    @IBAction func pressedReadAllMessage(_ sender: Any) {
-        var arrayListIdGroup: [Int] = []
-        for notice in listNotification {
-            arrayListIdGroup.append(notice.idNotification)
-        }
-        let jsonObject: String = notPrettyString(from: arrayListIdGroup)!
-        let sendMarked = MarkRaededNotification(memberID: (memberInstance?.idMember)!, arrayID: jsonObject, token: tokenInstance!)
-        requestWithTask(task: sendMarked, success: { (_) in
-            
-        }) { (_) in
-            
-        }
-
-        table.reloadData()
-    }
-    
-    @IBAction func pressedBackButton(_ sender: Any) {
-        let transition = CATransition()
-        transition.duration = 0.5
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        transition.type = kCATransitionFade
-        self.navigationController?.view.layer.add(transition, forKey: nil)
-        _ = self.navigationController?.popToRootViewController(animated: false)
     }
 }

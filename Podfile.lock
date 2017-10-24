@@ -1,0 +1,61 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - CryptoSwift (0.6.9)
+  - DeviceKit (1.2.3)
+  - FSPagerView (0.5.5)
+  - LCNetwork (0.1.0):
+    - AFNetworking (~> 3.0)
+  - SDWebImage (4.1.0):
+    - SDWebImage/Core (= 4.1.0)
+  - SDWebImage/Core (4.1.0)
+  - SwiftLint (0.22.0)
+  - SWRevealViewController (2.3.0)
+  - TYPagerController (2.0.1)
+
+DEPENDENCIES:
+  - CryptoSwift
+  - DeviceKit (~> 1.0)
+  - FSPagerView
+  - LCNetwork (from `https://github.com/conglv/LCNetwork.git`)
+  - SDWebImage (~> 4.0)
+  - SwiftLint
+  - SWRevealViewController
+  - TYPagerController
+
+EXTERNAL SOURCES:
+  LCNetwork:
+    :git: https://github.com/conglv/LCNetwork.git
+
+CHECKOUT OPTIONS:
+  LCNetwork:
+    :commit: 6bfb0abc314ad4ad81eb240ea53a55c454ce63f3
+    :git: https://github.com/conglv/LCNetwork.git
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  CryptoSwift: a22f6ba238e9ce4d26ee7bf45b9ed82e7122d4a0
+  DeviceKit: f33cbc6e67d9bb416e42dedc647557c7c2f6d3d7
+  FSPagerView: 3ec72e6b201d77a48adab5ed1d33b43a8cc153d6
+  LCNetwork: e855b24d45fa67ca2b005483885123f8e6a7dd31
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  SwiftLint: 1134786caedd2caab0560d2f36b76414a5a56808
+  SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+  TYPagerController: f86e3f85d723caa967655f23661d32beaee7db77
+
+PODFILE CHECKSUM: 25128f67beded6f7347c13bb002cc8e812dde760
+
+COCOAPODS: 1.3.1

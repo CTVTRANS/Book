@@ -18,7 +18,6 @@ class Type2DetailNewsViewController: BaseViewController {
     @IBOutlet weak var webContent: UIWebView!
     @IBOutlet weak var newsName: UILabel!
     var news: NewsModel!
-//    private lazy var member = ProfileMember.getProfile()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,12 +103,8 @@ class Type2DetailNewsViewController: BaseViewController {
                 return
             }
             switch typeButotn {
-            case BottomButton.back:
-                 self?.navigationController?.popViewController(animated: true)
             case BottomButton.bookMark:
                 self?.pressedBookmark()
-            case BottomButton.download:
-                print("download")
             case BottomButton.like:
                self?.pressedLike()
             case BottomButton.comment:
@@ -120,6 +115,7 @@ class Type2DetailNewsViewController: BaseViewController {
                     vc.object = self?.news
                     self?.present(vc, animated: false, completion: nil)
                 }
+            default: break
             }
         }
     }

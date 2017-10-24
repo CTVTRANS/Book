@@ -37,11 +37,7 @@ class DetailNewsController: BaseViewController, UIWebViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
-        navigationItem.leftBarButtonItem =
-            UIBarButtonItem(title: news.title,
-                            style: .done,
-                            target: self,
-                            action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: news.title, style: .done, target: self, action: nil)
         setupRightSlideOut()
     }
     
@@ -123,8 +119,6 @@ class DetailNewsController: BaseViewController, UIWebViewDelegate {
                 return
             }
             switch typeButton {
-            case BottomButton.back:
-                 self?.navigationController?.popViewController(animated: true)
             case BottomButton.comment:
                 let myStoryboard = UIStoryboard(name: "Global", bundle: nil)
                 if let vc = myStoryboard.instantiateViewController(withIdentifier: "CommentController") as? CommentController {
@@ -133,12 +127,9 @@ class DetailNewsController: BaseViewController, UIWebViewDelegate {
                     vc.object = self?.news
                     self?.present(vc, animated: false, completion: nil)
                 }
-            case BottomButton.like:
-               self?.pressedLike()
-            case BottomButton.bookMark:
-                self?.pressedBookmark()
-            case BottomButton.download:
-                print("download")
+            case BottomButton.like: self?.pressedLike()
+            case BottomButton.bookMark: self?.pressedBookmark()
+            default: break
             }
         }
     }

@@ -22,7 +22,7 @@ class ResultSearch: UITableViewCell {
             title.text = book.name
             let arrayString = book.descriptionBook.components(separatedBy: "</p>")
             let firstString = arrayString[0]
-            let index = firstString.index(firstString.startIndex, offsetBy: 4)
+            let index = firstString.index(firstString.startIndex, offsetBy: 3)
             descriptionTitle.text = firstString.substring(from: index)
             return
         }

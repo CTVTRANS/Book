@@ -29,6 +29,8 @@ let getAllSubcribled = "/api/teacher/list_subscribe"
 let getHotChanel = "/api/teacher/list_hot"
 let subcribleURL = "/api/teacher/subscribe"
 let increaseViewChanelURL = "/api/teacher/play_lesson"
+let addToHistoryURL = "/api/teacher/add_lesson_to_history"
+let getHistoryLessonURL = "/api/teacher/get_history_play"
 
 // MARK: News
 let getAllNewsURL = "/api/post/list_latest_post"
@@ -81,6 +83,8 @@ let getAllProductByPointAndMoneyURL = "/api/product/list_product_price_mix"
 let getAllProductURL = "/api/product/list_all_product"
 let getAllVipProductURL = "/api/product/list_package"
 let buyVipPointURL = "/api/orders/orders_vip"
+let getHistoryBuyBookURL = "/api/member/orders_history/orders_book"
+let getHistoryVipURL = "/api/member/orders_history/orders_vip"
 
 let css: String = "<style> img{max-width:100%} </style>"
 let appDownload = "https://itunes.apple.com/us/app/instant-heart-rate-hr-monitor/id409625068?mt=8"
@@ -103,6 +107,7 @@ enum ErrorCode: Int {
     case numberPhoneExists = 214
     case accountError = 215
     case limitBuyVip = 216
+    case passwordHasSpace = 88
     
     func decodeError() -> String {
         switch self {
@@ -140,6 +145,8 @@ enum ErrorCode: Int {
             return "帐号不存在"
         case .limitBuyVip:
             return "用点数兑换升级VIP次数被限制"
+        case .passwordHasSpace:
+            return "密码不能有空格"
         }
     }
 }

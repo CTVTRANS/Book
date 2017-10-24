@@ -110,13 +110,13 @@ class SingleTypeBookController: BaseViewController, UITableViewDelegate, UITable
         }
     }
     @IBAction func pressedChooseSortType(_ sender: Any) {
-        _ = UIAlertController.showActionSheetWith(arrayTitle: ["date", "numberView"], handlerAction: { (index) in
+        _ = UIAlertController.showActionSheetWith(arrayTitle: ["日期", "观看次数"], handlerAction: { (index) in
             if index == 0 {
                 self.sortBy = "date"
-                self.sortType.text = "date"
+                self.sortType.text = "日期"
             } else {
                 self.sortBy = "views"
-                self.sortType.text = "views"
+                self.sortType.text = "观看次数"
             }
             self.reloadMyData()
         }, in: self)

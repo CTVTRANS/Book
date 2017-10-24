@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookDetailViewController: BaseViewController, UIScrollViewDelegate {
+class BookDetailViewController: BaseViewController {
 
     @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var topShare: TopViewShare!
@@ -39,19 +39,9 @@ class BookDetailViewController: BaseViewController, UIScrollViewDelegate {
         setupCallBackTopTabbar()
         setupShareView()
         scroll.delegate = self
-        
+        setupShareObject()
         bottomView.numberComment.text = String(bookSelected.numberComment)
-        timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(increaseViewBook), userInfo: nil, repeats: false)
-        ShareModel.shareIntance.nameShare = bookSelected.name
-        var detailBook = bookSelected.descriptionBook.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-        var str = ""
-        if detailBook.characters.count < 200 {
-            str = detailBook
-        } else {
-            let index = detailBook.index(detailBook.startIndex, offsetBy: 199)
-            str = detailBook.substring(to: index)
-        }
-        ShareModel.shareIntance.detailShare = str + "..."
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(increaseViewBook), userInfo: nil, repeats: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +55,19 @@ class BookDetailViewController: BaseViewController, UIScrollViewDelegate {
     
     override var prefersStatusBarHidden: Bool {
         return isHiddenBaterry
+    }
+    
+    func setupShareObject() {
+        ShareModel.shareIntance.nameShare = bookSelected.name
+        var detailBook = bookSelected.descriptionBook.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        var str = ""
+        if detailBook.characters.count < 200 {
+            str = detailBook
+        } else {
+            let index = detailBook.index(detailBook.startIndex, offsetBy: 199)
+            str = detailBook.substring(to: index)
+        }
+        ShareModel.shareIntance.detailShare = str + "..."
     }
     
     func checkLikeBookmark() {
@@ -193,66 +196,18 @@ class BookDetailViewController: BaseViewController, UIScrollViewDelegate {
         Book.saveBook(myBook: listBookDownaloaed!)
     }
     
-    // MARK: Button Control
-    
-    func pressedDowload() {
-        let downloadImage = DownloadTask(path: bookSelected.imageURL)
-        downloadFileSuccess(task: downloadImage, success: { (data) in
-            if let imageOflline = data as? URL {
-                self.downloadImageSuccess = true
-                self.bookSelected.imageOffline = imageOflline
-                if self.downloadAuidosucess && self.downloadImageSuccess {
-                    self.setListBookBdownload()
-                }
-            }
-        }) { (_) in
-        }
-        let downloadAudio = DownloadTask(path: bookSelected.audio)
-        downloadFileSuccess(task: downloadAudio, success: { (data) in
-            if let audioOffline = data as? URL {
-                self.downloadAuidosucess = true
-                self.bookSelected.audioOffline = audioOffline
-                if self.downloadAuidosucess && self.downloadImageSuccess {
-                    self.setListBookBdownload()
-                }
-            }
-        }) { (_) in
+    func setupCallBackTopTabbar() {
+        topTabbar.changeViewPressed = {[weak self] (originX: CGFloat, originY: CGFloat, widthView: CGFloat, hightView: CGFloat, index: Int) in
+            self?.scroll.contentOffset = CGPoint(x: CGFloat(index) * widthScreen, y: 0)
         }
     }
     
-    func pressedBookmark() {
-        let bookMarkTask: BookMarkTask = BookMarkTask(bookMarkType: Object.book.rawValue, memberID: (memberInstance?.idMember)!, objectId: bookSelected.idBook, token: tokenInstance!)
-        self.requestWithTask(task: bookMarkTask, success: { (data) in
-            let status: BookMark = (data as? BookMark)!
-            if status == BookMark.bookMark {
-                self.bottomView.bookMarkImage.image = #imageLiteral(resourceName: "ic_bottom_bookMarked")
-                self.bookSelected.numberBookMark += 1
-            } else {
-                self.bottomView.bookMarkImage.image = #imageLiteral(resourceName: "ic_bottom_bookMark")
-                self.bookSelected.numberBookMark -= 1
-            }
-            self.bottomView.numberBookmark.text = String(self.bookSelected.numberBookMark)
-        }, failure: { (_) in
-            
-        })
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
-    
-    func pressedLike() {
-        let likeTask: LikeTask = LikeTask(likeType: Object.book.rawValue, memberID: (memberInstance?.idMember)!, objectId: bookSelected.idBook, token: tokenInstance!)
-        requestWithTask(task: likeTask, success: { (data) in
-            let status: Like = (data as? Like)!
-            if status == Like.like {
-                self.bottomView.likeImage.image = #imageLiteral(resourceName: "ic_bottom_liked")
-                self.bookSelected.numberLike += 1
-            } else {
-                self.bookSelected.numberLike -= 1
-                self.bottomView.likeImage.image = #imageLiteral(resourceName: "ic_bottom_like")
-            }
-            self.bottomView.numberLike.text = String(self.bookSelected.numberLike)
-        }, failure: { (_) in
-            
-        })
-    }
+}
+
+extension BookDetailViewController: UIScrollViewDelegate {
     
     // MARK: Scroll Delagate
     
@@ -285,17 +240,72 @@ class BookDetailViewController: BaseViewController, UIScrollViewDelegate {
         let newFrame = CGRect(x: position * (widthScreen / 3), y: topTabbar.animationView.frame.origin.y, width: widthScreen / 3, height: topTabbar.animationView.frame.size.height)
         UIView.animate(withDuration: 0.15, delay: 0.0, options: [], animations: {
             self.topTabbar.animationView.frame = newFrame
-            }, completion: nil
+        }, completion: nil
         )
     }
+
+}
+
+extension BookDetailViewController {
     
-    func setupCallBackTopTabbar() {
-        topTabbar.changeViewPressed = {[weak self] (originX: CGFloat, originY: CGFloat, widthView: CGFloat, hightView: CGFloat, index: Int) in
-            self?.scroll.contentOffset = CGPoint(x: CGFloat(index) * widthScreen, y: 0)
+    // MARK: Button Control
+    
+    func pressedDowload() {
+        let downloadImage = DownloadTask(path: bookSelected.imageURL)
+        downloadFileSuccess(task: downloadImage, success: { (data) in
+            if let imageOflline = data as? URL {
+                self.downloadImageSuccess = true
+                self.bookSelected.imageOffline = imageOflline
+                if self.downloadAuidosucess && self.downloadImageSuccess {
+                    self.setListBookBdownload()
+                }
+            }
+        }) { (_) in
+        }
+        let downloadAudio = DownloadTask(path: bookSelected.audio)
+        downloadFileSuccess(task: downloadAudio, success: { (data) in
+            if let audioOffline = data as? URL {
+                self.downloadAuidosucess = true
+                self.bookSelected.audioOffline = audioOffline
+                if self.downloadAuidosucess && self.downloadImageSuccess {
+                    self.setListBookBdownload()
+                }
+            }
+        }) { (_) in
         }
     }
+
+    func pressedBookmark() {
+        let bookMarkTask: BookMarkTask = BookMarkTask(bookMarkType: Object.book.rawValue, memberID: (memberInstance?.idMember)!, objectId: bookSelected.idBook, token: tokenInstance!)
+        self.requestWithTask(task: bookMarkTask, success: { (data) in
+            let status: BookMark = (data as? BookMark)!
+            if status == BookMark.bookMark {
+                self.bottomView.bookMarkImage.image = #imageLiteral(resourceName: "ic_bottom_bookMarked")
+                self.bookSelected.numberBookMark += 1
+            } else {
+                self.bottomView.bookMarkImage.image = #imageLiteral(resourceName: "ic_bottom_bookMark")
+                self.bookSelected.numberBookMark -= 1
+            }
+            self.bottomView.numberBookmark.text = String(self.bookSelected.numberBookMark)
+        }, failure: { (_) in
+            
+        })
+    }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    func pressedLike() {
+        let likeTask: LikeTask = LikeTask(likeType: Object.book.rawValue, memberID: (memberInstance?.idMember)!, objectId: bookSelected.idBook, token: tokenInstance!)
+        requestWithTask(task: likeTask, success: { (data) in
+            let status: Like = (data as? Like)!
+            if status == Like.like {
+                self.bottomView.likeImage.image = #imageLiteral(resourceName: "ic_bottom_liked")
+                self.bookSelected.numberLike += 1
+            } else {
+                self.bookSelected.numberLike -= 1
+                self.bottomView.likeImage.image = #imageLiteral(resourceName: "ic_bottom_like")
+            }
+            self.bottomView.numberLike.text = String(self.bookSelected.numberLike)
+        }, failure: { (_) in
+            
+        })
     }
 }

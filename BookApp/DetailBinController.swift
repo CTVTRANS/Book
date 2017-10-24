@@ -22,6 +22,9 @@ class DetailBinController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        name.delegate = self
+        numberPhone.delegate = self
+        adress.delegate = self
         cancelButton.layer.borderColor = UIColor.black.cgColor
         setupUI()
     }
@@ -43,13 +46,16 @@ class DetailBinController: BaseViewController {
         _name = name.text
         _phone = Int(numberPhone.text!)
         _adress = adress.text
-        if _name == "" || _phone == nil || _adress == "" {
+        if _name == "" || _adress == "" {
             _ = UIAlertController.initAler(title: "", message: "Please full infomation", inViewController: self)
             return false
-        } else {
-            _ = UIAlertController.initAler(title: "", message: "Infomation is save, Please check again befor countinuce payment", inViewController: self)
-            return true
+        } else if _phone == nil {
+            _ = UIAlertController.initAler(title: "", message: ErrorCode.numberPhoneEmty.decodeError(), inViewController: self)
+            return false
         }
+        self.view.endEditing(true)
+        _ = UIAlertController.initAler(title: "", message: ErrorCode.success.decodeError(), inViewController: self)
+        return true
     }
 
     @IBAction func pressedSaveAdress(_ sender: Any) {
@@ -62,5 +68,13 @@ class DetailBinController: BaseViewController {
 
     @IBAction func pressedCancel(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension DetailBinController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

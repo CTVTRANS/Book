@@ -13,7 +13,9 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
 
     @IBOutlet weak var navigationView: NavigationCustom!
     @IBOutlet weak var suggestChanel: CustomChanelCollection!
+    var indicatorSuggest = UIView()
     @IBOutlet weak var freeChanel: CustomChanelCollection!
+    var indicatorViewFree = UIView()
     var currentPageSuggest = 1
     var currentFree = 1
     
@@ -43,12 +45,12 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
         freeChanel.name.text = "猜你喜欢"
         getBaner()
         getData()
+        
         let getChaelSubcrible: GetAllChanelSubcribledTask =
             GetAllChanelSubcribledTask(memberID: (memberInstance?.idMember)!)
         requestWithTask(task: getChaelSubcrible, success: { (_) in
             
         }) { (error) in
-            self.stopActivityIndicator()
             _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
         }
     }
@@ -68,13 +70,15 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
                 self.listSlider = listBaner
                 self.pageControlView.numberOfPages = self.listSlider.count
                 self.sliderShow.reloadData()
+                self.stopActivityIndicator()
             }
         }) { (_) in
-            
+            self.stopActivityIndicator()
         }
     }
     
     func getData() {
+        indicatorSuggest.showActivity(inView: suggestChanel)
         let getChanelSuggest: GetChanelSuggestTask =
             GetChanelSuggestTask(lang: Constants.sharedInstance.language,
                                  limit: 3,
@@ -83,13 +87,13 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
             if let suggestArray = data as? [Chanel] {
                 self?.currentPageSuggest += 1
                 self?.suggestChanel.reloadChanel(arrayChanel: suggestArray)
+                self?.indicatorSuggest.stopActivityIndicator()
             }
         }) { (error) in
-            self.stopActivityIndicator()
-            _ = UIAlertController(title: nil,
-                                  message: error as? String,
-                                  preferredStyle: .alert)
+            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
         }
+        
+        indicatorViewFree.showActivity(inView: freeChanel)
         let getFreeChanel: GetChanelFreeTask =
             GetChanelFreeTask(lang: Constants.sharedInstance.language,
                               limit: 3,
@@ -98,10 +102,9 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
             if let freeArray = data as? [Chanel] {
                 self?.currentFree += 1
                 self?.freeChanel.reloadChanel(arrayChanel: freeArray)
-                self?.stopActivityIndicator()
+                self?.indicatorViewFree.stopActivityIndicator()
             }
         }) { (error) in
-            self.stopActivityIndicator()
             _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
         }
     }
@@ -202,6 +205,7 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
     }
     
     @IBAction func loadMore(_ sender: Any) {
+        
         getData()
     }
 }

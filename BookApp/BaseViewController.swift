@@ -46,7 +46,7 @@ class BaseViewController: UIViewController {
                 failure(error)
             }
         } else {
-            _ = UIAlertController.initAler(title: "", message: "No internet access", inViewController: self)
+            _ = UIAlertController.initAler(title: "", message: "没有网络", inViewController: self)
         }
     }
     
@@ -78,7 +78,7 @@ class BaseViewController: UIViewController {
     
     func showActivity(inView myView: UIView) {
 //        backGroundview = UIView(frame: UIScreen.main.bounds)
-        backGroundview = UIView(frame: myView.frame)
+        backGroundview = UIView(frame: myView.bounds)
         backGroundview?.backgroundColor = UIColor.white
         let loadingView = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
         loadingView.backgroundColor = UIColor.clear
@@ -178,13 +178,62 @@ class BaseViewController: UIViewController {
 }
 
 extension UIView {
-    class func initFooterView() -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: widthScreen, height: 100))
+    static func initFooterView() -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: widthScreen, height: 64))
         let activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         activity.tag = 8
-        activity.frame = CGRect(x: view.frame.size.width / 2 - 10, y: 40, width: 20, height: 20)
+        activity.frame = CGRect(x: view.frame.size.width / 2 - 10, y: 22, width: 20, height: 20)
         activity.hidesWhenStopped = true
         view.addSubview(activity)
+        return view
+    }
+    
+    func showActivity(inView myView: UIView) {
+        self.frame = myView.bounds
+        self.backgroundColor = UIColor.white
+        let loadingView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        loadingView.backgroundColor = UIColor.clear
+        let activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        self.addSubview(activity)
+        let nameLoading = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+        var sizefont: CGFloat = 13
+        sizefont.adjustsSizeToRealIPhoneSize = 13.0
+        nameLoading.font = UIFont(name: "Helvetica Neue", size: sizefont)
+        nameLoading.text = "loading..."
+        nameLoading.textAlignment = .center
+        nameLoading.textColor = UIColor.gray
+        nameLoading.backgroundColor = UIColor.clear
+        nameLoading.translatesAutoresizingMaskIntoConstraints = true
+        loadingView.addSubview(nameLoading)
+        
+        self.addSubview(loadingView)
+        nameLoading.center = CGPoint(x: loadingView.center.x, y: loadingView.center.y + 23)
+        loadingView.addSubview(activity)
+        activity.center = loadingView.center
+        loadingView.center = self.center
+        myView.addSubview(self)
+        activity.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        self.removeFromSuperview()
+    }
+}
+
+extension UITableView {
+    var backGround: UIImageView {
+        let backGrounTable: UIImageView = UIImageView(image: #imageLiteral(resourceName: "place_holder"))
+        backGrounTable.frame = self.frame
+        return backGrounTable
+    }
+    
+    var noData: UIView {
+        let view = UIView(frame: self.bounds)
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 64))
+        label.text = "没有资料"
+        label.textColor = UIColor.rgb(201, 201, 201)
+        label.textAlignment = .center
+        view.addSubview(label)
         return view
     }
 }

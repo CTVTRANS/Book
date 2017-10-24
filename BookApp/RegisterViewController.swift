@@ -45,25 +45,33 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         return true
     }
     
-    func checkValidate() -> (Bool, String) {
+    func checkValidate() -> (ErrorCode) {
         countryPhone = Int(country.text!)
         phone = Int(phoneNumber.text!)
         codeConfirm = Int(code.text!)
         name = nameUser.text
         pass = passWord.text
-        if phone == nil || codeConfirm == nil || name == "" || pass == "" {
-            return (false, "please fill full information")
+        if phone == nil {
+            return ErrorCode.numberPhoneEmty
+        } else if codeConfirm == nil {
+            return ErrorCode.confirmCodeEmty
+        } else if codeConfirm == nil {
+            return ErrorCode.confirmCodeEmty
+        } else if name == "" {
+            return ErrorCode.nameEmty
+        } else if pass == "" {
+            return ErrorCode.passwordEmty
         }
         let array = pass?.components(separatedBy: " ")
         if (array?.count)! > 1 {
-            return (false, "password cant not has sparce")
+            return ErrorCode.passwordHasSpace
         }
-        return (true, "success")
+        return ErrorCode.success
     }
 
     @IBAction func pressedRegister(_ sender: Any) {
         let check = checkValidate()
-        if check.0 {
+        if check == ErrorCode.success {
             let register = RegisterTask(countryCode: countryPhone!, phoneNumber: phone!, codeConfirm: codeConfirm!, name: name!, password: pass!)
             requestWithTask(task: register, success: { (data) in
                 if let status = data as? (Bool, ErrorCode) {
@@ -80,7 +88,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
                 
             })
         } else {
-            _ = UIAlertController.initAler(title: "", message: check.1, inViewController: self)
+            _ = UIAlertController.initAler(title: "", message: check.decodeError(), inViewController: self)
         }
     }
 
@@ -96,7 +104,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         countryPhone = Int(country.text!)
         phone = Int(phoneNumber.text!)
         if phone == nil {
-            _ = UIAlertController.initAler(title: "", message: "please fill phone number", inViewController: self)
+            _ = UIAlertController.initAler(title: "", message: ErrorCode.numberPhoneEmty.decodeError(), inViewController: self)
             return
         }
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer(timer:)), userInfo: nil, repeats: true)
@@ -113,9 +121,9 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
     
     func updateTimer(timer: Timer) {
         counter -= 1
-        titleForbutton.text = "  SendCode" + "(\(counter)s)" + "  "
+        titleForbutton.text = "  获取验证码" + "(\(counter)s)" + "  "
         if counter <= 0 {
-            titleForbutton.text = "  SendCode  "
+            titleForbutton.text = "  获取验证码  "
             timer.invalidate()
             counter = 60
             sendCodebutton.isEnabled = true

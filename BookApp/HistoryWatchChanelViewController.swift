@@ -21,13 +21,25 @@ class HistoryWatchChanelViewController: BaseViewController, UITableViewDataSourc
         table.tableFooterView = UIView()
         table.estimatedRowHeight = 140
         table.register(UINib.init(nibName: "HistoryWatchChanelCell", bundle: nil), forCellReuseIdentifier: "cell")
-        listHistoryLesson = Constants.sharedInstance.historyViewChanelLesson
+        getHistory()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationItem.title = "播放记录"
+    }
+    
+    func getHistory() {
+        let getData = GetHistoryListenTask(memberID: (memberInstance?.idMember)!, token: tokenInstance!)
+        requestWithTask(task: getData, success: { (data) in
+            if let arrayLesson = data as? [Lesson] {
+                self.listHistoryLesson = arrayLesson
+                self.table.reloadData()
+            }
+        }) { (_) in
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,6 +50,7 @@ class HistoryWatchChanelViewController: BaseViewController, UITableViewDataSourc
         if let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HistoryWatchChanelCell {
             let lesson = listHistoryLesson[indexPath.row]
             cell.binData(lesson: lesson)
+            cell.timeUpLesson.text = lesson.timeRead.components(separatedBy: " ")[0]
             cell.callBackButton = { [weak self] (action: String) in
                 switch action {
                 case "playChanel":

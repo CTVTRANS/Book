@@ -12,6 +12,7 @@ class Lesson: NSObject, NSCoding {
     
     private let _idLesson, _chapter: Int!
     private let _timeUp: String?
+    private let _timeRead: String?
     private let _name, _description: String!
     private let _imageChapterURL, _contentChapterURL: String!
     private var _isPlay: Int = 0
@@ -20,8 +21,8 @@ class Lesson: NSObject, NSCoding {
     private var _imageOffline: URL?
     private var _audioOffline: URL?
     
-    init(idLesson: Int, chaper: Int, time: String, name: String, description: String,
-         imageURL: String, contentURL: String) {
+    init(idLesson: Int, chaper: Int, time: String, timeRead: String, name: String, description: String,
+         imageURL: String, contentURL: String, chanelOwner: String) {
         _idLesson = idLesson
         _chapter = chaper
         _timeUp = time
@@ -29,6 +30,8 @@ class Lesson: NSObject, NSCoding {
         _description = description
         _imageChapterURL = imageURL
         _contentChapterURL = contentURL
+        _ownerOFChanel = chanelOwner
+        _timeRead = timeRead
     }
     
     required init(coder decoder: NSCoder) {
@@ -42,6 +45,7 @@ class Lesson: NSObject, NSCoding {
         _contentChapterURL = decoder.decodeObject(forKey: "_contentChapterURL") as? String
         _audioOffline = decoder.decodeObject(forKey: "_audioOffline") as? URL
         _ownerOFChanel = decoder.decodeObject(forKey: "_ownerOFChanel") as? String
+        _timeRead = decoder.decodeObject(forKey: "_timeRead") as? String
     }
     
     func encode(with coder: NSCoder) {
@@ -55,6 +59,7 @@ class Lesson: NSObject, NSCoding {
         coder.encode(_ownerOFChanel, forKey: "_ownerOFChanel")
         coder.encode(_contentChapterURL, forKey: "_contentChapterURL")
         coder.encode(_imageChapterURL, forKey: "_imageChapterURL")
+        coder.encode(_timeRead, forKey: "_timeRead")
     }
     
     class func saveLesson(lesson: [Lesson]) {
@@ -78,6 +83,9 @@ class Lesson: NSObject, NSCoding {
     }
     var timeUp: String {
         return _timeUp!
+    }
+    var timeRead: String {
+        return _timeRead!
     }
     var name: String {
         return _name!

@@ -30,7 +30,7 @@ class ChanelUpLoaeCell: UITableViewCell {
         timeUp.text = date[0]
         descriptionChapter.text = chap.descriptionChap
         nameChapter.text = chap.name
-        chapter.text = String(chap.chapter)
+        chapter.text = "第" + String(chap.chapter) + "回"
         avatar.sd_setImage(with: URL(string: chap.imageChapURL), placeholderImage: #imageLiteral(resourceName: "userPlaceHolder"))
         if let lesson = MP3Player.shareIntanse.currentAudio as? Lesson {
             if chap.idChap == lesson.idChap && MP3Player.shareIntanse.isPlaying() {

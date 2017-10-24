@@ -24,7 +24,7 @@ class NewsBookmarkedCell: UITableViewCell {
     
     func binData(news: NewsModel) {
         type.text = news.nameType
-        time.text = news.timeUp
+        time.text = news.timeUp.components(separatedBy: " ")[0]
         newsDescription.text = news.detailNews
         newsName.text = news.title
         newsImage.sd_setImage(with: URL(string: news.imageURL))

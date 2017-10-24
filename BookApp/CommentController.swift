@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommentController: BaseViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+class CommentController: BaseViewController, UITextViewDelegate {
     
     @IBOutlet weak var alphaView: UIView!
     @IBOutlet weak var detail: UILabel!
@@ -19,7 +19,7 @@ class CommentController: BaseViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var commentTextView: UITextView!
     
     private var tap: UITapGestureRecognizer?
-    private var arrayObject = [SpecialComment]()
+    var arrayObject = [SpecialComment]()
     var idObject: Int?
     var commentType: Int?
     var object: AnyObject!
@@ -27,13 +27,9 @@ class CommentController: BaseViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         showActivity(inView: self.view)
-        commentView.isHidden = true
-        table.estimatedRowHeight = 140
-        table.tableFooterView = UIView()
         setupUI()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification1:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         commentTextView.delegate = self
-        alphaView.isHidden = true
         tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         alphaView.addGestureRecognizer(tap!)
         getCommet()
@@ -50,6 +46,10 @@ class CommentController: BaseViewController, UITableViewDelegate, UITableViewDat
     }
     
     func setupUI() {
+        alphaView.isHidden = true
+        commentView.isHidden = true
+        table.estimatedRowHeight = 140
+        table.tableFooterView = UIView()
         if let news = object as? NewsModel {
             titleComment.text = news.title
             detail.text = news.detailNews
@@ -64,11 +64,10 @@ class CommentController: BaseViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    // MARK: Call API
+    
     func getCommet() {
-        let getCommentHot: GetCommentHot =
-            GetCommentHot(commentType: commentType!,
-                          idObject: idObject!,
-                          memberID: (memberInstance?.idMember)!)
+        let getCommentHot: GetCommentHot = GetCommentHot(commentType: commentType!, idObject: idObject!, memberID: (memberInstance?.idMember)!)
         requestWithTask(task: getCommentHot, success: { (data) in
             if let arrayCommentHot = data as? [Comment] {
                 if arrayCommentHot.count > 0 {
@@ -77,11 +76,7 @@ class CommentController: BaseViewController, UITableViewDelegate, UITableViewDat
                     Constants.sharedInstance.listCommentHot = arrayCommentHot
                 }
             }
-            let getComment: GetAllComment =
-                GetAllComment(commentType: self.commentType!,
-                              idObject: self.idObject!,
-                              page: 1,
-                              idMember: (self.memberInstance?.idMember)!)
+            let getComment: GetAllComment = GetAllComment(commentType: self.commentType!, idObject: self.idObject!, page: 1, idMember: (self.memberInstance?.idMember)!)
             self.requestWithTask(task: getComment, success: { (data) in
                 if let arrayOfComment = data as? [Comment] {
                     if arrayOfComment.count > 0 {
@@ -93,85 +88,15 @@ class CommentController: BaseViewController, UITableViewDelegate, UITableViewDat
                 }
             }) { (error) in
                 self.stopActivityIndicator()
-                _ = UIAlertController(title: nil,
-                                      message: error as? String,
-                                      preferredStyle: .alert)
+                _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
             }
             
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil,
-                                  message: error as? String,
-                                  preferredStyle: .alert)
+            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
         }
     }
-    
-    // MARK: Table Data Source
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view: UIView = UIView(frame: CGRect(x: 0, y: 0, width: table.frame.size.width, height: 30))
-        view.backgroundColor = UIColor.rgb(254, 153, 0)
-        let nameTypeComment: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: table.frame.size.width, height: 30))
-        nameTypeComment.font = UIFont(name: "DFHei Std W5", size: 15)
-        nameTypeComment.text = arrayObject[section].name
-        nameTypeComment.textAlignment = .left
-        nameTypeComment.textColor = UIColor.white
-        nameTypeComment.backgroundColor = UIColor.clear
-        view.addSubview(nameTypeComment)
-        return view
-    }
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return arrayObject[section].name
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return arrayObject.count
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayObject[section].comment.count
-    }
-    
-    // MARK: Table Delegate
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as? CommentCell
-        let sectionObject = arrayObject[indexPath.section]
-        let commenObject = sectionObject.comment[indexPath.row]
-        cell?.binData(commentObject: commenObject)
-        cell?.pressLikeComment = { [weak self] in
-            let likeComment: LikeTask = LikeTask(likeType: Object.comment.rawValue,
-                                                 memberID: (self?.memberInstance?.idMember)!,
-                                                 objectId: commenObject.idComment,
-                                                 token: (self?.tokenInstance)!)
-            self?.requestWithTask(task: likeComment, success: { (data) in
-                let status: Like = (data as? Like)!
-                var currentLike: Int = Int(cell!.numberLike.text!)!
-                if status == Like.like {
-                    currentLike += 1
-                    cell?.imageLike.image = #imageLiteral(resourceName: "ic_bottom_liked")
-                    cell?.numberLike.text = String(currentLike)
-                } else {
-                    currentLike -= 1
-                    cell?.imageLike.image = #imageLiteral(resourceName: "ic_bottom_like")
-                    cell?.numberLike.text = String(currentLike)
-                }
-            }, failure: { (_) in
-                
-            })
-        }
-        return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        table.deselectRow(at: indexPath, animated: true)
-    }
-
+   
     // MARK: Button Control
     
     @IBAction func pressedBackButton(_ sender: Any) {
@@ -183,11 +108,7 @@ class CommentController: BaseViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func pressedSendComment(_ sender: Any) {
-        let sendComment: SendCommentTask = SendCommentTask(commentType: commentType!,
-                                                           memberID: (memberInstance?.idMember)!,
-                                                           objectId: idObject!,
-                                                           content: commentTextView.text,
-                                                           token: tokenInstance!)
+        let sendComment: SendCommentTask = SendCommentTask(commentType: commentType!, memberID: (memberInstance?.idMember)!, objectId: idObject!, content: commentTextView.text, token: tokenInstance!)
         requestWithTask(task: sendComment, success: { (data) in
             self.commentTextView.text = ""
             self.commentTextView.endEditing(true)
@@ -238,5 +159,74 @@ class CommentController: BaseViewController, UITableViewDelegate, UITableViewDat
     
     deinit {
        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+extension CommentController: UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: Table Data Source
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view: UIView = UIView(frame: CGRect(x: 0, y: 0, width: table.frame.size.width, height: 30))
+        view.backgroundColor = UIColor.rgb(254, 153, 0)
+        let nameTypeComment: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: table.frame.size.width, height: 30))
+        nameTypeComment.font = UIFont(name: "DFHei Std W5", size: 15)
+        nameTypeComment.text = arrayObject[section].name
+        nameTypeComment.textAlignment = .left
+        nameTypeComment.textColor = UIColor.white
+        nameTypeComment.backgroundColor = UIColor.clear
+        view.addSubview(nameTypeComment)
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return arrayObject[section].name
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return arrayObject.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrayObject[section].comment.count
+    }
+    
+    // MARK: Table Delegate
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as? CommentCell
+        let sectionObject = arrayObject[indexPath.section]
+        let commenObject = sectionObject.comment[indexPath.row]
+        cell?.binData(commentObject: commenObject)
+        cell?.pressLikeComment = { [weak self] in
+            let likeComment: LikeTask = LikeTask(likeType: Object.comment.rawValue,
+                                                 memberID: (self?.memberInstance?.idMember)!,
+                                                 objectId: commenObject.idComment,
+                                                 token: (self?.tokenInstance)!)
+            self?.requestWithTask(task: likeComment, success: { (data) in
+                let status: Like = (data as? Like)!
+                var currentLike: Int = Int(cell!.numberLike.text!)!
+                if status == Like.like {
+                    currentLike += 1
+                    cell?.imageLike.image = #imageLiteral(resourceName: "ic_bottom_liked")
+                    cell?.numberLike.text = String(currentLike)
+                } else {
+                    currentLike -= 1
+                    cell?.imageLike.image = #imageLiteral(resourceName: "ic_bottom_like")
+                    cell?.numberLike.text = String(currentLike)
+                }
+            }, failure: { (_) in
+                
+            })
+        }
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        table.deselectRow(at: indexPath, animated: true)
     }
 }

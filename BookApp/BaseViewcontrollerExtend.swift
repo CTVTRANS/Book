@@ -103,14 +103,18 @@ extension BaseTaskNetwork {
         let lessonDescription = dictionary["description"] as? String ?? ""
         let lessonContent = dictionary["audio"] as? String ?? ""
         let lessonTimeup = dictionary["created_at"] as? String ?? ""
+        let lesonTimeRead = dictionary["updated_at"] as? String ?? ""
         let imageLesson = dictionary["image"] as? String ?? ""
+        let chanelOwner = dictionary["channel_title"] as? String ?? ""
         let lesson: Lesson = Lesson(idLesson: lessonID,
                                     chaper: lessonChapter,
                                     time: lessonTimeup,
+                                    timeRead: lesonTimeRead,
                                     name: lessonName,
                                     description: lessonDescription,
                                     imageURL: imageLesson,
-                                    contentURL: lessonContent)
+                                    contentURL: lessonContent,
+                                    chanelOwner: chanelOwner)
         return lesson
     }
     

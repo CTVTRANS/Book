@@ -24,13 +24,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qa9-sy-Ufw">
-                        <rect key="frame" x="21" y="10" width="45" height="62"/>
+                        <rect key="frame" x="21" y="12" width="50" height="64"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3cy-jv-Ztn">
-                                <rect key="frame" x="0.0" y="0.0" width="45" height="62"/>
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="64"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="audio_play" translatesAutoresizingMaskIntoConstraints="NO" id="VQu-iq-Fzc">
-                                <rect key="frame" x="13" y="21" width="20" height="20"/>
+                                <rect key="frame" x="15.5" y="22" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="MUX-2Y-KfD">
                                         <userDefinedRuntimeAttributes>
@@ -48,7 +48,7 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3cy-jv-Ztn" firstAttribute="top" secondItem="qa9-sy-Ufw" secondAttribute="top" id="KiK-Ak-PQC"/>
-                            <constraint firstAttribute="width" constant="45" id="M7X-2T-eTb">
+                            <constraint firstAttribute="width" constant="50" id="M7X-2T-eTb">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="adjustConstantToRealIPhoneSize" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -56,7 +56,7 @@
                             <constraint firstItem="VQu-iq-Fzc" firstAttribute="centerY" secondItem="qa9-sy-Ufw" secondAttribute="centerY" id="afX-UR-1lO"/>
                             <constraint firstAttribute="bottom" secondItem="3cy-jv-Ztn" secondAttribute="bottom" id="bJt-H0-iIl"/>
                             <constraint firstItem="VQu-iq-Fzc" firstAttribute="centerX" secondItem="qa9-sy-Ufw" secondAttribute="centerX" id="oXd-91-zHr"/>
-                            <constraint firstAttribute="height" constant="62" id="sTd-uU-Voc">
+                            <constraint firstAttribute="height" constant="64" id="sTd-uU-Voc">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="adjustConstantToRealIPhoneSize" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -66,17 +66,17 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6v-ss-u2u">
-                        <rect key="frame" x="74" y="10" width="8" height="12"/>
-                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="12"/>
-                        <color key="textColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="79" y="12" width="8" height="12"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                        <color key="textColor" red="0.70588235294117641" green="0.70588235294117641" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTy-Jz-vx8">
-                        <rect key="frame" x="74" y="25" width="9.5" height="14"/>
-                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="14"/>
+                        <rect key="frame" x="79" y="29" width="255" height="15.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -84,18 +84,25 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oG-ao-vVG">
-                        <rect key="frame" x="90" y="10" width="8" height="12"/>
-                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="12"/>
-                        <color key="textColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="95" y="12" width="9" height="13"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                        <color key="textColor" red="0.70588235294117641" green="0.70588235294117641" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00Z-vO-zBS">
-                        <rect key="frame" x="339" y="12" width="56" height="26"/>
+                        <rect key="frame" x="350" y="12" width="45" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="Wgc-yF-FaC">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustConstantToRealIPhoneSize" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
                         <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="12"/>
-                        <state key="normal" title="    播放    ">
+                        <state key="normal" title="播放">
                             <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <userDefinedRuntimeAttributes>
@@ -113,9 +120,9 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4p-bs-Td0">
-                        <rect key="frame" x="339" y="46" width="56" height="26"/>
+                        <rect key="frame" x="350" y="44" width="45" height="24"/>
                         <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="12"/>
-                        <state key="normal" title="    刪除    ">
+                        <state key="normal" title="刪除">
                             <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <userDefinedRuntimeAttributes>
@@ -133,24 +140,24 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiJ-AE-5Gc">
-                        <rect key="frame" x="74" y="40" width="9.5" height="14"/>
-                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="14"/>
-                        <color key="textColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="79" y="49.5" width="255" height="13"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                        <color key="textColor" red="0.70588235294117641" green="0.70588235294117641" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flame" translatesAutoresizingMaskIntoConstraints="NO" id="Qmj-vx-mS6">
-                        <rect key="frame" x="74" y="60" width="12" height="12"/>
+                        <rect key="frame" x="79" y="64" width="12" height="12"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="12" id="2dR-up-Ygb"/>
                             <constraint firstAttribute="height" constant="12" id="L47-bu-nZw"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="萬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsl-2V-ReI">
-                        <rect key="frame" x="100" y="61" width="11" height="11"/>
-                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="11"/>
+                        <rect key="frame" x="104.5" y="65.5" width="10" height="10"/>
+                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="10"/>
                         <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -158,8 +165,8 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLa-Db-0LM">
-                        <rect key="frame" x="89" y="60" width="8" height="12"/>
-                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="12"/>
+                        <rect key="frame" x="94" y="65" width="7.5" height="11"/>
+                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="11"/>
                         <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -169,7 +176,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="GLa-Db-0LM" firstAttribute="bottom" secondItem="Qmj-vx-mS6" secondAttribute="bottom" id="290-6c-GVf"/>
-                    <constraint firstItem="qa9-sy-Ufw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3TX-EF-2D0">
+                    <constraint firstItem="qa9-sy-Ufw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="3TX-EF-2D0">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="adjustConstantToRealIPhoneSize" value="YES"/>
                         </userDefinedRuntimeAttributes>
@@ -177,15 +184,17 @@
                     <constraint firstItem="j4p-bs-Td0" firstAttribute="height" secondItem="00Z-vO-zBS" secondAttribute="height" id="3u3-72-pQ8"/>
                     <constraint firstItem="qa9-sy-Ufw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="4xU-lv-QCC"/>
                     <constraint firstItem="6oG-ao-vVG" firstAttribute="leading" secondItem="b6v-ss-u2u" secondAttribute="trailing" constant="8" id="5Xk-of-1Mf"/>
-                    <constraint firstItem="Qmj-vx-mS6" firstAttribute="top" secondItem="WiJ-AE-5Gc" secondAttribute="bottom" constant="6" id="9c3-M4-un1"/>
                     <constraint firstItem="Wsl-2V-ReI" firstAttribute="leading" secondItem="GLa-Db-0LM" secondAttribute="trailing" constant="3" id="AOT-OH-CNr"/>
                     <constraint firstAttribute="trailing" secondItem="00Z-vO-zBS" secondAttribute="trailing" constant="16" id="DQe-rN-HXk"/>
                     <constraint firstItem="b6v-ss-u2u" firstAttribute="top" secondItem="qa9-sy-Ufw" secondAttribute="top" id="FvU-f5-NsT"/>
                     <constraint firstItem="Qmj-vx-mS6" firstAttribute="bottom" secondItem="qa9-sy-Ufw" secondAttribute="bottom" id="QBC-js-0ar"/>
+                    <constraint firstItem="j4p-bs-Td0" firstAttribute="leading" secondItem="WiJ-AE-5Gc" secondAttribute="trailing" constant="16" id="Svu-Ge-MZf"/>
                     <constraint firstItem="j4p-bs-Td0" firstAttribute="top" secondItem="00Z-vO-zBS" secondAttribute="bottom" constant="8" id="UH9-qG-aAJ"/>
+                    <constraint firstItem="WiJ-AE-5Gc" firstAttribute="top" secondItem="aTy-Jz-vx8" secondAttribute="bottom" constant="5" id="VsV-Es-qrT"/>
                     <constraint firstItem="Qmj-vx-mS6" firstAttribute="leading" secondItem="qa9-sy-Ufw" secondAttribute="trailing" constant="8" id="aHq-mH-XEi"/>
+                    <constraint firstItem="00Z-vO-zBS" firstAttribute="leading" secondItem="aTy-Jz-vx8" secondAttribute="trailing" constant="16" id="b5Y-sv-qQW"/>
                     <constraint firstItem="aTy-Jz-vx8" firstAttribute="leading" secondItem="qa9-sy-Ufw" secondAttribute="trailing" constant="8" id="fvS-ZH-bZ7"/>
-                    <constraint firstAttribute="bottom" secondItem="qa9-sy-Ufw" secondAttribute="bottom" constant="17" id="hFq-hI-fVU">
+                    <constraint firstAttribute="bottom" secondItem="qa9-sy-Ufw" secondAttribute="bottom" constant="12" id="hFq-hI-fVU">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="adjustConstantToRealIPhoneSize" value="YES"/>
                         </userDefinedRuntimeAttributes>
@@ -194,8 +203,9 @@
                     <constraint firstAttribute="trailing" secondItem="j4p-bs-Td0" secondAttribute="trailing" constant="16" id="jt9-sM-7k3"/>
                     <constraint firstAttribute="bottom" secondItem="j4p-bs-Td0" secondAttribute="bottom" constant="17" id="rD1-pg-vet"/>
                     <constraint firstItem="00Z-vO-zBS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="raF-Mc-hS3"/>
-                    <constraint firstItem="aTy-Jz-vx8" firstAttribute="top" secondItem="b6v-ss-u2u" secondAttribute="bottom" constant="3" id="rhQ-gB-x4G"/>
+                    <constraint firstItem="aTy-Jz-vx8" firstAttribute="top" secondItem="b6v-ss-u2u" secondAttribute="bottom" constant="5" id="rhQ-gB-x4G"/>
                     <constraint firstItem="b6v-ss-u2u" firstAttribute="leading" secondItem="qa9-sy-Ufw" secondAttribute="trailing" constant="8" id="sMb-34-03M"/>
+                    <constraint firstItem="j4p-bs-Td0" firstAttribute="width" secondItem="00Z-vO-zBS" secondAttribute="width" id="szy-iG-Uay"/>
                     <constraint firstItem="GLa-Db-0LM" firstAttribute="leading" secondItem="Qmj-vx-mS6" secondAttribute="trailing" constant="3" id="u2D-Us-Rlp"/>
                     <constraint firstItem="WiJ-AE-5Gc" firstAttribute="leading" secondItem="qa9-sy-Ufw" secondAttribute="trailing" constant="8" id="ur5-uM-LSi"/>
                     <constraint firstItem="Wsl-2V-ReI" firstAttribute="centerY" secondItem="Qmj-vx-mS6" secondAttribute="centerY" id="xJg-aC-Qx7"/>
@@ -216,7 +226,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="audio_play" width="64" height="64"/>
+        <image name="audio_play" width="32" height="32"/>
         <image name="flame" width="32" height="32"/>
     </resources>
 </document>

@@ -43,7 +43,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yhm-b2-Cb3" customClass="CustomMenu" customModule="BookApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="72" width="304" height="32"/>
+                                <rect key="frame" x="16" y="72" width="288" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="pld-Zm-5rs">
@@ -54,7 +54,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QLX-gU-JYB" customClass="CustomMenu" customModule="BookApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="104" width="304" height="32"/>
+                                <rect key="frame" x="16" y="104" width="288" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="5E7-9i-hug">
@@ -65,7 +65,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ktz-Gz-MFt" customClass="CustomMenu" customModule="BookApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="136" width="304" height="32"/>
+                                <rect key="frame" x="16" y="136" width="288" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="IUu-7s-aUG">
@@ -223,15 +223,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Yhm-b2-Cb3" secondAttribute="trailing" id="3yY-un-5Zo"/>
+                            <constraint firstAttribute="trailing" secondItem="Yhm-b2-Cb3" secondAttribute="trailing" constant="16" id="3yY-un-5Zo"/>
                             <constraint firstAttribute="trailing" secondItem="jKt-xG-ui7" secondAttribute="trailing" id="5CF-la-JmO"/>
                             <constraint firstItem="Ktz-Gz-MFt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="6xe-dg-uQh"/>
                             <constraint firstItem="Ktz-Gz-MFt" firstAttribute="top" secondItem="QLX-gU-JYB" secondAttribute="bottom" id="9Ry-Le-1CP"/>
-                            <constraint firstAttribute="trailing" secondItem="Ktz-Gz-MFt" secondAttribute="trailing" id="BbH-Wh-vB8"/>
+                            <constraint firstAttribute="trailing" secondItem="Ktz-Gz-MFt" secondAttribute="trailing" constant="16" id="BbH-Wh-vB8"/>
                             <constraint firstItem="Fhx-kl-zT0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CEF-BO-iqe"/>
                             <constraint firstItem="Fhx-kl-zT0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="CJX-lI-EOP"/>
                             <constraint firstAttribute="trailing" secondItem="Fhx-kl-zT0" secondAttribute="trailing" id="EjE-9C-00Z"/>
-                            <constraint firstAttribute="trailing" secondItem="QLX-gU-JYB" secondAttribute="trailing" id="Huf-Zp-JNr"/>
+                            <constraint firstAttribute="trailing" secondItem="QLX-gU-JYB" secondAttribute="trailing" constant="16" id="Huf-Zp-JNr"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jKt-xG-ui7" secondAttribute="bottom" id="SaB-nz-6Hq"/>
                             <constraint firstItem="Yhm-b2-Cb3" firstAttribute="top" secondItem="Fhx-kl-zT0" secondAttribute="bottom" constant="8" id="X2A-8q-SHi"/>
                             <constraint firstItem="jKt-xG-ui7" firstAttribute="top" secondItem="Fhx-kl-zT0" secondAttribute="bottom" constant="112" id="YCf-VW-ira">
@@ -568,7 +568,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ct7-oQ-opC">
-                                                <rect key="frame" x="81.5" y="27" width="10" height="15"/>
+                                                <rect key="frame" x="81.5" y="28" width="10" height="15"/>
                                                 <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -992,15 +992,6 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="萬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXK-KH-tDx">
-                                                        <rect key="frame" x="118.5" y="103" width="10" height="10"/>
-                                                        <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="10"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上架" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0s-1h-fAa">
                                                         <rect key="frame" x="272" y="104" width="18" height="9"/>
                                                         <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="9"/>
@@ -1034,12 +1025,10 @@
                                                     <constraint firstItem="0w4-3h-sPH" firstAttribute="leading" secondItem="j7i-aT-TBn" secondAttribute="trailing" constant="8" id="G49-UB-eEZ"/>
                                                     <constraint firstItem="evq-Dh-WJ0" firstAttribute="leading" secondItem="j7i-aT-TBn" secondAttribute="trailing" constant="8" id="Lb2-XC-wZ7"/>
                                                     <constraint firstItem="WzG-e6-w9U" firstAttribute="top" secondItem="qqA-OI-cKE" secondAttribute="top" id="Min-MU-XKG"/>
-                                                    <constraint firstItem="aXK-KH-tDx" firstAttribute="leading" secondItem="pYC-K1-nvx" secondAttribute="trailing" constant="5" id="Mss-Bo-Xq1"/>
                                                     <constraint firstAttribute="bottom" secondItem="e81-ig-FdQ" secondAttribute="bottom" id="OUo-BK-eaL"/>
                                                     <constraint firstItem="pYC-K1-nvx" firstAttribute="leading" secondItem="wSf-S9-pJt" secondAttribute="trailing" constant="5" id="QFq-OM-b3F"/>
                                                     <constraint firstAttribute="trailing" secondItem="0w4-3h-sPH" secondAttribute="trailing" constant="8" id="VQq-Mt-2SK"/>
                                                     <constraint firstItem="wSf-S9-pJt" firstAttribute="leading" secondItem="j7i-aT-TBn" secondAttribute="trailing" constant="8" id="ZSY-J0-aAf"/>
-                                                    <constraint firstAttribute="bottom" secondItem="aXK-KH-tDx" secondAttribute="bottom" id="bF9-hp-Vqg"/>
                                                     <constraint firstAttribute="trailing" secondItem="evq-Dh-WJ0" secondAttribute="trailing" constant="8" id="bRn-ox-3za"/>
                                                     <constraint firstItem="e81-ig-FdQ" firstAttribute="top" secondItem="qqA-OI-cKE" secondAttribute="top" id="e9P-0q-JXz"/>
                                                     <constraint firstItem="e81-ig-FdQ" firstAttribute="leading" secondItem="qqA-OI-cKE" secondAttribute="leading" id="gA9-0f-zOt"/>
@@ -1447,6 +1436,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="0.5490196078431373" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="mFr-oa-8Ir" kind="relationship" relationship="viewControllers" id="HrD-n4-LcG"/>
@@ -1869,11 +1863,13 @@
             </objects>
             <point key="canvasLocation" x="3997.5" y="-1054.2253521126761"/>
         </scene>
-        <!--读-->
+        <!--Navigation Controller-->
         <scene sceneID="gck-5H-XNg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="mFr-oa-8Ir" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="读" id="5WP-Ee-gHR"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_tabbar_news" id="5WP-Ee-gHR">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="4UA-Zm-xcK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1888,11 +1884,13 @@
             </objects>
             <point key="canvasLocation" x="939.375" y="-1054.2253521126761"/>
         </scene>
-        <!--学-->
+        <!--Navigation Controller-->
         <scene sceneID="bL6-Hb-qGn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="6ot-SG-pUa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="学" id="jDn-eZ-X0w"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_tabbar_book" id="jDn-eZ-X0w">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qqh-Yw-dMl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1907,13 +1905,15 @@
             </objects>
             <point key="canvasLocation" x="1910.625" y="-172.18309859154931"/>
         </scene>
-        <!--师-->
+        <!--Navigation Controller-->
         <scene sceneID="tUM-Tc-M9h">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="e7V-CE-1zB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="师" id="DaK-aM-7lv"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_tabbar_teacher" id="DaK-aM-7lv">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="EZu-cu-HGT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EZu-cu-HGT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1926,13 +1926,15 @@
             </objects>
             <point key="canvasLocation" x="1291.875" y="717.25352112676057"/>
         </scene>
-        <!--会-->
+        <!--Navigation Controller-->
         <scene sceneID="HRw-z0-4RQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ddz-d5-7Fs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="会" id="OWv-8U-n5K"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_tabbar_member" id="OWv-8U-n5K">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="z5k-mn-wRp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z5k-mn-wRp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1960,6 +1962,10 @@
         <image name="ic_news_like" width="64" height="64"/>
         <image name="ic_news_user" width="128" height="128"/>
         <image name="ic_reload" width="32" height="32"/>
+        <image name="ic_tabbar_book" width="22" height="22"/>
+        <image name="ic_tabbar_member" width="22" height="22"/>
+        <image name="ic_tabbar_news" width="22" height="22"/>
+        <image name="ic_tabbar_teacher" width="22" height="22"/>
         <image name="place_holder" width="32" height="32"/>
     </resources>
 </document>

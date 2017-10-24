@@ -56,7 +56,7 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        statusView.backgroundColor = .black
+        statusView.backgroundColor = .white
         UIApplication.shared.keyWindow?.addSubview(statusView)
         
         table.estimatedRowHeight = 140
@@ -261,11 +261,12 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
     }
     
     func showDownload() {
+        isHiddenBaterry = true
         UIView.animate(withDuration: 0.5, animations: {
             self.statusView.frame = CGRect(x: 0, y: 0, width: widthScreen, height: 20)
         }) { (_) in
-            self.statusView.frame = CGRect(x: 0, y: -20, width: widthScreen, height: 20)
-            self.showDownload()
+//            self.statusView.frame = CGRect(x: 0, y: -20, width: widthScreen, height: 20)
+//            self.showDownload()
         }
     }
     
@@ -278,8 +279,8 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
             return
         }
        
-       showDownload()
-        
+        showDownload()
+        isHiddenBaterry = false
         let download = DownloadAudioController()
         download.downloadArrayLeeson(arrayLesson: lessonUploaded) { (number) in
             _ = UIAlertController.initAler(title: "", message: "Download Success \(number) leson", inViewController: self)
@@ -310,14 +311,11 @@ extension DetailChanelViewController {
     }
     
     func addToHistory(lesson: Lesson) {
-        var checkLessonExist = false
-        for singleLesson in Constants.sharedInstance.historyViewChanelLesson where singleLesson.idChap == lesson.idChap {
-            checkLessonExist = true
-        }
-        if !checkLessonExist {
-            Constants.sharedInstance.historyViewChanelLesson.append(lesson)
-        } else {
-            checkLessonExist = false
+        let add = AddToHistoryTask(memberid: (memberInstance?.idMember)!, token: tokenInstance!, lessonID: lesson.idChap)
+        requestWithTask(task: add, success: { (_) in
+            
+        }) { (_) in
+            
         }
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 import Social
 
-class ShareController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class ShareController: BaseViewController {
 
     @IBOutlet weak var table: UITableView!
     
@@ -18,44 +18,6 @@ class ShareController: BaseViewController, UITableViewDelegate, UITableViewDataS
 
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ShareViewCell
-        switch indexPath.row {
-        case 0:
-            cell?.imageShare.image = #imageLiteral(resourceName: "ic_share_weibo")
-        case 1:
-            cell?.imageShare.image = #imageLiteral(resourceName: "ic_share_wechat")
-        case 2:
-            cell?.imageShare.image = #imageLiteral(resourceName: "ic_share_facebook")
-        default:
-            break
-        }
-        return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        table.deselectRow(at: indexPath, animated: true)
-        if !checkLogin() {
-            self.revealViewController().revealToggle(animated: true)
-            goToSigIn()
-            return
-        }
-        switch indexPath.row {
-        case 0:
-            pressedShareWeibo()
-        case 1:
-            pressedShareWechat()
-        case 2:
-            pressedShareFacebook()
-        default:
-            break
-        }
-    }
-    
     func pressedShareWeibo() {
         if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeSinaWeibo) {
             let vc = SLComposeViewController(forServiceType: SLServiceTypeSinaWeibo)
@@ -126,6 +88,47 @@ class ShareController: BaseViewController, UITableViewDelegate, UITableViewDataS
                 }
             }
             self.present(vc!, animated: true, completion: nil)
+        }
+    }
+}
+
+extension ShareController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ShareViewCell
+        switch indexPath.row {
+        case 0:
+            cell?.imageShare.image = #imageLiteral(resourceName: "ic_share_weibo")
+        case 1:
+            cell?.imageShare.image = #imageLiteral(resourceName: "ic_share_wechat")
+        case 2:
+            cell?.imageShare.image = #imageLiteral(resourceName: "ic_share_facebook")
+        default:
+            break
+        }
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        table.deselectRow(at: indexPath, animated: true)
+        if !checkLogin() {
+            self.revealViewController().revealToggle(animated: true)
+            goToSigIn()
+            return
+        }
+        switch indexPath.row {
+        case 0:
+            pressedShareWeibo()
+        case 1:
+            pressedShareWechat()
+        case 2:
+            pressedShareFacebook()
+        default:
+            break
         }
     }
 }

@@ -8,19 +8,22 @@
 
 import UIKit
 
-class VipDetailViewController: BaseViewController {
+class VipDetailViewController: BaseViewController, UIWebViewDelegate {
 
     @IBOutlet weak var buyVipButton: UIButton!
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var timeLimit: UILabel!
     @IBOutlet weak var statusVip: UILabel!
     @IBOutlet weak var nameMember: UILabel!
+    @IBOutlet weak var priceVip: UILabel!
     
     private var vip: Vip?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "会员状态"
+        showActivity(inView: self.view)
+        webView.delegate = self
         getVip()
         nameMember.text = memberInstance?.name
         if memberInstance?.level == 0 {
@@ -42,13 +45,17 @@ class VipDetailViewController: BaseViewController {
             if let arrayVip = data as? [Vip] {
                 self.vip = arrayVip.first
                 self.webView.loadHTMLString( css + (self.vip?.conten)!, baseURL: nil)
-                let titleForButton = "立刻储值升等年费: " + String((self.vip?.point)!) +  "元    "
-                self.buyVipButton.setTitle(titleForButton, for: .normal)
+                self.priceVip.text = "立刻储值升等年费: " + String((self.vip?.point)!) +  "元   "
             }
         }, failure: { (_) in
             
         })
     }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        stopActivityIndicator()
+    }
+    
     @IBAction func pressBuyVip(_ sender: Any) {
         if (memberInstance?.point)! > (vip?.point)! {
             let buyVip = BuyVipPointTask(memberiD: (memberInstance?.idMember)!, token: tokenInstance!, type: 0, idVip: (vip?.idVip)!, numberYear: 1)

@@ -19,7 +19,6 @@ class Type3DetailNewsController: BaseViewController, UIWebViewDelegate {
     
     @IBOutlet weak var highOfNoteView: NSLayoutConstraint!
     var news: NewsModel!
-//    private lazy var member = ProfileMember.getProfile()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,12 +99,8 @@ class Type3DetailNewsController: BaseViewController, UIWebViewDelegate {
                 return
             }
             switch typeButotn {
-            case BottomButton.back:
-                self?.navigationController?.popViewController(animated: true)
             case BottomButton.bookMark:
                 self?.pressedBookmark()
-            case BottomButton.download:
-                print("download")
             case BottomButton.like:
                 self?.pressedLike()
             case BottomButton.comment:
@@ -116,6 +111,7 @@ class Type3DetailNewsController: BaseViewController, UIWebViewDelegate {
                     vc.object = self?.news
                     self?.present(vc, animated: false, completion: nil)
                 }
+            default: break
             }
         }
     }

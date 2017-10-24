@@ -33,10 +33,10 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_next" translatesAutoresizingMaskIntoConstraints="NO" id="gwc-A4-IgN">
-                        <rect key="frame" x="307" y="11.5" width="14" height="14"/>
+                        <rect key="frame" x="305" y="10.5" width="16" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="14" id="Dnl-px-yQm"/>
-                            <constraint firstAttribute="width" constant="14" id="J6a-cw-l6u"/>
+                            <constraint firstAttribute="height" constant="16" id="Dnl-px-yQm"/>
+                            <constraint firstAttribute="width" constant="16" id="J6a-cw-l6u"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2X0-KN-5eB">
@@ -47,13 +47,13 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yF-oB-qzo">
-                        <rect key="frame" x="164" y="12.5" width="9" height="13"/>
+                        <rect key="frame" x="164.5" y="12" width="9" height="13"/>
                         <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="13"/>
                         <color key="textColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qo5-CC-lSz">
-                        <rect key="frame" x="289" y="11.5" width="10" height="15"/>
+                        <rect key="frame" x="287" y="11" width="10" height="15"/>
                         <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="15"/>
                         <color key="textColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>

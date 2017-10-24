@@ -30,7 +30,6 @@ class ConfirmBinViewController: BaseViewController, UITextFieldDelegate {
         address.delegate = self
         nameCustom.delegate = self
         phone.delegate = self
-        phone.keyboardType = .numberPad
         setupUI()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }

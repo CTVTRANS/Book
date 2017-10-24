@@ -162,6 +162,7 @@ class DownloadedViewController: BaseViewController, UITableViewDelegate, UITable
         if listLesson.count > 0 {
             for index in 0..<listLesson.count where listLesson[index].idChap == lesson.idChap {
                 listLesson.remove(at: index)
+                break
             }
             Lesson.saveLesson(lesson: listLesson)
         }
@@ -171,6 +172,7 @@ class DownloadedViewController: BaseViewController, UITableViewDelegate, UITable
         var listBook: [Book] = Book.getBook()!
         for index in 0..<listBook.count where listBook[index].idBook == book.idBook {
             listBook.remove(at: index)
+            break
         }
         Book.saveBook(myBook: listBook)
     }

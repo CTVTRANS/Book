@@ -37,20 +37,29 @@ class ForgetPassViewController: BaseViewController, UITextFieldDelegate {
         confirmPass.delegate = self
     }
     
-    func checkValidate() -> (Bool, String) {
+    func checkValidate() -> (ErrorCode) {
         countryPhone = Int(country.text!)
         phone = Int(phoneNumber.text!)
         codeConfirm = Int(code.text!)
         newPassWord = newPass.text
         confirmNewpass = confirmPass.text
-        if phone == nil || codeConfirm == nil || newPassWord == nil || confirmNewpass == nil {
-            return (false, "please fill full information")
+        if phone == nil {
+            return ErrorCode.numberPhoneEmty
+        } else if codeConfirm == nil {
+            return ErrorCode.confirmCodeEmty
+        } else if codeConfirm == nil {
+            return ErrorCode.confirmCodeEmty
+        } else if confirmNewpass == "" {
+            return ErrorCode.passwordConfirmEmty
+        } else if newPassWord == "" {
+            return ErrorCode.passwordEmty
         }
+
         let array = newPassWord?.components(separatedBy: " ")
         if (array?.count)! > 1 {
-            return (false, "password cant not has sparce")
+            return ErrorCode.passwordHasSpace
         }
-        return (true, "success")
+        return ErrorCode.success
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -69,7 +78,7 @@ class ForgetPassViewController: BaseViewController, UITextFieldDelegate {
         countryPhone = Int(country.text!)
         phone = Int(phoneNumber.text!)
         if phone == nil {
-            _ = UIAlertController.initAler(title: "", message: "please fill phone number", inViewController: self)
+            _ = UIAlertController.initAler(title: "", message: ErrorCode.numberPhoneEmty.decodeError(), inViewController: self)
             return
         }
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer(timer:)), userInfo: nil, repeats: true)
@@ -86,8 +95,8 @@ class ForgetPassViewController: BaseViewController, UITextFieldDelegate {
     
     @IBAction func pressedChangePass(_ sender: Any) {
         let check = checkValidate()
-        if !check.0 {
-            _ = UIAlertController.initAler(title: "", message: check.1, inViewController: self)
+        if check != ErrorCode.success {
+            _ = UIAlertController.initAler(title: "", message: check.decodeError(), inViewController: self)
         } else {
             let forgotPass = ForgetPasswordTask(country: countryPhone!,
                                                 phone: phone!,
@@ -113,9 +122,9 @@ class ForgetPassViewController: BaseViewController, UITextFieldDelegate {
     
     func updateTimer(timer: Timer) {
         counter -= 1
-        titleButtonSendCode.text = "  SendCode" + "(\(counter)s)" + "  "
+        titleButtonSendCode.text = "  获取验证码" + "(\(counter)s)" + "  "
         if counter <= 0 {
-            titleButtonSendCode.text = "  SendCode  "
+            titleButtonSendCode.text = "  获取验证码  "
             timer.invalidate()
             counter = 60
             buttonSendCode.isEnabled = true

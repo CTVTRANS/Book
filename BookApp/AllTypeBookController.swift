@@ -24,6 +24,9 @@ class AllTypeBookController: TYTabPagerController {
         self.tabBar.layout.progressBorderColor = UIColor.rgb(255, 102, 0)
         self.tabBar.layout.selectedTextColor = UIColor.rgb(255, 102, 0)
         self.tabBar.layout.cellSpacing = 0
+        var sizeFont: CGFloat = 13.0
+        sizeFont.adjustsSizeToRealIPhoneSize = 13.0
+        self.tabBar.layout.normalTextFont = UIFont(name: "HelveticaNeue", size: sizeFont)!
         self.dataSource = self
         self.delegate = self
         self.loadData()

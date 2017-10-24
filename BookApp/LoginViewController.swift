@@ -43,17 +43,23 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    func checkPhonePass() -> (Bool, String) {
+    func checkPhonePass() -> (ErrorCode) {
         phone = Int(phoneNumber.text!)
         pass = passWord.text
         country = Int(countryCode.text!)
-        if phone == nil || pass == nil {
-            return (false, "phone or pass cant not emty")
+        if phone == nil {
+            return ErrorCode.numberPhoneEmty
+        } else if pass == "" {
+            return ErrorCode.passwordEmty
         }
         if (pass?.characters.count)! < 8 {
-            return (false, "pass need longer 8 character")
+            return ErrorCode.passwordShort
         }
-        return (true, "success")
+        let array = pass?.components(separatedBy: " ")
+        if (array?.count)! > 1 {
+            return ErrorCode.passwordHasSpace
+        }
+        return ErrorCode.success
     }
 
     @IBAction func pressedDismissButton(_ sender: Any) {
@@ -62,11 +68,11 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 
     @IBAction func pressLoginButton(_ sender: Any) {
         let status = checkPhonePass()
-        if !status.0 {
-            _ = UIAlertController.initAler(title: " ", message: status.1, inViewController: self)
+        if status != ErrorCode.success {
+            _ = UIAlertController.initAler(title: " ", message: status.decodeError(), inViewController: self)
         }
         self.view.endEditing(true)
-        if status.0 {
+        if status == ErrorCode.success {
             let sigIn = SignInTaks(countryCode: country, phoneNumerber: phone, password: pass)
             requestWithTask(task: sigIn, success: { (data) in
                 if let status = data as? (Bool, ErrorCode) {

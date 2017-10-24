@@ -30,6 +30,7 @@ class ShowAllActivityGroupController: BaseViewController, UITableViewDelegate, U
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        listTitleSecrion.removeAll()
         getData()
     }
     

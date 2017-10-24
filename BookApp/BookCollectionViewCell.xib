@@ -29,7 +29,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGr-15-hug">
-                        <rect key="frame" x="0.0" y="130" width="73" height="15.5"/>
+                        <rect key="frame" x="0.0" y="127" width="73" height="15.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -40,7 +40,7 @@
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="WGr-15-hug" firstAttribute="top" secondItem="Vha-hC-17U" secondAttribute="bottom" constant="17" id="Dre-SC-IaX">
+                <constraint firstItem="WGr-15-hug" firstAttribute="top" secondItem="Vha-hC-17U" secondAttribute="bottom" constant="14" id="Dre-SC-IaX">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="adjustConstantToRealIPhoneSize" value="YES"/>
                     </userDefinedRuntimeAttributes>

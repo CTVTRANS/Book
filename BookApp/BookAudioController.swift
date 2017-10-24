@@ -10,7 +10,7 @@ import UIKit
 import AVKit
 import AVFoundation
 
-class BookAudioController: BaseViewController, UIWebViewDelegate {
+class BookAudioController: BaseViewController {
     
     @IBOutlet weak var imageBook: UIImageView!
     @IBOutlet weak var scroll: UIScrollView!
@@ -25,13 +25,15 @@ class BookAudioController: BaseViewController, UIWebViewDelegate {
     @IBOutlet weak var buttonImge: UIImageView!
     @IBOutlet weak var audioDetailButton: UIButton!
     
-    private lazy var mp3 = MP3Player.shareIntanse
-    private var loadedAudio: Bool = true
-    private var loadedWebView: Bool = false
+    // MARK: MP3 Property
+    
+    lazy var mp3 = MP3Player.shareIntanse
+    var loadedAudio: Bool = true
+    var loadedWebView: Bool = false
     var book: Book?
-    private var totalTime: Float64? = 0
-    private var isdragSlider = false
-    private var currentTime: Float?
+    var totalTime: Float64? = 0
+    var isdragSlider = false
+    var currentTime: Float?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +44,9 @@ class BookAudioController: BaseViewController, UIWebViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(stopAudio(notification:)), name: NSNotification.Name(rawValue: "videoDidStart"), object: nil)
     }
     
-    func loadWebView() {
-        audioDetailButton.layer.borderColor = UIColor.rgb(255, 101, 0).cgColor
-        imageBook.sd_setImage(with: URL(string: (book?.imageURL)!), placeholderImage: #imageLiteral(resourceName: "place_holder"))
-        web.delegate = self
-        let content = css + (book?.descriptionBook)!
-        web.loadHTMLString(content, baseURL: nil)
-        web.scrollView.isScrollEnabled = false
-    }
+    // MARK: Setup Audio
     
     func checkAudio() {
-        
         if let currentBook = mp3.currentAudio as? Book {
             playerOvserver()
             sliderBar.value = Float(mp3.getCurrentTime().0 / mp3.getTotalTime())
@@ -99,15 +93,7 @@ class BookAudioController: BaseViewController, UIWebViewDelegate {
         })
     }
     
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        imageBook.layer.cornerRadius = imageBook.frame.size.width / 2
-        let hightOfContenWebView: CGFloat = web.scrollView.contentSize.height
-        hightOfWebView.constant = hightOfContenWebView
-        self.loadedWebView = true
-        if self.loadedAudio && self.loadedWebView {
-            self.stopActivityIndicator()
-        }
-    }
+    // MARK: Setup Silder Bar
     
     func customSliderBar() {
         sliderBar.minimumValue = 0.0
@@ -139,6 +125,8 @@ class BookAudioController: BaseViewController, UIWebViewDelegate {
             })
         }
     }
+    
+    // MARK: UIcontrol
     
     @IBAction func pressPlay(_ sender: Any) {
         loadAudio()
@@ -181,5 +169,26 @@ class BookAudioController: BaseViewController, UIWebViewDelegate {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+}
+
+extension BookAudioController: UIWebViewDelegate {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        imageBook.layer.cornerRadius = imageBook.frame.size.width / 2
+        let hightOfContenWebView: CGFloat = web.scrollView.contentSize.height
+        hightOfWebView.constant = hightOfContenWebView
+        self.loadedWebView = true
+        if self.loadedAudio && self.loadedWebView {
+            self.stopActivityIndicator()
+        }
+    }
+    
+    func loadWebView() {
+        audioDetailButton.layer.borderColor = UIColor.rgb(255, 101, 0).cgColor
+        imageBook.sd_setImage(with: URL(string: (book?.imageURL)!), placeholderImage: #imageLiteral(resourceName: "place_holder"))
+        web.delegate = self
+        let content = css + (book?.descriptionBook)!
+        web.loadHTMLString(content, baseURL: nil)
+        web.scrollView.isScrollEnabled = false
     }
 }

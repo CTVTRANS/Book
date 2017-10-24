@@ -27,7 +27,12 @@ class ListBookFreee: UITableViewCell {
         typeBook.text = " " + book.typeName + " "
         nameBook.text = book.name
         descriptionBook.text = book.author
-        numberView.text = String(book.numberHumanReaed)
+        if book.numberHumanReaed < 10000 {
+            numberView.text = String(book.numberHumanReaed)
+        } else {
+            let numberViews = book.numberHumanReaed/10000
+            numberView.text = String(numberViews) + "万"
+        }
         imageBook.sd_setImage(with: URL(string: book.imageURL))
         let date = book.timeUpBook.components(separatedBy: " ")
         timeUp.text = date[0]

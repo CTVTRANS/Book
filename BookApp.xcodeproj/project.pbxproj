@@ -102,6 +102,11 @@
 		6DEF72411F5FD15A008392A0 /* ChanelHotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF72401F5FD15A008392A0 /* ChanelHotController.swift */; };
 		6DEF72431F5FD87F008392A0 /* GetHotChanelTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF72421F5FD87F008392A0 /* GetHotChanelTask.swift */; };
 		6DEF72451F5FEE0B008392A0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF72441F5FEE0B008392A0 /* ProfileViewController.swift */; };
+		6DEF914F1F9DCDF700CCA082 /* AddToHistoryTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF914E1F9DCDF700CCA082 /* AddToHistoryTask.swift */; };
+		6DEF91511F9DD1BF00CCA082 /* GetHistoryListenTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF91501F9DD1BF00CCA082 /* GetHistoryListenTask.swift */; };
+		6DEF91531F9DD83C00CCA082 /* GetHIstoryBuyBookTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF91521F9DD83C00CCA082 /* GetHIstoryBuyBookTask.swift */; };
+		6DEF91551F9DD9B500CCA082 /* GetHistoryBuyVipTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF91541F9DD9B500CCA082 /* GetHistoryBuyVipTask.swift */; };
+		6DEF91571F9DDB2000CCA082 /* HIstoryBuyVip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF91561F9DDB2000CCA082 /* HIstoryBuyVip.swift */; };
 		6DEFA88D1F60E0B200374113 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEFA88C1F60E0B200374113 /* SettingViewController.swift */; };
 		6DEFA8901F60E15C00374113 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEFA88E1F60E15C00374113 /* SettingViewCell.swift */; };
 		6DEFA8911F60E15C00374113 /* SettingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DEFA88F1F60E15C00374113 /* SettingViewCell.xib */; };
@@ -326,6 +331,11 @@
 		6DEF72401F5FD15A008392A0 /* ChanelHotController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChanelHotController.swift; sourceTree = "<group>"; };
 		6DEF72421F5FD87F008392A0 /* GetHotChanelTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHotChanelTask.swift; sourceTree = "<group>"; };
 		6DEF72441F5FEE0B008392A0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6DEF914E1F9DCDF700CCA082 /* AddToHistoryTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToHistoryTask.swift; sourceTree = "<group>"; };
+		6DEF91501F9DD1BF00CCA082 /* GetHistoryListenTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHistoryListenTask.swift; sourceTree = "<group>"; };
+		6DEF91521F9DD83C00CCA082 /* GetHIstoryBuyBookTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHIstoryBuyBookTask.swift; sourceTree = "<group>"; };
+		6DEF91541F9DD9B500CCA082 /* GetHistoryBuyVipTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHistoryBuyVipTask.swift; sourceTree = "<group>"; };
+		6DEF91561F9DDB2000CCA082 /* HIstoryBuyVip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HIstoryBuyVip.swift; sourceTree = "<group>"; };
 		6DEFA88C1F60E0B200374113 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		6DEFA88E1F60E15C00374113 /* SettingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
 		6DEFA88F1F60E15C00374113 /* SettingViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewCell.xib; sourceTree = "<group>"; };
@@ -663,6 +673,8 @@
 				6DF4FFFA1F5EA8B500DF73A0 /* IncreaseVIewChanelTask.swift */,
 				6DF4FFFC1F5EB18300DF73A0 /* GetAllChanelSubcribledTask.swift */,
 				6DEF72421F5FD87F008392A0 /* GetHotChanelTask.swift */,
+				6DEF914E1F9DCDF700CCA082 /* AddToHistoryTask.swift */,
+				6DEF91501F9DD1BF00CCA082 /* GetHistoryListenTask.swift */,
 			);
 			name = Chanel;
 			sourceTree = "<group>";
@@ -716,6 +728,8 @@
 				6DF07ED01F863F07005E7DC8 /* UploadAvatarTask.swift */,
 				6D1255711F88841900FC0880 /* UpdatePointTask.swift */,
 				6DEC62B51F90A4870020A916 /* SendTokenTask.swift */,
+				6DEF91521F9DD83C00CCA082 /* GetHIstoryBuyBookTask.swift */,
+				6DEF91541F9DD9B500CCA082 /* GetHistoryBuyVipTask.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -829,6 +843,7 @@
 				6DE9229D1F676F2700EE24EC /* ProfileMember.swift */,
 				6DEB9BF21F6BC4DE00D858B3 /* Vip.swift */,
 				6DEC62B71F90C2280020A916 /* PeoleReciveProduct.swift */,
+				6DEF91561F9DDB2000CCA082 /* HIstoryBuyVip.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1126,6 +1141,7 @@
 			files = (
 				6D2787871F68CC110087D04D /* ListBookFreee.swift in Sources */,
 				6DF1F4E31F710A280078349B /* SliderShow.swift in Sources */,
+				6DEF914F1F9DCDF700CCA082 /* AddToHistoryTask.swift in Sources */,
 				6DF3DD911F8DC02A00F6AC90 /* DetailSingleNewsForGroupController.swift in Sources */,
 				6DF4FFFD1F5EB18300DF73A0 /* GetAllChanelSubcribledTask.swift in Sources */,
 				6D07667C1F6F6B3100097D8B /* CustomHistorySearch.swift in Sources */,
@@ -1175,6 +1191,7 @@
 				6DEB9BF11F6BC1BE00D858B3 /* GetAllproductTask.swift in Sources */,
 				6DF727941F55427600E0D242 /* LikeTask.swift in Sources */,
 				6DEFD56C1F500C5400393E77 /* DefineURL.swift in Sources */,
+				6DEF91511F9DD1BF00CCA082 /* GetHistoryListenTask.swift in Sources */,
 				6DED804E1F66781400ACC77F /* DetailSingleGroupViewController.swift in Sources */,
 				6DF808EE1F6295D500608770 /* GroupJoinedViewController.swift in Sources */,
 				6DEE6E1F1F68D565005F80F4 /* HistoryMarkCell.swift in Sources */,
@@ -1236,6 +1253,7 @@
 				6DEEF0001F612C8F0078EEE1 /* BookDownloadCell.swift in Sources */,
 				6DEE1C0E1F83267500C62560 /* GetNotificationTask.swift in Sources */,
 				6DEE63EB1F73CB5400C10E5E /* ShareViewCell.swift in Sources */,
+				6DEF91531F9DD83C00CCA082 /* GetHIstoryBuyBookTask.swift in Sources */,
 				6DF3E0FE1F5CE89400C10D31 /* BookMarkTask.swift in Sources */,
 				6DED400B1F92849B00890BB3 /* VideoPlayerView.swift in Sources */,
 				6DEFD7541F4A974800FB0CA5 /* BookDetailViewController.swift in Sources */,
@@ -1252,6 +1270,7 @@
 				6DEFD74A1F4A748500FB0CA5 /* CustomTopTabbar.swift in Sources */,
 				6DF5C2A11F57CD4D00A89363 /* ListBookFreeController.swift in Sources */,
 				6DEFD56A1F500B6900393E77 /* GetTypeOfBookTask.swift in Sources */,
+				6DEF91571F9DDB2000CCA082 /* HIstoryBuyVip.swift in Sources */,
 				6DEFA8951F60E62D00374113 /* ListSetting.swift in Sources */,
 				6DF4FFF91F5EA57200DF73A0 /* GetTotaViewOfChanel.swift in Sources */,
 				6DF3CE441F9453CA0041EB87 /* CustomMenu.swift in Sources */,
@@ -1292,6 +1311,7 @@
 				6DEEF0051F6145A10078EEE1 /* VipDetailViewController.swift in Sources */,
 				6DF727A31F55719200E0D242 /* ForgetPassViewController.swift in Sources */,
 				6DF1F4E51F710B320078349B /* GetSliderBanerTask.swift in Sources */,
+				6DEF91551F9DD9B500CCA082 /* GetHistoryBuyVipTask.swift in Sources */,
 				6D2187E81F5E53D200C205CE /* ChanelViewController.swift in Sources */,
 				6DEB9BEB1F6BC01900D858B3 /* GetListProductByPointTask.swift in Sources */,
 				58C39DE41F3C576C001741EB /* DetailNewsController.swift in Sources */,

@@ -28,11 +28,11 @@ class MyprofileViewController: BaseViewController, UITableViewDelegate, UITableV
         
         let avaterURL = (memberInstance?.avatar!)! + "?"
         avatar.sd_setImage(with: URL(string: avaterURL), placeholderImage: #imageLiteral(resourceName: "place_holder"))
+        setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupNavigationBar()
         arraySetting.removeAll()
         customData()
         table.reloadData()
