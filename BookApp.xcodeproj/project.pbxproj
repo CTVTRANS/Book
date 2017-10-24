@@ -35,7 +35,6 @@
 		6D2787871F68CC110087D04D /* ListBookFreee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2787851F68CC110087D04D /* ListBookFreee.swift */; };
 		6D2787881F68CC110087D04D /* ListBookFreee.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D2787861F68CC110087D04D /* ListBookFreee.xib */; };
 		6D27878A1F68CE7F0087D04D /* HistoryBuyProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2787891F68CE7F0087D04D /* HistoryBuyProductController.swift */; };
-		6D2F789A1F8227DB005B9CC2 /* DFYaSongGB5Std-W9.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D2F78991F8227DB005B9CC2 /* DFYaSongGB5Std-W9.otf */; };
 		6D380FAC1F7CE94C00905F00 /* MP3Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D380FAB1F7CE94C00905F00 /* MP3Player.swift */; };
 		6D87DCAF1F5405D500269351 /* GetAllBookSuggestTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D87DCAE1F5405D500269351 /* GetAllBookSuggestTask.swift */; };
 		6D87DCB21F5411E600269351 /* Global.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D87DCB11F5411E600269351 /* Global.storyboard */; };
@@ -72,6 +71,9 @@
 		6DED58D71F72614300F13213 /* DownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DED58D61F72614300F13213 /* DownloadTask.swift */; };
 		6DED5BFE1F8C7E4D004CE5BF /* GetNewsRelatedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DED5BFD1F8C7E4D004CE5BF /* GetNewsRelatedTask.swift */; };
 		6DED74B91F4C1D6800E4E42F /* BookTypeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DED74B81F4C1D6800E4E42F /* BookTypeViewCell.swift */; };
+		6DED77001F9F30B000DB734B /* AgreementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DED76FF1F9F30B000DB734B /* AgreementsViewController.swift */; };
+		6DED77031F9F363000DB734B /* STHeiti-Light.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 6DED77011F9F363000DB734B /* STHeiti-Light.ttc */; };
+		6DED77041F9F363000DB734B /* STHeitiSCMedium.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 6DED77021F9F363000DB734B /* STHeitiSCMedium.ttc */; };
 		6DED804E1F66781400ACC77F /* DetailSingleGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DED804D1F66781400ACC77F /* DetailSingleGroupViewController.swift */; };
 		6DED80501F66783700ACC77F /* DetailSingleGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DED804F1F66783700ACC77F /* DetailSingleGroupCell.swift */; };
 		6DED828D1F94A403000A1AE3 /* DefaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DED828C1F94A403000A1AE3 /* DefaultApp.swift */; };
@@ -212,7 +214,6 @@
 		6DF702F51F6103C700FAF762 /* HistoryWatchChanelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF702F31F6103C700FAF762 /* HistoryWatchChanelCell.swift */; };
 		6DF702F61F6103C700FAF762 /* HistoryWatchChanelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DF702F41F6103C700FAF762 /* HistoryWatchChanelCell.xib */; };
 		6DF727941F55427600E0D242 /* LikeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF727931F55427600E0D242 /* LikeTask.swift */; };
-		6DF727991F55505600E0D242 /* CSong3HK-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DF727961F55505600E0D242 /* CSong3HK-Medium.ttf */; };
 		6DF7279A1F55505600E0D242 /* DFHeiStd-W5.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6DF727971F55505600E0D242 /* DFHeiStd-W5.otf */; };
 		6DF7279B1F55505600E0D242 /* DFHeiStd-W7.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6DF727981F55505600E0D242 /* DFHeiStd-W7.otf */; };
 		6DF7279D1F55554500E0D242 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF7279C1F55554500E0D242 /* SplashViewController.swift */; };
@@ -264,7 +265,6 @@
 		6D2787851F68CC110087D04D /* ListBookFreee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListBookFreee.swift; sourceTree = "<group>"; };
 		6D2787861F68CC110087D04D /* ListBookFreee.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListBookFreee.xib; sourceTree = "<group>"; };
 		6D2787891F68CE7F0087D04D /* HistoryBuyProductController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryBuyProductController.swift; sourceTree = "<group>"; };
-		6D2F78991F8227DB005B9CC2 /* DFYaSongGB5Std-W9.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DFYaSongGB5Std-W9.otf"; sourceTree = "<group>"; };
 		6D380FAB1F7CE94C00905F00 /* MP3Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MP3Player.swift; sourceTree = "<group>"; };
 		6D87DCAE1F5405D500269351 /* GetAllBookSuggestTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllBookSuggestTask.swift; sourceTree = "<group>"; };
 		6D87DCB11F5411E600269351 /* Global.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Global.storyboard; sourceTree = "<group>"; };
@@ -301,6 +301,9 @@
 		6DED58D61F72614300F13213 /* DownloadTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadTask.swift; sourceTree = "<group>"; };
 		6DED5BFD1F8C7E4D004CE5BF /* GetNewsRelatedTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetNewsRelatedTask.swift; sourceTree = "<group>"; };
 		6DED74B81F4C1D6800E4E42F /* BookTypeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTypeViewCell.swift; sourceTree = "<group>"; };
+		6DED76FF1F9F30B000DB734B /* AgreementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementsViewController.swift; sourceTree = "<group>"; };
+		6DED77011F9F363000DB734B /* STHeiti-Light.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STHeiti-Light.ttc"; sourceTree = "<group>"; };
+		6DED77021F9F363000DB734B /* STHeitiSCMedium.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = STHeitiSCMedium.ttc; sourceTree = "<group>"; };
 		6DED804D1F66781400ACC77F /* DetailSingleGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailSingleGroupViewController.swift; sourceTree = "<group>"; };
 		6DED804F1F66783700ACC77F /* DetailSingleGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailSingleGroupCell.swift; sourceTree = "<group>"; };
 		6DED828C1F94A403000A1AE3 /* DefaultApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultApp.swift; sourceTree = "<group>"; };
@@ -446,7 +449,6 @@
 		6DF702F31F6103C700FAF762 /* HistoryWatchChanelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryWatchChanelCell.swift; sourceTree = "<group>"; };
 		6DF702F41F6103C700FAF762 /* HistoryWatchChanelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryWatchChanelCell.xib; sourceTree = "<group>"; };
 		6DF727931F55427600E0D242 /* LikeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeTask.swift; sourceTree = "<group>"; };
-		6DF727961F55505600E0D242 /* CSong3HK-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CSong3HK-Medium.ttf"; sourceTree = "<group>"; };
 		6DF727971F55505600E0D242 /* DFHeiStd-W5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DFHeiStd-W5.otf"; sourceTree = "<group>"; };
 		6DF727981F55505600E0D242 /* DFHeiStd-W7.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DFHeiStd-W7.otf"; sourceTree = "<group>"; };
 		6DF7279C1F55554500E0D242 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -701,6 +703,7 @@
 				6D87DCBA1F54191600269351 /* CommentCell.swift */,
 				6DEE63E81F73CB2D00C10E5E /* ShareController.swift */,
 				6DEE63EA1F73CB5400C10E5E /* ShareViewCell.swift */,
+				6DED76FF1F9F30B000DB734B /* AgreementsViewController.swift */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -916,10 +919,10 @@
 		6DF727951F55500700E0D242 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				6D2F78991F8227DB005B9CC2 /* DFYaSongGB5Std-W9.otf */,
-				6DF727961F55505600E0D242 /* CSong3HK-Medium.ttf */,
 				6DF727971F55505600E0D242 /* DFHeiStd-W5.otf */,
 				6DF727981F55505600E0D242 /* DFHeiStd-W7.otf */,
+				6DED77011F9F363000DB734B /* STHeiti-Light.ttc */,
+				6DED77021F9F363000DB734B /* STHeitiSCMedium.ttc */,
 				58C39DC31F3C0489001741EB /* LaunchScreen.storyboard */,
 				58C39DC61F3C0489001741EB /* Info.plist */,
 				6DF550751F74FE2C0088F1B7 /* libWeChatSDK.a */,
@@ -1024,6 +1027,7 @@
 				6D2787881F68CC110087D04D /* ListBookFreee.xib in Resources */,
 				6DEDBD5D1F459B8500526AD0 /* BookCollectionViewCell.xib in Resources */,
 				58C39DCE1F3C077A001741EB /* NavigationCustom.xib in Resources */,
+				6DED77041F9F363000DB734B /* STHeitiSCMedium.ttc in Resources */,
 				6DF7279B1F55505600E0D242 /* DFHeiStd-W7.otf in Resources */,
 				6D9E6B7A1F8F760000BA7E30 /* ChooseMethodPayment.xib in Resources */,
 				6DF07B781F690A940017C1CB /* StoreMarkViewCell.xib in Resources */,
@@ -1031,7 +1035,6 @@
 				6DEEF0011F612C8F0078EEE1 /* BookDownloadCell.xib in Resources */,
 				6DF1D7941F7B38D70075F26C /* SettingChooseSex.xib in Resources */,
 				58C39DC51F3C0489001741EB /* LaunchScreen.storyboard in Resources */,
-				6D2F789A1F8227DB005B9CC2 /* DFYaSongGB5Std-W9.otf in Resources */,
 				6DF702EE1F61008400FAF762 /* Profile.storyboard in Resources */,
 				58C39DE21F3C5662001741EB /* BottomView.xib in Resources */,
 				6DF418A21F8476B300BA9AE5 /* CountryCell.xib in Resources */,
@@ -1043,8 +1046,8 @@
 				58C39DC21F3C0489001741EB /* Assets.xcassets in Resources */,
 				6DF1D79A1F7B448F0075F26C /* SettingDatepicker.xib in Resources */,
 				6DF4189C1F84757100BA9AE5 /* ListCountryView.xib in Resources */,
-				6DF727991F55505600E0D242 /* CSong3HK-Medium.ttf in Resources */,
 				58C39DC01F3C0489001741EB /* Main.storyboard in Resources */,
+				6DED77031F9F363000DB734B /* STHeiti-Light.ttc in Resources */,
 				6DF417531F46A29000F5032E /* CustomChanelCollection.xib in Resources */,
 				6DF7279A1F55505600E0D242 /* DFHeiStd-W5.otf in Resources */,
 			);
@@ -1240,6 +1243,7 @@
 				6DEC62B61F90A4870020A916 /* SendTokenTask.swift in Sources */,
 				6DF702F21F6102FC00FAF762 /* HistoryWatchChanelViewController.swift in Sources */,
 				6DEA45141F7A4406009290E4 /* FooterLoadMoreReusableView.swift in Sources */,
+				6DED77001F9F30B000DB734B /* AgreementsViewController.swift in Sources */,
 				6DE922A31F6779C500EE24EC /* GetAllGroupTask.swift in Sources */,
 				58C39DD21F3C1F41001741EB /* BaseViewController.swift in Sources */,
 				6DF6462F1F81D0B5004F47C2 /* DownloadAudioController.swift in Sources */,

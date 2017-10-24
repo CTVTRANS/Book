@@ -121,12 +121,18 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
     
     func updateTimer(timer: Timer) {
         counter -= 1
-        titleForbutton.text = "  获取验证码" + "(\(counter)s)" + "  "
+        titleForbutton.text = "获取验证码" + "(\(counter)s)" + "  "
         if counter <= 0 {
-            titleForbutton.text = "  获取验证码  "
+            titleForbutton.text = "获取验证码  "
             timer.invalidate()
             counter = 60
             sendCodebutton.isEnabled = true
+        }
+    }
+    
+    @IBAction func pressedShowAgreement(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "AgreementsViewController") as? AgreementsViewController {
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

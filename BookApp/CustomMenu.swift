@@ -64,8 +64,8 @@ class CustomMenu: UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var sizeFont: CGFloat = 14
         sizeFont.adjustsSizeToRealIPhoneSize = 14
-        let width = arrayTypeNews[indexPath.row].nameType.widthOfString(usingFont: UIFont(name: "DFHeiStd-W5", size: sizeFont)!)
-        let height = arrayTypeNews[indexPath.row].nameType.heightOfString(usingFont: UIFont(name: "DFHeiStd-W5", size: sizeFont)!)
+        let width = arrayTypeNews[indexPath.row].nameType.widthOfString(usingFont: UIFont(name: "HelveticaNeue", size: sizeFont)!)
+        let height = arrayTypeNews[indexPath.row].nameType.heightOfString(usingFont: UIFont(name: "HelveticaNeue", size: sizeFont)!)
         return CGSize(width: width + 16, height: height + 10)
     }
     

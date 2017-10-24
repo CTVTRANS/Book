@@ -24,14 +24,17 @@
                     <rect key="frame" x="20" y="127" width="280" height="280"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9o-IJ-lRP">
-                            <rect key="frame" x="228" y="232" width="36" height="40"/>
+                            <rect key="frame" x="234" y="232" width="30" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="vA1-QO-uwM"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="15"/>
                             <state key="normal" title="确认">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="pressedOk:" destination="iN0-l3-epB" eventType="touchUpInside" id="GuI-qk-86i"/>
                             </connections>

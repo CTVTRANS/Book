@@ -122,9 +122,9 @@ class ForgetPassViewController: BaseViewController, UITextFieldDelegate {
     
     func updateTimer(timer: Timer) {
         counter -= 1
-        titleButtonSendCode.text = "  获取验证码" + "(\(counter)s)" + "  "
+        titleButtonSendCode.text = "获取验证码" + "(\(counter)s)" + "  "
         if counter <= 0 {
-            titleButtonSendCode.text = "  获取验证码  "
+            titleButtonSendCode.text = "获取验证码  "
             timer.invalidate()
             counter = 60
             buttonSendCode.isEnabled = true

@@ -50,7 +50,6 @@ class CustomHistorySearch: UIView {
             button.layer.borderWidth = 0.5
             var sizeFont: CGFloat = 13
             sizeFont.adjustsSizeToRealIPhoneSize = 13
-//            HelveticaNeue
 //            DFHeiStd-W5
             button.titleLabel!.font = UIFont(name: "HelveticaNeue", size: sizeFont)
             button.setTitleColor(.black, for: .normal)
