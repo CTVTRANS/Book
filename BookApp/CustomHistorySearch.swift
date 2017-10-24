@@ -18,8 +18,7 @@ class CustomHistorySearch: UIView {
     
     var listText: [TypeSearch] = []
     var callBackButton:((_ type: TypeSearch) -> Void)?
-    
-//    private var myView: UIView?
+
     private var height: CGFloat = 0.0
     var heightForView: CGFloat?
     

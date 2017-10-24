@@ -21,6 +21,11 @@ class SpecialComment: NSObject {
         return _name
     }
     var comment: [Comment] {
-        return _listComment!
+        get {
+            return _listComment!
+        }
+        set {
+            _listComment = newValue
+        }
     }
 }

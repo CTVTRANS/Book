@@ -228,8 +228,8 @@ extension UITableView {
     }
     
     var noData: UIView {
-        let view = UIView(frame: self.bounds)
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 64))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: widthScreen, height: self.frame.size.height))
+        let label = UILabel(frame: CGRect(x: 0, y: 20, width: view.frame.width, height: 64))
         label.text = "没有资料"
         label.textColor = UIColor.rgb(201, 201, 201)
         label.textAlignment = .center

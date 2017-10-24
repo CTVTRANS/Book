@@ -383,7 +383,7 @@ extension SearchViewController {
         searchBar.endEditing(true)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let endTable = table.contentOffset.y >= table.contentSize.height - table.frame.size.height
         if isMoreData && endTable && !isLoading && !scrollView.isDragging && !scrollView.isDecelerating {
             table.tableFooterView = footerView

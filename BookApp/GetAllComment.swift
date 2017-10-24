@@ -30,7 +30,7 @@ class GetAllComment: BaseTaskNetwork {
     override func parameters() -> [AnyHashable : Any]! {
         return ["comment_type": _commentType,
                 "object_id": _idObject,
-                "limit": 30,
+                "limit": 10,
                 "page": _page,
                 "member_id": _idMember]
     }
@@ -41,16 +41,13 @@ class GetAllComment: BaseTaskNetwork {
     
     override func data(withResponse response: Any!) -> Any! {
         var listComment: [Comment] = []
-        var checkHot = false
         if let object = response as? [[String: Any]] {
             for dictionary in object {
-                let iDComment = dictionary["comment_id"] as? Int ?? 9999
-                for commentHot in Constants.sharedInstance.listCommentHot where commentHot.idComment ==  iDComment {
-                    checkHot = true
-                    break
-                }
-                if checkHot {
-                    checkHot = !checkHot
+                let iDComment = dictionary["comment_id"] as? Int ?? 0
+                let hotComment = Constants.sharedInstance.listCommentHot.filter({ (obj) -> Bool in
+                    return obj.idComment == iDComment
+                })
+                if hotComment.count > 0 {
                     continue
                 }
                 let commentObject = parseComment(dictionary: dictionary)
@@ -63,12 +60,12 @@ class GetAllComment: BaseTaskNetwork {
 
 extension BaseTaskNetwork {
     func parseComment(dictionary: [String: Any]) -> Comment {
-        let iDComment = dictionary["comment_id"] as? Int ?? 9999
-        let contentcomment = dictionary["comment_content"] as? String ?? "999"
-        let timeComment = dictionary["comment_time"] as? String ?? "999"
+        let iDComment = dictionary["comment_id"] as? Int ?? 0
+        let contentcomment = dictionary["comment_content"] as? String ?? ""
+        let timeComment = dictionary["comment_time"] as? String ?? ""
         let numberLikeComment = dictionary["number_of_likes"] as? Int ?? 0
-        let userName = dictionary["author_name"] as? String ?? "kien"
-        let userAvata = dictionary["author_avatar"] as? String ?? "999"
+        let userName = dictionary["author_name"] as? String ?? ""
+        let userAvata = dictionary["author_avatar"] as? String ?? ""
         let status = dictionary["like_status"] as? Int ?? 0
         
         let user: User = User(name: userName, age: 18, sex: 1, avata: userAvata)

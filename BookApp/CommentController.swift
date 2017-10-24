@@ -20,9 +20,25 @@ class CommentController: BaseViewController, UITextViewDelegate {
     
     private var tap: UITapGestureRecognizer?
     var arrayObject = [SpecialComment]()
+    var arrayComment: [Comment] = []
+    var commentNormal: SpecialComment?
+   
     var idObject: Int?
     var commentType: Int?
     var object: AnyObject!
+    
+    var isLoading = false
+    var isMoreData = true
+    var pager = 1
+    lazy var footer = UIView.initFooterView()
+    var indicator: UIActivityIndicatorView?
+    lazy var refreshControl: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        refresh.backgroundColor = .white
+        refresh.tintColor = .gray
+        refresh.addTarget(self, action: #selector(reloadMyData), for: .valueChanged)
+        return refresh
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +48,10 @@ class CommentController: BaseViewController, UITextViewDelegate {
         commentTextView.delegate = self
         tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         alphaView.addGestureRecognizer(tap!)
-        getCommet()
+        getComment()
+        if let ac = footer.viewWithTag(8) as? UIActivityIndicatorView {
+            indicator = ac
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,28 +64,42 @@ class CommentController: BaseViewController, UITextViewDelegate {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    func reloadMyData() {
+        isMoreData = true
+        pager = 1
+        arrayComment.removeAll()
+        commentNormal = SpecialComment(name: "最新评论", array: arrayComment)
+        arrayObject.removeAll()
+        table.reloadData()
+        getComment()
+    }
+    
     func setupUI() {
         alphaView.isHidden = true
         commentView.isHidden = true
         table.estimatedRowHeight = 140
-        table.tableFooterView = UIView()
+        table.tableFooterView = footer
+        table.addSubview(refreshControl)
+        table.backgroundView = table.noData
+        commentNormal = SpecialComment(name: "最新评论", array: arrayComment)
+        
         if let news = object as? NewsModel {
             titleComment.text = news.title
             detail.text = news.detailNews
         }
         if let book = object as? Book {
             titleComment.text = book.name
-             detail.text = "Book App"
+            detail.text = "Book App"
         }
         if let chanel = object as? Chanel {
             titleComment.text = chanel.nameChanel
-            detail.text = "Book App"
+            detail.text = chanel.nameTeacher
         }
     }
     
     // MARK: Call API
     
-    func getCommet() {
+    func getComment() {
         let getCommentHot: GetCommentHot = GetCommentHot(commentType: commentType!, idObject: idObject!, memberID: (memberInstance?.idMember)!)
         requestWithTask(task: getCommentHot, success: { (data) in
             if let arrayCommentHot = data as? [Comment] {
@@ -74,23 +107,12 @@ class CommentController: BaseViewController, UITextViewDelegate {
                     let hotComment: SpecialComment = SpecialComment(name: "热门评论", array: arrayCommentHot)
                     self.arrayObject.append(hotComment)
                     Constants.sharedInstance.listCommentHot = arrayCommentHot
+                } else {
+                     Constants.sharedInstance.listCommentHot.removeAll()
                 }
             }
-            let getComment: GetAllComment = GetAllComment(commentType: self.commentType!, idObject: self.idObject!, page: 1, idMember: (self.memberInstance?.idMember)!)
-            self.requestWithTask(task: getComment, success: { (data) in
-                if let arrayOfComment = data as? [Comment] {
-                    if arrayOfComment.count > 0 {
-                        let normalComment: SpecialComment = SpecialComment(name: "最新评论", array: arrayOfComment)
-                        self.arrayObject.append(normalComment)
-                    }
-                    self.table.reloadData()
-                    self.stopActivityIndicator()
-                }
-            }) { (error) in
-                self.stopActivityIndicator()
-                _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
-            }
-            
+            self.arrayObject.append(self.commentNormal!)
+            self.getCommentAPI()
         }) { (error) in
             self.stopActivityIndicator()
             _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
@@ -155,6 +177,31 @@ class CommentController: BaseViewController, UITextViewDelegate {
     
     func dismissKeyboard() {
         commentTextView.endEditing(true)
+    }
+    
+    func getCommentAPI() {
+        let getComment: GetAllComment = GetAllComment(commentType: self.commentType!, idObject: self.idObject!, page: pager, idMember: (self.memberInstance?.idMember)!)
+        self.requestWithTask(task: getComment, success: { (data) in
+            if let arrayOfComment = data as? [Comment] {
+                if arrayOfComment.count > 0 {
+                    self.pager += 1
+                    let objectNormalcomment = self.arrayObject.filter({ (obj) -> Bool in
+                        return obj.name == "最新评论"
+                    })
+                    objectNormalcomment.first?.comment += arrayOfComment
+                } else {
+                    self.isMoreData = false
+                }
+                self.isLoading = false
+                self.indicator?.stopAnimating()
+                self.table.reloadData()
+                self.stopActivityIndicator()
+                self.refreshControl.endRefreshing()
+            }
+        }) { (error) in
+            self.stopActivityIndicator()
+            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+        }
     }
     
     deinit {
@@ -228,5 +275,14 @@ extension CommentController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         table.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let endOfTable = table.contentOffset.y >= (table.contentSize.height - table.frame.size.height)
+        if isMoreData && !isLoading && endOfTable && !scrollView.isDecelerating && !scrollView.isDragging {
+            isLoading = true
+            getCommentAPI()
+            indicator?.startAnimating()
+        }
     }
 }

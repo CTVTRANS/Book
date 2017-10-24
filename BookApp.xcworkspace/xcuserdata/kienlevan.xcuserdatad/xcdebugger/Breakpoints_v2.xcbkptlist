@@ -105,13 +105,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BookApp/ChanelUpLoaeCell.swift"
-            timestampString = "530506375.5953"
+            filePath = "BookApp/CommentController.swift"
+            timestampString = "530526117.903051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "binData(chap:)"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "getCommentAPI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -121,13 +121,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BookApp/DetailChanelViewController.swift"
-            timestampString = "530506543.665574"
+            filePath = "BookApp/CommentController.swift"
+            timestampString = "530525796.764926"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "356"
-            endingLineNumber = "356"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "getComment()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

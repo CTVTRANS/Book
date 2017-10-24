@@ -175,6 +175,7 @@ class BookDetailViewController: BaseViewController {
                 let vc = myStoryboard.instantiateViewController(withIdentifier: "CommentController") as? CommentController
                 vc?.idObject = self?.bookSelected?.idBook
                 vc?.commentType = Object.book.rawValue
+                vc?.object = self?.bookSelected
                 self?.present(vc!, animated: false, completion: nil)
             case BottomButton.like: self?.pressedLike()
             case BottomButton.download:
