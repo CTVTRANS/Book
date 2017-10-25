@@ -169,18 +169,17 @@ class MainViewController: BaseViewController {
     func setupCallBack() {
         NotificationCenter.default.addObserver(self, selector: #selector(checkNotifocationApp), name: NSNotification.Name(rawValue: "reciveNotificaton"), object: nil)
         navigationCustoms.callBackTopButton = { [weak self] (typeButton: TopButton) in
-            if typeButton == TopButton.search {
-                self?.goToSearch()
-                return
-            }
-            if !(self?.checkLogin())! {
-                self?.goToSigIn()
-                return
-            }
             switch typeButton {
-            case TopButton.messageNotification: self?.goToNotification(myViewController: self!)
-            case TopButton.videoNotification: self?.goToListPlayaudio()
-            default : break
+            case TopButton.messageNotification:
+                if !(self?.checkLogin())! {
+                    self?.goToSigIn()
+                    return
+                }
+                self?.goToNotification(myViewController: self!)
+            case TopButton.videoNotification:
+                self?.goToListPlayaudio()
+            case TopButton.search:
+                self?.goToSearch()
             }
         }
     }

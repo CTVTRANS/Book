@@ -27,14 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         
         if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
             Constants.sharedInstance.hasNotification = true
-//            Constants.sharedInstance.language = 1
-//            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let splash = mainStoryboard.instantiateViewController(withIdentifier: "SplashView") as? SplashViewController
-//            let sw = mainStoryboard.instantiateViewController(withIdentifier: "SWRevealViewController") as? SWRevealViewController
-//            let tabbar = mainStoryboard.instantiateViewController(withIdentifier: "TabBarController") as? TabBarViewController
-//            self.window?.rootViewController = splash
-//            splash?.navigationController?.pushViewController(sw!, animated: false)
-////            splash?.present(tabbar!, animated: false, completion: nil)
             let aps = notification["aps"] as? [String: AnyObject]
             print(aps!)
         }

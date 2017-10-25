@@ -170,22 +170,17 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
     func setupCallBackNavigation() {
         NotificationCenter.default.addObserver(self, selector: #selector(checkNotifocationApp), name: NSNotification.Name(rawValue: "reciveNotificaton"), object: nil)
         navigationView.callBackTopButton = { [weak self] (typeButton: TopButton) in
-            
-            if typeButton == TopButton.search {
-                self?.goToSearch()
-                return
-            }
-            if !(self?.checkLogin())! {
-                self?.goToSigIn()
-                return
-            }
             switch typeButton {
             case TopButton.messageNotification:
+                if !(self?.checkLogin())! {
+                    self?.goToSigIn()
+                    return
+                }
                 self?.goToNotification(myViewController: self!)
             case TopButton.videoNotification:
                self?.goToListPlayaudio()
-            default :
-                break
+            case TopButton.search:
+                self?.goToSearch()
             }
         }
     }

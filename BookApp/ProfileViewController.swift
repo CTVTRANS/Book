@@ -165,23 +165,20 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         NotificationCenter.default.addObserver(self, selector: #selector(checkNotifocationApp), name: NSNotification.Name(rawValue: "reciveNotificaton"), object: nil)
         navigationCustom.rightImage.image = #imageLiteral(resourceName: "ic_setting")
         navigationCustom.callBackTopButton = { [weak self] (typeButton: TopButton) in
-            if typeButton == TopButton.search {
+            switch typeButton {
+            case TopButton.messageNotification:
+                if !(self?.checkLogin())! {
+                    self?.goToSigIn()
+                    return
+                }
+               self?.goToNotification(myViewController: self!)
+            case TopButton.videoNotification:
+                self?.goToListPlayaudio()
+            case TopButton.search:
                 let myStoryboard = UIStoryboard(name: "Setting", bundle: nil)
                 if let vc = myStoryboard.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController {
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
-            }
-            if !(self?.checkLogin())! {
-                self?.goToSigIn()
-                return
-            }
-            switch typeButton {
-            case TopButton.messageNotification:
-               self?.goToNotification(myViewController: self!)
-            case TopButton.videoNotification:
-                self?.goToListPlayaudio()
-            default :
-                break
             }
         }
     }
