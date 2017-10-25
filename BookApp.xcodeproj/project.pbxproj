@@ -189,6 +189,23 @@
 		6DF418AA1F84838100BA9AE5 /* UpdateMemberTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF418A91F84838100BA9AE5 /* UpdateMemberTask.swift */; };
 		6DF4DF611F6A7D6500F46CA6 /* ChangeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF4DF601F6A7D6500F46CA6 /* ChangeProfileViewController.swift */; };
 		6DF4DF631F6A865A00F46CA6 /* AppInfomationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF4DF621F6A865A00F46CA6 /* AppInfomationViewController.swift */; };
+		6DF4EACC1FA091C7002B6B8B /* libJDPay_Adapter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EACB1FA091C7002B6B8B /* libJDPay_Adapter.a */; };
+		6DF4EAD11FA091D5002B6B8B /* libApplePay_Adapter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EACF1FA091D5002B6B8B /* libApplePay_Adapter.a */; };
+		6DF4EAD21FA091D5002B6B8B /* libUPAPayPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAD01FA091D5002B6B8B /* libUPAPayPlugin.a */; };
+		6DF4EAD61FA091DE002B6B8B /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAD31FA091DE002B6B8B /* AlipaySDK.framework */; };
+		6DF4EAD71FA091DE002B6B8B /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6DF4EAD41FA091DE002B6B8B /* AlipaySDK.bundle */; };
+		6DF4EAD81FA091DE002B6B8B /* libAli_Adapter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAD51FA091DE002B6B8B /* libAli_Adapter.a */; };
+		6DF4EADC1FA092A1002B6B8B /* FuqianlaRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6DF4EADA1FA092A1002B6B8B /* FuqianlaRes.bundle */; };
+		6DF4EADD1FA092A1002B6B8B /* libFuqianlaPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EADB1FA092A1002B6B8B /* libFuqianlaPay.a */; };
+		6DF4EADF1FA092A9002B6B8B /* libFuqianlaSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EADE1FA092A9002B6B8B /* libFuqianlaSupport.a */; };
+		6DF4EAE11FA092C5002B6B8B /* libWX_Adapter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAE01FA092C5002B6B8B /* libWX_Adapter.a */; };
+		6DF4EAE31FA0942C002B6B8B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAE21FA0942C002B6B8B /* MessageUI.framework */; };
+		6DF4EAE51FA09435002B6B8B /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAE41FA09435002B6B8B /* LocalAuthentication.framework */; };
+		6DF4EAE71FA0943F002B6B8B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAE61FA0943E002B6B8B /* MobileCoreServices.framework */; };
+		6DF4EAE91FA09448002B6B8B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAE81FA09448002B6B8B /* CoreMotion.framework */; };
+		6DF4EAEB1FA09467002B6B8B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAEA1FA09467002B6B8B /* CFNetwork.framework */; };
+		6DF4EAED1FA09470002B6B8B /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAEC1FA09470002B6B8B /* PassKit.framework */; };
+		6DF4EAEF1FA0948A002B6B8B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAEE1FA0948A002B6B8B /* libsqlite3.0.tbd */; };
 		6DF4FFF31F5E973100DF73A0 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF4FFF21F5E973100DF73A0 /* Lesson.swift */; };
 		6DF4FFF51F5E9CDD00DF73A0 /* GetListlessonOfChanelTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF4FFF41F5E9CDD00DF73A0 /* GetListlessonOfChanelTask.swift */; };
 		6DF4FFF71F5EA54700DF73A0 /* SubcribleChanelTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF4FFF61F5EA54700DF73A0 /* SubcribleChanelTask.swift */; };
@@ -420,6 +437,27 @@
 		6DF418A91F84838100BA9AE5 /* UpdateMemberTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateMemberTask.swift; sourceTree = "<group>"; };
 		6DF4DF601F6A7D6500F46CA6 /* ChangeProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeProfileViewController.swift; sourceTree = "<group>"; };
 		6DF4DF621F6A865A00F46CA6 /* AppInfomationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfomationViewController.swift; sourceTree = "<group>"; };
+		6DF4EABF1FA090FF002B6B8B /* LibrariesPayment-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LibrariesPayment-Bridging-Header.h"; sourceTree = "<group>"; };
+		6DF4EACB1FA091C7002B6B8B /* libJDPay_Adapter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJDPay_Adapter.a; sourceTree = "<group>"; };
+		6DF4EACD1FA091D5002B6B8B /* UPAPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPlugin.h; sourceTree = "<group>"; };
+		6DF4EACE1FA091D5002B6B8B /* UPAPayPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPluginDelegate.h; sourceTree = "<group>"; };
+		6DF4EACF1FA091D5002B6B8B /* libApplePay_Adapter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libApplePay_Adapter.a; sourceTree = "<group>"; };
+		6DF4EAD01FA091D5002B6B8B /* libUPAPayPlugin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUPAPayPlugin.a; sourceTree = "<group>"; };
+		6DF4EAD31FA091DE002B6B8B /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		6DF4EAD41FA091DE002B6B8B /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		6DF4EAD51FA091DE002B6B8B /* libAli_Adapter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAli_Adapter.a; sourceTree = "<group>"; };
+		6DF4EAD91FA092A1002B6B8B /* FuqianlaPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuqianlaPay.h; sourceTree = "<group>"; };
+		6DF4EADA1FA092A1002B6B8B /* FuqianlaRes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FuqianlaRes.bundle; sourceTree = "<group>"; };
+		6DF4EADB1FA092A1002B6B8B /* libFuqianlaPay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFuqianlaPay.a; sourceTree = "<group>"; };
+		6DF4EADE1FA092A9002B6B8B /* libFuqianlaSupport.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFuqianlaSupport.a; sourceTree = "<group>"; };
+		6DF4EAE01FA092C5002B6B8B /* libWX_Adapter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWX_Adapter.a; sourceTree = "<group>"; };
+		6DF4EAE21FA0942C002B6B8B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		6DF4EAE41FA09435002B6B8B /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		6DF4EAE61FA0943E002B6B8B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		6DF4EAE81FA09448002B6B8B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		6DF4EAEA1FA09467002B6B8B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6DF4EAEC1FA09470002B6B8B /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		6DF4EAEE1FA0948A002B6B8B /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		6DF4FFF21F5E973100DF73A0 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		6DF4FFF41F5E9CDD00DF73A0 /* GetListlessonOfChanelTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetListlessonOfChanelTask.swift; sourceTree = "<group>"; };
 		6DF4FFF61F5EA54700DF73A0 /* SubcribleChanelTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubcribleChanelTask.swift; sourceTree = "<group>"; };
@@ -436,7 +474,6 @@
 		6DF5507C1F75004C0088F1B7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		6DF5507E1F75005A0088F1B7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		6DF550801F75006B0088F1B7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		6DF550821F7503800088F1B7 /* BookApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookApp-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		6DF57FB81F4C808400FDC47B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6DF59A551F623F3F007DFB85 /* ActivityOfflineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityOfflineViewController.swift; sourceTree = "<group>"; };
 		6DF59A571F624CA7007DFB85 /* ShowAllActivityGroupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAllActivityGroupController.swift; sourceTree = "<group>"; };
@@ -474,12 +511,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DF4EAEF1FA0948A002B6B8B /* libsqlite3.0.tbd in Frameworks */,
+				6DF4EAED1FA09470002B6B8B /* PassKit.framework in Frameworks */,
+				6DF4EAEB1FA09467002B6B8B /* CFNetwork.framework in Frameworks */,
 				6DF550811F75006B0088F1B7 /* SystemConfiguration.framework in Frameworks */,
-				6DF5507F1F75005A0088F1B7 /* libz.tbd in Frameworks */,
-				6DF5507D1F75004C0088F1B7 /* libsqlite3.tbd in Frameworks */,
 				6DF5507B1F75002F0088F1B7 /* CoreTelephony.framework in Frameworks */,
+				6DF4EAE91FA09448002B6B8B /* CoreMotion.framework in Frameworks */,
+				6DF4EAE71FA0943F002B6B8B /* MobileCoreServices.framework in Frameworks */,
+				6DF4EAE51FA09435002B6B8B /* LocalAuthentication.framework in Frameworks */,
+				6DF4EAE31FA0942C002B6B8B /* MessageUI.framework in Frameworks */,
+				6DF5507F1F75005A0088F1B7 /* libz.tbd in Frameworks */,
+				6DF4EAD21FA091D5002B6B8B /* libUPAPayPlugin.a in Frameworks */,
+				6DF4EADD1FA092A1002B6B8B /* libFuqianlaPay.a in Frameworks */,
+				6DF5507D1F75004C0088F1B7 /* libsqlite3.tbd in Frameworks */,
+				6DF4EACC1FA091C7002B6B8B /* libJDPay_Adapter.a in Frameworks */,
 				6DF550791F7500230088F1B7 /* libc++.tbd in Frameworks */,
+				6DF4EADF1FA092A9002B6B8B /* libFuqianlaSupport.a in Frameworks */,
+				6DF4EAE11FA092C5002B6B8B /* libWX_Adapter.a in Frameworks */,
+				6DF4EAD11FA091D5002B6B8B /* libApplePay_Adapter.a in Frameworks */,
 				6DF57FB91F4C808400FDC47B /* AVFoundation.framework in Frameworks */,
+				6DF4EAD81FA091DE002B6B8B /* libAli_Adapter.a in Frameworks */,
+				6DF4EAD61FA091DE002B6B8B /* AlipaySDK.framework in Frameworks */,
 				76E08F9DCE0410B70DD2B4D3 /* Pods_BookApp.framework in Frameworks */,
 				6DF550761F74FE2C0088F1B7 /* libWeChatSDK.a in Frameworks */,
 			);
@@ -491,6 +543,13 @@
 		482460553D20F5C79AAB9EFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6DF4EAEE1FA0948A002B6B8B /* libsqlite3.0.tbd */,
+				6DF4EAEC1FA09470002B6B8B /* PassKit.framework */,
+				6DF4EAEA1FA09467002B6B8B /* CFNetwork.framework */,
+				6DF4EAE81FA09448002B6B8B /* CoreMotion.framework */,
+				6DF4EAE61FA0943E002B6B8B /* MobileCoreServices.framework */,
+				6DF4EAE41FA09435002B6B8B /* LocalAuthentication.framework */,
+				6DF4EAE21FA0942C002B6B8B /* MessageUI.framework */,
 				6DF550801F75006B0088F1B7 /* SystemConfiguration.framework */,
 				6DF5507E1F75005A0088F1B7 /* libz.tbd */,
 				6DF5507C1F75004C0088F1B7 /* libsqlite3.tbd */,
@@ -880,6 +939,86 @@
 			name = DetailBook;
 			sourceTree = "<group>";
 		};
+		6DF4EAC01FA0910B002B6B8B /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				6DF4EAC31FA0911C002B6B8B /* Channels */,
+				6DF4EAC21FA0911B002B6B8B /* fqlLibs */,
+				6DF4EAC11FA09118002B6B8B /* support */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		6DF4EAC11FA09118002B6B8B /* support */ = {
+			isa = PBXGroup;
+			children = (
+				6DF4EADE1FA092A9002B6B8B /* libFuqianlaSupport.a */,
+			);
+			name = support;
+			sourceTree = "<group>";
+		};
+		6DF4EAC21FA0911B002B6B8B /* fqlLibs */ = {
+			isa = PBXGroup;
+			children = (
+				6DF4EAD91FA092A1002B6B8B /* FuqianlaPay.h */,
+				6DF4EADA1FA092A1002B6B8B /* FuqianlaRes.bundle */,
+				6DF4EADB1FA092A1002B6B8B /* libFuqianlaPay.a */,
+			);
+			name = fqlLibs;
+			sourceTree = "<group>";
+		};
+		6DF4EAC31FA0911C002B6B8B /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				6DF4EAC81FA09184002B6B8B /* JDPay */,
+				6DF4EAC61FA0914D002B6B8B /* AlipaySDK */,
+				6DF4EAC51FA0914B002B6B8B /* ApplePay */,
+				6DF4EAC41FA09148002B6B8B /* wxSDK */,
+			);
+			name = Channels;
+			sourceTree = "<group>";
+		};
+		6DF4EAC41FA09148002B6B8B /* wxSDK */ = {
+			isa = PBXGroup;
+			children = (
+				6DF4EAE01FA092C5002B6B8B /* libWX_Adapter.a */,
+				6DF550751F74FE2C0088F1B7 /* libWeChatSDK.a */,
+				6DF550721F74FE240088F1B7 /* WechatAuthSDK.h */,
+				6DF550731F74FE240088F1B7 /* WXApi.h */,
+				6DF550741F74FE240088F1B7 /* WXApiObject.h */,
+			);
+			name = wxSDK;
+			sourceTree = "<group>";
+		};
+		6DF4EAC51FA0914B002B6B8B /* ApplePay */ = {
+			isa = PBXGroup;
+			children = (
+				6DF4EACD1FA091D5002B6B8B /* UPAPayPlugin.h */,
+				6DF4EACE1FA091D5002B6B8B /* UPAPayPluginDelegate.h */,
+				6DF4EACF1FA091D5002B6B8B /* libApplePay_Adapter.a */,
+				6DF4EAD01FA091D5002B6B8B /* libUPAPayPlugin.a */,
+			);
+			name = ApplePay;
+			sourceTree = "<group>";
+		};
+		6DF4EAC61FA0914D002B6B8B /* AlipaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				6DF4EAD31FA091DE002B6B8B /* AlipaySDK.framework */,
+				6DF4EAD41FA091DE002B6B8B /* AlipaySDK.bundle */,
+				6DF4EAD51FA091DE002B6B8B /* libAli_Adapter.a */,
+			);
+			name = AlipaySDK;
+			sourceTree = "<group>";
+		};
+		6DF4EAC81FA09184002B6B8B /* JDPay */ = {
+			isa = PBXGroup;
+			children = (
+				6DF4EACB1FA091C7002B6B8B /* libJDPay_Adapter.a */,
+			);
+			name = JDPay;
+			sourceTree = "<group>";
+		};
 		6DF59A541F623EB7007DFB85 /* Histoty-Bookmarked-Downloaded */ = {
 			isa = PBXGroup;
 			children = (
@@ -919,17 +1058,14 @@
 		6DF727951F55500700E0D242 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				6DF4EAC01FA0910B002B6B8B /* libs */,
 				6DF727971F55505600E0D242 /* DFHeiStd-W5.otf */,
 				6DF727981F55505600E0D242 /* DFHeiStd-W7.otf */,
 				6DED77011F9F363000DB734B /* STHeiti-Light.ttc */,
 				6DED77021F9F363000DB734B /* STHeitiSCMedium.ttc */,
 				58C39DC31F3C0489001741EB /* LaunchScreen.storyboard */,
 				58C39DC61F3C0489001741EB /* Info.plist */,
-				6DF550751F74FE2C0088F1B7 /* libWeChatSDK.a */,
-				6DF550721F74FE240088F1B7 /* WechatAuthSDK.h */,
-				6DF550731F74FE240088F1B7 /* WXApi.h */,
-				6DF550741F74FE240088F1B7 /* WXApiObject.h */,
-				6DF550821F7503800088F1B7 /* BookApp-Bridging-Header.h */,
+				6DF4EABF1FA090FF002B6B8B /* LibrariesPayment-Bridging-Header.h */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -1029,10 +1165,12 @@
 				58C39DCE1F3C077A001741EB /* NavigationCustom.xib in Resources */,
 				6DED77041F9F363000DB734B /* STHeitiSCMedium.ttc in Resources */,
 				6DF7279B1F55505600E0D242 /* DFHeiStd-W7.otf in Resources */,
+				6DF4EADC1FA092A1002B6B8B /* FuqianlaRes.bundle in Resources */,
 				6D9E6B7A1F8F760000BA7E30 /* ChooseMethodPayment.xib in Resources */,
 				6DF07B781F690A940017C1CB /* StoreMarkViewCell.xib in Resources */,
 				6DF889241F41847E005F72D7 /* Book.storyboard in Resources */,
 				6DEEF0011F612C8F0078EEE1 /* BookDownloadCell.xib in Resources */,
+				6DF4EAD71FA091DE002B6B8B /* AlipaySDK.bundle in Resources */,
 				6DF1D7941F7B38D70075F26C /* SettingChooseSex.xib in Resources */,
 				58C39DC51F3C0489001741EB /* LaunchScreen.storyboard in Resources */,
 				6DF702EE1F61008400FAF762 /* Profile.storyboard in Resources */,
@@ -1392,8 +1530,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/LibrariesPayment-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1435,7 +1575,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/LibrariesPayment-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1448,6 +1590,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BookApp/BookApp.entitlements;
 				DEVELOPMENT_TEAM = HDNMHL7M4Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BookApp",
+				);
 				INFOPLIST_FILE = BookApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1457,7 +1603,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = vn.conglv.BookApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kienlevan/Dropbox/CTVTRANS/StudyApp/BookApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/LibrariesPayment-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1470,6 +1616,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BookApp/BookApp.entitlements;
 				DEVELOPMENT_TEAM = HDNMHL7M4Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BookApp",
+				);
 				INFOPLIST_FILE = BookApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1479,7 +1629,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = vn.conglv.BookApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kienlevan/Dropbox/CTVTRANS/StudyApp/BookApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/LibrariesPayment-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -22,15 +22,29 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>vn.conglv.BookApp</string>
+			<string>wxpayeex</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>vn.conglv.BookApp</string>
+				<string>wx53413d9947536a39</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>ymzfxx</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>dvb89KYD1B6xg0Q</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>weixin</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -58,16 +72,12 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-
-
     <key>LSApplicationQueriesSchemes</key>
     <array>
         <string>weixin</string>
+        <string>wechat</string>
+        <string>alipay</string>
+        <string>alipayshare</string>
     </array>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict>
 </dict>
 </plist>
