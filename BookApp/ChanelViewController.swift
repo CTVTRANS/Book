@@ -90,6 +90,7 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
                 self?.indicatorSuggest.stopActivityIndicator()
             }
         }) { (error) in
+            self.indicatorSuggest.stopActivityIndicator()
             _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
         }
         
@@ -105,6 +106,7 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
                 self?.indicatorViewFree.stopActivityIndicator()
             }
         }) { (error) in
+            self.indicatorSuggest.stopActivityIndicator()
             _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
         }
     }

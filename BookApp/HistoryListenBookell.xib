@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="91" id="KGk-i7-Jjw" customClass="HistoryListenBookell" customModule="BookApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="410" height="91"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="410" height="90.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOX-wY-UY0">
+                        <rect key="frame" x="8" y="14" width="64" height="64"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GJp-eV-Xmg">
+                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="audio_play" translatesAutoresizingMaskIntoConstraints="NO" id="NHU-ev-KPr">
+                                <rect key="frame" x="22" y="22" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="cXq-7w-OvB">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="adjustConstantToRealIPhoneSize" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="20" id="oLk-BP-bHw">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="adjustConstantToRealIPhoneSize" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GJp-eV-Xmg" firstAttribute="leading" secondItem="cOX-wY-UY0" secondAttribute="leading" id="5ZK-Xc-57O"/>
+                            <constraint firstItem="NHU-ev-KPr" firstAttribute="centerY" secondItem="cOX-wY-UY0" secondAttribute="centerY" id="Ate-Ki-9dU"/>
+                            <constraint firstAttribute="bottom" secondItem="GJp-eV-Xmg" secondAttribute="bottom" id="FqD-CD-Ncm"/>
+                            <constraint firstAttribute="width" secondItem="cOX-wY-UY0" secondAttribute="height" multiplier="1:1" id="Pxe-63-0Ol"/>
+                            <constraint firstItem="GJp-eV-Xmg" firstAttribute="top" secondItem="cOX-wY-UY0" secondAttribute="top" id="VUt-uv-pl3"/>
+                            <constraint firstItem="NHU-ev-KPr" firstAttribute="centerX" secondItem="cOX-wY-UY0" secondAttribute="centerX" id="tr0-EC-LF6"/>
+                            <constraint firstAttribute="height" constant="64" id="vx9-VX-yTr">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustConstantToRealIPhoneSize" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="GJp-eV-Xmg" secondAttribute="trailing" id="wYp-n2-q4D"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2s-Mu-KlS">
+                        <rect key="frame" x="80" y="14" width="250" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FL0-NJ-cXt">
+                        <rect key="frame" x="80" y="32" width="250" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQx-5t-PHZ">
+                        <rect key="frame" x="80" y="50" width="250" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWA-RT-25Z">
+                        <rect key="frame" x="184" y="117" width="42" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Hj-rs-HQk">
+                        <rect key="frame" x="346" y="18" width="48" height="23.5"/>
+                        <state key="normal" title="播放">
+                            <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="pressedPlay:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NKN-Va-TAs"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7M8-zo-3g8">
+                        <rect key="frame" x="346" y="49.5" width="48" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="KKN-an-sJb"/>
+                        </constraints>
+                        <state key="normal" title="播放">
+                            <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="pressedRemove:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SyN-Mv-Vub"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9g-WV-auY">
+                        <rect key="frame" x="80" y="67.5" width="10" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="cOX-wY-UY0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="3tt-xN-9hN"/>
+                    <constraint firstItem="7M8-zo-3g8" firstAttribute="leading" secondItem="sQx-5t-PHZ" secondAttribute="trailing" constant="16" id="4Mb-bS-RAf"/>
+                    <constraint firstItem="7M8-zo-3g8" firstAttribute="width" secondItem="9Hj-rs-HQk" secondAttribute="width" id="9oW-a7-Q0t"/>
+                    <constraint firstItem="A2s-Mu-KlS" firstAttribute="leading" secondItem="cOX-wY-UY0" secondAttribute="trailing" constant="8" id="Cu7-jf-Ns2"/>
+                    <constraint firstAttribute="bottom" secondItem="f9g-WV-auY" secondAttribute="bottom" constant="11" id="FsS-PU-2ZH"/>
+                    <constraint firstItem="sQx-5t-PHZ" firstAttribute="leading" secondItem="cOX-wY-UY0" secondAttribute="trailing" constant="8" id="H7V-kF-H7B"/>
+                    <constraint firstItem="7M8-zo-3g8" firstAttribute="top" secondItem="9Hj-rs-HQk" secondAttribute="bottom" constant="8" id="I8A-DB-IA7"/>
+                    <constraint firstAttribute="trailing" secondItem="9Hj-rs-HQk" secondAttribute="trailing" constant="16" id="IWK-LB-lQ5"/>
+                    <constraint firstItem="9Hj-rs-HQk" firstAttribute="leading" secondItem="A2s-Mu-KlS" secondAttribute="trailing" constant="16" id="S9M-2j-qU9"/>
+                    <constraint firstItem="A2s-Mu-KlS" firstAttribute="top" secondItem="GJp-eV-Xmg" secondAttribute="top" id="TJr-Bz-hTn"/>
+                    <constraint firstAttribute="bottom" secondItem="7M8-zo-3g8" secondAttribute="bottom" constant="18" id="Wuy-FX-3cc"/>
+                    <constraint firstItem="7M8-zo-3g8" firstAttribute="height" secondItem="9Hj-rs-HQk" secondAttribute="height" id="Zly-IR-Ckl"/>
+                    <constraint firstItem="FL0-NJ-cXt" firstAttribute="top" secondItem="A2s-Mu-KlS" secondAttribute="bottom" constant="3" id="bob-Tc-h96"/>
+                    <constraint firstItem="f9g-WV-auY" firstAttribute="leading" secondItem="cOX-wY-UY0" secondAttribute="trailing" constant="8" id="eZY-ov-ruv"/>
+                    <constraint firstItem="sQx-5t-PHZ" firstAttribute="top" secondItem="FL0-NJ-cXt" secondAttribute="bottom" constant="3" id="elf-DQ-eag"/>
+                    <constraint firstItem="cOX-wY-UY0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="f3j-oE-CQw"/>
+                    <constraint firstItem="f9g-WV-auY" firstAttribute="top" secondItem="sQx-5t-PHZ" secondAttribute="bottom" constant="3" id="g8r-aK-vwi"/>
+                    <constraint firstItem="9Hj-rs-HQk" firstAttribute="leading" secondItem="FL0-NJ-cXt" secondAttribute="trailing" constant="16" id="hPo-ft-j4Z"/>
+                    <constraint firstItem="FL0-NJ-cXt" firstAttribute="leading" secondItem="cOX-wY-UY0" secondAttribute="trailing" constant="8" id="udQ-2Y-1Bp"/>
+                    <constraint firstAttribute="trailing" secondItem="7M8-zo-3g8" secondAttribute="trailing" constant="16" id="w8i-k7-f0E"/>
+                    <constraint firstItem="9Hj-rs-HQk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="wXd-8l-MF0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="detailBook" destination="sQx-5t-PHZ" id="3CL-1b-Md1"/>
+                <outlet property="imageBook" destination="GJp-eV-Xmg" id="bvP-wy-RcX"/>
+                <outlet property="imagePlay" destination="NHU-ev-KPr" id="r81-u7-0cc"/>
+                <outlet property="nameBook" destination="FL0-NJ-cXt" id="rFH-I2-iur"/>
+                <outlet property="playButton" destination="9Hj-rs-HQk" id="cOZ-Oo-uZX"/>
+                <outlet property="removeButton" destination="7M8-zo-3g8" id="y7d-Iw-33Y"/>
+                <outlet property="time" destination="RWA-RT-25Z" id="7JY-kT-h89"/>
+                <outlet property="typeBook" destination="A2s-Mu-KlS" id="XNC-1l-L9v"/>
+            </connections>
+            <point key="canvasLocation" x="26" y="149.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="audio_play" width="32" height="32"/>
+    </resources>
+</document>

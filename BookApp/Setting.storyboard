@@ -138,10 +138,20 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6J-9l-qGV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
+                                                    <connections>
+                                                        <action selector="pressedShowHistoryBuy:" destination="e2y-yV-hdV" eventType="touchUpInside" id="8ns-dV-Ug3"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="P6J-9l-qGV" secondAttribute="bottom" id="2q7-Me-DML"/>
+                                                <constraint firstItem="P6J-9l-qGV" firstAttribute="top" secondItem="dd5-S6-Ktl" secondAttribute="top" id="Jqd-o0-Ndl"/>
                                                 <constraint firstItem="laj-Bu-f4I" firstAttribute="centerY" secondItem="dd5-S6-Ktl" secondAttribute="centerY" id="KoC-QE-4Pd"/>
+                                                <constraint firstAttribute="trailing" secondItem="P6J-9l-qGV" secondAttribute="trailing" id="Nww-mC-3Jk"/>
+                                                <constraint firstItem="P6J-9l-qGV" firstAttribute="leading" secondItem="dd5-S6-Ktl" secondAttribute="leading" id="ec2-A2-Fkb"/>
                                                 <constraint firstAttribute="height" constant="40" id="i9r-7O-MHk"/>
                                                 <constraint firstItem="laj-Bu-f4I" firstAttribute="leading" secondItem="dd5-S6-Ktl" secondAttribute="leading" constant="30" id="oTt-ud-qIo"/>
                                                 <constraint firstItem="Clg-15-Fz9" firstAttribute="centerY" secondItem="dd5-S6-Ktl" secondAttribute="centerY" id="ppE-LE-l1T"/>
@@ -1958,7 +1968,7 @@
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWC-wX-35P">
                                 <rect key="frame" x="8" y="0.0" width="304" height="568"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

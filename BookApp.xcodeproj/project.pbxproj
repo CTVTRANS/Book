@@ -65,6 +65,8 @@
 		6DEB9BF31F6BC4DE00D858B3 /* Vip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEB9BF21F6BC4DE00D858B3 /* Vip.swift */; };
 		6DEC62B61F90A4870020A916 /* SendTokenTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEC62B51F90A4870020A916 /* SendTokenTask.swift */; };
 		6DEC62B81F90C2280020A916 /* PeoleReciveProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEC62B71F90C2280020A916 /* PeoleReciveProduct.swift */; };
+		6DEC72371FA1BE8100AAAE57 /* HistoryListenBookell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEC72351FA1BE8100AAAE57 /* HistoryListenBookell.swift */; };
+		6DEC72381FA1BE8100AAAE57 /* HistoryListenBookell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DEC72361FA1BE8100AAAE57 /* HistoryListenBookell.xib */; };
 		6DEC74BD1F983478008D180B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEC74BC1F983478008D180B /* TabBarViewController.swift */; };
 		6DED40071F92828900890BB3 /* CustomVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DED40061F92828900890BB3 /* CustomVideoViewController.swift */; };
 		6DED400B1F92849B00890BB3 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DED400A1F92849B00890BB3 /* VideoPlayerView.swift */; };
@@ -312,6 +314,8 @@
 		6DEB9BF21F6BC4DE00D858B3 /* Vip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vip.swift; sourceTree = "<group>"; };
 		6DEC62B51F90A4870020A916 /* SendTokenTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTokenTask.swift; sourceTree = "<group>"; };
 		6DEC62B71F90C2280020A916 /* PeoleReciveProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeoleReciveProduct.swift; sourceTree = "<group>"; };
+		6DEC72351FA1BE8100AAAE57 /* HistoryListenBookell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryListenBookell.swift; sourceTree = "<group>"; };
+		6DEC72361FA1BE8100AAAE57 /* HistoryListenBookell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryListenBookell.xib; sourceTree = "<group>"; };
 		6DEC74BC1F983478008D180B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		6DED40061F92828900890BB3 /* CustomVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomVideoViewController.swift; sourceTree = "<group>"; };
 		6DED400A1F92849B00890BB3 /* VideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
@@ -1030,6 +1034,8 @@
 				6DEEEFFE1F612C8F0078EEE1 /* BookDownloadCell.swift */,
 				6DEEEFFF1F612C8F0078EEE1 /* BookDownloadCell.xib */,
 				6DEEF0021F613AC10078EEE1 /* NewsBookmarkedCell.swift */,
+				6DEC72351FA1BE8100AAAE57 /* HistoryListenBookell.swift */,
+				6DEC72361FA1BE8100AAAE57 /* HistoryListenBookell.xib */,
 			);
 			name = "Histoty-Bookmarked-Downloaded";
 			sourceTree = "<group>";
@@ -1111,7 +1117,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = "Le Cong";
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					58C39DB61F3C0489001741EB = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -1153,6 +1159,7 @@
 			files = (
 				6DEFD7481F4A746800FB0CA5 /* CustomTopTabbar.xib in Resources */,
 				6DF417591F46A56F00F5032E /* ChanelCollectionCell.xib in Resources */,
+				6DEC72381FA1BE8100AAAE57 /* HistoryListenBookell.xib in Resources */,
 				6DEDBD531F4593BE00526AD0 /* CustomBookCollection.xib in Resources */,
 				6DF8892A1F41869B005F72D7 /* TopViewShare.xib in Resources */,
 				6D87DCB21F5411E600269351 /* Global.storyboard in Resources */,
@@ -1406,6 +1413,7 @@
 				6DF418A41F8482F200BA9AE5 /* GetCodeConfirmTask.swift in Sources */,
 				6DEFD7521F4A7D3E00FB0CA5 /* BookTextController.swift in Sources */,
 				6D87DCBF1F54197700269351 /* User.swift in Sources */,
+				6DEC72371FA1BE8100AAAE57 /* HistoryListenBookell.swift in Sources */,
 				6DF669911F581DB100FBC8A7 /* SpecialComment.swift in Sources */,
 				6DF4175B1F46ABF700F5032E /* Chanel.swift in Sources */,
 				6DF2FD771F5D2E700004CF04 /* MessageNotificationCell.swift in Sources */,

@@ -13,8 +13,6 @@ import AVFoundation
 class HistoryPlayAudioController: BaseViewController {
 
     @IBOutlet weak var table: UITableView!
-    
-    lazy var mp3 = MP3Player.shareIntanse
     var listHistory: [AnyObject] = []
     
     override func viewDidLoad() {
@@ -23,6 +21,9 @@ class HistoryPlayAudioController: BaseViewController {
         table.estimatedRowHeight = 140
         listHistory = mp3.listPlay as [AnyObject]
         mp3.oldIndexListPlay = mp3.getCurrentIndex()
+        mp3.limitTime = { [weak self] in
+            self?.table.reloadData()
+        }
     }
     
     // MARK: Play Audio

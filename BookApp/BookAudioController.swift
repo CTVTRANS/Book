@@ -27,7 +27,7 @@ class BookAudioController: BaseViewController {
     
     // MARK: MP3 Property
     
-    lazy var mp3 = MP3Player.shareIntanse
+//    lazy var mp3 = MP3Player.shareIntanse
     var loadedAudio: Bool = true
     var loadedWebView: Bool = false
     var book: Book?
@@ -42,6 +42,9 @@ class BookAudioController: BaseViewController {
         loadWebView()
         checkAudio()
         NotificationCenter.default.addObserver(self, selector: #selector(stopAudio(notification:)), name: NSNotification.Name(rawValue: "videoDidStart"), object: nil)
+        mp3.limitTime = { [weak self] in
+            self?.buttonImge.image = #imageLiteral(resourceName: "audio_play")
+        }
     }
     
     // MARK: Setup Audio
@@ -83,13 +86,21 @@ class BookAudioController: BaseViewController {
             let secondsString = String(format: "%02d", Int(seconds.truncatingRemainder(dividingBy: 60)))
             let minutesString = String(format: "%02d", Int(seconds / 60))
             self?.currentMinAudio.text = "\(minutesString):\(secondsString)"
+            
+//            if self?.tokenInstance == "" || self?.memberInstance?.level == 0 {
+//                if seconds > Double(DefaultApp.sharedInstance.limitAudio) {
+//                    self?.mp3.pause()
+//                    self?.mp3.player?.seek(to: kCMTimeZero)
+//                    self?.buttonImge.image = #imageLiteral(resourceName: "audio_play")
+//                }
+//            }
+            
             if let duration = self?.mp3.player?.currentItem?.duration {
                 if !(self?.isdragSlider)! {
                     let durationSeconds = CMTimeGetSeconds(duration)
                     self?.sliderBar.value = Float(seconds / durationSeconds)
                 }
             }
-
         })
     }
     

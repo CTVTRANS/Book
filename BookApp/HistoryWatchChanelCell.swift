@@ -35,7 +35,7 @@ class HistoryWatchChanelCell: UITableViewCell {
         timeUpLesson.text = date[0]
         descriptionLesson.text = lesson.descriptionChap
         nameLesson.text = lesson.name
-        numberChap.text = String(lesson.chapter)
+        numberChap.text = "第" + String(lesson.chapter) + "回"
         nameChanel.text = lesson.chanelOwner
         avatar.sd_setImage(with: URL(string: lesson.imageChapURL), placeholderImage: #imageLiteral(resourceName: "userPlaceHolder"))
         if let chap = MP3Player.shareIntanse.currentAudio as? Lesson {

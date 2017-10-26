@@ -27,9 +27,13 @@ class HistoryPlayAudioCell: UITableViewCell {
             object = book
             name.text = book.name
             let arrayString = book.descriptionBook.components(separatedBy: "</p>")
-            let firstString = arrayString[0]
-            let index = firstString.index(firstString.startIndex, offsetBy: 4)
-            descriptionAudio.text = firstString.substring(from: index)
+            if let firstString = arrayString.first {
+                if firstString.characters.count > 10 {
+                    let index = firstString.index(firstString.startIndex, offsetBy: 3)
+                    descriptionAudio.text = firstString.substring(from: index)
+                }
+                descriptionAudio.text = "BookApp"
+            }
             return
         }
         
@@ -37,15 +41,6 @@ class HistoryPlayAudioCell: UITableViewCell {
             object = lesson
             name.text = lesson.name
             descriptionAudio.text = lesson.descriptionChap
-//            if lesson.isPlay == 1 {
-//                if lesson.pause == 1 {
-//                    imagePlay.image = #imageLiteral(resourceName: "playList")
-//                } else {
-//                    imagePlay.image = #imageLiteral(resourceName: "pauseList")
-//                }
-//            } else {
-//                imagePlay.image = #imageLiteral(resourceName: "playList")
-//            }
         }
     }
     

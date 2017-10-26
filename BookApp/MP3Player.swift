@@ -19,6 +19,7 @@ class MP3Player: NSObject {
     
     static let shareIntanse = MP3Player()
     var didLoadAudio:((_ time: Float, _ timeSting: String) -> Void) = {_ in}
+    var limitTime = {}
     
     func track(object: AnyObject, types: TypePlay) {
         if let book = object as? Book {
@@ -52,6 +53,7 @@ class MP3Player: NSObject {
                 self.playerItem = AVPlayerItem(asset: self.asset!)
                 self.player = AVPlayer(playerItem: self.playerItem)
                 self.didLoadAudio(self.getTotalTime(), self.getTotalTimeString())
+                self.limitTimePlay()
                 self.play()
                 self.currentAudio = audio
             }
@@ -78,6 +80,7 @@ class MP3Player: NSObject {
                 self.playerItem = AVPlayerItem(asset: self.asset!)
                 self.player = AVPlayer(playerItem: self.playerItem)
                 self.didLoadAudio(self.getTotalTime(), self.getTotalTimeString())
+                self.limitTimePlay()
                 self.play()
                 self.currentAudio = audio
             }
@@ -179,5 +182,19 @@ class MP3Player: NSObject {
         let totalTime = CMTimeGetSeconds(duration!)
         let timeFloat = Float(totalTime)
         return timeFloat
+    }
+    
+    func limitTimePlay() {
+        player?.addPeriodicTimeObserver(forInterval: CMTimeMake(1, 1), queue: DispatchQueue.main, using: { [weak self] progressTime in
+            let seconds = CMTimeGetSeconds(progressTime)
+            print(seconds)
+            if ProfileMember.getToken() == "" || ProfileMember.getProfile()?.level == 0 {
+                if seconds > Double(DefaultApp.sharedInstance.limitAudio) {
+                    self?.pause()
+                    self?.player?.seek(to: kCMTimeZero)
+                    self?.limitTime()
+                }
+            }
+        })
     }
 }

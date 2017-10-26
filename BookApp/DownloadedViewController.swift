@@ -17,7 +17,6 @@ class DownloadedViewController: BaseViewController, UITableViewDelegate, UITable
     private var listChanelDownloaded: [Lesson] = []
     private var listBookDownloaded: [Book] = []
     
-    lazy var mp3 = MP3Player.shareIntanse
     private var firstShowDownload = true
 
     override func viewDidLoad() {

@@ -12,9 +12,12 @@ import AFNetworking
 import Social
 import SWRevealViewController
 import SDWebImage
+import AVKit
+import AVFoundation
 
 class BaseViewController: UIViewController {
     
+    lazy var mp3 = MP3Player.shareIntanse
     var activity: UIActivityIndicatorView?
     var backGroundview: UIView?
     let managerNetWork = AFNetworkReachabilityManager.shared()

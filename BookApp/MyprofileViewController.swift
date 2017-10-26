@@ -109,6 +109,11 @@ class MyprofileViewController: BaseViewController, UITableViewDelegate, UITableV
         table.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 1 {
             if let bundle = Bundle.main.bundleIdentifier {
+                if mp3.isPlaying() {
+                    mp3.pause()
+                }
+                mp3.currentAudio = nil
+                mp3.listPlay.removeAll()
                 UserDefaults.standard.removePersistentDomain(forName: bundle)
             }
             self.dismiss(animated: false, completion: nil)

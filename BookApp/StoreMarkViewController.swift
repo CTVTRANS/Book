@@ -162,4 +162,9 @@ class StoreMarkViewController: BaseViewController, UICollectionViewDelegate, UIC
             navigationController?.pushViewController(vc, animated: true)
         }
     }
+    @IBAction func pressedShowHistoryBuy(_ sender: Any) {
+        let mayStoryboard = UIStoryboard(name: "Setting", bundle: nil)
+        let vc = mayStoryboard.instantiateViewController(withIdentifier: "HistoryBuyProductController")
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

@@ -58,6 +58,7 @@ class BookViewController: BaseViewController {
         getBookSuggest()
         getBookFree()
         getTypeBook()
+        MP3Player.shareIntanse.limitTime()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -147,6 +148,7 @@ class BookViewController: BaseViewController {
                 self.stopActivityIndicator()
             }
         }) { (error) in
+            self.viewForNewestBook.isHidden = true
             self.stopActivityIndicator()
             _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
         }

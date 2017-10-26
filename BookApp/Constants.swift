@@ -59,10 +59,8 @@ class Constants: NSObject {
     var listChanelSubcribled: [Chanel] = []
     var listGroupJoined: [SecrectGroup] = []
     var language: Int = 0
-    
-    var historyViewChanelLesson: [Lesson] = []
-    var listCommentHot: [Comment] = []
 
+    var listCommentHot: [Comment] = []
     var hasNotification = false
     var deviceToken = ""
     

@@ -10,18 +10,26 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class HistoryWatchChanelViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+class HistoryWatchChanelViewController: BaseViewController {
 
+    @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var table: UITableView!
     var listHistoryLesson: [Lesson] = []
-    lazy var mp3 = MP3Player.shareIntanse
+    var listHistoryBook: [Book] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         table.tableFooterView = UIView()
         table.estimatedRowHeight = 140
         table.register(UINib.init(nibName: "HistoryWatchChanelCell", bundle: nil), forCellReuseIdentifier: "cell")
-        getHistory()
+        table.register(UINib.init(nibName: "HistoryListenBookell", bundle: nil), forCellReuseIdentifier: "bookCell")
+        getHistoryLesson()
+        getHistoryBook()
+        mp3.limitTime = { [weak self] in
+            self?.table.reloadData()
+        }
+        table.backgroundView = UIView()
+        showActivity(inView: table.backgroundView!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +38,7 @@ class HistoryWatchChanelViewController: BaseViewController, UITableViewDataSourc
         navigationItem.title = "播放记录"
     }
     
-    func getHistory() {
+    func getHistoryLesson() {
         let getData = GetHistoryListenTask(memberID: (memberInstance?.idMember)!, token: tokenInstance!)
         requestWithTask(task: getData, success: { (data) in
             if let arrayLesson = data as? [Lesson] {
@@ -38,45 +46,33 @@ class HistoryWatchChanelViewController: BaseViewController, UITableViewDataSourc
                 self.table.reloadData()
             }
         }) { (_) in
-            
+            self.stopActivityIndicator()
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listHistoryLesson.count
+    func getHistoryBook() {
+        
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HistoryWatchChanelCell {
-            let lesson = listHistoryLesson[indexPath.row]
-            cell.binData(lesson: lesson)
-            cell.timeUpLesson.text = lesson.timeRead.components(separatedBy: " ")[0]
-            cell.callBackButton = { [weak self] (action: String) in
-                switch action {
-                case "playChanel":
-                    self?.play(lesson: lesson, index: indexPath.row)
-                    break
-                case "removeChanel":
-                    Constants.sharedInstance.historyViewChanelLesson.remove(at: indexPath.row)
-                    self?.listHistoryLesson = Constants.sharedInstance.historyViewChanelLesson
-                    self?.table.reloadData()
-                    break
-                default:
-                    break
-                }
+    func playBook(book: Book, index: Int) {
+        if let current = mp3.currentAudio as? Book {
+            if  book.idBook == current.idBook && mp3.isPlaying() {
+                mp3.pause()
+                table.reloadData()
+                return
+            } else if book.idBook == current.idBook && !mp3.isPlaying() {
+                mp3.play()
+                table.reloadData()
+                return
             }
-            return cell
         }
-        return UITableViewCell()
+        mp3.track(object: book, types: TypePlay.onLine)
+        table.reloadData()
+        mp3.didLoadAudio = { [weak self] _, _ in
+            self?.table.reloadData()
+        }
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        table.deselectRow(at: indexPath, animated: true)
-    }
+
     
     func play(lesson: Lesson, index: Int) {
         if let current = mp3.currentAudio as? Lesson {
@@ -95,8 +91,76 @@ class HistoryWatchChanelViewController: BaseViewController, UITableViewDataSourc
             self?.table.reloadData()
         }
     }
+    @IBAction func pressedSegment(_ sender: Any) {
+        table.reloadData()
+    }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+}
+
+extension HistoryWatchChanelViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if segment.selectedSegmentIndex == 0 {
+            return listHistoryBook.count
+        } else {
+            return listHistoryLesson.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if segment.selectedSegmentIndex == 0 {
+            return bookCell(indexPath: indexPath)
+        } else {
+            return lessonCell(indexPath: indexPath)
+        }
+    }
+    
+    func lessonCell(indexPath: IndexPath) -> HistoryWatchChanelCell {
+        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HistoryWatchChanelCell
+            let lesson = listHistoryLesson[indexPath.row]
+            cell?.binData(lesson: lesson)
+            cell?.timeUpLesson.text = lesson.timeRead.components(separatedBy: " ")[0]
+            cell?.callBackButton = { [weak self] (action: String) in
+                switch action {
+                case "playChanel":
+                    self?.play(lesson: lesson, index: indexPath.row)
+                    break
+                case "removeChanel":
+                    self?.table.reloadData()
+                    break
+                default:
+                    break
+                }
+            }
+        return cell!
+    }
+    
+    func bookCell(indexPath: IndexPath) -> HistoryListenBookell {
+        let bookCell = table.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath) as? HistoryListenBookell
+        let book = listHistoryBook[indexPath.row]
+        bookCell?.binData(book: book)
+        bookCell?.callBackButton = { [weak self] (action: String) in
+            switch action {
+            case "play":
+                self?.playBook(book: book, index: indexPath.row)
+                break
+            case "remove":
+                self?.table.reloadData()
+            default:
+                break
+            }
+        }
+        return bookCell!
+    }
+
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        table.deselectRow(at: indexPath, animated: true)
     }
 }

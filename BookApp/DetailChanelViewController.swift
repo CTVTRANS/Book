@@ -32,7 +32,6 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
     // MARK: Property Control
     
     var chanel: Chanel!
-    lazy var mp3 = MP3Player.shareIntanse
     var lessonUploaded = [Lesson]()
     var timer: Timer?
     var idChap: Int?
@@ -77,6 +76,9 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
         }
         ShareModel.shareIntance.nameShare = chanel.nameChanel
         ShareModel.shareIntance.detailShare = ""
+        mp3.limitTime = { [weak self] in
+            self?.table.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,8 +87,6 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
         navigationController?.setNavigationBarHidden(false, animated: false)
         let leftBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_back_navigation"), style: .done, target: self, action: #selector(pressedBack))
         navigationItem.leftBarButtonItem = leftBarButton
-//        navigationController?.navigationBar.shadowImage = UIImage()
-////        navigationController?.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "naviBackground"), for: .default)
     }
     
     override var prefersStatusBarHidden: Bool {
