@@ -16,6 +16,7 @@ class DefaultApp: NSObject {
     var defaultAvatar: String!
     var defaultBackground: String!
     var suporter: String!
+    var termOffUse: String!
     
     static let sharedInstance = DefaultApp()
 }

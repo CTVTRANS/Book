@@ -84,15 +84,15 @@ class CommentController: BaseViewController, UITextViewDelegate {
         commentNormal = SpecialComment(name: "最新评论", array: arrayComment)
         
         if let news = object as? NewsModel {
-            titleComment.text = news.title
+            titleComment.text = " " + news.title + " "
             detail.text = news.detailNews
         }
         if let book = object as? Book {
-            titleComment.text = book.name
+            titleComment.text = " " + book.name + " "
             detail.text = "Book App"
         }
         if let chanel = object as? Chanel {
-            titleComment.text = chanel.nameChanel
+            titleComment.text = " " + chanel.nameChanel + " "
             detail.text = chanel.nameTeacher
         }
     }
@@ -217,7 +217,9 @@ extension CommentController: UITableViewDataSource, UITableViewDelegate {
         let view: UIView = UIView(frame: CGRect(x: 0, y: 0, width: table.frame.size.width, height: 30))
         view.backgroundColor = UIColor.rgb(254, 153, 0)
         let nameTypeComment: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: table.frame.size.width, height: 30))
-        nameTypeComment.font = UIFont(name: "DFHei Std W5", size: 15)
+        var size: CGFloat = 13
+        size.adjustsSizeToRealIPhoneSize = 13.0
+        nameTypeComment.font = UIFont(name: "HelveticaNeue", size: size)
         nameTypeComment.text = arrayObject[section].name
         nameTypeComment.textAlignment = .left
         nameTypeComment.textColor = UIColor.white

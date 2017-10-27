@@ -10,6 +10,7 @@ import UIKit
 
 class HistoryListenBookell: UITableViewCell {
 
+    @IBOutlet weak var heightOfImage: NSLayoutConstraint!
     @IBOutlet weak var imagePlay: UIImageView!
     @IBOutlet weak var imageBook: UIImageView!
     @IBOutlet weak var typeBook: UILabel!
@@ -26,6 +27,7 @@ class HistoryListenBookell: UITableViewCell {
         super.awakeFromNib()
         playButton.layer.borderColor = UIColor.rgb(255, 102, 0).cgColor
         removeButton.layer.borderColor = UIColor.rgb(255, 102, 0).cgColor
+        imageBook.layer.cornerRadius = heightOfImage.constant / 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,8 +45,9 @@ class HistoryListenBookell: UITableViewCell {
             if firstString.characters.count > 10 {
                 let index = firstString.index(firstString.startIndex, offsetBy: 3)
                 detailBook.text = firstString.substring(from: index)
+            } else {
+                detailBook.text = " "
             }
-            detailBook.text = ""
         }
         if let currentBok = MP3Player.shareIntanse.currentAudio as? Book {
             if currentBok.idBook == book.idBook && MP3Player.shareIntanse.isPlaying() {

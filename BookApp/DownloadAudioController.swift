@@ -20,14 +20,22 @@ class DownloadAudioController: BaseViewController {
 
     }
     
+    func postNotificationDownloadSuccess() {
+        NotificationCenter.default.post(name: Notification.Name("downloadSuccess"), object: nil)
+    }
+    
+    func postNotificationStartDownload() {
+         NotificationCenter.default.post(name: Notification.Name("downloadStart"), object: nil)
+    }
+    
     // MARK: Download leeson
     
     func downloadArrayLeeson(arrayLesson: [Lesson], completionHandler: @escaping (Int) -> Void) {
+        postNotificationStartDownload()
         let group = DispatchGroup()
         var downloaded = 0
         for leson in arrayLesson {
             group.enter()
-            print("Start downloading \(leson.imageChapURL)")
             self.downloadSingleLesson(lesson: leson) { error in
                 if !error {
                     downloaded += 1
@@ -37,6 +45,7 @@ class DownloadAudioController: BaseViewController {
         }
         group.notify(queue: DispatchQueue.main) {
              completionHandler(downloaded)
+             self.postNotificationDownloadSuccess()
         }
     }
     
@@ -70,35 +79,10 @@ class DownloadAudioController: BaseViewController {
         }
     }
     
-//    func downloadLesson(lesson: Lesson) {
-//        let downloadImageLesson = DownloadTask(path: lesson.imageChapURL)
-//        downloadFileSuccess(task: downloadImageLesson, success: { (data) in
-//            if let imageOffline = data as? URL {
-//                lesson.imageOffline = imageOffline
-//                self.downloadImagelesonSuccess = true
-//                if self.downloadImagelesonSuccess && self.downloadAudioLessonSuccess {
-//                    self.setListLesson(chap: lesson)
-//                }
-//            }
-//        }) { (_) in
-//        }
-//        
-//        let downloadLesson = DownloadTask(path: lesson.contentURL)
-//        downloadFileSuccess(task: downloadLesson, success: { (data) in
-//            if let audioOffline = data as? URL {
-//                lesson.audioOffline = audioOffline
-//                self.downloadAudioLessonSuccess = true
-//                if self.downloadImagelesonSuccess && self.downloadAudioLessonSuccess {
-//                    self.setListLesson(chap: lesson)
-//                }
-//            }
-//        }) { (_) in
-//        }
-//    }
-    
     // MARK: Down Load Book
     
     func downloadBook(book: Book) {
+        postNotificationStartDownload()
         let downloadImage = DownloadTask(path: book.imageURL)
         downloadFileSuccess(task: downloadImage, success: { (data) in
             if let imageOflline = data as? URL {
@@ -106,6 +90,7 @@ class DownloadAudioController: BaseViewController {
                 book.imageOffline = imageOflline
                 if self.downloadAudioBookSucess && self.downloadImageBookSuccess {
                     self.saveAudio(book: book)
+                    self.postNotificationDownloadSuccess()
                 }
             }
         }) { (_) in
@@ -117,6 +102,7 @@ class DownloadAudioController: BaseViewController {
                 book.audioOffline = audioOffline
                 if self.downloadAudioBookSucess && self.downloadImageBookSuccess {
                     self.saveAudio(book: book)
+                    self.postNotificationDownloadSuccess()
                 }
             }
         }) { (_) in

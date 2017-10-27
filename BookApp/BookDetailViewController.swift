@@ -180,10 +180,11 @@ class BookDetailViewController: BaseViewController {
             case BottomButton.like: self?.pressedLike()
             case BottomButton.download:
                 if self?.memberInstance?.level != 1 {
-                    _ = UIAlertController.initAler(title: "", message: "Only member Vip cant dwonload", inViewController: self!)
+                    _ = UIAlertController.initAler(title: "", message: "VIP會員才能下載", inViewController: self!)
                     return
                 }
-                self?.pressedDowload()
+                let download = DownloadAudioController()
+                download.downloadBook(book: (self?.bookSelected)!)
             }
         }
     }
@@ -251,30 +252,30 @@ extension BookDetailViewController {
     
     // MARK: Button Control
     
-    func pressedDowload() {
-        let downloadImage = DownloadTask(path: bookSelected.imageURL)
-        downloadFileSuccess(task: downloadImage, success: { (data) in
-            if let imageOflline = data as? URL {
-                self.downloadImageSuccess = true
-                self.bookSelected.imageOffline = imageOflline
-                if self.downloadAuidosucess && self.downloadImageSuccess {
-                    self.setListBookBdownload()
-                }
-            }
-        }) { (_) in
-        }
-        let downloadAudio = DownloadTask(path: bookSelected.audio)
-        downloadFileSuccess(task: downloadAudio, success: { (data) in
-            if let audioOffline = data as? URL {
-                self.downloadAuidosucess = true
-                self.bookSelected.audioOffline = audioOffline
-                if self.downloadAuidosucess && self.downloadImageSuccess {
-                    self.setListBookBdownload()
-                }
-            }
-        }) { (_) in
-        }
-    }
+//    func pressedDowload() {
+//        let downloadImage = DownloadTask(path: bookSelected.imageURL)
+//        downloadFileSuccess(task: downloadImage, success: { (data) in
+//            if let imageOflline = data as? URL {
+//                self.downloadImageSuccess = true
+//                self.bookSelected.imageOffline = imageOflline
+//                if self.downloadAuidosucess && self.downloadImageSuccess {
+//                    self.setListBookBdownload()
+//                }
+//            }
+//        }) { (_) in
+//        }
+//        let downloadAudio = DownloadTask(path: bookSelected.audio)
+//        downloadFileSuccess(task: downloadAudio, success: { (data) in
+//            if let audioOffline = data as? URL {
+//                self.downloadAuidosucess = true
+//                self.bookSelected.audioOffline = audioOffline
+//                if self.downloadAuidosucess && self.downloadImageSuccess {
+//                    self.setListBookBdownload()
+//                }
+//            }
+//        }) { (_) in
+//        }
+//    }
 
     func pressedBookmark() {
         let bookMarkTask: BookMarkTask = BookMarkTask(bookMarkType: Object.book.rawValue, memberID: (memberInstance?.idMember)!, objectId: bookSelected.idBook, token: tokenInstance!)

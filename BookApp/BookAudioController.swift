@@ -87,14 +87,6 @@ class BookAudioController: BaseViewController {
             let minutesString = String(format: "%02d", Int(seconds / 60))
             self?.currentMinAudio.text = "\(minutesString):\(secondsString)"
             
-//            if self?.tokenInstance == "" || self?.memberInstance?.level == 0 {
-//                if seconds > Double(DefaultApp.sharedInstance.limitAudio) {
-//                    self?.mp3.pause()
-//                    self?.mp3.player?.seek(to: kCMTimeZero)
-//                    self?.buttonImge.image = #imageLiteral(resourceName: "audio_play")
-//                }
-//            }
-            
             if let duration = self?.mp3.player?.currentItem?.duration {
                 if !(self?.isdragSlider)! {
                     let durationSeconds = CMTimeGetSeconds(duration)
@@ -137,9 +129,19 @@ class BookAudioController: BaseViewController {
         }
     }
     
+    func addToHistory(book: Book) {
+        let add = AddToHistoryTask(memberid: (memberInstance?.idMember)!, token: tokenInstance!, type: ScreenShow.book.rawValue, lessonID: book.idBook)
+        requestWithTask(task: add, success: { (_) in
+            
+        }) { (_) in
+            
+        }
+    }
+    
     // MARK: UIcontrol
     
     @IBAction func pressPlay(_ sender: Any) {
+        addToHistory(book: book!)
         loadAudio()
         if buttonImge.image == #imageLiteral(resourceName: "audio_play") {
             mp3.play()

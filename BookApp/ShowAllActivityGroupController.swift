@@ -36,9 +36,9 @@ class ShowAllActivityGroupController: BaseViewController, UITableViewDelegate, U
     
     func setupNavigation() {
         navigationItem.title = "分会关注"
-        let backItem = UIBarButtonItem()
-        backItem.title = ""
-        navigationItem.backBarButtonItem = backItem
+//        let backItem = UIBarButtonItem()
+//        backItem.title = ""
+//        navigationItem.backBarButtonItem = backItem
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "分会圈子", style: .done, target: self, action: #selector(pressRightBarButton))
     }
     

@@ -50,9 +50,9 @@ class DetailSingleGroupViewController: BaseViewController, UITableViewDelegate, 
         }
         loadMoreData()
         
-        let backItem = UIBarButtonItem()
-        backItem.title = ""
-        navigationItem.backBarButtonItem = backItem
+//        let backItem = UIBarButtonItem()
+//        backItem.title = ""
+//        navigationItem.backBarButtonItem = backItem
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -42,22 +42,9 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
     private var isLoading = false
     private var pager = 1
     
-    // MARK: Property Use For Hidden StatusBar
-    let statusView = UIView(frame: CGRect(x: 0, y: -20, width: widthScreen, height: 20))
-    var isHiddenBaterry: Bool = false {
-        didSet {
-            UIView.animate(withDuration: 0.5) { () -> Void in
-                self.setNeedsStatusBarAppearanceUpdate()
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        statusView.backgroundColor = .white
-        UIApplication.shared.keyWindow?.addSubview(statusView)
-        
+
         table.estimatedRowHeight = 140
         showActivity(inView: self.view)
         setupUI()
@@ -87,10 +74,6 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
         navigationController?.setNavigationBarHidden(false, animated: false)
         let leftBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_back_navigation"), style: .done, target: self, action: #selector(pressedBack))
         navigationItem.leftBarButtonItem = leftBarButton
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return isHiddenBaterry
     }
     
     func pressedBack() {
@@ -137,6 +120,7 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
             revealViewController().rightViewRevealWidth = 80
             topViewShare.shareButton.addTarget(self.revealViewController(), action: #selector(revealViewController().rightRevealToggle(_:)), for: .touchUpInside)
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
     
@@ -262,30 +246,17 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
         }
     }
     
-    func showDownload() {
-        isHiddenBaterry = true
-        UIView.animate(withDuration: 0.5, animations: {
-            self.statusView.frame = CGRect(x: 0, y: 0, width: widthScreen, height: 20)
-        }) { (_) in
-//            self.statusView.frame = CGRect(x: 0, y: -20, width: widthScreen, height: 20)
-//            self.showDownload()
-        }
-    }
-    
     @IBAction func pressedDownloadAll(_ sender: Any) {
         if !checkLogin() {
             goToSigIn()
             return
         } else if memberInstance?.level == 0 {
-            _ = UIAlertController.initAler(title: "", message: "only member vip cant download", inViewController: self)
+            _ = UIAlertController.initAler(title: "", message: "VIP會員才能下載", inViewController: self)
             return
         }
-       
-        showDownload()
-        isHiddenBaterry = false
         let download = DownloadAudioController()
-        download.downloadArrayLeeson(arrayLesson: lessonUploaded) { (number) in
-            _ = UIAlertController.initAler(title: "", message: "Download Success \(number) leson", inViewController: self)
+        download.downloadArrayLeeson(arrayLesson: lessonUploaded) { (_) in
+
         }
     }
     
@@ -313,7 +284,7 @@ extension DetailChanelViewController {
     }
     
     func addToHistory(lesson: Lesson) {
-        let add = AddToHistoryTask(memberid: (memberInstance?.idMember)!, token: tokenInstance!, lessonID: lesson.idChap)
+        let add = AddToHistoryTask(memberid: (memberInstance?.idMember)!, token: tokenInstance!, type: ScreenShow.chanel.rawValue, lessonID: lesson.idChap)
         requestWithTask(task: add, success: { (_) in
             
         }) { (_) in
@@ -363,13 +334,13 @@ extension DetailChanelViewController {
                         self?.goToSigIn()
                         return
                     } else if self?.memberInstance?.level == 0 {
-                        _ = UIAlertController.initAler(title: "", message: "only member vip cant download", inViewController: self!)
+                        _ = UIAlertController.initAler(title: "", message: "VIP會員才能下載", inViewController: self!)
                         return
                     }
                     let download = DownloadAudioController()
                     let arr = [lesson]
-                    download.downloadArrayLeeson(arrayLesson: arr, completionHandler: { (number) in
-                        _ = UIAlertController.initAler(title: "", message: "Download Success \(number) leson", inViewController: self!)
+                    download.downloadArrayLeeson(arrayLesson: arr, completionHandler: { (_) in
+
                     })
                 case "play":
                     self?.play(lesson: lesson, index: indexPath.row)

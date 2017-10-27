@@ -19,6 +19,7 @@ class HistoryWatchChanelViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showActivity(inView: self.view)
         table.tableFooterView = UIView()
         table.estimatedRowHeight = 140
         table.register(UINib.init(nibName: "HistoryWatchChanelCell", bundle: nil), forCellReuseIdentifier: "cell")
@@ -28,8 +29,6 @@ class HistoryWatchChanelViewController: BaseViewController {
         mp3.limitTime = { [weak self] in
             self?.table.reloadData()
         }
-        table.backgroundView = UIView()
-        showActivity(inView: table.backgroundView!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +38,7 @@ class HistoryWatchChanelViewController: BaseViewController {
     }
     
     func getHistoryLesson() {
-        let getData = GetHistoryListenTask(memberID: (memberInstance?.idMember)!, token: tokenInstance!)
+        let getData = GetHistoryListenTask(memberID: (memberInstance?.idMember)!, token: tokenInstance!, type: ScreenShow.chanel.rawValue)
         requestWithTask(task: getData, success: { (data) in
             if let arrayLesson = data as? [Lesson] {
                 self.listHistoryLesson = arrayLesson
@@ -51,7 +50,16 @@ class HistoryWatchChanelViewController: BaseViewController {
     }
     
     func getHistoryBook() {
-        
+        let getData = GetHistoryListenTask(memberID: (memberInstance?.idMember)!, token: tokenInstance!, type: ScreenShow.book.rawValue)
+        requestWithTask(task: getData, success: { (data) in
+            self.stopActivityIndicator()
+            if let arrayBook = data as? [Book] {
+                self.listHistoryBook = arrayBook
+                self.table.reloadData()
+            }
+        }) { (_) in
+            self.stopActivityIndicator()
+        }
     }
     
     func playBook(book: Book, index: Int) {
@@ -73,7 +81,6 @@ class HistoryWatchChanelViewController: BaseViewController {
         }
     }
 
-    
     func play(lesson: Lesson, index: Int) {
         if let current = mp3.currentAudio as? Lesson {
             if lesson.idChap == current.idChap && mp3.isPlaying() {
@@ -155,7 +162,6 @@ extension HistoryWatchChanelViewController: UITableViewDelegate, UITableViewData
         return bookCell!
     }
 
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }

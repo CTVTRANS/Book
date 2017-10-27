@@ -14,10 +14,12 @@ class AddToHistoryTask: BaseTaskNetwork {
     private let _idmember: Int!
     private let _token: String!
     private let _objectID: Int!
+    private let _type: Int!
     
-    init(memberid: Int, token: String, lessonID: Int) {
+    init(memberid: Int, token: String, type: Int, lessonID: Int) {
         _idmember = memberid
         _token = token
+        _type = type
         _objectID = lessonID
     }
     
@@ -30,7 +32,10 @@ class AddToHistoryTask: BaseTaskNetwork {
     }
     
     override func parameters() -> [AnyHashable : Any]! {
-        return ["member_id": _idmember, "access_token": _token, "object_id": _objectID]
+        return ["member_id": _idmember,
+                "access_token": _token,
+                "history_type": _type,
+                "object_id": _objectID]
     }
     
     override func data(withResponse response: Any!) -> Any! {

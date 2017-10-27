@@ -29,8 +29,8 @@ let getAllSubcribled = "/api/teacher/list_subscribe"
 let getHotChanel = "/api/teacher/list_hot"
 let subcribleURL = "/api/teacher/subscribe"
 let increaseViewChanelURL = "/api/teacher/play_lesson"
-let addToHistoryURL = "/api/teacher/add_lesson_to_history"
-let getHistoryLessonURL = "/api/teacher/get_history_play"
+let addToHistoryURL = "/api/history/add_audio_to_history"
+let getHistoryLessonURL = "/api/history/get_history_play"
 
 // MARK: News
 let getAllNewsURL = "/api/post/list_latest_post"

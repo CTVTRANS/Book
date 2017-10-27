@@ -13,10 +13,12 @@ class GetHistoryListenTask: BaseTaskNetwork {
     
     private let _memberID: Int!
     private let _token: String!
+    private let _type: Int!
     
-    init(memberID: Int, token: String) {
+    init(memberID: Int, token: String, type: Int) {
         _memberID = memberID
         _token = token
+        _type = type
     }
 
     override func path() -> String! {
@@ -28,19 +30,34 @@ class GetHistoryListenTask: BaseTaskNetwork {
     }
     
     override func parameters() -> [AnyHashable : Any]! {
-        return ["member_id": _memberID, "access_token": _token]
+        return ["member_id": _memberID,
+                "access_token": _token,
+                "history_type": _type]
     }
     
     override func data(withResponse response: Any!) -> Any! {
         var listLesson: [Lesson] = []
+        var listBook: [Book] = []
+        var isLesson = false
         if let responseObject = response as? [String: Any] {
             if let data = responseObject["data"] as? [[String: Any]] {
                 for dictionary in data {
-                    let lesson = parseLesson(dictionary: dictionary)
-                    listLesson.append(lesson)
+                    let chapter = dictionary["chapter"]
+                    if chapter != nil {
+                        isLesson = true
+                        let lesson = parseLesson(dictionary: dictionary)
+                        listLesson.append(lesson)
+                    } else {
+                        let book = parseBook(dictionary: dictionary)
+                        listBook.append(book)
+                    }
                 }
             }
         }
-        return listLesson
+        if isLesson {
+            return listLesson
+        } else {
+            return listBook
+        }
     }
 }

@@ -101,6 +101,7 @@
 		6DEEF0011F612C8F0078EEE1 /* BookDownloadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DEEEFFF1F612C8F0078EEE1 /* BookDownloadCell.xib */; };
 		6DEEF0031F613AC10078EEE1 /* NewsBookmarkedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEEF0021F613AC10078EEE1 /* NewsBookmarkedCell.swift */; };
 		6DEEF0051F6145A10078EEE1 /* VipDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEEF0041F6145A10078EEE1 /* VipDetailViewController.swift */; };
+		6DEF215C1FA2EF5900DB94AF /* CustomStatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF215B1FA2EF5800DB94AF /* CustomStatusBarView.swift */; };
 		6DEF67C61F5506FE00D6BBCC /* SendCommentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF67C51F5506FE00D6BBCC /* SendCommentTask.swift */; };
 		6DEF67CA1F550EA000D6BBCC /* GetAllNewsTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF67C91F550EA000D6BBCC /* GetAllNewsTask.swift */; };
 		6DEF72411F5FD15A008392A0 /* ChanelHotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF72401F5FD15A008392A0 /* ChanelHotController.swift */; };
@@ -350,6 +351,7 @@
 		6DEEEFFF1F612C8F0078EEE1 /* BookDownloadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDownloadCell.xib; sourceTree = "<group>"; };
 		6DEEF0021F613AC10078EEE1 /* NewsBookmarkedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsBookmarkedCell.swift; sourceTree = "<group>"; };
 		6DEEF0041F6145A10078EEE1 /* VipDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VipDetailViewController.swift; sourceTree = "<group>"; };
+		6DEF215B1FA2EF5800DB94AF /* CustomStatusBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStatusBarView.swift; sourceTree = "<group>"; };
 		6DEF67C51F5506FE00D6BBCC /* SendCommentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendCommentTask.swift; sourceTree = "<group>"; };
 		6DEF67C91F550EA000D6BBCC /* GetAllNewsTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllNewsTask.swift; sourceTree = "<group>"; };
 		6DEF72401F5FD15A008392A0 /* ChanelHotController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChanelHotController.swift; sourceTree = "<group>"; };
@@ -623,6 +625,7 @@
 				6D0766791F6F6AFB00097D8B /* CustomHistorySearch.xib */,
 				6DED400A1F92849B00890BB3 /* VideoPlayerView.swift */,
 				6DED40061F92828900890BB3 /* CustomVideoViewController.swift */,
+				6DEF215B1FA2EF5800DB94AF /* CustomStatusBarView.swift */,
 			);
 			name = CustomNavigation;
 			sourceTree = "<group>";
@@ -738,8 +741,6 @@
 				6DF4FFFA1F5EA8B500DF73A0 /* IncreaseVIewChanelTask.swift */,
 				6DF4FFFC1F5EB18300DF73A0 /* GetAllChanelSubcribledTask.swift */,
 				6DEF72421F5FD87F008392A0 /* GetHotChanelTask.swift */,
-				6DEF914E1F9DCDF700CCA082 /* AddToHistoryTask.swift */,
-				6DEF91501F9DD1BF00CCA082 /* GetHistoryListenTask.swift */,
 			);
 			name = Chanel;
 			sourceTree = "<group>";
@@ -796,6 +797,8 @@
 				6DEC62B51F90A4870020A916 /* SendTokenTask.swift */,
 				6DEF91521F9DD83C00CCA082 /* GetHIstoryBuyBookTask.swift */,
 				6DEF91541F9DD9B500CCA082 /* GetHistoryBuyVipTask.swift */,
+				6DEF914E1F9DCDF700CCA082 /* AddToHistoryTask.swift */,
+				6DEF91501F9DD1BF00CCA082 /* GetHistoryListenTask.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1382,6 +1385,7 @@
 				6DF3DD861F8CC268001E6719 /* MarkRaededNotification.swift in Sources */,
 				6DF07B771F690A940017C1CB /* StoreMarkViewCell.swift in Sources */,
 				6DEEA5481F6FCAD900116848 /* NewsType.swift in Sources */,
+				6DEF215C1FA2EF5900DB94AF /* CustomStatusBarView.swift in Sources */,
 				6DF07B7C1F691C860017C1CB /* DetailStoreMarkController.swift in Sources */,
 				6DF4FFF51F5E9CDD00DF73A0 /* GetListlessonOfChanelTask.swift in Sources */,
 				6DEDBD551F4593DD00526AD0 /* CustomBookCollection.swift in Sources */,

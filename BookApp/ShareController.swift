@@ -34,7 +34,7 @@ class ShareController: BaseViewController {
             }
             self.present(vc!, animated: true, completion: nil)
         } else {
-            _ = UIAlertController(title: "waring", message: "please install weibo and sigin weibo for share", preferredStyle: .alert)
+            _ = UIAlertController.initAler(title: "", message: "您要安裝微博來用這個功能", inViewController: self)
         }
     }
     
@@ -60,7 +60,8 @@ class ShareController: BaseViewController {
                                                 UIActivityType.addToReadingList,
                                                 UIActivityType.postToFlickr,
                                                 UIActivityType.mail,
-                                                UIActivityType.postToWeibo
+                                                UIActivityType.postToWeibo,
+                                                UIActivityType.message
                                                 ]
             activityVC.completionWithItemsHandler = { (activity, success, items, error) in
                 if success {
@@ -88,6 +89,8 @@ class ShareController: BaseViewController {
                 }
             }
             self.present(vc!, animated: true, completion: nil)
+        } else {
+            _ = UIAlertController.initAler(title: "", message: "您要安裝FACEBOOK來用這個功能", inViewController: self)
         }
     }
 }

@@ -60,9 +60,9 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
         navigationView.checkNotifocation()
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    
+
     // MARK: Get Baner From Server
-    
+
     func getBaner() {
         let getBanerTask = GetSliderBanerTask(typeSlider: ScreenShow.chanel.rawValue)
         requestWithTask(task: getBanerTask, success: { (data) in

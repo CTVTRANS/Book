@@ -131,7 +131,7 @@ class MP3Player: NSObject {
         return 999999
     }
     
-    func isNil() -> Bool {
+    func playerItemIsNil() -> Bool {
         if playerItem == nil {
             return true
         }
@@ -159,29 +159,38 @@ class MP3Player: NSObject {
     }
     
     func getCurrentTime() -> (Float, String) {
-        let current = playerItem?.currentTime()
-        let currentTime = CMTimeGetSeconds(current!)
-        let sec = Int(currentTime) % 60
-        let min = Int(currentTime) / 60
-        let timeString = String(format: "%0.2d:%0.2d", min, sec)
-        let timeFloat = Float(currentTime)
-        return (timeFloat, timeString)
+        if !playerItemIsNil() {
+              let current = playerItem?.currentTime()
+            let currentTime = CMTimeGetSeconds(current!)
+            let sec = Int(currentTime) % 60
+            let min = Int(currentTime) / 60
+            let timeString = String(format: "%0.2d:%0.2d", min, sec)
+            let timeFloat = Float(currentTime)
+            return (timeFloat, timeString)
+        }
+        return ( 0.0, "00:00")
     }
     
     func getTotalTimeString() -> String {
-        let duration = playerItem?.asset.duration
-        let totalTime = CMTimeGetSeconds(duration!)
-        let sec = Int(totalTime) % 60
-        let min = Int(totalTime) / 60
-        let timeString = String(format: "%0.1d:%0.2d", min, sec)
-        return timeString
+        if !playerItemIsNil() {
+            let duration = playerItem?.asset.duration
+            let totalTime = CMTimeGetSeconds(duration!)
+            let sec = Int(totalTime) % 60
+            let min = Int(totalTime) / 60
+            let timeString = String(format: "%0.1d:%0.2d", min, sec)
+            return timeString
+        }
+        return "00:00"
     }
     
     func getTotalTime() -> Float {
-        let duration = playerItem?.asset.duration
-        let totalTime = CMTimeGetSeconds(duration!)
-        let timeFloat = Float(totalTime)
-        return timeFloat
+        if !playerItemIsNil() {
+            let duration = playerItem?.asset.duration
+            let totalTime = CMTimeGetSeconds(duration!)
+            let timeFloat = Float(totalTime)
+            return timeFloat
+        }
+        return 0.0
     }
     
     func limitTimePlay() {

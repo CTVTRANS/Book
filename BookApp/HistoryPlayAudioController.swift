@@ -119,7 +119,11 @@ extension HistoryPlayAudioController: UITableViewDataSource, UITableViewDelegate
             cell?.imagePlay.image = #imageLiteral(resourceName: "playList")
         }
         
-        cell?.callBackDownload = { oject in
+        cell?.callBackDownload = { [weak self] oject in
+            if self?.memberInstance?.level != 1 {
+                _ = UIAlertController.initAler(title: "", message: "VIP會員才能下載", inViewController: self!)
+                return
+            }
             if let book = oject as? Book {
                 let download = DownloadAudioController()
                 download.downloadBook(book: book)
@@ -127,8 +131,8 @@ extension HistoryPlayAudioController: UITableViewDataSource, UITableViewDelegate
             if let lesson = oject as? Lesson {
                 let download = DownloadAudioController()
                 let arr = [lesson]
-                download.downloadArrayLeeson(arrayLesson: arr, completionHandler: { (number) in
-                    _ = UIAlertController.initAler(title: "", message: "Download \(number) lesson success", inViewController: self)
+                download.downloadArrayLeeson(arrayLesson: arr, completionHandler: { (_) in
+                   
                 })
             }
         }

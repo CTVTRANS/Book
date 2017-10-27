@@ -16,7 +16,8 @@ class AgreementsViewController: BaseViewController, UIWebViewDelegate {
         super.viewDidLoad()
         showActivity(inView: self.view)
         webView.delegate = self
-        webView.loadHTMLString("License Agreement", baseURL: nil)
+        let termOfUse = DefaultApp.sharedInstance.termOffUse
+        webView.loadHTMLString(termOfUse!, baseURL: nil)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
