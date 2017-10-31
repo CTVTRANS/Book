@@ -44,9 +44,9 @@ class RegisterTask: BaseTaskNetwork {
             let statusCode = dictionary["status_code"] as? Int ?? 0
             let error = ErrorCode(rawValue: statusCode)
             if status == "success" {
-                return (true, error)
+                return ErrorCode.success
             }
-            return (false, error)
+            return (error)
         }
         return response
     }

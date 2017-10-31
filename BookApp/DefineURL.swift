@@ -31,6 +31,7 @@ let subcribleURL = "/api/teacher/subscribe"
 let increaseViewChanelURL = "/api/teacher/play_lesson"
 let addToHistoryURL = "/api/history/add_audio_to_history"
 let getHistoryLessonURL = "/api/history/get_history_play"
+let removeHistoryaudioURL = "/api/history/delete_history"
 
 // MARK: News
 let getAllNewsURL = "/api/post/list_latest_post"

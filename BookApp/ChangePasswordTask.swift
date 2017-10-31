@@ -47,9 +47,10 @@ class ChangePasswordTask: BaseTaskNetwork {
             let token = dictionary["new_access_token"] as? String ?? ""
             if status == "success" {
                 ProfileMember.saveToken(token: token)
-                return (true, "success")
+                return ErrorCode.success
             }
-            return (false, String(statusCode))
+            let error = ErrorCode(rawValue: statusCode)
+            return error
         }
         return response
     }

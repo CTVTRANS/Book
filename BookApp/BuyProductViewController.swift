@@ -110,13 +110,13 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
             return
         }
         if PeoleReciveProduct.sharedInstance.phone == nil {
-            _ = UIAlertController.initAler(title: "", message: "Please fill information recipient", inViewController: self)
+            UIAlertController.initAler(title: "", message: "Please fill information recipient", inViewController: self)
         } else {
             if numberMark.text?.range(of: " 积分") != nil {
                 let array = numberMark.text?.components(separatedBy: " 积分")
                 let numberPoint = Int((array?.first)!)
                 if numberPoint! > (memberInstance?.point)! {
-                    _ = UIAlertController.initAler(title: "", message: "积分不足请多争取更多积分", inViewController: self)
+                    UIAlertController.initAler(title: "", message: "积分不足请多争取更多积分", inViewController: self)
                     return
                 }
             }

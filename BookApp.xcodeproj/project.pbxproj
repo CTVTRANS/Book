@@ -251,6 +251,7 @@
 		6DF8892E1F418F40005F72D7 /* DetailChanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF8892D1F418F40005F72D7 /* DetailChanelViewController.swift */; };
 		6DF889301F418F68005F72D7 /* ChanelSubscribeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF8892F1F418F68005F72D7 /* ChanelSubscribeController.swift */; };
 		76E08F9DCE0410B70DD2B4D3 /* Pods_BookApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB3D8157F50B7433C570DE8 /* Pods_BookApp.framework */; };
+		9D22159B1FA6BE2E001F0947 /* RemoveHistoryAudioTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D22159A1FA6BE2E001F0947 /* RemoveHistoryAudioTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -510,6 +511,7 @@
 		6DF8892F1F418F68005F72D7 /* ChanelSubscribeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChanelSubscribeController.swift; sourceTree = "<group>"; };
 		8CB3D8157F50B7433C570DE8 /* Pods_BookApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D3CDF92D2128A3885089EA /* Pods-BookApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookApp/Pods-BookApp.release.xcconfig"; sourceTree = "<group>"; };
+		9D22159A1FA6BE2E001F0947 /* RemoveHistoryAudioTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveHistoryAudioTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -799,6 +801,7 @@
 				6DEF91541F9DD9B500CCA082 /* GetHistoryBuyVipTask.swift */,
 				6DEF914E1F9DCDF700CCA082 /* AddToHistoryTask.swift */,
 				6DEF91501F9DD1BF00CCA082 /* GetHistoryListenTask.swift */,
+				9D22159A1FA6BE2E001F0947 /* RemoveHistoryAudioTask.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1358,6 +1361,7 @@
 				6D27878A1F68CE7F0087D04D /* HistoryBuyProductController.swift in Sources */,
 				6DF31A2B1F8DFB7E0081D263 /* SubcribleOneGroupTask.swift in Sources */,
 				6DE9229A1F676CB700EE24EC /* SecrectGroup.swift in Sources */,
+				9D22159B1FA6BE2E001F0947 /* RemoveHistoryAudioTask.swift in Sources */,
 				6D8D76501F97504E00B2C034 /* BuyVipPointTask.swift in Sources */,
 				6D13F6591F8B11E300B4B229 /* ChangePasswordTask.swift in Sources */,
 				58C39DE61F3C5B0B001741EB /* BottomView.swift in Sources */,

@@ -49,10 +49,6 @@ class DetailSingleGroupViewController: BaseViewController, UITableViewDelegate, 
             indicator = ac
         }
         loadMoreData()
-        
-//        let backItem = UIBarButtonItem()
-//        backItem.title = ""
-//        navigationItem.backBarButtonItem = backItem
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -154,8 +150,7 @@ class DetailSingleGroupViewController: BaseViewController, UITableViewDelegate, 
             }
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
         }
-
     }
 }

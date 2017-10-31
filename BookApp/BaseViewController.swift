@@ -50,7 +50,7 @@ class BaseViewController: UIViewController {
                 failure(error)
             }
         } else {
-            _ = UIAlertController.initAler(title: "", message: "没有网络", inViewController: self)
+            UIAlertController.initAler(title: "", message: "没有网络", inViewController: self)
         }
     }
     

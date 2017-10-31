@@ -156,7 +156,7 @@ class MyprofileViewController: BaseViewController, UITableViewDelegate, UITableV
                                 ProfileMember.saveProfile(myProfile: self.memberInstance!)
                                 return
                             }
-                            _ = UIAlertController.initAler(title: "", message: avatarURL.1, inViewController: self)
+                            UIAlertController.initAler(title: "", message: avatarURL.1, inViewController: self)
                         }
                     }) { (_) in
                         self.changeAvatarButton.isHidden = false
@@ -188,7 +188,7 @@ class MyprofileViewController: BaseViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func pressedChangeAvatar(_ sender: Any) {
-        _ = UIAlertController.showActionSheetWith(arrayTitle: ["拍照", "从相册选择"],
+        UIAlertController.showActionSheetWith(arrayTitle: ["拍照", "从相册选择"],
                                                   handlerAction: { (index) in
                                                     switch index {
                                                     case 0:

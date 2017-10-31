@@ -86,7 +86,7 @@ class StoreMarkViewController: BaseViewController, UICollectionViewDelegate, UIC
             }
         }, failure: { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.initAler(title: "", message: error as! String, inViewController: self)
         })
     }
 

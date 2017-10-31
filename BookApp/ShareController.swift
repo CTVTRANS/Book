@@ -34,7 +34,7 @@ class ShareController: BaseViewController {
             }
             self.present(vc!, animated: true, completion: nil)
         } else {
-            _ = UIAlertController.initAler(title: "", message: "您要安裝微博來用這個功能", inViewController: self)
+            UIAlertController.initAler(title: "", message: "您要安裝微博來用這個功能", inViewController: self)
         }
     }
     
@@ -90,7 +90,7 @@ class ShareController: BaseViewController {
             }
             self.present(vc!, animated: true, completion: nil)
         } else {
-            _ = UIAlertController.initAler(title: "", message: "您要安裝FACEBOOK來用這個功能", inViewController: self)
+            UIAlertController.initAler(title: "", message: "您要安裝FACEBOOK來用這個功能", inViewController: self)
         }
     }
 }

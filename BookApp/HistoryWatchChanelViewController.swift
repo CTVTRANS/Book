@@ -98,6 +98,19 @@ class HistoryWatchChanelViewController: BaseViewController {
             self?.table.reloadData()
         }
     }
+    
+    func removeAudio(type: Int, objecID: Int) {
+        let removeAudioTask = RemoveHistoryAudioTask(memberID: (memberInstance?.idMember)!,
+                                                   token: tokenInstance!,
+                                                   type: type,
+                                                   idObject: objecID)
+        requestWithTask(task: removeAudioTask, success: { (_) in
+            
+        }) { (_) in
+            
+        }
+    }
+    
     @IBAction func pressedSegment(_ sender: Any) {
         table.reloadData()
     }
@@ -135,6 +148,8 @@ extension HistoryWatchChanelViewController: UITableViewDelegate, UITableViewData
                     self?.play(lesson: lesson, index: indexPath.row)
                     break
                 case "removeChanel":
+                    self?.removeAudio(type: ScreenShow.chanel.rawValue, objecID: lesson.idChap)
+                    self?.listHistoryLesson.remove(at: indexPath.row)
                     self?.table.reloadData()
                     break
                 default:
@@ -154,6 +169,8 @@ extension HistoryWatchChanelViewController: UITableViewDelegate, UITableViewData
                 self?.playBook(book: book, index: indexPath.row)
                 break
             case "remove":
+                self?.removeAudio(type: ScreenShow.book.rawValue, objecID: book.idBook)
+                self?.listHistoryBook.remove(at: indexPath.row)
                 self?.table.reloadData()
             default:
                 break

@@ -34,9 +34,6 @@ class ActivityOfflineViewController: BaseViewController, FSPagerViewDataSource, 
         super.viewDidLoad()
         addGroupButton.layer.borderColor = UIColor.rgb(255, 102, 0).cgColor
         navigationItem.title = "线下活动"
-//        let backItem = UIBarButtonItem()
-//        backItem.title = ""
-//        navigationItem.backBarButtonItem = backItem
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "分会圈子",
                                                             style: .done,
                                                             target: self,

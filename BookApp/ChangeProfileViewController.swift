@@ -151,7 +151,7 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
             requestWithTask(task: change, success: { (_) in
                 let updateInfo = GetProfileMemberTask(idMember: (self.memberInstance?.idMember)!)
                 self.requestWithTask(task: updateInfo, success: { (_) in
-                    _ = UIAlertController.initAler(title: "", message: "Change infomation conplete", inViewController: self)
+                    UIAlertController.initAler(title: "", message: ErrorCode.success.decodeError(), inViewController: self)
                 }, failure: { (_) in
                     
                 })
@@ -168,16 +168,16 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
         newPassMember = newPassTextField.text
         confirmPassMember = confirmPassTextField.text
         if (newPassMember?.components(separatedBy: " ").count)! > 1 || (confirmPassMember?.components(separatedBy: " ").count)! > 1 {
-             _ = UIAlertController.initAler(title: "", message: "Password cant has space", inViewController: self)
+            UIAlertController.initAler(title: "", message: ErrorCode.passwordHasSpace.decodeError(), inViewController: self)
             return
         }
         
         if oldPassMember != nil && newPassMember != nil && confirmPassMember != nil {
             let changePassWord = ChangePasswordTask(memberID: (memberInstance?.idMember)!, oldPass: oldPassMember!, newPass: newPassMember!, confirmPass: confirmPassMember!, token: tokenInstance!)
             requestWithTask(task: changePassWord, success: { (data) in
-                if let status = data as? (Bool, String) {
-                    if status.0 {
-                        let alert = UIAlertController.init(title: "", message: status.1, preferredStyle: .alert)
+                if let status = data as? ErrorCode {
+                    if status == ErrorCode.success {
+                        let alert = UIAlertController.init(title: "", message: status.decodeError(), preferredStyle: .alert)
                         let action = UIAlertAction(title: "确认",
                                                    style: UIAlertActionStyle.default) { (_) in
                             self.navigationController?.popViewController(animated: true)
@@ -185,7 +185,7 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
                         alert.addAction(action)
                         self.present(alert, animated: true, completion: nil)
                     }
-                    _ = UIAlertController.initAler(title: "", message: status.1, inViewController: self)
+                    UIAlertController.initAler(title: "", message: status.decodeError(), inViewController: self)
                 }
             }, failure: { (_) in
                 

@@ -75,13 +75,13 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         if status == ErrorCode.success {
             let sigIn = SignInTaks(countryCode: country, phoneNumerber: phone, password: pass)
             requestWithTask(task: sigIn, success: { (data) in
-                if let status = data as? (Bool, ErrorCode) {
+                if let status = data as? ErrorCode {
                     let action = UIAlertAction(title: "确认", style: .default, handler: { (_) in
-                        if status.0 {
+                        if status == ErrorCode.success {
                             self.dismiss(animated: true, completion: nil)
                         }
                     })
-                    let alert = UIAlertController.init(title: "", message: status.1.decodeError(), preferredStyle: .alert)
+                    let alert = UIAlertController.init(title: "", message: status.decodeError(), preferredStyle: .alert)
                     alert.addAction(action)
                     self.present(alert, animated: true, completion: nil)
                 }

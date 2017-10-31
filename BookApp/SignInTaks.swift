@@ -56,10 +56,10 @@ class SignInTaks: BaseTaskNetwork {
                 profile?.token = tokenMember
                 ProfileMember.saveToken(token: tokenMember)
                 ProfileMember.saveProfile(myProfile: profile!)
-                return (true, ErrorCode.success)
+                return ErrorCode.success
             } else {
                 let error = ErrorCode(rawValue: statusCode)
-                return (false, error)
+                return error
             }
         }
         return response
