@@ -15,26 +15,26 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - CryptoSwift (0.6.9)
-  - DeviceKit (1.2.3)
+  - DeviceKit (1.4.0)
   - FSPagerView (0.5.5)
   - LCNetwork (0.1.0):
     - AFNetworking (~> 3.0)
-  - SDWebImage (4.1.0):
-    - SDWebImage/Core (= 4.1.0)
-  - SDWebImage/Core (4.1.0)
+  - SDWebImage (4.1.2):
+    - SDWebImage/Core (= 4.1.2)
+  - SDWebImage/Core (4.1.2)
   - SwiftLint (0.22.0)
   - SWRevealViewController (2.3.0)
-  - TYPagerController (2.0.1)
+  - TYPagerController (2.0.6)
 
 DEPENDENCIES:
-  - CryptoSwift
-  - DeviceKit (~> 1.0)
-  - FSPagerView
+  - CryptoSwift (~> 0.6.9)
+  - DeviceKit
+  - FSPagerView (~> 0.5.5)
   - LCNetwork (from `https://github.com/conglv/LCNetwork.git`)
-  - SDWebImage (~> 4.0)
-  - SwiftLint
-  - SWRevealViewController
-  - TYPagerController
+  - SDWebImage (~> 4.1.0)
+  - SwiftLint (~> 0.22.0)
+  - SWRevealViewController (~> 2.3.0)
+  - TYPagerController (~> 2.0.1)
 
 EXTERNAL SOURCES:
   LCNetwork:
@@ -48,14 +48,14 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   CryptoSwift: a22f6ba238e9ce4d26ee7bf45b9ed82e7122d4a0
-  DeviceKit: f33cbc6e67d9bb416e42dedc647557c7c2f6d3d7
+  DeviceKit: fa74d97499660e88081718b16688e19217595dba
   FSPagerView: 3ec72e6b201d77a48adab5ed1d33b43a8cc153d6
   LCNetwork: e855b24d45fa67ca2b005483885123f8e6a7dd31
-  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
   SwiftLint: 1134786caedd2caab0560d2f36b76414a5a56808
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
-  TYPagerController: f86e3f85d723caa967655f23661d32beaee7db77
+  TYPagerController: 043c9063b53cc6d3f6eb937c9dcbf431ae7cad85
 
-PODFILE CHECKSUM: 25128f67beded6f7347c13bb002cc8e812dde760
+PODFILE CHECKSUM: 8e99796258ee09d5a3e22a99305afd6afa86e29e
 
 COCOAPODS: 1.3.1

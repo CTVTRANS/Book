@@ -83,8 +83,10 @@ class HistoryCellBook: UITableViewCell {
         imageBook.sd_setImage(with: URL(string: (historyBook.producBook?.imageURL)!))
         time.text = historyBook.time.components(separatedBy: " ")[0]
         let arrayString = historyBook.producBook?.descriptionBook.components(separatedBy: "</p>")
-        let firstString = arrayString?[0]
-        let index = firstString?.index((firstString?.startIndex)!, offsetBy: 3)
-        detail.text = firstString?.substring(from: index!)
+        let firstString = arrayString?.first
+        if (firstString?.characters.count)! > 4 {
+            let index = firstString?.index((firstString?.startIndex)!, offsetBy: 3)
+            detail.text = firstString?.substring(from: index!)
+        }
     }
 }

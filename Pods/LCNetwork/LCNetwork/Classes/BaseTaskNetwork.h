@@ -9,7 +9,6 @@
 
 static NSString *GET = @"GET";
 static NSString *POST = @"POST";
-static NSString *PUT = @"PUT";
 
 typedef void (^BlockSuccess)(id data);
 typedef void (^BlockProgress)(float progress);

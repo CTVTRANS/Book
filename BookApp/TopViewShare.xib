@@ -26,8 +26,8 @@
                         <constraint firstAttribute="width" constant="60" id="iiO-Pa-E6i"/>
                     </constraints>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWr-vd-9Lz">
-                    <rect key="frame" x="16" y="28" width="37" height="17.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWr-vd-9Lz">
+                    <rect key="frame" x="16" y="28" width="387" height="17.5"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -47,6 +47,7 @@
             <constraints>
                 <constraint firstItem="lWr-vd-9Lz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="100-nG-dQe"/>
                 <constraint firstItem="qVu-fz-m3D" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="17B-fk-9Ew"/>
+                <constraint firstItem="XS0-jW-S99" firstAttribute="leading" secondItem="lWr-vd-9Lz" secondAttribute="trailing" constant="32" id="1U1-bg-Ljs"/>
                 <constraint firstItem="XS0-jW-S99" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JO5-go-EHB"/>
                 <constraint firstAttribute="bottom" secondItem="XS0-jW-S99" secondAttribute="bottom" id="KxR-lJ-DrS"/>
                 <constraint firstItem="lWr-vd-9Lz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Plg-jj-QfW"/>

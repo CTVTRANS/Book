@@ -87,11 +87,14 @@ class MainViewController: BaseViewController {
             let arrayType1 = self.arrayTypeNews.filter({ (type: NewsType) -> Bool in
                 return type.parentID == 0
             })
-            self.typeNewsID = (arrayType1.first?.idType)!
-            self.typeNews1.reloadType(array: arrayType1)
-            self.reloadMyData()
+            let firstType = arrayType1.first
+            if firstType != nil {
+                self.typeNewsID = (firstType?.idType)!
+                self.typeNews1.reloadType(array: arrayType1)
+                self.reloadMyData()
+            }
         }) { (_) in
-            
+             self.stopActivityIndicator()
         }
     }
     

@@ -24,11 +24,9 @@
     if (self) {
         _manager = [AFHTTPSessionManager manager];
         _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-        
-//        _manager.responseSerializer = responseSerializer;
-
-        _manager.responseSerializer = [AFJSONResponseSerializer serializer];
         [_manager.requestSerializer setTimeoutInterval:30];
+        
+        _manager.responseSerializer = [AFJSONResponseSerializer serializer];
     }
     return self;
 }
@@ -78,7 +76,7 @@
 }
 
 - (void)downloadFileWithProgress:(BlockProgress)blockProgress success:(BlockSuccess)success andFailure:(BlockFailure)failure {
-    NSURL *URL = [NSURL URLWithString:[self pathFileDownload]];
+    NSURL *URL = [NSURL URLWithString:[self urlString]];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
     NSURLSessionDownloadTask *downloadTask = [_manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -105,21 +103,20 @@
     [downloadTask resume];
 }
 
-
 - (void)upLoadFileWith:(BlockSuccess)success andFailuer:(BlockFailure)failure {
     NSData *data = [self imageUpload];
     NSString *name = [self parameterOfFile];
     NSMutableURLRequest *request =
-        [[AFHTTPRequestSerializer serializer]
-                            multipartFormRequestWithMethod: [self getMethod]
-                            URLString: [self urlString]
-                            parameters: [self parameters]
-                            constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-                                [formData appendPartWithFileData:data
-                                                            name:name
-                                                            fileName:@"avatar.jpeg"
-                                                            mimeType:@"png/jped"];
-                            } error:nil];
+    [[AFHTTPRequestSerializer serializer]
+     multipartFormRequestWithMethod: [self getMethod]
+     URLString: [self urlString]
+     parameters: [self parameters]
+     constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+         [formData appendPartWithFileData:data
+                                     name:name
+                                 fileName:@"avatar.jpeg"
+                                 mimeType:@"png/jped"];
+     } error:nil];
     
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     
@@ -127,18 +124,18 @@
     uploadTask = [manager uploadTaskWithStreamedRequest:request
                                                progress:^(NSProgress * _Nonnull uploadProgress) {
                                                    
-            } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-                  if (error) {
-                      if (failure) {
-                          failure(error);
-                      }
-                      return;
-                  }
-                  if (success) {
-                    success([self dataWithResponse:responseObject]);
-                      
-                  }
-              }];
+                                               } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+                                                   if (error) {
+                                                       if (failure) {
+                                                           failure(error);
+                                                       }
+                                                       return;
+                                                   }
+                                                   if (success) {
+                                                       success([self dataWithResponse:responseObject]);
+                                                       
+                                                   }
+                                               }];
     
     [uploadTask resume];
 }
@@ -175,7 +172,7 @@
 #pragma mark - Method Override Sub Class
 
 - (NSString *)urlString {
-//    return [NSString stringWithFormat:@"%@%@",@"http://192.168.1.100:8080/studyapp", [self path]];
+    //    return [NSString stringWithFormat:@"%@%@",@"http://192.168.1.100:8080/studyapp", [self path]];
     return [NSString stringWithFormat:@"%@%@",@"http://studyapp.transoftvietnam.com", [self path]];
 }
 

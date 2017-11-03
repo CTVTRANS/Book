@@ -381,7 +381,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMe-SD-ARR">
-                                        <rect key="frame" x="12" y="123.5" width="14.5" height="19.5"/>
+                                        <rect key="frame" x="12" y="123.5" width="292" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -409,6 +409,7 @@
                                     </constraint>
                                     <constraint firstItem="eXq-NP-9aw" firstAttribute="leading" secondItem="DV2-eK-Rmz" secondAttribute="trailing" constant="5" id="bNq-D6-ep2"/>
                                     <constraint firstItem="cb1-zr-Dj7" firstAttribute="centerX" secondItem="qcY-dg-eIG" secondAttribute="centerX" id="kYC-dt-7Vu"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZMe-SD-ARR" secondAttribute="trailing" constant="16" id="oF1-fG-fCK"/>
                                     <constraint firstItem="DV2-eK-Rmz" firstAttribute="top" secondItem="ZMe-SD-ARR" secondAttribute="bottom" constant="8" id="qUq-pP-4VK"/>
                                     <constraint firstAttribute="bottom" secondItem="DV2-eK-Rmz" secondAttribute="bottom" constant="18" id="rIH-5U-Nte">
                                         <userDefinedRuntimeAttributes>

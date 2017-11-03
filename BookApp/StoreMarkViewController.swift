@@ -84,9 +84,8 @@ class StoreMarkViewController: BaseViewController, UICollectionViewDelegate, UIC
                 self.stopActivityIndicator()
                 self.refreshControl.endRefreshing()
             }
-        }, failure: { (error) in
+        }, failure: { (_) in
             self.stopActivityIndicator()
-            UIAlertController.initAler(title: "", message: error as! String, inViewController: self)
         })
     }
 
@@ -163,7 +162,7 @@ class StoreMarkViewController: BaseViewController, UICollectionViewDelegate, UIC
         }
     }
     @IBAction func pressedShowHistoryBuy(_ sender: Any) {
-        let mayStoryboard = UIStoryboard(name: "Setting", bundle: nil)
+        let mayStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         let vc = mayStoryboard.instantiateViewController(withIdentifier: "HistoryBuyProductController")
         navigationController?.pushViewController(vc, animated: true)
     }
