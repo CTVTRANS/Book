@@ -98,9 +98,7 @@ class BookViewController: BaseViewController {
             self.tableBookType.reloadData()
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: " ",
-                                  message: error as? String,
-                                  preferredStyle: .alert)
+            UIAlertController.initAler(title: "", message: (error as? String)!, inViewController: self)
         }
     }
     
@@ -110,7 +108,7 @@ class BookViewController: BaseViewController {
             self.suggestBookView.reloadData(arrayOfBook: (data as? [Book])!)
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.initAler(title: "", message: (error as? String)!, inViewController: self)
         }
     }
     
@@ -120,7 +118,7 @@ class BookViewController: BaseViewController {
             self.freeBookView.reloadData(arrayOfBook: (data as? [Book])!)
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.initAler(title: "", message: (error as? String)!, inViewController: self)
         }
     }
     
@@ -150,7 +148,7 @@ class BookViewController: BaseViewController {
         }) { (error) in
             self.viewForNewestBook.isHidden = true
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.initAler(title: "", message: (error as? String)!, inViewController: self)
         }
     }
     
@@ -171,7 +169,7 @@ class BookViewController: BaseViewController {
                 self?.suggestBookView.reloadData(arrayOfBook: (data as? [Book])!)
             }) { (error) in
                 self?.stopActivityIndicator()
-                _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+                UIAlertController.initAler(title: "", message: (error as? String)!, inViewController: self!)
             }
         }
         
