@@ -41,7 +41,8 @@ class BaseDailog: UIView {
     
     func hide() {
         contenView.transform = CGAffineTransform.identity
-        UIView.animate(withDuration: 0.2, animations: { [weak self] _ in
+        
+        UIView.animate(withDuration: 0.2, animations: { [weak self] in
             self?.contenView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
         }) { (_) in
             self.removeFromSuperview()

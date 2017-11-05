@@ -106,7 +106,7 @@ class BookAudioController: BaseViewController {
         sliderBar.addTarget(self, action: #selector(playbackSliderValueChanged(slider:event:)), for: .valueChanged)
     }
     
-    func playbackSliderValueChanged( slider: UISlider, event: UIEvent) {
+    @objc func playbackSliderValueChanged( slider: UISlider, event: UIEvent) {
         if let touchEvent = event.allTouches?.first {
             switch touchEvent.phase {
             case .began:
@@ -164,7 +164,7 @@ class BookAudioController: BaseViewController {
         mp3.player?.seek(to: targetTime)
     }
     
-    func stopAudio(notification: Notification) {
+    @objc func stopAudio(notification: Notification) {
         if mp3.isPlaying() {
             mp3.pause()
             buttonImge.image = #imageLiteral(resourceName: "audio_play")

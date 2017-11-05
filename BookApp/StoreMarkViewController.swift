@@ -39,7 +39,7 @@ class StoreMarkViewController: BaseViewController, UICollectionViewDelegate, UIC
         navigationController?.isNavigationBarHidden = false
     }
     
-    func reloadMyData() {
+    @objc func reloadMyData() {
         listProduct.removeAll()
         collection.reloadData()
         getProduct()

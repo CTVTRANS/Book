@@ -142,7 +142,7 @@ class ShowAllActivityGroupController: BaseViewController, UITableViewDelegate, U
         table.reloadData()
     }
     
-    func pressRightBarButton() {
+    @objc func pressRightBarButton() {
         if !checkLogin() {
             goToSigIn()
             return
@@ -174,7 +174,7 @@ class ShowAllActivityGroupController: BaseViewController, UITableViewDelegate, U
         requestWithTask(task: subcrible, success: { (data) in
             if let status = data as? Bool {
                 if status {
-                    _ = UIAlertController.initAler(title: "", message: ErrorCode.success.decodeError(), inViewController: self)
+                    UIAlertController.showAler(title: "", message: ErrorCode.success.decodeError(), inViewController: self)
                 }
             }
         }) { (error) in

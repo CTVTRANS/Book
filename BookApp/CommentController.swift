@@ -64,7 +64,7 @@ class CommentController: BaseViewController, UITextViewDelegate {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    func reloadMyData() {
+    @objc func reloadMyData() {
         isMoreData = true
         pager = 1
         arrayComment.removeAll()
@@ -175,7 +175,7 @@ class CommentController: BaseViewController, UITextViewDelegate {
         }
     }
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         commentTextView.endEditing(true)
     }
     
@@ -200,7 +200,7 @@ class CommentController: BaseViewController, UITextViewDelegate {
             }
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self)
         }
     }
     
@@ -247,12 +247,12 @@ extension CommentController: UITableViewDataSource, UITableViewDelegate {
         let sectionObject = arrayObject[indexPath.section]
         let commenObject = sectionObject.comment[indexPath.row]
         cell?.binData(commentObject: commenObject)
-        cell?.pressLikeComment = { [weak self] in
+        cell?.pressLikeComment = { [unowned self] in
             let likeComment: LikeTask = LikeTask(likeType: Object.comment.rawValue,
-                                                 memberID: (self?.memberInstance?.idMember)!,
+                                                 memberID: (self.memberInstance?.idMember)!,
                                                  objectId: commenObject.idComment,
-                                                 token: (self?.tokenInstance)!)
-            self?.requestWithTask(task: likeComment, success: { (data) in
+                                                 token: (self.tokenInstance)!)
+            self.requestWithTask(task: likeComment, success: { (data) in
                 let status: Like = (data as? Like)!
                 var currentLike: Int = Int(cell!.numberLike.text!)!
                 if status == Like.like {

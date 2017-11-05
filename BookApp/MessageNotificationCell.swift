@@ -32,7 +32,7 @@ class MessageNotificationCell: UITableViewCell {
         }
         let time = objectNotification.time.components(separatedBy: " ")[1]
         let index = time.index(time.startIndex, offsetBy: 5)
-        timeUp.text = time.substring(to: index)
+        timeUp.text = String(time[..<index])
         detailApp.text = objectNotification.appName
         titleNotification.text = objectNotification.title
         imageNotification.sd_setImage(with: URL(string: objectNotification.image), placeholderImage: #imageLiteral(resourceName: "place_holder"))

@@ -71,7 +71,7 @@ class SearchViewController: BaseViewController, UISearchBarDelegate {
         navigationController?.isNavigationBarHidden = true
     }
     
-    func reloadDataSearch() {
+    @objc func reloadDataSearch() {
         pager = 1
         isMoreData = true
         listNews.removeAll()
@@ -158,12 +158,12 @@ class SearchViewController: BaseViewController, UISearchBarDelegate {
     // MARK: UIControll
     
     func setUPCallBack() {
-        typeView.callBackButton = { (_ type: TypeSearch) in
+        typeView.callBackButton = { [unowned self] (_ type: TypeSearch) in
             self.searchBar.text = type.nameTypeSearch
             self.currentIDType = type.idTypeSearch
             self.reloadDataSearch()
         }
-        hotView.callBackButton = { (_ type: TypeSearch) in
+        hotView.callBackButton = { [unowned self] (_ type: TypeSearch) in
             self.currentIDType = nil
             self.searchBar.text = type.nameTypeSearch
             self.reloadDataSearch()
@@ -292,7 +292,6 @@ extension SearchViewController {
         if searchBook {
             let searchBook = GetListBookForTypeTask(category: typeID, page: pager, orderBy: "date")
             requestWithTask(task: searchBook, success: { (data) in
-//                self.table.backgroundView = nil
                 self.indicator?.stopAnimating()
                 self.refreashControl.endRefreshing()
                 self.isLoading = false

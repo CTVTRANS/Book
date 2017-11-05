@@ -84,14 +84,14 @@ class CustomMenu: UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
 
 extension String {
     func widthOfString(usingFont font: UIFont) -> CGFloat {
-        let fontAttributes = [NSFontAttributeName: font]
-        let size = self.size(attributes: fontAttributes)
+        let fontAttributes = [NSAttributedStringKey.font: font]
+        let size = self.size(withAttributes: fontAttributes)
         return size.width
     }
     
     func heightOfString(usingFont font: UIFont) -> CGFloat {
-        let fontAttributes = [NSFontAttributeName: font]
-        let size = self.size(attributes: fontAttributes)
+        let fontAttributes = [NSAttributedStringKey.font: font]
+        let size = self.size(withAttributes: fontAttributes)
         return size.height
     }
 }

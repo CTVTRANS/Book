@@ -163,7 +163,7 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
         }
     }
     
-    func checkNotifocationApp() {
+    @objc func checkNotifocationApp() {
         navigationView.checkNotifocation()
     }
     

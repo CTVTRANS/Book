@@ -88,14 +88,14 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
                 
             })
         } else {
-            _ = UIAlertController.initAler(title: "", message: check.decodeError(), inViewController: self)
+            UIAlertController.showAler(title: "", message: check.decodeError(), inViewController: self)
         }
     }
 
     @IBAction func showListCountry(_ sender: Any) {
         let vc = ListCountryView.instance() as? ListCountryView
-        vc?.callBack = { [weak self] codeCountry in
-            self?.country.text = codeCountry
+        vc?.callBack = { [unowned self] codeCountry in
+            self.country.text = codeCountry
         }
         vc?.show()
     }
@@ -104,7 +104,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         countryPhone = Int(country.text!)
         phone = Int(phoneNumber.text!)
         if phone == nil {
-            _ = UIAlertController.initAler(title: "", message: ErrorCode.numberPhoneEmty.decodeError(), inViewController: self)
+            UIAlertController.showAler(title: "", message: ErrorCode.numberPhoneEmty.decodeError(), inViewController: self)
             return
         }
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer(timer:)), userInfo: nil, repeats: true)
@@ -119,7 +119,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         }
     }
     
-    func updateTimer(timer: Timer) {
+    @objc func updateTimer(timer: Timer) {
         counter -= 1
         titleForbutton.text = "获取验证码" + "(\(counter)s)" + "  "
         if counter <= 0 {

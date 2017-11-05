@@ -84,9 +84,11 @@ class HistoryCellBook: UITableViewCell {
         time.text = historyBook.time.components(separatedBy: " ")[0]
         let arrayString = historyBook.producBook?.descriptionBook.components(separatedBy: "</p>")
         let firstString = arrayString?.first
-        if (firstString?.characters.count)! > 4 {
-            let index = firstString?.index((firstString?.startIndex)!, offsetBy: 3)
-            detail.text = firstString?.substring(from: index!)
+        if firstString != nil {
+            if firstString!.count > 4 {
+                let index = firstString!.index(firstString!.startIndex, offsetBy: 3)
+                detail.text = String(firstString![..<index])
+            }
         }
     }
 }

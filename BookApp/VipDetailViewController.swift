@@ -63,10 +63,10 @@ class VipDetailViewController: BaseViewController, UIWebViewDelegate {
                 if let status = data as? (Bool, ErrorCode) {
                     if status.0 {
                         self.memberInstance?.point -= (self.vip?.point)!
-                        _ = UIAlertController.initAler(title: "", message: "success", inViewController: self)
+                        UIAlertController.showAler(title: "", message: "success", inViewController: self)
                         return
                     }
-                    _ = UIAlertController.initAler(title: "", message: status.1.decodeError(), inViewController: self)
+                    UIAlertController.showAler(title: "", message: status.1.decodeError(), inViewController: self)
                 }
             }, failure: { (_) in
                 

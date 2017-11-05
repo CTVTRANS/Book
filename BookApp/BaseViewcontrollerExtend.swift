@@ -190,7 +190,7 @@ extension BaseTaskNetwork {
 }
 
 extension UIAlertController {
-    static func initAler(title: String, message: String, inViewController: UIViewController) {
+    static func showAler(title: String, message: String, inViewController: UIViewController) {
         let alertView = UIAlertController(title: title,
                                           message: message,
                                           preferredStyle: .alert)
@@ -375,7 +375,7 @@ extension UITabBarControllerDelegate {
 }
 
 extension UIColor {
-    class func rgb(_ red: Float, _ green: Float, _ blue: Float) -> UIColor {
-        return UIColor(colorLiteralRed: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1.0)
+    class func rgb(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat) -> UIColor {
+        return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1.0)
     }
 }

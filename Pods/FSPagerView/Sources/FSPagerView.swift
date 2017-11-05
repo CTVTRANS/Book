@@ -84,15 +84,9 @@ public enum FSPagerViewScrollDirection: Int {
 open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelegate {
     
     // MARK: - Public properties
-    
-    #if TARGET_INTERFACE_BUILDER
-    // Yes you need to lie to the Interface Builder, otherwise "@IBOutlet" cannot be connected.
-    @IBOutlet open weak var dataSource: AnyObject?
-    @IBOutlet open weak var delegate: AnyObject?
-    #else
-    open weak var dataSource: FSPagerViewDataSource?
-    open weak var delegate: FSPagerViewDelegate?
-    #endif
+
+    @IBOutlet open weak var dataSource: FSPagerViewDataSource?
+    @IBOutlet open weak var delegate: FSPagerViewDelegate?
     
     /// The scroll direction of the pager view. Default is horizontal.
     open var scrollDirection: FSPagerViewScrollDirection = .horizontal {
@@ -137,6 +131,21 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
         }
     }
     
+    /// A Boolean value that determines whether bouncing always occurs when horizontal scrolling reaches the end of the content view.
+    @IBInspectable
+    open var alwaysBounceHorizontal: Bool = false {
+        didSet {
+            self.collectionView.alwaysBounceHorizontal = self.alwaysBounceHorizontal;
+        }
+    }
+    
+    /// A Boolean value that determines whether bouncing always occurs when vertical scrolling reaches the end of the content view.
+    @IBInspectable
+    open var alwaysBounceVertical: Bool = false {
+        didSet {
+            self.collectionView.alwaysBounceVertical = self.alwaysBounceVertical;
+        }
+    }
     
     /// The background view of the pager view.
     @IBInspectable
@@ -153,6 +162,7 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
     }
     
     /// The transformer of the pager view.
+    @objc
     open var transformer: FSPagerViewTransformer? {
         didSet {
             self.transformer?.pagerView = self
@@ -167,10 +177,18 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
         return self.collectionView.isTracking
     }
     
+    /// Remove the infinite loop if there is only one item. default is NO
+    @IBInspectable
+    open var removesInfiniteLoopForSingleItem: Bool = false {
+        didSet {
+            self.reloadData()
+        }
+    }
+    
     /// The percentage of x position at which the origin of the content view is offset from the origin of the pagerView view.
     open var scrollOffset: CGFloat {
         let contentOffset = max(self.collectionView.contentOffset.x, self.collectionView.contentOffset.y)
-        let scrollOffset = Double(contentOffset.divided(by: self.collectionViewLayout.itemSpacing))
+        let scrollOffset = Double(contentOffset/self.collectionViewLayout.itemSpacing)
         return fmod(CGFloat(scrollOffset), CGFloat(Double(self.numberOfItems)))
     }
     
@@ -179,7 +197,7 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
         return self.collectionView.panGestureRecognizer
     }
     
-    open fileprivate(set) dynamic var currentIndex: Int = 0
+    @objc open internal(set) dynamic var currentIndex: Int = 0
     
     // MARK: - Private properties
     
@@ -220,7 +238,7 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
     }
     
     fileprivate var possibleTargetingIndexPath: IndexPath?
-
+    
     
     // MARK: - Overriden functions
     
@@ -277,7 +295,7 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
         guard self.numberOfItems > 0 else {
             return 0;
         }
-        self.numberOfSections = self.isInfinite ? Int(Int16.max)/self.numberOfItems : 1
+        self.numberOfSections = self.isInfinite && (self.numberOfItems > 1 || !self.removesInfiniteLoopForSingleItem) ? Int(Int16.max)/self.numberOfItems : 1
         return self.numberOfSections
     }
     
@@ -477,7 +495,7 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
                 }
                 return indexPath
             }
-            return self.isInfinite ? self.nearbyIndexPath(for: index) : IndexPath(item: index, section: 0)
+            return self.numberOfSections > 1 ? self.nearbyIndexPath(for: index) : IndexPath(item: index, section: 0)
         }()
         let contentOffset = self.collectionViewLayout.contentOffset(for: indexPath)
         self.collectionView.setContentOffset(contentOffset, animated: animated)
@@ -532,7 +550,7 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
         }
         let contentOffset: CGPoint = {
             let indexPath = self.centermostIndexPath
-            let section = self.isInfinite ?  (indexPath.section+(indexPath.item+1)/self.numberOfItems) : 0
+            let section = self.numberOfSections > 1 ? (indexPath.section+(indexPath.item+1)/self.numberOfItems) : 0
             let item = (indexPath.item+1) % self.numberOfItems
             return self.collectionViewLayout.contentOffset(for: IndexPath(item: item, section: section))
         }()
@@ -561,5 +579,3 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
     }
     
 }
-
-

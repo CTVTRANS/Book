@@ -132,7 +132,7 @@ class ActivityOfflineViewController: BaseViewController, FSPagerViewDataSource, 
     
     // MARK: Button Control
 
-    func pressRighBarButton() {
+    @objc func pressRighBarButton() {
         if !checkLogin() {
             goToSigIn()
             return

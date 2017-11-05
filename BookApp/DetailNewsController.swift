@@ -45,15 +45,15 @@ class DetailNewsController: BaseViewController, UIWebViewDelegate {
         let checkLiked: CheckLikedTask = CheckLikedTask(likeType: Object.news.rawValue,
                                                         memberID: (memberInstance?.idMember)!,
                                                         objectID: news.idNews)
-        requestWithTask(task: checkLiked, success: { [weak self] (data) in
+        requestWithTask(task: checkLiked, success: { [unowned self] (data) in
             if let status = data as? (Bool, Int) {
                 if status.0 {
-                    self?.bottomView.likeImage.image = #imageLiteral(resourceName: "ic_bottom_liked")
+                    self.bottomView.likeImage.image = #imageLiteral(resourceName: "ic_bottom_liked")
                 } else {
-                    self?.bottomView.likeImage.image = #imageLiteral(resourceName: "ic_bottom_like")
+                    self.bottomView.likeImage.image = #imageLiteral(resourceName: "ic_bottom_like")
                 }
-                self?.news.numberLike = status.1
-                self?.bottomView.numberLike.text = String(status.1)
+                self.news.numberLike = status.1
+                self.bottomView.numberLike.text = String(status.1)
             }
         }) { (_) in
             
@@ -62,15 +62,15 @@ class DetailNewsController: BaseViewController, UIWebViewDelegate {
             CheckBookMarkedTask(bookMarkType: Object.news.rawValue,
                                 memberID: (memberInstance?.idMember)!,
                                 objectID: news.idNews)
-        requestWithTask(task: checkBookMarked, success: { [weak self] (data) in
+        requestWithTask(task: checkBookMarked, success: { [unowned self] (data) in
             if let status = data as? (Bool, Int) {
                 if status.0 {
-                    self?.bottomView.bookMarkImage.image = #imageLiteral(resourceName: "ic_bottom_bookMarked")
+                    self.bottomView.bookMarkImage.image = #imageLiteral(resourceName: "ic_bottom_bookMarked")
                 } else {
-                    self?.bottomView.bookMarkImage.image = #imageLiteral(resourceName: "ic_bottom_bookMark")
+                    self.bottomView.bookMarkImage.image = #imageLiteral(resourceName: "ic_bottom_bookMark")
                 }
-                self?.news.numberBookMark = status.1
-                self?.bottomView.numberBookmark.text = String(status.1)
+                self.news.numberBookMark = status.1
+                self.bottomView.numberBookmark.text = String(status.1)
             }
         }) { (_) in
             
@@ -109,26 +109,26 @@ class DetailNewsController: BaseViewController, UIWebViewDelegate {
     private func setupCallBackButton() {
         bottomView.downloadImage.isHidden = true
         bottomView.downloadButton.isHidden = true
-        bottomView.pressedBottomButton = { [weak self] (typeButton: BottomButton) in
+        bottomView.pressedBottomButton = { [unowned self] (typeButton: BottomButton) in
             if typeButton == BottomButton.back {
-                self?.navigationController?.popViewController(animated: true)
+                self.navigationController?.popViewController(animated: true)
                 return
             }
-            if !(self?.checkLogin())! {
-                self?.goToSigIn()
+            if !self.checkLogin() {
+                self.goToSigIn()
                 return
             }
             switch typeButton {
             case BottomButton.comment:
                 let myStoryboard = UIStoryboard(name: "Global", bundle: nil)
                 if let vc = myStoryboard.instantiateViewController(withIdentifier: "CommentController") as? CommentController {
-                    vc.idObject = self?.news.idNews
+                    vc.idObject = self.news.idNews
                     vc.commentType = 0
-                    vc.object = self?.news
-                    self?.present(vc, animated: false, completion: nil)
+                    vc.object = self.news
+                    self.present(vc, animated: false, completion: nil)
                 }
-            case BottomButton.like: self?.pressedLike()
-            case BottomButton.bookMark: self?.pressedBookmark()
+            case BottomButton.like: self.pressedLike()
+            case BottomButton.bookMark: self.pressedBookmark()
             default: break
             }
         }

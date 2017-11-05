@@ -54,7 +54,7 @@ class VideoPlayerView: UIView {
         return button
     }()
     
-    func handlePause() {
+    @objc func handlePause() {
         timer?.invalidate()
         timer = nil
         if player?.rate == 1 {
@@ -70,13 +70,13 @@ class VideoPlayerView: UIView {
         }
     }
     
-    func nextTime() {
+    @objc func nextTime() {
         let seconds: Int64 = Int64(currentTime!)
         let targetTime: CMTime = CMTimeMake(seconds + 15, 1)
         player?.seek(to: targetTime)
     }
     
-    func previousTime() {
+    @objc func previousTime() {
         let seconds: Int64 = Int64(currentTime!)
         let targetTime: CMTime = CMTimeMake(seconds - 15, 1)
         player?.seek(to: targetTime)
@@ -91,7 +91,7 @@ class VideoPlayerView: UIView {
         return button
     }()
     
-    func fullSCreenTap() {
+    @objc func fullSCreenTap() {
         self.callBack()
         if !showFullScreen {
             controlsContainerView.goFullscreen()
@@ -141,7 +141,7 @@ class VideoPlayerView: UIView {
         return slider
     }()
     
-    func handleSliderChange(slider: UISlider, event: UIEvent) {
+    @objc func handleSliderChange(slider: UISlider, event: UIEvent) {
         if let touchEvent = event.allTouches?.first {
             switch touchEvent.phase {
             case .began: isdragSlider = true
@@ -196,7 +196,7 @@ class VideoPlayerView: UIView {
         }
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         
         //this is when the player is ready and rendering frames
         if keyPath == "currentItem.loadedTimeRanges" {
@@ -264,11 +264,11 @@ class VideoPlayerView: UIView {
         backgroundColor = .black
     }
 
-    func hiddenControll() {
+    @objc func hiddenControll() {
         controlsContainerView.isHidden = true
     }
     
-    func showControl() {
+    @objc func showControl() {
         controlsContainerView.isHidden = false
         timer?.invalidate()
         timer = nil

@@ -119,9 +119,9 @@ extension HistoryPlayAudioController: UITableViewDataSource, UITableViewDelegate
             cell?.imagePlay.image = #imageLiteral(resourceName: "playList")
         }
         
-        cell?.callBackDownload = { [weak self] oject in
-            if self?.memberInstance?.level != 1 {
-                _ = UIAlertController.initAler(title: "", message: "VIP會員才能下載", inViewController: self!)
+        cell?.callBackDownload = { [unowned self] oject in
+            if self.memberInstance?.level != 1 {
+                UIAlertController.showAler(title: "", message: "VIP會員才能下載", inViewController: self)
                 return
             }
             if let book = oject as? Book {
@@ -136,8 +136,8 @@ extension HistoryPlayAudioController: UITableViewDataSource, UITableViewDelegate
                 })
             }
         }
-        cell?.callBackPlayAudio = { [weak self] object in
-            self?.playAudio(object: object, current: row)
+        cell?.callBackPlayAudio = { [unowned self] object in
+            self.playAudio(object: object, current: row)
         }
         return cell!
     }

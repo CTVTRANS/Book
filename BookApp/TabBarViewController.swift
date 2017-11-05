@@ -23,7 +23,7 @@ class TabBarViewController: UITabBarController {
         NotificationCenter.default.addObserver(self, selector: #selector(showDownloadPrecess), name: Notification.Name(rawValue: "downloadStart"), object: nil)
     }
 
-    func showDownloadSuccess() {
+    @objc func showDownloadSuccess() {
         statusView.imageView?.image = #imageLiteral(resourceName: "ic_download_success")
         statusView.statusLabel.text = "下載成功"
         UIView.animate(withDuration: 0.5, animations: {
@@ -34,7 +34,7 @@ class TabBarViewController: UITabBarController {
         }
     }
     
-    func showDownloadPrecess() {
+   @objc func showDownloadPrecess() {
         statusView.imageView?.image = #imageLiteral(resourceName: "ic_download_process")
         statusView.statusLabel.text = "開始下載...."
         UIView.animate(withDuration: 0.5, animations: {
@@ -45,7 +45,7 @@ class TabBarViewController: UITabBarController {
         }
     }
     
-    func hideenStatusBar () {
+    @objc func hideenStatusBar () {
         UIView.animate(withDuration: 0.5, animations: {
             self.statusView.frame = CGRect(x: 0, y: -20, width: widthScreen, height: 20)
         }) { (_) in

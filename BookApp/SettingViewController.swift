@@ -30,7 +30,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource, UITableV
         navigationController?.navigationBar.isTranslucent = false
     }
     
-    func pressedRightBarButton() {
+    @objc func pressedRightBarButton() {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "SupportCustomController") as? SupportCustomController {
             navigationController?.pushViewController(vc, animated: true)
         }

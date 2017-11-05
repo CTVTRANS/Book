@@ -155,7 +155,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func checkNotifocationApp() {
+    @objc func checkNotifocationApp() {
         navigationCustom.checkNotifocation()
     }
     

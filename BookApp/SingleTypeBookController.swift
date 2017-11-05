@@ -42,7 +42,7 @@ class SingleTypeBookController: BaseViewController, UITableViewDelegate, UITable
         loadMoreData(with: sortBy)
     }
     
-    func reloadMyData() {
+    @objc func reloadMyData() {
         listBook.removeAll()
         table.reloadData()
         pager = 1

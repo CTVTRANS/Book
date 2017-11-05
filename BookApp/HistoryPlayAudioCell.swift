@@ -28,9 +28,9 @@ class HistoryPlayAudioCell: UITableViewCell {
             name.text = book.name
             let arrayString = book.descriptionBook.components(separatedBy: "</p>")
             if let firstString = arrayString.first {
-                if firstString.characters.count > 10 {
+                if firstString.count > 10 {
                     let index = firstString.index(firstString.startIndex, offsetBy: 3)
-                    descriptionAudio.text = firstString.substring(from: index)
+                    descriptionAudio.text = String(firstString[..<index])
                 }
                 descriptionAudio.text = "BookApp"
             }

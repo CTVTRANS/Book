@@ -63,7 +63,7 @@ class DetailSingleGroupViewController: BaseViewController, UITableViewDelegate, 
         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
-    func reloadMyData() {
+    @objc func reloadMyData() {
         arrayNews.removeAll()
         table.reloadData()
         pager = 1
@@ -150,7 +150,7 @@ class DetailSingleGroupViewController: BaseViewController, UITableViewDelegate, 
             }
         }) { (error) in
             self.stopActivityIndicator()
-            UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self)
         }
     }
 }

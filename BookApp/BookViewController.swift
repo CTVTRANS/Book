@@ -98,7 +98,7 @@ class BookViewController: BaseViewController {
             self.tableBookType.reloadData()
         }) { (error) in
             self.stopActivityIndicator()
-            UIAlertController.initAler(title: "", message: (error as? String)!, inViewController: self)
+            UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self)
         }
     }
     
@@ -108,7 +108,7 @@ class BookViewController: BaseViewController {
             self.suggestBookView.reloadData(arrayOfBook: (data as? [Book])!)
         }) { (error) in
             self.stopActivityIndicator()
-            UIAlertController.initAler(title: "", message: (error as? String)!, inViewController: self)
+            UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self)
         }
     }
     
@@ -118,7 +118,7 @@ class BookViewController: BaseViewController {
             self.freeBookView.reloadData(arrayOfBook: (data as? [Book])!)
         }) { (error) in
             self.stopActivityIndicator()
-            UIAlertController.initAler(title: "", message: (error as? String)!, inViewController: self)
+            UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self)
         }
     }
     
@@ -148,7 +148,7 @@ class BookViewController: BaseViewController {
         }) { (error) in
             self.viewForNewestBook.isHidden = true
             self.stopActivityIndicator()
-            UIAlertController.initAler(title: "", message: (error as? String)!, inViewController: self)
+            UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self)
         }
     }
     
@@ -169,7 +169,7 @@ class BookViewController: BaseViewController {
                 self?.suggestBookView.reloadData(arrayOfBook: (data as? [Book])!)
             }) { (error) in
                 self?.stopActivityIndicator()
-                UIAlertController.initAler(title: "", message: (error as? String)!, inViewController: self!)
+                UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self!)
             }
         }
         
@@ -195,7 +195,7 @@ class BookViewController: BaseViewController {
     
     // MARK: Call Back Navigation
     
-    func checkNotifocationApp() {
+    @objc func checkNotifocationApp() {
         navigationCustom.checkNotifocation()
     }
     

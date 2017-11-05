@@ -18,7 +18,7 @@ class MP3Player: NSObject {
     var oldIndexListPlay: Int?
     
     static let shareIntanse = MP3Player()
-    var didLoadAudio:((_ time: Float, _ timeSting: String) -> Void) = {_ in}
+    var didLoadAudio:((_ time: Float, _ timeSting: String) -> Void) = {_, _  in}
     var limitTime = {}
     
     func track(object: AnyObject, types: TypePlay) {

@@ -76,7 +76,7 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
         navigationItem.leftBarButtonItem = leftBarButton
     }
     
-    func pressedBack() {
+    @objc func pressedBack() {
         timer?.invalidate()
         timer = nil
         navigationController?.popViewController(animated: true)
@@ -251,7 +251,7 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
             goToSigIn()
             return
         } else if memberInstance?.level == 0 {
-            _ = UIAlertController.initAler(title: "", message: "VIP會員才能下載", inViewController: self)
+            UIAlertController.showAler(title: "", message: "VIP會員才能下載", inViewController: self)
             return
         }
         let download = DownloadAudioController()
@@ -292,7 +292,7 @@ extension DetailChanelViewController {
         }
     }
     
-    func sendRequestIncreaseViews() {
+    @objc func sendRequestIncreaseViews() {
         let viewed: IncreaseVIewChanelTask = IncreaseVIewChanelTask(lessonID: idChap!)
         requestWithTask(task: viewed, success: { (data) in
             if let status = data as? String {
@@ -334,7 +334,7 @@ extension DetailChanelViewController {
                         self?.goToSigIn()
                         return
                     } else if self?.memberInstance?.level == 0 {
-                        _ = UIAlertController.initAler(title: "", message: "VIP會員才能下載", inViewController: self!)
+                        UIAlertController.showAler(title: "", message: "VIP會員才能下載", inViewController: self!)
                         return
                     }
                     let download = DownloadAudioController()

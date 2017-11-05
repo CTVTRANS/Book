@@ -51,11 +51,11 @@ class MainViewController: BaseViewController {
         table.reloadData()
     }
     
-    func checkNotifocationApp() {
+    @objc func checkNotifocationApp() {
         navigationCustoms.checkNotifocation()
     }
     
-    func reloadMyData() {
+    @objc func reloadMyData() {
         arrayNews.removeAll()
         table.reloadData()
         pager = 1
@@ -122,67 +122,67 @@ class MainViewController: BaseViewController {
     // MARK: Callback Click
     
     func cellBackClickType() {
-        typeNews1.callBack = { [weak self] (typeID) in
-            self?.showActivity(inView: (self?.table.backgroundView)!)
-            self?.typeNewsID = typeID
-            self?.reloadMyData()
-            let array2 = self?.arrayTypeNews.filter({ (type) -> Bool in
+        typeNews1.callBack = { [unowned self] (typeID) in
+            self.showActivity(inView: (self.table.backgroundView)!)
+            self.typeNewsID = typeID
+            self.reloadMyData()
+            let array2 = self.arrayTypeNews.filter({ (type) -> Bool in
                 return type.parentID == typeID
             })
-            if (array2?.count)! > 0 {
+            if array2.count > 0 {
                 var newConstraint: CGFloat = 72
                 newConstraint.adjustsSizeToRealIPhoneSize = 72
-                self?.constraintTable.constant = newConstraint
+                self.constraintTable.constant = newConstraint
             } else {
                 var newConstraint: CGFloat = 40
                 newConstraint.adjustsSizeToRealIPhoneSize = 40
-                self?.constraintTable.constant = newConstraint
+                self.constraintTable.constant = newConstraint
             }
-            self?.typeNews2.reloadType(array: array2!)
+            self.typeNews2.reloadType(array: array2)
         }
         
-        typeNews2.callBack = { [weak self] (typeID2) in
-            self?.showActivity(inView: (self?.table.backgroundView)!)
-            self?.typeNewsID = typeID2
-            self?.reloadMyData()
-            var array3 = self?.arrayTypeNews.filter({ (type) -> Bool in
+        typeNews2.callBack = { [unowned self] (typeID2) in
+            self.showActivity(inView: (self.table.backgroundView)!)
+            self.typeNewsID = typeID2
+            self.reloadMyData()
+            var array3 = self.arrayTypeNews.filter({ (type) -> Bool in
                 return type.parentID == typeID2
             })
-            if (array3?.count)! > 0 {
+            if array3.count > 0 {
                 let allType3 = NewsType(idType: typeID2, parentID: typeID2, nameType: "全部", desciptionType: "")
-                array3?.insert(allType3, at: 0)
+                array3.insert(allType3, at: 0)
                 var newConstraint: CGFloat = 104
                 newConstraint.adjustsSizeToRealIPhoneSize = 104
-                self?.constraintTable.constant = newConstraint
+                self.constraintTable.constant = newConstraint
             } else {
                 var newConstraint: CGFloat = 72
                 newConstraint.adjustsSizeToRealIPhoneSize = 72
-                self?.constraintTable.constant = newConstraint
+                self.constraintTable.constant = newConstraint
             }
-            self?.typeNews3.reloadType(array: array3!)
+            self.typeNews3.reloadType(array: array3)
         }
         
-        typeNews3.callBack = { [weak self] (typeID3) in
-            self?.showActivity(inView: (self?.table.backgroundView)!)
-            self?.typeNewsID = typeID3
-            self?.reloadMyData()
+        typeNews3.callBack = { [unowned self] (typeID3) in
+            self.showActivity(inView: (self.table.backgroundView)!)
+            self.typeNewsID = typeID3
+            self.reloadMyData()
         }
     }
     
     func setupCallBack() {
         NotificationCenter.default.addObserver(self, selector: #selector(checkNotifocationApp), name: NSNotification.Name(rawValue: "reciveNotificaton"), object: nil)
-        navigationCustoms.callBackTopButton = { [weak self] (typeButton: TopButton) in
+        navigationCustoms.callBackTopButton = { [unowned self] (typeButton: TopButton) in
             switch typeButton {
             case TopButton.messageNotification:
-                if !(self?.checkLogin())! {
-                    self?.goToSigIn()
+                if !(self.checkLogin()) {
+                    self.goToSigIn()
                     return
                 }
-                self?.goToNotification(myViewController: self!)
+                self.goToNotification(myViewController: self)
             case TopButton.videoNotification:
-                self?.goToListPlayaudio()
+                self.goToListPlayaudio()
             case TopButton.search:
-                self?.goToSearch()
+                self.goToSearch()
             }
         }
     }

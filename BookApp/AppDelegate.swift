@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         application.applicationIconBadgeNumber = 0
         UINavigationBar.appearance().tintColor = UIColor.rgb(82, 82, 82)
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.rgb(82, 82, 82)]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.rgb(82, 82, 82)]
         WXApi.registerApp("vn.conglv.BookApp", withDescription: "demo")
         
         registerForPushNotifications()
@@ -82,7 +82,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
                 print("Notification settings: \(settings)")
                 
                 guard settings.authorizationStatus == .authorized else { return }
-                UIApplication.shared.registerForRemoteNotifications()
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
             }
         } else {
             // Fallback on earlier versions

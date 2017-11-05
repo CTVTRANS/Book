@@ -156,7 +156,7 @@ class MyprofileViewController: BaseViewController, UITableViewDelegate, UITableV
                                 ProfileMember.saveProfile(myProfile: self.memberInstance!)
                                 return
                             }
-                            UIAlertController.initAler(title: "", message: avatarURL.1, inViewController: self)
+                            UIAlertController.showAler(title: "", message: avatarURL.1, inViewController: self)
                         }
                     }) { (_) in
                         self.changeAvatarButton.isHidden = false

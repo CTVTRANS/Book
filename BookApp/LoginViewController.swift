@@ -52,7 +52,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         } else if pass == "" {
             return ErrorCode.passwordEmty
         }
-        if (pass?.characters.count)! < 8 {
+        if (pass?.count)! < 8 {
             return ErrorCode.passwordShort
         }
         let array = pass?.components(separatedBy: " ")
@@ -69,7 +69,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     @IBAction func pressLoginButton(_ sender: Any) {
         let status = checkPhonePass()
         if status != ErrorCode.success {
-            _ = UIAlertController.initAler(title: " ", message: status.decodeError(), inViewController: self)
+            UIAlertController.showAler(title: " ", message: status.decodeError(), inViewController: self)
         }
         self.view.endEditing(true)
         if status == ErrorCode.success {
@@ -93,8 +93,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     
     @IBAction func pressedPhoneCountryCode(_ sender: Any) {
         let country = ListCountryView.instance() as? ListCountryView
-        country?.callBack = { [weak self] code in
-            self?.countryCode.text = "+" + code
+        country?.callBack = { [unowned self] code in
+            self.countryCode.text = "+" + code
         }
         country?.show()
     }

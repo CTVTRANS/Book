@@ -59,13 +59,13 @@ class BookDetailViewController: BaseViewController {
     
     func setupShareObject() {
         ShareModel.shareIntance.nameShare = bookSelected.name
-        var detailBook = bookSelected.descriptionBook.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        let detailBook = bookSelected.descriptionBook.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
         var str = ""
-        if detailBook.characters.count < 200 {
+        if detailBook.count < 200 {
             str = detailBook
         } else {
             let index = detailBook.index(detailBook.startIndex, offsetBy: 199)
-            str = detailBook.substring(to: index)
+            str = String(detailBook[..<index])
         }
         ShareModel.shareIntance.detailShare = str + "..."
     }
@@ -141,7 +141,7 @@ class BookDetailViewController: BaseViewController {
         }
     }
     
-    func increaseViewBook() {
+    @objc func increaseViewBook() {
         let increaseView = IncreaseViewBookTask(idBook: bookSelected.idBook)
         requestWithTask(task: increaseView, success: { (_) in
             
@@ -180,7 +180,7 @@ class BookDetailViewController: BaseViewController {
             case BottomButton.like: self?.pressedLike()
             case BottomButton.download:
                 if self?.memberInstance?.level != 1 {
-                    _ = UIAlertController.initAler(title: "", message: "VIP會員才能下載", inViewController: self!)
+                    UIAlertController.showAler(title: "", message: "VIP會員才能下載", inViewController: self!)
                     return
                 }
                 let download = DownloadAudioController()

@@ -39,7 +39,7 @@ class DetailStoreMarkController: BaseViewController, UICollectionViewDataSource,
         loadMore()
     }
     
-    func reloadMyData() {
+    @objc func reloadMyData() {
         listProduct.removeAll()
         collection.reloadData()
         pager = 1

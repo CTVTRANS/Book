@@ -134,7 +134,7 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
         return true
     }
     
-    func saveInfomation() {
+    @objc func saveInfomation() {
         if !changePass {
             self.view.endEditing(true)
             self.nameMember = (userNameTextField.text != nil) ? userNameTextField.text : ""
@@ -151,7 +151,7 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
             requestWithTask(task: change, success: { (_) in
                 let updateInfo = GetProfileMemberTask(idMember: (self.memberInstance?.idMember)!)
                 self.requestWithTask(task: updateInfo, success: { (_) in
-                    UIAlertController.initAler(title: "", message: ErrorCode.success.decodeError(), inViewController: self)
+                    UIAlertController.showAler(title: "", message: ErrorCode.success.decodeError(), inViewController: self)
                 }, failure: { (_) in
                     
                 })
@@ -168,7 +168,7 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
         newPassMember = newPassTextField.text
         confirmPassMember = confirmPassTextField.text
         if (newPassMember?.components(separatedBy: " ").count)! > 1 || (confirmPassMember?.components(separatedBy: " ").count)! > 1 {
-            UIAlertController.initAler(title: "", message: ErrorCode.passwordHasSpace.decodeError(), inViewController: self)
+            UIAlertController.showAler(title: "", message: ErrorCode.passwordHasSpace.decodeError(), inViewController: self)
             return
         }
         
@@ -185,7 +185,7 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
                         alert.addAction(action)
                         self.present(alert, animated: true, completion: nil)
                     }
-                    UIAlertController.initAler(title: "", message: status.decodeError(), inViewController: self)
+                    UIAlertController.showAler(title: "", message: status.decodeError(), inViewController: self)
                 }
             }, failure: { (_) in
                 
@@ -205,7 +205,9 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
     @IBAction func pressShowSex(_ sender: Any) {
         if let sexDailog = SettingChooseSex.instance() as? SettingChooseSex {
             sexDailog.show()
-            sexDailog.calBack = { [weak self] (sexString, sexType) in
+            sexDailog.calBack = { [weak self] (arg0) in
+                
+                let (sexString, sexType) = arg0
                 self?.sex.text = sexString
                 self?.sexMember = sexType.rawValue
             }
@@ -215,9 +217,10 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
     @IBAction func pressShowMarrie(_ sender: Any) {
         if let marrieDailog = SettingStatus.instance() as? SettingStatus {
             marrieDailog.show()
-            marrieDailog.callBack = { [weak self] (statusString, statusTyppe)in
+            marrieDailog.callBack = { [weak self] (arg0) in
+                let (statusString, statusType) = arg0
                 self?.statusMarrie.text = statusString
-                self?.statusMarrigeMember = statusTyppe.rawValue
+                self?.statusMarrigeMember = statusType.rawValue
             }
         }
     }
