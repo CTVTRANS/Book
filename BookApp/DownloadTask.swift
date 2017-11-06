@@ -17,6 +17,10 @@ class DownloadTask: BaseTaskNetwork {
         pathFile = path
     }
     
+//    override func path() -> String! {
+//        return pathFile
+//    }
+    
     override func pathFileDownload() -> String! {
         return pathFile
     }

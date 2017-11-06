@@ -50,6 +50,8 @@ class DownloadAudioController: BaseViewController {
     }
     
     private func downloadSingleLesson(lesson: Lesson, completionHandler: @escaping (Bool) -> Void) {
+        self.downloadImagelesonSuccess = false
+        self.downloadAudioLessonSuccess = false
         let downloadImageLesson = DownloadTask(path: lesson.imageChapURL)
         downloadFileSuccess(task: downloadImageLesson, success: { (data) in
             if let imageOffline = data as? URL {

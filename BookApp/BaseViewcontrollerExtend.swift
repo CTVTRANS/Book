@@ -231,6 +231,7 @@ extension Array where Element: Equatable {
 }
 
 extension UILabel {
+    @IBInspectable
     var adjustFontToRealIPhoneSize: Bool {
         set {
             if newValue {
@@ -256,6 +257,7 @@ extension UILabel {
 }
 
 extension UITextField {
+    @IBInspectable
     var adjustFontToRealIPhoneSize: Bool {
         set {
             if newValue {
@@ -281,6 +283,7 @@ extension UITextField {
 }
 
 extension NSLayoutConstraint {
+    @IBInspectable
     var adjustConstantToRealIPhoneSize: Bool {
         set {
             if newValue {
@@ -306,6 +309,7 @@ extension NSLayoutConstraint {
 }
 
 extension UIButton {
+    @IBInspectable
     var adjustFontToRealIPhoneSize: Bool {
         set {
             if newValue {
@@ -338,7 +342,7 @@ extension UIButton {
 }
 
 extension CGFloat {
-   var adjustsSizeToRealIPhoneSize: CGFloat {
+    var adjustsSizeToRealIPhoneSize: CGFloat {
         set {
             var sizeScale: CGFloat = 1
             let device = Device()

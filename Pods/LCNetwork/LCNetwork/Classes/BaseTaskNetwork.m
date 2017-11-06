@@ -76,7 +76,7 @@
 }
 
 - (void)downloadFileWithProgress:(BlockProgress)blockProgress success:(BlockSuccess)success andFailure:(BlockFailure)failure {
-    NSURL *URL = [NSURL URLWithString:[self urlString]];
+    NSURL *URL = [NSURL URLWithString:[self pathFileDownload]];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
     NSURLSessionDownloadTask *downloadTask = [_manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {

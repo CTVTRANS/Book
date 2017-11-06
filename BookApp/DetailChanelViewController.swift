@@ -160,9 +160,7 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
     }
     
     func loadMore() {
-        let getLesson: GetListlessonOfChanelTask =
-            GetListlessonOfChanelTask(chanelID: chanel.idChanel,
-                                      page: pager)
+        let getLesson: GetListlessonOfChanelTask = GetListlessonOfChanelTask(chanelID: chanel.idChanel, page: pager)
         requestWithTask(task: getLesson, success: { (data) in
             if let arrayLesson = data as? [Lesson] {
                 self.lessonUploaded  += arrayLesson
