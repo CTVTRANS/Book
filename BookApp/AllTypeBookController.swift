@@ -11,7 +11,7 @@ import TYPagerController
 
 class AllTypeBookController: TYTabPagerController {
     
-    var listTitles: [BookType] = []
+    var listTitles: [MenuType] = []
     var startIndex: Int!
     
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ extension AllTypeBookController: TYTabPagerControllerDelegate, TYTabPagerControl
     
     func tabPagerController(_ tabPagerController: TYTabPagerController, controllerFor index: Int, prefetching: Bool) -> UIViewController {
         let vc = storyboard?.instantiateViewController(withIdentifier: "SingleTypeBookController") as? SingleTypeBookController
-        vc?.typeBook = listTitles[index]
+//        vc?.typeBook = listTitles[index]
         return vc!
     }
     

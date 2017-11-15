@@ -17,7 +17,7 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var typeNews2: CustomMenu!
     @IBOutlet weak var typeNews3: CustomMenu!
     
-    var arrayTypeNews: [NewsType] = []
+    var arrayTypeNews: [MenuType] = []
     var arrayNews: [NewsModel] = []
     var typeNewsID: Int = 0
     
@@ -64,7 +64,6 @@ class MainViewController: BaseViewController {
     }
     
     // MARK: Setup UI
-    
     func setupUI() {
         showActivity(inView: self.view)
         table.estimatedRowHeight = 140
@@ -79,17 +78,16 @@ class MainViewController: BaseViewController {
     }
     
     // MARK: Call API
-    
     func getListTypeNews() {
         let getAllTypeNews: GetAllTypeNewsTask = GetAllTypeNewsTask()
         requestWithTask(task: getAllTypeNews, success: { (_) in
             self.arrayTypeNews = Constants.sharedInstance.listNewsType
-            let arrayType1 = self.arrayTypeNews.filter({ (type: NewsType) -> Bool in
+            let arrayType1 = self.arrayTypeNews.filter({ (type: MenuType) -> Bool in
                 return type.parentID == 0
             })
             let firstType = arrayType1.first
             if firstType != nil {
-                self.typeNewsID = (firstType?.idType)!
+                self.typeNewsID = (firstType?.typeID)!
                 self.typeNews1.reloadType(array: arrayType1)
                 self.reloadMyData()
             }
@@ -120,7 +118,6 @@ class MainViewController: BaseViewController {
     }
     
     // MARK: Callback Click
-    
     func cellBackClickType() {
         typeNews1.callBack = { [unowned self] (typeID) in
             self.showActivity(inView: (self.table.backgroundView)!)
@@ -149,7 +146,7 @@ class MainViewController: BaseViewController {
                 return type.parentID == typeID2
             })
             if array3.count > 0 {
-                let allType3 = NewsType(idType: typeID2, parentID: typeID2, nameType: "全部", desciptionType: "")
+                let allType3 = MenuType(name: "全部", image: "", typeID: typeID2, description: "", parentID: typeID2)
                 array3.insert(allType3, at: 0)
                 var newConstraint: CGFloat = 104
                 newConstraint.adjustsSizeToRealIPhoneSize = 104
@@ -190,7 +187,6 @@ class MainViewController: BaseViewController {
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: Table View Dta Source
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayNews.count
     }

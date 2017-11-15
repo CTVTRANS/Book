@@ -29,6 +29,13 @@ class ChanelViewCell: UITableViewCell {
         imageChanel.sd_setImage(with: URL(string: chanel.imageChanelURL), placeholderImage: #imageLiteral(resourceName: "userPlaceHolder"))
         let date = chanel.time.components(separatedBy: " ")
         timeUp.text = date[0]
+        if chanel.isSubcrible {
+            subcribleButton.setTitle("  已订阅频道  ", for: .normal)
+            subcribleButton.isEnabled = false
+        } else {
+            subcribleButton.setTitle("  订阅频道  ", for: .normal)
+            subcribleButton.isEnabled = true
+        }
     }
     
     @IBAction func pressedSubcrible(_ sender: Any) {

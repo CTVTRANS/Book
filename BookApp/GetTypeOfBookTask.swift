@@ -24,21 +24,33 @@ class GetTypeOfBookTask: BaseTaskNetwork {
     }
     
     override func data(withResponse response: Any!) -> Any! {
-        var listType = [BookType]()
         if let listObject = response as? [[String: Any]] {
-            for dictionary in listObject {
-                let nameType = dictionary["cat_name"] as? String ?? "abc"
-                let imageURLType = dictionary["cat_image"] as? String ?? "123"
-                let idType = dictionary["cat_id"] as? Int ?? 0
-                let descriptionType = dictionary["cat_description"] as? String ?? "123"
-                let typeBook: BookType = BookType(name: nameType,
-                                                  image: imageURLType,
-                                                  typeID: idType,
-                                                  description: descriptionType)
-                listType.append(typeBook)
+            Constants.sharedInstance.listBookType = parseTypeMenu(object: listObject)
+        }
+        return response
+    }
+}
+
+extension BaseTaskNetwork {
+    func parseTypeMenu(object: [[String: Any]]) -> [MenuType] {
+        var listBookType: [MenuType] = []
+        for dictionary in object {
+            let parenID = dictionary["parent_id"] as? Int ?? 0
+            let nameType = dictionary["cat_name"] as? String ?? ""
+            let imageURLType = dictionary["cat_image"] as? String ?? ""
+            let idType = dictionary["cat_id"] as? Int ?? 0
+            let descriptionType = dictionary["cat_description"] as? String ?? ""
+            let typeBook: MenuType = MenuType(name: nameType,
+                                              image: imageURLType,
+                                              typeID: idType,
+                                              description: descriptionType,
+                                              parentID: parenID)
+            let types = [typeBook]
+            listBookType += types
+            if let x = dictionary["cat_children"] as? [[String: Any]] {
+                listBookType += parseTypeMenu(object: x)
             }
         }
-        Constants.sharedInstance.listBookType = listType
-        return response
+        return listBookType
     }
 }

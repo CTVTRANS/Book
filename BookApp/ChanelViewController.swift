@@ -95,10 +95,9 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
         }
         
         indicatorViewFree.showActivity(inView: freeChanel)
+        let idMember = memberInstance?.idMember != nil ? memberInstance?.idMember : 0
         let getFreeChanel: GetChanelFreeTask =
-            GetChanelFreeTask(lang: Constants.sharedInstance.language,
-                              limit: 3,
-                              page: currentFree)
+            GetChanelFreeTask(idMember: idMember!, page: currentFree)
         requestWithTask(task: getFreeChanel, success: { [weak self] (data) in
             if let freeArray = data as? [Chanel] {
                 self?.currentFree += 1

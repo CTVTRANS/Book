@@ -12,7 +12,7 @@ class CustomMenu: UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
 
     @IBOutlet weak var collection: UICollectionView!
     var callBack:((_ idType: Int) -> Void) = {_ in }
-    var arrayTypeNews: [NewsType] = []
+    var arrayTypeNews: [MenuType] = []
    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -40,10 +40,8 @@ class CustomMenu: UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         return UIView()
     }
     
-    // MARK: COollection Data Source
-    
+    // MARK: Collection Data Source
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
         return 1
     }
     
@@ -53,7 +51,7 @@ class CustomMenu: UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? MenuCollectionViewCell
-        cell?.nameType.text = arrayTypeNews[indexPath.row].nameType
+        cell?.nameType.text = arrayTypeNews[indexPath.row].name
         return cell!
     }
     
@@ -64,19 +62,18 @@ class CustomMenu: UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var sizeFont: CGFloat = 14
         sizeFont.adjustsSizeToRealIPhoneSize = 14
-        let width = arrayTypeNews[indexPath.row].nameType.widthOfString(usingFont: UIFont(name: "HelveticaNeue", size: sizeFont)!)
-        let height = arrayTypeNews[indexPath.row].nameType.heightOfString(usingFont: UIFont(name: "HelveticaNeue", size: sizeFont)!)
+        let width = arrayTypeNews[indexPath.row].name.widthOfString(usingFont: UIFont(name: "HelveticaNeue", size: sizeFont)!)
+        let height = arrayTypeNews[indexPath.row].name.heightOfString(usingFont: UIFont(name: "HelveticaNeue", size: sizeFont)!)
         return CGSize(width: width + 16, height: height + 10)
     }
     
     // MARK: Collection Delegate
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        self.callBack(arrayTypeNews[indexPath.row].idType)
+        self.callBack(arrayTypeNews[indexPath.row].typeID)
     }
     
-    func reloadType(array: [NewsType]) {
+    func reloadType(array: [MenuType]) {
         arrayTypeNews = array
         collection.reloadData()
     }

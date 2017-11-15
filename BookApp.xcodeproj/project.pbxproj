@@ -91,7 +91,6 @@
 		6DEE63EB1F73CB5400C10E5E /* ShareViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEE63EA1F73CB5400C10E5E /* ShareViewCell.swift */; };
 		6DEE6E1F1F68D565005F80F4 /* HistoryMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEE6E1E1F68D565005F80F4 /* HistoryMarkCell.swift */; };
 		6DEE6E211F68E914005F80F4 /* StoreMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEE6E201F68E914005F80F4 /* StoreMarkViewController.swift */; };
-		6DEEA5481F6FCAD900116848 /* NewsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEEA5471F6FCAD900116848 /* NewsType.swift */; };
 		6DEEA54A1F6FCB8700116848 /* GetAllTypeNewsTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEEA5491F6FCB8700116848 /* GetAllTypeNewsTask.swift */; };
 		6DEEA54C1F6FD79500116848 /* SearchBookTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEEA54B1F6FD79500116848 /* SearchBookTask.swift */; };
 		6DEEA54E1F6FD7D100116848 /* SearchNewsTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEEA54D1F6FD7D100116848 /* SearchNewsTask.swift */; };
@@ -121,7 +120,7 @@
 		6DEFC1931F53D305006C696B /* GetBookNewestTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEFC1921F53D305006C696B /* GetBookNewestTask.swift */; };
 		6DEFD56A1F500B6900393E77 /* GetTypeOfBookTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEFD5691F500B6900393E77 /* GetTypeOfBookTask.swift */; };
 		6DEFD56C1F500C5400393E77 /* DefineURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEFD56B1F500C5400393E77 /* DefineURL.swift */; };
-		6DEFD56E1F500EF500393E77 /* BookType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEFD56D1F500EF500393E77 /* BookType.swift */; };
+		6DEFD56E1F500EF500393E77 /* MenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEFD56D1F500EF500393E77 /* MenuType.swift */; };
 		6DEFD5721F501E2000393E77 /* GetListBookForTypeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEFD5711F501E2000393E77 /* GetListBookForTypeTask.swift */; };
 		6DEFD7481F4A746800FB0CA5 /* CustomTopTabbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DEFD7471F4A746800FB0CA5 /* CustomTopTabbar.xib */; };
 		6DEFD74A1F4A748500FB0CA5 /* CustomTopTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEFD7491F4A748500FB0CA5 /* CustomTopTabbar.swift */; };
@@ -342,7 +341,6 @@
 		6DEE63EA1F73CB5400C10E5E /* ShareViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewCell.swift; sourceTree = "<group>"; };
 		6DEE6E1E1F68D565005F80F4 /* HistoryMarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryMarkCell.swift; sourceTree = "<group>"; };
 		6DEE6E201F68E914005F80F4 /* StoreMarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreMarkViewController.swift; sourceTree = "<group>"; };
-		6DEEA5471F6FCAD900116848 /* NewsType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsType.swift; sourceTree = "<group>"; };
 		6DEEA5491F6FCB8700116848 /* GetAllTypeNewsTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllTypeNewsTask.swift; sourceTree = "<group>"; };
 		6DEEA54B1F6FD79500116848 /* SearchBookTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBookTask.swift; sourceTree = "<group>"; };
 		6DEEA54D1F6FD7D100116848 /* SearchNewsTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNewsTask.swift; sourceTree = "<group>"; };
@@ -372,7 +370,7 @@
 		6DEFC1921F53D305006C696B /* GetBookNewestTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBookNewestTask.swift; sourceTree = "<group>"; };
 		6DEFD5691F500B6900393E77 /* GetTypeOfBookTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTypeOfBookTask.swift; sourceTree = "<group>"; };
 		6DEFD56B1F500C5400393E77 /* DefineURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineURL.swift; sourceTree = "<group>"; };
-		6DEFD56D1F500EF500393E77 /* BookType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookType.swift; sourceTree = "<group>"; };
+		6DEFD56D1F500EF500393E77 /* MenuType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuType.swift; sourceTree = "<group>"; };
 		6DEFD5711F501E2000393E77 /* GetListBookForTypeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetListBookForTypeTask.swift; sourceTree = "<group>"; };
 		6DEFD7471F4A746800FB0CA5 /* CustomTopTabbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTopTabbar.xib; sourceTree = "<group>"; };
 		6DEFD7491F4A748500FB0CA5 /* CustomTopTabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTopTabbar.swift; sourceTree = "<group>"; };
@@ -880,7 +878,6 @@
 			isa = PBXGroup;
 			children = (
 				58C39DDF1F3C4F5D001741EB /* NewsModel.swift */,
-				6DEEA5471F6FCAD900116848 /* NewsType.swift */,
 				6DEE1C0F1F8327EA00C62560 /* NotificationApp.swift */,
 			);
 			name = News;
@@ -889,7 +886,7 @@
 		6DEFD5741F501F7300393E77 /* Book */ = {
 			isa = PBXGroup;
 			children = (
-				6DEFD56D1F500EF500393E77 /* BookType.swift */,
+				6DEFD56D1F500EF500393E77 /* MenuType.swift */,
 				6DF310FC1F4288AC008B2878 /* Book.swift */,
 				6DEB9BE81F6BBBD900D858B3 /* PriceMix.swift */,
 			);
@@ -1127,7 +1124,7 @@
 				TargetAttributes = {
 					58C39DB61F3C0489001741EB = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = A5XAYPR24L;
+						DevelopmentTeam = HDNMHL7M4Y;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1355,7 +1352,7 @@
 				6DED40071F92828900890BB3 /* CustomVideoViewController.swift in Sources */,
 				6DF0DA301F91A7A100635E81 /* ConfirmBinViewController.swift in Sources */,
 				6DF50DBD1F6CD54A004E908A /* ResultSearch.swift in Sources */,
-				6DEFD56E1F500EF500393E77 /* BookType.swift in Sources */,
+				6DEFD56E1F500EF500393E77 /* MenuType.swift in Sources */,
 				58C39DD01F3C10C0001741EB /* NavigationCustom.swift in Sources */,
 				6D27878A1F68CE7F0087D04D /* HistoryBuyProductController.swift in Sources */,
 				6DF31A2B1F8DFB7E0081D263 /* SubcribleOneGroupTask.swift in Sources */,
@@ -1387,7 +1384,6 @@
 				6D87DCB91F54190400269351 /* CommentController.swift in Sources */,
 				6DF3DD861F8CC268001E6719 /* MarkRaededNotification.swift in Sources */,
 				6DF07B771F690A940017C1CB /* StoreMarkViewCell.swift in Sources */,
-				6DEEA5481F6FCAD900116848 /* NewsType.swift in Sources */,
 				6DEF215C1FA2EF5900DB94AF /* CustomStatusBarView.swift in Sources */,
 				6DF07B7C1F691C860017C1CB /* DetailStoreMarkController.swift in Sources */,
 				6DF4FFF51F5E9CDD00DF73A0 /* GetListlessonOfChanelTask.swift in Sources */,
@@ -1616,7 +1612,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BookApp/BookApp.entitlements;
-				DEVELOPMENT_TEAM = A5XAYPR24L;
+				DEVELOPMENT_TEAM = HDNMHL7M4Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BookApp",
@@ -1643,7 +1639,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BookApp/BookApp.entitlements;
-				DEVELOPMENT_TEAM = A5XAYPR24L;
+				DEVELOPMENT_TEAM = HDNMHL7M4Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BookApp",

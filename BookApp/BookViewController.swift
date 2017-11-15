@@ -24,7 +24,7 @@ class BookViewController: BaseViewController {
     @IBOutlet weak var newestBookTimeUp: UILabel!
     @IBOutlet weak var newestBookNumberView: UILabel!
     
-    var bookTypeArray = [BookType]()
+    var bookTypeArray = [MenuType]()
     var suggestArray = [Book]()
     var freeArray = [Book]()
     var  newestBook: Book!
@@ -94,7 +94,9 @@ class BookViewController: BaseViewController {
     func getTypeBook() {
         let getTypeTask: GetTypeOfBookTask = GetTypeOfBookTask()
         requestWithTask(task: getTypeTask, success: { (_) in
-            self.bookTypeArray = Constants.sharedInstance.listBookType
+            self.bookTypeArray = Constants.sharedInstance.listBookType.filter({ (type) -> Bool in
+                return type.parentID == 0
+            })
             self.tableBookType.reloadData()
         }) { (error) in
             self.stopActivityIndicator()
@@ -108,7 +110,6 @@ class BookViewController: BaseViewController {
             self.suggestBookView.reloadData(arrayOfBook: (data as? [Book])!)
         }) { (error) in
             self.stopActivityIndicator()
-            UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self)
         }
     }
     
@@ -118,7 +119,6 @@ class BookViewController: BaseViewController {
             self.freeBookView.reloadData(arrayOfBook: (data as? [Book])!)
         }) { (error) in
             self.stopActivityIndicator()
-            UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self)
         }
     }
     
@@ -148,7 +148,6 @@ class BookViewController: BaseViewController {
         }) { (error) in
             self.viewForNewestBook.isHidden = true
             self.stopActivityIndicator()
-            UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self)
         }
     }
     
@@ -271,9 +270,9 @@ extension BookViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let myStoryboard = UIStoryboard(name: "Book", bundle: nil)
-        if let vc = myStoryboard.instantiateViewController(withIdentifier: "AllTypeBookController") as? AllTypeBookController {
-            vc.startIndex = indexPath.row
-            vc.listTitles = bookTypeArray
+        if let vc = myStoryboard.instantiateViewController(withIdentifier: "SingleTypeBookController") as? SingleTypeBookController {
+//            vc.typeID = bookTypeArray[indexPath.row].typeID
+            vc.indexpath = indexPath
             navigationController?.pushViewController(vc, animated: true)
         }
     }

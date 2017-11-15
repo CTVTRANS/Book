@@ -12,9 +12,11 @@ import LCNetwork
 class GetHotChanelTask: BaseTaskNetwork {
     
     private let _page: Int!
+    private let _idMember: Int
     
-    init(page: Int) {
+    init(idMember: Int, page: Int) {
         _page = page
+        _idMember = idMember
     }
     
     override func path() -> String! {
@@ -26,7 +28,7 @@ class GetHotChanelTask: BaseTaskNetwork {
     }
     
     override func parameters() -> [AnyHashable : Any]! {
-        return ["lang": Constants.sharedInstance.language, "limit": 30, "page": _page]
+        return ["lang": Constants.sharedInstance.language, "limit": 30, "page": _page, "member_id": _idMember]
     }
     
     override func data(withResponse response: Any!) -> Any! {

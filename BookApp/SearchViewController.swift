@@ -117,12 +117,11 @@ class SearchViewController: BaseViewController, UISearchBarDelegate {
     }
     
     // MARK: Set Up UI
-    
     private func setUp() {
         titleForViewTypes.text = "分类搜素"
         titleForViewHot.text = "热门搜索"
         for typeNews in Constants.sharedInstance.listNewsType {
-            let typeSearch = TypeSearch(idType: typeNews.idType, name: typeNews.nameType)
+            let typeSearch = TypeSearch(idType: typeNews.typeID, name: typeNews.name)
             self.listTypeNews.append(typeSearch)
         }
         

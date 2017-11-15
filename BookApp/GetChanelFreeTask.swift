@@ -11,13 +11,11 @@ import LCNetwork
 
 class GetChanelFreeTask: BaseTaskNetwork {
     
-    private let _lang: Int!
-    private let _limit: Int!
+    private let _idMember: Int
     private let _page: Int!
     
-    init(lang: Int, limit: Int, page: Int) {
-        _lang = lang
-        _limit = limit
+    init(idMember: Int, page: Int) {
+        _idMember = idMember
         _page = page
     }
     
@@ -30,7 +28,8 @@ class GetChanelFreeTask: BaseTaskNetwork {
     }
     
     override func parameters() -> [AnyHashable : Any]! {
-        return ["lang": _lang, "limit": _limit, "page": _page]
+        return ["lang": Constants.sharedInstance.language, "limit": 3,
+                "page": _page, "member_id": _idMember]
     }
     
     override func data(withResponse response: Any!) -> Any! {

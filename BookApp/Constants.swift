@@ -54,8 +54,8 @@ enum TypePlay: Int {
 }
 
 class Constants: NSObject {
-    var listNewsType: [NewsType] = []
-    var listBookType: [BookType] = []
+    var listNewsType: [MenuType] = []
+    var listBookType: [MenuType] = []
     var listChanelSubcribled: [Chanel] = []
     var listGroupJoined: [SecrectGroup] = []
     var language: Int = 0

@@ -52,15 +52,15 @@ class ChanelHotController: BaseViewController, UITableViewDelegate, UITableViewD
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ChanelViewCell
         let chanel = listChanelHot[indexPath.row]
         cell?.binData(chanel: chanel)
-        for chanelHot in Constants.sharedInstance.listChanelSubcribled {
-            if chanel.idChanel ==  chanelHot.idChanel {
-                cell?.subcribleButton.setTitle("  已订阅频道  ", for: .normal)
-                cell?.subcribleButton.isEnabled = false
-                break
-            } else {
-                 cell?.subcribleButton.setTitle("  订阅频道  ", for: .normal)
-            }
-        }
+//        for chanelHot in Constants.sharedInstance.listChanelSubcribled {
+//            if chanel.idChanel ==  chanelHot.idChanel {
+//                cell?.subcribleButton.setTitle("  已订阅频道  ", for: .normal)
+//                cell?.subcribleButton.isEnabled = false
+//                break
+//            } else {
+//                 cell?.subcribleButton.setTitle("  订阅频道  ", for: .normal)
+//            }
+//        }
         cell?.callBackButton = { [weak self] in
             let subcrible: SubcribleChanelTask =
                 SubcribleChanelTask(memberID: (self!.memberInstance?.idMember)!,
@@ -106,7 +106,8 @@ class ChanelHotController: BaseViewController, UITableViewDelegate, UITableViewD
     }
     
     func loadMore() {
-        let getHotChanel: GetHotChanelTask = GetHotChanelTask(page: pager)
+        let idMember = memberInstance?.idMember != nil ? memberInstance?.idMember : 0
+        let getHotChanel: GetHotChanelTask = GetHotChanelTask(idMember: idMember!, page: pager)
         requestWithTask(task: getHotChanel, success: { (data) in
             if let list = data as? [Chanel] {
                 self.listChanelHot += list

@@ -17,11 +17,12 @@ class Chanel: NSObject {
     private var _numberLike: Int!
     private var _numberComment: Int!
     private var _numberSubcrible: Int!
+    private var _isSubcrible: Bool
     
     init(idChanel: Int, nameChanel: String, imageChanelURL: String,
          typeChanel: String, nameTeacher: String, imageTeacherURL: String,
          numberView: Int, time: String, numberLike: Int, numberComment: Int,
-         numberSubcrible: Int) {
+         numberSubcrible: Int, isSubcrible: Bool) {
             _idChanel = idChanel
             _nameChanel = nameChanel
             _imageChanelURL = imageChanelURL
@@ -33,6 +34,7 @@ class Chanel: NSObject {
         _numberLike = numberLike
         _numberComment = numberComment
         _numberSubcrible = numberSubcrible
+        _isSubcrible = isSubcrible
     }
     var nameChanel: String {
         return _nameChanel
@@ -74,5 +76,9 @@ class Chanel: NSObject {
     var numberSubcrible: Int {
         get { return _numberSubcrible}
         set { _numberSubcrible = newValue}
+    }
+    var isSubcrible: Bool {
+        get { return _isSubcrible}
+        set { _isSubcrible = newValue}
     }
 }
