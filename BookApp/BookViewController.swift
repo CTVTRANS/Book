@@ -271,7 +271,7 @@ extension BookViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let myStoryboard = UIStoryboard(name: "Book", bundle: nil)
         if let vc = myStoryboard.instantiateViewController(withIdentifier: "SingleTypeBookController") as? SingleTypeBookController {
-//            vc.typeID = bookTypeArray[indexPath.row].typeID
+            vc.typeID = bookTypeArray[indexPath.row].typeID
             vc.indexpath = indexPath
             navigationController?.pushViewController(vc, animated: true)
         }

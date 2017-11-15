@@ -63,8 +63,26 @@ class SingleTypeBookController: BaseViewController {
         }
         if array1.count > 0 {
             menu1.reloadType(array: array1)
-//            menu1.collection.selectItem(at: indexpath, animated: false, scrollPosition: .right)
-//            menu1.collection.scrollToItem(at: indexpath, at: .centeredHorizontally, animated: true)
+            menu1.collection.reloadSucess { [weak self] in
+                self?.menu1.collection.selectItem(at: (self?.indexpath)!, animated: false, scrollPosition: .right)
+                self?.menu1.collection.scrollToItem(at: (self?.indexpath)!, at: .centeredHorizontally, animated: true)
+            }
+            let array2 = Constants.sharedInstance.listBookType.filter { (types) -> Bool in
+                return types.parentID == typeID
+            }
+            if array2.count > 0 {
+                self.menu2.isHidden = false
+                var newConstraint: CGFloat = 72 + 64
+                newConstraint.adjustsSizeToRealIPhoneSize = 72 + 64
+                self.heighOfView.constant = newConstraint
+                
+            } else {
+                self.menu2.isHidden = true
+                var newConstraint: CGFloat = 40 + 64
+                newConstraint.adjustsSizeToRealIPhoneSize = 40 + 64
+                self.heighOfView.constant = newConstraint
+            }
+            self.menu2.reloadType(array: array2)
         }
     }
     
@@ -195,10 +213,7 @@ extension SingleTypeBookController: UITableViewDelegate, UITableViewDataSource {
                     self.isMoreData = false
                 }
             }
-        }) { (error) in
-            _ = UIAlertController(title: nil,
-                                  message: error as? String,
-                                  preferredStyle: .alert)
+        }) { (_) in
         }
     }
 }

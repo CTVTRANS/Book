@@ -79,6 +79,16 @@ class CustomMenu: UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     }
 }
 
+extension UICollectionView {
+    public func reloadSucess(sucess:@escaping (() -> Void)) {
+        UIView.animate(withDuration: 0, animations: {
+            self.reloadData()
+        }) { (_) in
+            sucess()
+        }
+    }
+}
+
 extension String {
     func widthOfString(usingFont font: UIFont) -> CGFloat {
         let fontAttributes = [NSAttributedStringKey.font: font]
