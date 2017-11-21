@@ -51,18 +51,26 @@ class BookAudioController: BaseViewController {
     
     func checkAudio() {
         if let currentBook = mp3.currentAudio as? Book {
-            playerOvserver()
-            sliderBar.value = Float(mp3.getCurrentTime().0 / mp3.getTotalTime())
-            currentMinAudio.text = mp3.getCurrentTime().1
-            totalTimeAudio.text = mp3.getTotalTimeString()
+//            playerOvserver()
+//            sliderBar.value = Float(mp3.getCurrentTime().0 / mp3.getTotalTime())
+//            currentMinAudio.text = mp3.getCurrentTime().1
+//            totalTimeAudio.text = mp3.getTotalTimeString()
             if currentBook.idBook == book?.idBook && mp3.isPlaying() {
+                playerOvserver()
+                sliderBar.value = Float(mp3.getCurrentTime().0 / mp3.getTotalTime())
+                currentMinAudio.text = mp3.getCurrentTime().1
+                totalTimeAudio.text = mp3.getTotalTimeString()
                 buttonImge.image = #imageLiteral(resourceName: "audio_pause")
             } else if currentBook.idBook == book?.idBook && !mp3.isPlaying() {
+                playerOvserver()
+                sliderBar.value = Float(mp3.getCurrentTime().0 / mp3.getTotalTime())
+                currentMinAudio.text = mp3.getCurrentTime().1
+                totalTimeAudio.text = mp3.getTotalTimeString()
                 buttonImge.image = #imageLiteral(resourceName: "audio_play")
             } else {
                 sliderBar.value = 0.0
                 currentMinAudio.text = "00:00"
-                totalTimeAudio.text = mp3.getTotalTimeString()
+                totalTimeAudio.text = "00:00"
             }
             return
         }

@@ -12,7 +12,7 @@ static NSString *POST = @"POST";
 
 typedef void (^BlockSuccess)(id data);
 typedef void (^BlockProgress)(float progress);
-typedef void (^BlockFailure)(NSError *error);
+typedef void (^BlockFailure)(NSString *error);
 
 @interface BaseTaskNetwork : NSObject
 

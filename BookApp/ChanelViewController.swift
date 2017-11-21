@@ -46,12 +46,11 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
         getBaner()
         getData()
         
-        let getChaelSubcrible: GetAllChanelSubcribledTask =
-            GetAllChanelSubcribledTask(memberID: (memberInstance?.idMember)!)
+        let getChaelSubcrible: GetAllChanelSubcribledTask = GetAllChanelSubcribledTask(memberID: (memberInstance?.idMember)!)
         requestWithTask(task: getChaelSubcrible, success: { (_) in
             
         }) { (error) in
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
     
@@ -79,10 +78,7 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
     
     func getData() {
         indicatorSuggest.showActivity(inView: suggestChanel)
-        let getChanelSuggest: GetChanelSuggestTask =
-            GetChanelSuggestTask(lang: Constants.sharedInstance.language,
-                                 limit: 3,
-                                 page: currentPageSuggest)
+        let getChanelSuggest: GetChanelSuggestTask = GetChanelSuggestTask(lang: Constants.sharedInstance.language, limit: 3, page: currentPageSuggest)
         requestWithTask(task: getChanelSuggest, success: { [weak self] (data) in
             if let suggestArray = data as? [Chanel] {
                 self?.currentPageSuggest += 1
@@ -91,13 +87,12 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
             }
         }) { (error) in
             self.indicatorSuggest.stopActivityIndicator()
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
         
         indicatorViewFree.showActivity(inView: freeChanel)
         let idMember = memberInstance?.idMember != nil ? memberInstance?.idMember : 0
-        let getFreeChanel: GetChanelFreeTask =
-            GetChanelFreeTask(idMember: idMember!, page: currentFree)
+        let getFreeChanel: GetChanelFreeTask = GetChanelFreeTask(idMember: idMember!, page: currentFree)
         requestWithTask(task: getFreeChanel, success: { [weak self] (data) in
             if let freeArray = data as? [Chanel] {
                 self?.currentFree += 1
@@ -106,12 +101,11 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
             }
         }) { (error) in
             self.indicatorSuggest.stopActivityIndicator()
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
     
     // MARK: FSPagerView Data Source
-    
     func numberOfItems(in pagerView: FSPagerView) -> Int {
         return listSlider.count
     }
@@ -125,7 +119,6 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
     }
     
     // MARK: FSPagerView Delegate
-    
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         sliderShow.deselectItem(at: index, animated: true)
         sliderShow.scrollToItem(at: index, animated: true)
@@ -144,7 +137,6 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
     }
     
     // MARK: Call Back
-    
     func callBack() {
         let teacherStoryboard = UIStoryboard(name: "Chanel", bundle: nil)
         suggestChanel.callBackClickCell = {[weak self] (chanelSelected: Chanel) in
@@ -167,7 +159,6 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
     }
     
     // MARK: Button Control
-   
     func setupCallBackNavigation() {
         NotificationCenter.default.addObserver(self, selector: #selector(checkNotifocationApp), name: NSNotification.Name(rawValue: "reciveNotificaton"), object: nil)
         navigationView.callBackTopButton = { [weak self] (typeButton: TopButton) in
@@ -201,7 +192,6 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
     }
     
     @IBAction func loadMore(_ sender: Any) {
-        
         getData()
     }
 }

@@ -37,7 +37,7 @@
     _task = [_manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (error) {
             if (failure) {
-                failure(error);
+                failure(error.localizedDescription);
             }
             return;
         }
@@ -65,7 +65,7 @@
             id data = [self dataWithResponse:jsonResponse];
             success(data);
         } else {
-            failure(error);
+            failure(error.localizedDescription);
         }
     }];
     [downloadTask resume];
@@ -88,7 +88,7 @@
         if (!error) {
             success(filePath);
         } else {
-            failure(error);
+            failure(error.localizedDescription);
         }
     }];
     
@@ -127,7 +127,7 @@
                                                } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
                                                    if (error) {
                                                        if (failure) {
-                                                           failure(error);
+                                                           failure(error.localizedDescription);
                                                        }
                                                        return;
                                                    }

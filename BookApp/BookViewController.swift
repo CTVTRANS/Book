@@ -30,7 +30,6 @@ class BookViewController: BaseViewController {
     var  newestBook: Book!
     
     // MARK: Property Slider Show
-    
     var listSlider: [SliderShow] = []
     @IBOutlet weak var sliderShow: FSPagerView! {
         didSet {
@@ -77,7 +76,6 @@ class BookViewController: BaseViewController {
     }
     
     // MARK: Call API
-    
     func getBaner() {
         let getBanerTask = GetSliderBanerTask(typeSlider: ScreenShow.book.rawValue)
         requestWithTask(task: getBanerTask, success: { (data) in
@@ -100,7 +98,7 @@ class BookViewController: BaseViewController {
             self.tableBookType.reloadData()
         }) { (error) in
             self.stopActivityIndicator()
-            UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self)
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
     
@@ -110,6 +108,7 @@ class BookViewController: BaseViewController {
             self.suggestBookView.reloadData(arrayOfBook: (data as? [Book])!)
         }) { (error) in
             self.stopActivityIndicator()
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
     
@@ -119,6 +118,7 @@ class BookViewController: BaseViewController {
             self.freeBookView.reloadData(arrayOfBook: (data as? [Book])!)
         }) { (error) in
             self.stopActivityIndicator()
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
     
@@ -148,11 +148,11 @@ class BookViewController: BaseViewController {
         }) { (error) in
             self.viewForNewestBook.isHidden = true
             self.stopActivityIndicator()
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
     
     // MARK: Call Back For CEll
-    
     func setupCallBackClickCell() {
         let bookStoryboard = UIStoryboard(name: "Book", bundle: nil)
         suggestBookView.callBackClickCell = {[weak self] (bookSelected: Book) in
@@ -168,7 +168,7 @@ class BookViewController: BaseViewController {
                 self?.suggestBookView.reloadData(arrayOfBook: (data as? [Book])!)
             }) { (error) in
                 self?.stopActivityIndicator()
-                UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self!)
+                UIAlertController.showAler(title: "", message: error!, inViewController: self!)
             }
         }
         
@@ -184,7 +184,6 @@ class BookViewController: BaseViewController {
     }
     
     // MARK: Button Controll
-    
     @IBAction func pressedShowDetailBook(_ sender: Any) {
         let bookStoryboard = UIStoryboard(name: "Book", bundle: nil)
         let vc = bookStoryboard.instantiateViewController(withIdentifier: "BookDetail") as? BookDetailViewController
@@ -193,7 +192,6 @@ class BookViewController: BaseViewController {
     }
     
     // MARK: Call Back Navigation
-    
     @objc func checkNotifocationApp() {
         navigationCustom.checkNotifocation()
     }
@@ -218,8 +216,8 @@ class BookViewController: BaseViewController {
 }
 
 extension BookViewController: FSPagerViewDelegate, FSPagerViewDataSource {
-    // MARK: FSPagerView Data Source
     
+    // MARK: FSPagerView Data Source
     func numberOfItems(in pagerView: FSPagerView) -> Int {
         return listSlider.count
     }
@@ -233,7 +231,6 @@ extension BookViewController: FSPagerViewDelegate, FSPagerViewDataSource {
     }
     
     // MARK: FSPagerView Delegate
-    
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         sliderShow.deselectItem(at: index, animated: true)
         sliderShow.scrollToItem(at: index, animated: true)
@@ -255,7 +252,6 @@ extension BookViewController: FSPagerViewDelegate, FSPagerViewDataSource {
 extension BookViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: CollectionView Data Souce
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bookTypeArray.count
     }
@@ -267,7 +263,6 @@ extension BookViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     // MARK: CollectionView Delegate
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let myStoryboard = UIStoryboard(name: "Book", bundle: nil)
         if let vc = myStoryboard.instantiateViewController(withIdentifier: "SingleTypeBookController") as? SingleTypeBookController {

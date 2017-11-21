@@ -305,7 +305,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tiv-sF-NhB">
-                                <rect key="frame" x="161" y="64" width="159" height="36"/>
+                                <rect key="frame" x="160.5" y="64" width="159.5" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="2NX-N2-MVG">
                                         <userDefinedRuntimeAttributes>
@@ -325,10 +325,10 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9i-6q-x6c">
-                                <rect key="frame" x="160" y="69" width="1" height="26"/>
+                                <rect key="frame" x="160" y="69" width="0.5" height="26"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="0.5" id="BjY-6T-EIq"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="0.5" id="BjY-6T-EIq"/>
                                     <constraint firstAttribute="height" constant="26" id="xXM-TC-p8a">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="adjustConstantToRealIPhoneSize" value="YES"/>

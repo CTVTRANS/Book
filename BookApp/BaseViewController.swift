@@ -47,6 +47,7 @@ class BaseViewController: UIViewController {
             task.request(blockSucess: { (data) in
                 success(data)
             }) { (error) in
+                self.stopActivityIndicator()
                 failure(error)
             }
         } else {
@@ -58,6 +59,7 @@ class BaseViewController: UIViewController {
         task.downloadFileSuccess({ (data) in
             success(data)
         }) { (error) in
+            self.stopActivityIndicator()
             failure(error)
         }
     }
@@ -68,6 +70,7 @@ class BaseViewController: UIViewController {
         }, success: { (data) in
             success(data)
         }) { (error) in
+            self.stopActivityIndicator()
             failure(error)
         }
     }
@@ -193,7 +196,10 @@ extension UIView {
     }
     
     func showActivity(inView myView: UIView) {
-        self.frame = myView.bounds
+        let width = widthScreen
+        var height: CGFloat = 200
+        height.adjustsSizeToRealIPhoneSize = 200
+        self.frame = CGRect(x: 0, y: 0, width: width, height: height)
         self.backgroundColor = UIColor.white
         let loadingView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         loadingView.backgroundColor = UIColor.clear
