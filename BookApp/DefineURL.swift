@@ -109,7 +109,9 @@ enum ErrorCode: Int {
     case accountError = 215
     case limitBuyVip = 216
     case passwordHasSpace = 88
-    
+}
+
+extension ErrorCode {
     func decodeError() -> String {
         switch self {
         case .success:

@@ -115,7 +115,7 @@
          [formData appendPartWithFileData:data
                                      name:name
                                  fileName:@"avatar.jpeg"
-                                 mimeType:@"png/jped"];
+                                 mimeType:@"png/jpeg"];
      } error:nil];
     
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
