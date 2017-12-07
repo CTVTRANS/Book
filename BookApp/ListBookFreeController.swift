@@ -20,7 +20,7 @@ class ListBookFreeController: BaseViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "BookFree"
+        navigationItem.title = "限时免费"
         table.estimatedRowHeight = 140
         table.register(UINib.init(nibName: "ListBookFreee", bundle: nil), forCellReuseIdentifier: "cell")
         if let ac = footerView.viewWithTag(8) as? UIActivityIndicatorView {

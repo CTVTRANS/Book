@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,6 +13,9 @@
     <customFonts key="customFonts">
         <array key="DFHeiStd-W5.otf">
             <string>DFHeiStd-W5</string>
+        </array>
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
         </array>
     </customFonts>
     <scenes>
@@ -25,7 +28,7 @@
                         <viewControllerLayoutGuide type="bottom" id="DDR-Dc-cyW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QdL-5U-3kZ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0z-2R-IY6">
@@ -273,7 +276,7 @@
                         <viewControllerLayoutGuide type="bottom" id="bWj-eH-mP6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VL9-Gn-nX0">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="84" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5m-tV-ZjE">
@@ -1408,7 +1411,7 @@
                                     <constraint firstItem="HDk-VX-l5H" firstAttribute="top" secondItem="lXq-un-yRF" secondAttribute="bottom" constant="8" id="4WI-eQ-gbH"/>
                                     <constraint firstItem="7Gg-vI-hAr" firstAttribute="leading" secondItem="FNC-4D-Di2" secondAttribute="leading" constant="16" id="Bnu-pd-6JN"/>
                                     <constraint firstItem="lXq-un-yRF" firstAttribute="leading" secondItem="FNC-4D-Di2" secondAttribute="leading" constant="16" id="D79-lB-JNN"/>
-                                    <constraint firstAttribute="bottom" secondItem="uZM-IM-ZOd" secondAttribute="bottom" id="EGm-u7-51q"/>
+                                    <constraint firstAttribute="bottom" secondItem="uZM-IM-ZOd" secondAttribute="bottom" constant="16" id="EGm-u7-51q"/>
                                     <constraint firstItem="uZM-IM-ZOd" firstAttribute="top" secondItem="7Gg-vI-hAr" secondAttribute="bottom" constant="8" id="EMF-QC-fiW"/>
                                     <constraint firstAttribute="trailing" secondItem="uZM-IM-ZOd" secondAttribute="trailing" id="ZCs-K9-gUV"/>
                                     <constraint firstAttribute="trailing" secondItem="HDk-VX-l5H" secondAttribute="trailing" id="dCS-mL-Wor"/>
@@ -1512,7 +1515,7 @@
                         <viewControllerLayoutGuide type="bottom" id="YLt-Dr-3gh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="t4l-VO-P0q">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxX-aO-kNw">
@@ -1798,7 +1801,6 @@
                 <navigationController storyboardIdentifier="Login" automaticallyAdjustsScrollViewInsets="NO" id="2oR-oD-pRZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3Eb-bO-bRx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1816,7 +1818,6 @@
                 <navigationController storyboardIdentifier="NotificationVideoViewController" automaticallyAdjustsScrollViewInsets="NO" id="O8i-27-Inp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kg2-9N-fh8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1834,7 +1835,6 @@
                 <navigationController storyboardIdentifier="Search" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="vhC-x6-ikD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dxK-Pu-IEn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
