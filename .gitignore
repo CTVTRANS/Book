@@ -1,4 +1,6 @@
-Pods/
 .DS_Store
-BookApp.xcworkspace
+Pods/
+*.xcworkspace
+Podfile.lock
+Carthage/Build
 
