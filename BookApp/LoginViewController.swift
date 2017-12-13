@@ -76,7 +76,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             let sigIn = SignInTaks(countryCode: country, phoneNumerber: phone, password: pass)
             requestWithTask(task: sigIn, success: { (data) in
                 if let status = data as? ErrorCode {
-                    let action = UIAlertAction(title: "确认", style: .default, handler: { (_) in
+                    let action = UIAlertAction(title: "确认".localized, style: .default, handler: { (_) in
                         if status == ErrorCode.success {
                             self.dismiss(animated: true, completion: nil)
                         }

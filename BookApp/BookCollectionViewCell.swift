@@ -20,7 +20,7 @@ class BookCollectionViewCell: UICollectionViewCell {
     func binData(book: Book) {
         nameBook.text = book.name
         let urlString = book.imageURL
-        if urlString != "abc" {
+        if urlString != "" {
             imageBook.sd_setImage(with: URL(string: urlString), placeholderImage: #imageLiteral(resourceName: "place_holder"))
         }
     }

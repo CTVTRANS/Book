@@ -142,7 +142,7 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
     func checkSubcribleed() {
         let allChanelSubcrible: [Chanel] = Constants.sharedInstance.listChanelSubcribled
         for chanelSubcribled in allChanelSubcrible where chanel.idChanel == chanelSubcribled.idChanel {
-            subcribedTeacher.setTitle("  已訂閱頻道  ", for: .normal)
+            subcribedTeacher.setTitle("Subcrible Chanel".localized, for: .normal)
             subcribedTeacher.isEnabled = false
         }
     }
@@ -174,7 +174,7 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
                 }
             }
         }) { (error) in
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
     
@@ -235,7 +235,7 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
                     self.chanel.numberSubcrible += 1
                     self.numberSubcrible.text = String(self.chanel.numberSubcrible)
                     Constants.sharedInstance.listChanelSubcribled.append(self.chanel)
-                    self.subcribedTeacher.setTitle("  已訂閱頻道  ", for: .normal)
+                    self.subcribedTeacher.setTitle("Subcrible Chanel".localized, for: .normal)
                     self.subcribedTeacher.isEnabled = false
                 }
             }
@@ -249,7 +249,7 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
             goToSigIn()
             return
         } else if memberInstance?.level == 0 {
-            UIAlertController.showAler(title: "", message: "VIP會員才能下載", inViewController: self)
+            UIAlertController.showAler(title: "", message: "Only VIP can download".localized, inViewController: self)
             return
         }
         let download = DownloadAudioController()
@@ -332,7 +332,7 @@ extension DetailChanelViewController {
                         self?.goToSigIn()
                         return
                     } else if self?.memberInstance?.level == 0 {
-                        UIAlertController.showAler(title: "", message: "VIP會員才能下載", inViewController: self!)
+                        UIAlertController.showAler(title: "", message: "Only VIP can download".localized, inViewController: self!)
                         return
                     }
                     let download = DownloadAudioController()

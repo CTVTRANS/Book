@@ -118,7 +118,7 @@ class SingleTypeBookController: BaseViewController {
             }
             if array3.count > 0 {
                 self.menu3.isHidden = false
-                let allType3 = MenuType(name: "全部", image: "", typeID: typeID2, description: "", parentID: typeID2)
+                let allType3 = MenuType(name: "All".localized, image: "", typeID: typeID2, description: "", parentID: typeID2)
                 array3.insert(allType3, at: 0)
                 var newConstraint: CGFloat = 168
                 newConstraint.adjustsSizeToRealIPhoneSize = 168
@@ -149,13 +149,13 @@ class SingleTypeBookController: BaseViewController {
     }
     
     @IBAction func pressedChooseSortType(_ sender: Any) {
-        _ = UIAlertController.showActionSheetWith(arrayTitle: ["日期", "观看次数"], handlerAction: { (index) in
+        _ = UIAlertController.showActionSheetWith(arrayTitle: ["Date".localized, "NumberView".localized], handlerAction: { (index) in
             if index == 0 {
                 self.sortBy = "date"
-                self.sortType.text = "日期"
+                self.sortType.text = "Date".localized
             } else {
                 self.sortBy = "views"
-                self.sortType.text = "观看次数"
+                self.sortType.text = "NumberView".localized
             }
             self.reloadMyData()
         }, in: self)

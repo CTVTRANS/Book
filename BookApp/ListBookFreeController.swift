@@ -20,7 +20,7 @@ class ListBookFreeController: BaseViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "限时免费"
+        navigationItem.title = "Free".localized
         table.estimatedRowHeight = 140
         table.register(UINib.init(nibName: "ListBookFreee", bundle: nil), forCellReuseIdentifier: "cell")
         if let ac = footerView.viewWithTag(8) as? UIActivityIndicatorView {
@@ -90,9 +90,7 @@ class ListBookFreeController: BaseViewController, UITableViewDelegate, UITableVi
                 }
             }
         }) { (error) in
-            _ = UIAlertController(title: nil,
-                                  message: error as? String,
-                                  preferredStyle: .alert)
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
 }

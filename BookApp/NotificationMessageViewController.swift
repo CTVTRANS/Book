@@ -22,7 +22,7 @@ class NotificationMessageViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "学致用书院"
+        navigationItem.title = "Notification".localized
         navigationController?.isNavigationBarHidden = false
     }
     

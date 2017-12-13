@@ -20,7 +20,7 @@ class DetailNotificationMessageController: BaseViewController {
         if !(objectiNotification?.isReaded)! {
              markedNotification()
         }
-        navigationItem.title = "通知列表"
+        navigationItem.title = "ListNotification".localized
         detal.text = objectiNotification?.detailText
         ShareModel.shareIntance.nameShare = (objectiNotification?.title)!
         ShareModel.shareIntance.detailShare = (objectiNotification?.detailText)!

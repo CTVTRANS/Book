@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  BookApp
+
+  Created by le kien on 12/13/17.
+  
+*/
+
+"Download success" = "下載成功";
+"Start Download..." = "開始下載....";
+"Access" = "确认";
+"Singup" = "注册";
+"Get Code" = "获取验证码 ";
+"Reset Pass" = "重设密码";
+"Notification" = "学致用书院";
+"ListNotification" = "通知列表";
+"Only VIP can download" = "VIP會員才能下載";
+"Search Type" = "分类搜素";
+"Text Hot" = "热门搜索";
+"Comment Newest" = "最新评论";
+"Comment Hot" = "热门评论";
+"send message success, please wait review" = "send message success, please wait review";
+"Please install weibo to continuce" = "您要安裝微博來用這個功能";
+"Please install facebook to continuce" = "您要安裝FACEBOOK來用這個功能";
+"All" = "全部";
+"Refresh" = "换一换";
+"Suggest" = "猜你喜欢";
+"Free" = "限时免费";
+"Date" = "日期";
+"NumberView" = "观看次数";
+"Chanel Hot" = "热门老师";
+"Subcrible Chanel" = "  已訂閱頻道  ";
+"Un Subcrible Chanel" = "  退订  ";
+"Subcribled" = "  订阅频道  ";

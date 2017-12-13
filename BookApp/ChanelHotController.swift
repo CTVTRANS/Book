@@ -74,13 +74,11 @@ class ChanelHotController: BaseViewController, UITableViewDelegate, UITableViewD
                         return
                     }
                     Constants.sharedInstance.listChanelSubcribled.append(chanel)
-                    cell?.subcribleButton.setTitle("  已订阅频道  ", for: .normal)
+                    cell?.subcribleButton.setTitle("Subcrible Chanel".localized, for: .normal)
                     cell?.subcribleButton.isEnabled = false
                 }
             }) { (error) in
-                _ = UIAlertController(title: nil,
-                                      message: error as? String,
-                                      preferredStyle: .alert)
+                UIAlertController.showAler(title: "", message: error!, inViewController: self!)
             }
         }
         return cell!
@@ -123,7 +121,7 @@ class ChanelHotController: BaseViewController, UITableViewDelegate, UITableViewD
             }
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
     

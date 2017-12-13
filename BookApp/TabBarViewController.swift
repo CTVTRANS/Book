@@ -25,7 +25,7 @@ class TabBarViewController: UITabBarController {
 
     @objc func showDownloadSuccess() {
         statusView.imageView?.image = #imageLiteral(resourceName: "ic_download_success")
-        statusView.statusLabel.text = "下載成功"
+        statusView.statusLabel.text = "Download success".localized
         UIView.animate(withDuration: 0.5, animations: {
             self.statusView.frame = CGRect(x: 0, y: 0, width: widthScreen, height: 20)
         }) { (_) in
@@ -36,7 +36,7 @@ class TabBarViewController: UITabBarController {
     
    @objc func showDownloadPrecess() {
         statusView.imageView?.image = #imageLiteral(resourceName: "ic_download_process")
-        statusView.statusLabel.text = "開始下載...."
+        statusView.statusLabel.text = "Start Download...".localized
         UIView.animate(withDuration: 0.5, animations: {
             self.statusView.frame = CGRect(x: 0, y: 0, width: widthScreen, height: 20)
         }) { (_) in

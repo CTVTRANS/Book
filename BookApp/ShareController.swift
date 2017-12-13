@@ -34,7 +34,7 @@ class ShareController: BaseViewController {
             }
             self.present(vc!, animated: true, completion: nil)
         } else {
-            UIAlertController.showAler(title: "", message: "您要安裝微博來用這個功能", inViewController: self)
+            UIAlertController.showAler(title: "", message: "Please install weibo to continuce".localized, inViewController: self)
         }
     }
     
@@ -90,7 +90,7 @@ class ShareController: BaseViewController {
             }
             self.present(vc!, animated: true, completion: nil)
         } else {
-            UIAlertController.showAler(title: "", message: "您要安裝FACEBOOK來用這個功能", inViewController: self)
+            UIAlertController.showAler(title: "", message: "Please install facebook to continuce".localized, inViewController: self)
         }
     }
 }

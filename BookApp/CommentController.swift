@@ -68,7 +68,7 @@ class CommentController: BaseViewController, UITextViewDelegate {
         isMoreData = true
         pager = 1
         arrayComment.removeAll()
-        commentNormal = SpecialComment(name: "最新评论", array: arrayComment)
+        commentNormal = SpecialComment(name: "Comment Newest".localized, array: arrayComment)
         arrayObject.removeAll()
         table.reloadData()
         getComment()
@@ -81,7 +81,7 @@ class CommentController: BaseViewController, UITextViewDelegate {
         table.tableFooterView = footer
         table.addSubview(refreshControl)
         table.backgroundView = table.noData
-        commentNormal = SpecialComment(name: "最新评论", array: arrayComment)
+        commentNormal = SpecialComment(name: "Comment Newest".localized, array: arrayComment)
         
         if let news = object as? NewsModel {
             titleComment.text = " " + news.title + " "
@@ -104,7 +104,7 @@ class CommentController: BaseViewController, UITextViewDelegate {
         requestWithTask(task: getCommentHot, success: { (data) in
             if let arrayCommentHot = data as? [Comment] {
                 if arrayCommentHot.count > 0 {
-                    let hotComment: SpecialComment = SpecialComment(name: "热门评论", array: arrayCommentHot)
+                    let hotComment: SpecialComment = SpecialComment(name: "Comment Hot".localized, array: arrayCommentHot)
                     self.arrayObject.append(hotComment)
                     Constants.sharedInstance.listCommentHot = arrayCommentHot
                 } else {
@@ -115,7 +115,7 @@ class CommentController: BaseViewController, UITextViewDelegate {
             self.getCommentAPI()
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
    
@@ -131,10 +131,10 @@ class CommentController: BaseViewController, UITextViewDelegate {
     
     @IBAction func pressedSendComment(_ sender: Any) {
         let sendComment: SendCommentTask = SendCommentTask(commentType: commentType!, memberID: (memberInstance?.idMember)!, objectId: idObject!, content: commentTextView.text, token: tokenInstance!)
-        requestWithTask(task: sendComment, success: { (data) in
+        requestWithTask(task: sendComment, success: { (_) in
             self.commentTextView.text = ""
             self.commentTextView.endEditing(true)
-            print(data!)
+            UIAlertController.showAler(title: "", message: "send message success, please wait review".localized, inViewController: self)
         }) { (_) in
             
         }
@@ -186,7 +186,7 @@ class CommentController: BaseViewController, UITextViewDelegate {
                 if arrayOfComment.count > 0 {
                     self.pager += 1
                     let objectNormalcomment = self.arrayObject.filter({ (obj) -> Bool in
-                        return obj.name == "最新评论"
+                        return obj.name == "Comment Newest".localized
                     })
                     objectNormalcomment.first?.comment += arrayOfComment
                 } else {
@@ -200,7 +200,7 @@ class CommentController: BaseViewController, UITextViewDelegate {
             }
         }) { (error) in
             self.stopActivityIndicator()
-            UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self)
+            UIAlertController.showAler(title: "", message: (error)!, inViewController: self)
         }
     }
     

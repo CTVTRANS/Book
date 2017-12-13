@@ -68,11 +68,11 @@ class BookViewController: BaseViewController {
     
     func setUpTitle() {
         suggestBookView.setupView(image: #imageLiteral(resourceName: "ic_reload"))
-        suggestBookView.detailTitle.text = "换一换"
-        suggestBookView.titleView.text = "猜你喜欢"
+        suggestBookView.detailTitle.text = "Refresh".localized
+        suggestBookView.titleView.text = "Suggest".localized
         freeBookView.setupView(image: #imageLiteral(resourceName: "ic_next"))
-        freeBookView.detailTitle.text = "全部"
-        freeBookView.titleView.text = "限时免费"
+        freeBookView.detailTitle.text = "All".localized
+        freeBookView.titleView.text = "Free".localized
     }
     
     // MARK: Call API

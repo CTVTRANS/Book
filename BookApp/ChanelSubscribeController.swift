@@ -27,7 +27,7 @@ class ChanelSubscribeController: BaseViewController, UITableViewDelegate, UITabl
             self.stopActivityIndicator()
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
     
@@ -45,7 +45,7 @@ class ChanelSubscribeController: BaseViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ChanelViewCell
         cell?.binData(chanel: listChanelSubcribled[indexPath.row])
-        cell?.subcribleButton.setTitle("  退订  ", for: .normal)
+        cell?.subcribleButton.setTitle("Un Subcrible Chanel".localized, for: .normal)
         cell?.callBackButton = {
             let unSubcrible: SubcribleChanelTask =
                 SubcribleChanelTask(memberID: (self.memberInstance?.idMember)!,
@@ -59,9 +59,7 @@ class ChanelSubscribeController: BaseViewController, UITableViewDelegate, UITabl
                     self.table.reloadData()
                 }
             }) { (error) in
-                _ = UIAlertController(title: nil,
-                                      message: error as? String,
-                                      preferredStyle: .alert)
+                UIAlertController.showAler(title: "", message: error!, inViewController: self)
             }
         }
         return cell!

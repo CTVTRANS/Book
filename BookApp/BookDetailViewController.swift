@@ -180,7 +180,7 @@ class BookDetailViewController: BaseViewController {
             case BottomButton.like: self?.pressedLike()
             case BottomButton.download:
                 if self?.memberInstance?.level != 1 {
-                    UIAlertController.showAler(title: "", message: "VIP會員才能下載", inViewController: self!)
+                    UIAlertController.showAler(title: "", message: "Only VIP can download".localized, inViewController: self!)
                     return
                 }
                 let download = DownloadAudioController()

@@ -28,7 +28,7 @@ class ForgetPassViewController: BaseViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "重设密码"
+        navigationItem.title = "Reset Pass".localized
         buttonSendCode.layer.borderColor = UIColor.rgb(255, 101, 0).cgColor
         showAreButton.layer.borderColor = UIColor.rgb(255, 101, 0).cgColor
         phoneNumber.keyboardType = .numberPad
@@ -105,7 +105,7 @@ class ForgetPassViewController: BaseViewController, UITextFieldDelegate {
                                                 confirmPass: confirmNewpass!)
             requestWithTask(task: forgotPass, success: { (data) in
                 if let status = data as? ErrorCode {
-                    let action = UIAlertAction(title: "确认", style: .default, handler: { (_) in
+                    let action = UIAlertAction(title: "Access".localized, style: .default, handler: { (_) in
                         if status == ErrorCode.success {
                             self.navigationController?.popToRootViewController(animated: true)
                         }
@@ -122,9 +122,9 @@ class ForgetPassViewController: BaseViewController, UITextFieldDelegate {
     
     @objc func updateTimer(timer: Timer) {
         counter -= 1
-        titleButtonSendCode.text = "获取验证码" + "(\(counter)s)" + "  "
+        titleButtonSendCode.text = "Get Code".localized + "(\(counter)s)" + "  "
         if counter <= 0 {
-            titleButtonSendCode.text = "获取验证码  "
+            titleButtonSendCode.text = "Get Code".localized
             timer.invalidate()
             counter = 60
             buttonSendCode.isEnabled = true

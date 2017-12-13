@@ -146,7 +146,7 @@ class MainViewController: BaseViewController {
                 return type.parentID == typeID2
             })
             if array3.count > 0 {
-                let allType3 = MenuType(name: "全部", image: "", typeID: typeID2, description: "", parentID: typeID2)
+                let allType3 = MenuType(name: "All".localized, image: "", typeID: typeID2, description: "", parentID: typeID2)
                 array3.insert(allType3, at: 0)
                 var newConstraint: CGFloat = 104
                 newConstraint.adjustsSizeToRealIPhoneSize = 104
