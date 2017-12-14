@@ -35,8 +35,8 @@ class ShowAllActivityGroupController: BaseViewController, UITableViewDelegate, U
     }
     
     func setupNavigation() {
-        navigationItem.title = "分会关注"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "分会圈子", style: .done, target: self, action: #selector(pressRightBarButton))
+        navigationItem.title = "Club attention".localized
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Club circle".localized, style: .done, target: self, action: #selector(pressRightBarButton))
     }
     
     // MARK: Get Data
@@ -53,7 +53,7 @@ class ShowAllActivityGroupController: BaseViewController, UITableViewDelegate, U
             self.stopActivityIndicator()
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
         
         let getGroupJoined: GetGroupJoinedTask = GetGroupJoinedTask(idMember: (memberInstance?.idMember)!)
@@ -64,7 +64,7 @@ class ShowAllActivityGroupController: BaseViewController, UITableViewDelegate, U
             }
         }) { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
     
@@ -178,7 +178,7 @@ class ShowAllActivityGroupController: BaseViewController, UITableViewDelegate, U
                 }
             }
         }) { (error) in
-             _ = UIAlertController(title: nil, message: error as? String, preferredStyle: .alert)
+           UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
 }

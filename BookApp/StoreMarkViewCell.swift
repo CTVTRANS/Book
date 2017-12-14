@@ -33,7 +33,7 @@ class StoreMarkViewCell: UICollectionViewCell {
             pointBookView.isHidden = false
             if type == TypeProductRequest.pointAndMoney ||
                 (type == TypeProductRequest.all && book.typePay == "money") {
-                title.text = "[現] " + book.name
+                title.text = "[現] ".localized + book.name
                 let pirce_Mix: PriceMix = book.priceMix[0]
                 let pricePoint = pirce_Mix.point
                 let priceMoney = pirce_Mix.mooney
@@ -42,7 +42,7 @@ class StoreMarkViewCell: UICollectionViewCell {
                 return
             } else if type == TypeProductRequest.point ||
                 (type == TypeProductRequest.all && book.typePay == "point") {
-                title.text = "[積] " + book.name
+                title.text = "[積] ".localized + book.name
                 point.text = String(book.price!)
                 moneyBookView.isHidden = true
                 return

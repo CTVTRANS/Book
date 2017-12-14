@@ -17,7 +17,7 @@ class HistoryBuyProductController: BaseViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
         table.tableFooterView = UIView()
         table.estimatedRowHeight = 140
-        navigationItem.title = "购物记录"
+        navigationItem.title = "HistoryBuy".localized
         getHistoryVip()
         getHistoryBook()
     }

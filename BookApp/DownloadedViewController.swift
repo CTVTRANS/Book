@@ -31,7 +31,7 @@ class DownloadedViewController: BaseViewController, UITableViewDelegate, UITable
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "已下載"
+        navigationItem.title = "Downloaded".localized
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 

@@ -34,7 +34,7 @@ class HistoryWatchChanelViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        navigationItem.title = "播放记录"
+        navigationItem.title = "Play history".localized
     }
     
     func getHistoryLesson() {

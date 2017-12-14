@@ -62,9 +62,7 @@ class DetailStoreMarkController: BaseViewController, UICollectionViewDataSource,
             }
         }, failure: { (error) in
             self.stopActivityIndicator()
-            _ = UIAlertController(title: nil,
-                                  message: error as? String,
-                                  preferredStyle: .alert)
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         })
     }
 
@@ -162,7 +160,6 @@ class DetailStoreMarkController: BaseViewController, UICollectionViewDataSource,
         let pullHeight  = fabs(diffHeight - frameHeight)
         if pullHeight == 0.0 {
             if (self.footerView?.isAnimatingFinal)! {
-                print("load more trigger")
                 self.isLoading = true
                 self.footerView?.startAnimate()
                 loadMore()

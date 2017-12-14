@@ -52,15 +52,6 @@ class ChanelHotController: BaseViewController, UITableViewDelegate, UITableViewD
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ChanelViewCell
         let chanel = listChanelHot[indexPath.row]
         cell?.binData(chanel: chanel)
-//        for chanelHot in Constants.sharedInstance.listChanelSubcribled {
-//            if chanel.idChanel ==  chanelHot.idChanel {
-//                cell?.subcribleButton.setTitle("  已订阅频道  ", for: .normal)
-//                cell?.subcribleButton.isEnabled = false
-//                break
-//            } else {
-//                 cell?.subcribleButton.setTitle("  订阅频道  ", for: .normal)
-//            }
-//        }
         cell?.callBackButton = { [weak self] in
             let subcrible: SubcribleChanelTask =
                 SubcribleChanelTask(memberID: (self!.memberInstance?.idMember)!,

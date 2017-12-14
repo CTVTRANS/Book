@@ -45,10 +45,10 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
     // MARK: Setup UI
     
     func customData() {
-        let setting1 = SettingCellModel(name: "线下活动", specialName: "", arrrowDetail: true, nameDetail: "")
-        let setting2 = SettingCellModel(name: "积分商城", specialName: "", arrrowDetail: true, nameDetail: "")
-        let setting3 = SettingCellModel(name: "购买记录", specialName: "", arrrowDetail: true, nameDetail: "")
-        let setting4 = SettingCellModel(name: "会员状态", specialName: "", arrrowDetail: true, nameDetail: "")
+        let setting1 = SettingCellModel(name: "List Activity".localized, specialName: "", arrrowDetail: true, nameDetail: "")
+        let setting2 = SettingCellModel(name: "Store".localized, specialName: "", arrrowDetail: true, nameDetail: "")
+        let setting3 = SettingCellModel(name: "History".localized, specialName: "", arrrowDetail: true, nameDetail: "")
+        let setting4 = SettingCellModel(name: "Status Member".localized, specialName: "", arrrowDetail: true, nameDetail: "")
         let arraySetting1 = ListSetting(array: [setting1, setting2, setting3])
         let arraySetting2 = ListSetting(array: [setting4])
         arraySetting.append(arraySetting1)
@@ -58,17 +58,17 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
     func checkMember() {
         if !checkLogin() {
             profileView.isHidden = true
-            loginButton.setTitle("登入", for: .normal)
+            loginButton.setTitle("Sigin".localized, for: .normal)
             if DefaultApp.sharedInstance.defaultAvatar != nil && DefaultApp.sharedInstance.defaultAvatar != "" {
                 self.avatar.sd_setImage(with: URL(string: DefaultApp.sharedInstance.defaultAvatar))
             }
             return
         }
-        loginButton.setTitle("签到", for: .normal)
+        loginButton.setTitle("Attend", for: .normal)
         profileView.isHidden = false
         let member = ProfileMember.getProfile()!
         let avatarURL = member.avatar! + "?"
-        self.avatar.sd_setImage(with: URL(string: avatarURL), placeholderImage: #imageLiteral(resourceName: "userPlaceHolder"))
+        self.avatar.sd_setImage(with: URL(string: avatarURL))
         self.point.text = String(member.point)
         nameMember.text = member.name
         if member.level != 1 {
@@ -211,7 +211,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
             requestWithTask(task: updatepoint, success: { (data) in
                 if let status = data as? (Bool, Int) {
                     if status.0 {
-                        self.loginButton.setTitle("签到", for: .normal)
+                        self.loginButton.setTitle("Attend".localized, for: .normal)
                     }
                     self.point.text = String(status.1)
                     self.memberInstance?.point = status.1

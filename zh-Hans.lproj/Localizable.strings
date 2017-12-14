@@ -5,12 +5,22 @@
   Created by le kien on 12/13/17.
   
 */
+"简体中文" = "简体中文";
+"学致用书院" = "学致用书院";
 
+
+
+"No internet" = "没有网络";
+"No Data" = "没有资料";
 "Download success" = "下載成功";
 "Start Download..." = "開始下載....";
 "Access" = "确认";
+"success!" = "成功！";
+"Sigin" = "登入";
 "Singup" = "注册";
+"sign out" = "退出登录";
 "Get Code" = "获取验证码 ";
+"Reset Pass" = "重设密码";
 "Notification" = "学致用书院";
 "ListNotification" = "通知列表";
 "Only VIP can download" = "VIP會員才能下載";
@@ -31,3 +41,62 @@
 "Subcrible Chanel" = "  已訂閱頻道  ";
 "Un Subcrible Chanel" = "  退订  ";
 "Subcribled" = "  订阅频道  ";
+"List Activity" = "线下活动";
+"Store" = "积分商城";
+"History" = "购买记录";
+"HistoryBuy" = "购物记录";
+"Status Member" = "会员状态";
+"Attend" = "签到";
+"BuyVipPoint: " = "立刻储值升等年费: ";
+"All product" = "所有商品";
+"Point product" = "纯积分";
+"Point+Money Product" = "积分+现金";
+"[現] " = "[現] ";
+"[積] " = "[積] ";
+"Point" = " 积分";
+"Money" = " 现金";
+"not enough point" = "积分不足请多争取更多积分";
+"Please full infomation" = "Please full infomation";
+"Confirm Order" = "确认订单";
+"Downloaded" = "已下載";
+"Play history" = "播放记录";
+"My collection" = "我的收藏";
+"Settings" = "設置";
+"Help Center" = "帮助中心";
+"Personal information" = "个人信息";
+"Clear download" = "清空下载";
+"About Reading Club" = "关于读书会";
+"member number: " = "会员编号: ";
+"Name" = "姓名";
+"Email" = "邮箱";
+"password" = "密码";
+"Change infomation" = "完善资料";
+"Use Camera" = "拍照";
+"Choose from albums" = "从相册选择";
+"Save" = "保存";
+"Female" = "女";
+"Male" = "男";
+"security" = "保密";
+"married" = "已婚";
+"unmarried" = "未婚";
+"Club circle" = "分会圈子";
+"Club attention" = "分会关注";
+"Followed Group" = "  已关注  ";
+"Concerned" = "  關注  ";
+"E-mail format is wrong" = "邮箱格式不对";
+"Image category is not right" = "图片类别不对";
+"Picture capacity exceeds the requirement" = "图片容量超过规定";
+"Password is too short (must be more than 8 symbols)" = "密码太短（一定要从8个符号以上）";
+"Password and password do not overlap" = "密码及重打密码不重叠";
+"Password confirm can not be blank" = "密码及重打密码不能空白";
+"password wrong" = "密码吗不对";
+"The phone number is wrong" = "电话号码不对";
+"Verification code wrong" = "验证码不对";
+"Verification code can not be blank" = "验证码不能空白";
+"Phone number can not be blank" = "电话号码不能空白";
+"Name can not be blank" = "名称不能空白";
+"Password can not be blank" = "密码不能空白";
+"Phone number has been registered" = "手机号码已经被注册了";
+"account does not exist" = "帐号不存在";
+"Use points to upgrade VIP number to be limited" = "用点数兑换升级VIP次数被限制";
+"Password can not have a space" = "密码不能有空格";

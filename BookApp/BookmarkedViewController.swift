@@ -27,7 +27,7 @@ class BookmarkedViewController: BaseViewController, UITableViewDataSource, UITab
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "我的收藏"
+        navigationItem.title = "My collection".localized
         navigationController?.setNavigationBarHidden(false, animated: animated)
         getNewsBookmarked()
         getBookBookmarked()

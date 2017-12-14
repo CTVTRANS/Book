@@ -19,7 +19,7 @@ class DetailSingleGroupCell: UITableViewCell {
 
     func binData(news: NewsInGroups) {
         titleNews.text = news.title
-        imageNews.sd_setImage(with: URL(string: news.imageURL), placeholderImage: #imageLiteral(resourceName: "userPlaceHolder"))
+        imageNews.sd_setImage(with: URL(string: news.imageURL))
     }
 
 }

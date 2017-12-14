@@ -70,7 +70,7 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
-        let rightButton = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(saveInfomation))
+        let rightButton = UIBarButtonItem(title: "Save".localized, style: .plain, target: self, action: #selector(saveInfomation))
         navigationItem.rightBarButtonItem = rightButton
     }
     
@@ -91,11 +91,11 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
         let sexType: Int = (memberInstance?.sex!)!
         switch sexType {
         case 0:
-            sex.text = "女"
+            sex.text = "Female".localized
         case 1:
-            sex.text = "男"
+            sex.text = "Male".localized
         case 2:
-            sex.text = "性別"
+            sex.text = "security".localized
         default:
             break
         }
@@ -103,11 +103,11 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
         let marrigeType: Int = (memberInstance?.marriage!)!
         switch marrigeType {
         case 0:
-            statusMarrie.text = "性別"
+            statusMarrie.text = "security".localized
         case 1:
-            statusMarrie.text = "未婚"
+            statusMarrie.text = "unmarried".localized
         case 2:
-            statusMarrie.text = "已婚"
+            statusMarrie.text = "married".localized
         default:
             break
         }
@@ -178,7 +178,7 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
                 if let status = data as? ErrorCode {
                     if status == ErrorCode.success {
                         let alert = UIAlertController.init(title: "", message: status.decodeError(), preferredStyle: .alert)
-                        let action = UIAlertAction(title: "确认",
+                        let action = UIAlertAction(title: "Access".localized,
                                                    style: UIAlertActionStyle.default) { (_) in
                             self.navigationController?.popViewController(animated: true)
                         }

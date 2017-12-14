@@ -21,7 +21,7 @@ class SupportCustomController: BaseViewController, UIWebViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "幫助中心"
+        navigationItem.title = "Help Center".localized
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {

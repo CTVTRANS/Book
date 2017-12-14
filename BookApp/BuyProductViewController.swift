@@ -39,16 +39,16 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
         if let book = product as? Book {
             bookProduct = book
             imageProduct.sd_setImage(with: URL(string: book.imageURL), placeholderImage: #imageLiteral(resourceName: "place_holder"))
-            point1.text = String(book.priceMix[0].point) + " 积分 ＋ " + String(book.priceMix[0].mooney) + " 现金"
-            point2.text = String(book.priceMix[1].point) + " 积分 ＋ " + String(book.priceMix[1].mooney) + " 现金"
+            point1.text = String(book.priceMix[0].point) + "Point".localized + " + \(String(book.priceMix[0].mooney)) +" + "Money".localized
+            point2.text = String(book.priceMix[1].point) + "Point".localized + " + \(String(book.priceMix[1].mooney)) +" + "Money".localized
             if book.typePay == "point" || book.price != 0 {
                 titleProduct.text = "[积] " + book.name
                 nameproduct = "[积] " + book.name
-                numberMark.text = String(book.price!) + " 积分"
+                numberMark.text = String(book.price!) + "Point".localized
             } else {
                 titleProduct.text = "[现] " + book.name
                 nameproduct = "[现] " + book.name
-                numberMark.text = String(book.priceMix[0].point) + " 积分 ＋ " + String(book.priceMix[0].mooney) + " 现金"
+                numberMark.text = String(book.priceMix[0].point) + "Point".localized + " + \(String(book.priceMix[0].mooney)) +" + "Money".localized
                 point1.removeFromSuperview()
                 buyButtonCase1.removeFromSuperview()
             }
@@ -65,7 +65,7 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
 
             imageProduct.sd_setImage(with: URL(string: vip.imageURL), placeholderImage: #imageLiteral(resourceName: "place_holder"))
             titleProduct.text = "[现] " + vip.title
-            numberMark.text = String(vip.price) + " 现金"
+            numberMark.text = String(vip.price) + "Money".localized
             detailBody.loadHTMLString(css + vip.conten, baseURL: nil)
         }
     }
@@ -112,11 +112,11 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
         if PeoleReciveProduct.sharedInstance.phone == nil {
             UIAlertController.showAler(title: "", message: "Please fill information recipient", inViewController: self)
         } else {
-            if numberMark.text?.range(of: " 积分") != nil {
-                let array = numberMark.text?.components(separatedBy: " 积分")
+            if numberMark.text?.range(of: "Point".localized) != nil {
+                let array = numberMark.text?.components(separatedBy: "Point".localized)
                 let numberPoint = Int((array?.first)!)
                 if numberPoint! > (memberInstance?.point)! {
-                    UIAlertController.showAler(title: "", message: "积分不足请多争取更多积分", inViewController: self)
+                    UIAlertController.showAler(title: "", message: "not enough point".localized, inViewController: self)
                     return
                 }
             }

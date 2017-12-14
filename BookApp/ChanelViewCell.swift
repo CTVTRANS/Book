@@ -33,7 +33,7 @@ class ChanelViewCell: UITableViewCell {
             subcribleButton.setTitle("Subcrible Chanel".localized, for: .normal)
             subcribleButton.isEnabled = false
         } else {
-            subcribleButton.setTitle("Subcribled", for: .normal)
+            subcribleButton.setTitle("Subcribled".localized, for: .normal)
             subcribleButton.isEnabled = true
         }
     }

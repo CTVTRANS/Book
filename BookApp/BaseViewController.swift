@@ -51,7 +51,7 @@ class BaseViewController: UIViewController {
                 failure(error)
             }
         } else {
-            UIAlertController.showAler(title: "", message: "没有网络", inViewController: self)
+            UIAlertController.showAler(title: "", message: "No internet".localized, inViewController: self)
         }
     }
     
@@ -240,7 +240,7 @@ extension UITableView {
     var noData: UIView {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: widthScreen, height: self.frame.size.height))
         let label = UILabel(frame: CGRect(x: 0, y: 20, width: view.frame.width, height: 64))
-        label.text = "没有资料"
+        label.text = "No Data".localized
         label.textColor = UIColor.rgb(201, 201, 201)
         label.textAlignment = .center
         view.addSubview(label)

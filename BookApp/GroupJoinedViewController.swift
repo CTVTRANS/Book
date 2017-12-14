@@ -15,7 +15,7 @@ class GroupJoinedViewController: BaseViewController, UICollectionViewDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "线下活动"
+        navigationItem.title = "List Activity".localized
         showActivity(inView: self.view)
     }
     

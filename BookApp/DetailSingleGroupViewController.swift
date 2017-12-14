@@ -41,7 +41,7 @@ class DetailSingleGroupViewController: BaseViewController, UITableViewDelegate, 
         adress.text = groupSelected?.adress
         idWeChat.text = groupSelected?.idWechat
         nameGroup.text = groupSelected?.name
-        imageGroup.sd_setImage(with: URL(string: (groupSelected?.imageURL)!), placeholderImage: #imageLiteral(resourceName: "userPlaceHolder"))
+        imageGroup.sd_setImage(with: URL(string: (groupSelected?.imageURL)!))
         imageGroup.layer.cornerRadius = heightOfImage.constant / 2
         
         table.addSubview(refreshControl)
@@ -54,7 +54,7 @@ class DetailSingleGroupViewController: BaseViewController, UITableViewDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if (groupSelected?.isSubcrible)! {
-            joinButton.setTitle("   已关注   ", for: .normal)
+            joinButton.setTitle("Followed Group".localized, for: .normal)
         }
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.barTintColor = UIColor.white
@@ -118,10 +118,10 @@ class DetailSingleGroupViewController: BaseViewController, UITableViewDelegate, 
         requestWithTask(task: subcrible, success: { (data) in
             if let status = data as? Bool {
                 if status {
-                    self.joinButton.setTitle("   已关注   ", for: .normal)
+                    self.joinButton.setTitle("Followed Group".localized, for: .normal)
                     self.groupSelected?.isSubcrible = true
                 } else {
-                    self.joinButton.setTitle("   關注   ", for: .normal)
+                    self.joinButton.setTitle("Concerned".localized, for: .normal)
                     self.groupSelected?.isSubcrible = false
                 }
             }
@@ -150,7 +150,7 @@ class DetailSingleGroupViewController: BaseViewController, UITableViewDelegate, 
             }
         }) { (error) in
             self.stopActivityIndicator()
-            UIAlertController.showAler(title: "", message: (error as? String)!, inViewController: self)
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
 }

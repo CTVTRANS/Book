@@ -56,7 +56,7 @@ class BookDownloadCell: UITableViewCell {
             }
             return
         }
-        imageBook?.sd_setImage(with: URL(string: book.imageURL), placeholderImage: #imageLiteral(resourceName: "userPlaceHolder"))
+        imageBook?.sd_setImage(with: URL(string: book.imageURL))
     }
     
     @IBAction func pressedPlayButton(_ sender: Any) {

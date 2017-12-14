@@ -21,7 +21,7 @@ class VipDetailViewController: BaseViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "会员状态"
+        navigationItem.title = "Status Member".localized
         showActivity(inView: self.view)
         webView.delegate = self
         getVip()
@@ -45,7 +45,7 @@ class VipDetailViewController: BaseViewController, UIWebViewDelegate {
             if let arrayVip = data as? [Vip] {
                 self.vip = arrayVip.first
                 self.webView.loadHTMLString( css + (self.vip?.conten)!, baseURL: nil)
-                self.priceVip.text = "立刻储值升等年费: " + String((self.vip?.point)!) +  "元   "
+                self.priceVip.text = "BuyVipPoint: ".localized + String((self.vip?.point)!) +  "元   "
             }
         }, failure: { (_) in
             

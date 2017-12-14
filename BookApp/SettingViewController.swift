@@ -15,8 +15,8 @@ class SettingViewController: BaseViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "設置"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "帮助中心",
+        navigationItem.title = "Settings".localized
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Help Center".localized,
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(pressedRightBarButton))
@@ -37,9 +37,9 @@ class SettingViewController: BaseViewController, UITableViewDataSource, UITableV
     }
     
     func customData() {
-        let setting1 = SettingCellModel(name: "个人信息", specialName: "", arrrowDetail: true, nameDetail: "")
-        let setting2 = SettingCellModel(name: "清空下载", specialName: "", arrrowDetail: false, nameDetail: "")
-        let setting3 = SettingCellModel(name: "关于读书会", specialName: "", arrrowDetail: true, nameDetail: "")
+        let setting1 = SettingCellModel(name: "Personal information".localized, specialName: "", arrrowDetail: true, nameDetail: "")
+        let setting2 = SettingCellModel(name: "Clear download".localized, specialName: "", arrrowDetail: false, nameDetail: "")
+        let setting3 = SettingCellModel(name: "About Reading Club".localized, specialName: "", arrrowDetail: true, nameDetail: "")
 
         let arraySetting1 = ListSetting(array: [setting1])
         let arraySetting2 = ListSetting(array: [setting2, setting3])

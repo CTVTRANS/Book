@@ -115,41 +115,41 @@ extension ErrorCode {
     func decodeError() -> String {
         switch self {
         case .success:
-            return "成功！"
+            return "success!".localized
         case .emailError:
-            return "邮箱格式不对"
+            return "E-mail format is wrong".localized
         case .imageFormatError:
-            return "图片类别不对"
+            return "Image category is not right".localized
         case .imageTooBig:
-            return "图片容量超过规定"
+            return "Picture capacity exceeds the requirement".localized
         case .passwordShort:
-            return "密码太短（一定要从8个符号以上）"
+            return "Password is too short (must be more than 8 symbols)".localized
         case .confirmPassError:
-            return "密码及重打密码不重叠"
+            return "Password and password do not overlap".localized
         case .passwordConfirmEmty:
-            return "密码及重打密码不能空白"
+            return "Password confirm can not be blank".localized
         case .passwordError:
-            return "密码吗不对"
+            return "password wrong".localized
         case .numberPhoneError:
-            return "电话号码不对"
+            return "The phone number is wrong".localized
         case .confirmCodeError:
-            return "验证码不对"
+            return "Verification code wrong".localized
         case .confirmCodeEmty:
-            return "验证码不能空白"
+            return "Verification code can not be blank".localized
         case .numberPhoneEmty:
-            return "电话号码不能空白"
+            return "Phone number can not be blank".localized
         case .nameEmty:
-            return "名称不能空白"
+            return "Name can not be blank".localized
         case .passwordEmty:
-            return "密码不能空白"
+            return "Password can not be blank".localized
         case .numberPhoneExists:
-            return "手机号码已经被注册了"
+            return "Phone number has been registered".localized
         case .accountError:
-            return "帐号不存在"
+            return "account does not exist".localized
         case .limitBuyVip:
-            return "用点数兑换升级VIP次数被限制"
+            return "Use points to upgrade VIP number to be limited".localized
         case .passwordHasSpace:
-            return "密码不能有空格"
+            return "Password can not have a space".localized
         }
     }
 }

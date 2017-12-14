@@ -317,7 +317,6 @@ extension UIButton {
             if newValue {
                 let currentFont = self.titleLabel?.font
                 var sizeScale: CGFloat = 1
-//                let model = UIDevice.current.model
                 let device = Device()
                 if device == .simulator(.iPhone7) || device == .simulator(.iPhone6) || device == .iPhone6
                     || device == .iPhone7 || device == .iPhone6s || device == .simulator(.iPhone8)
@@ -328,12 +327,6 @@ extension UIButton {
                     || device == .simulator(.iPhone8Plus) || device == .iPhone6sPlus {
                     sizeScale = 1.3
                 }
-//                if model == "iPhone 6" {
-//                    sizeScale = 1.3
-//                }
-//                else if model == "iPhone 6 Plus" {
-//                    sizeScale = 1.5
-//                }
                 self.titleLabel?.font = currentFont?.withSize((currentFont?.pointSize)! * sizeScale)
             }
         }

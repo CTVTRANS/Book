@@ -47,7 +47,7 @@ class DetailBinController: BaseViewController {
         _phone = Int(numberPhone.text!)
         _adress = adress.text
         if _name == "" || _adress == "" {
-            UIAlertController.showAler(title: "", message: "Please full infomation", inViewController: self)
+            UIAlertController.showAler(title: "", message: "Please full infomation".localized, inViewController: self)
             return false
         } else if _phone == nil {
             UIAlertController.showAler(title: "", message: ErrorCode.numberPhoneEmty.decodeError(), inViewController: self)

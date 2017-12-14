@@ -22,7 +22,7 @@ class GroupJoinedCell: UICollectionViewCell {
     
     func binData(group: SecrectGroup) {
         nameGroupd.text = group.name
-        imageGroup.sd_setImage(with: URL(string: group.imageURL), placeholderImage: #imageLiteral(resourceName: "userPlaceHolder"))
+        imageGroup.sd_setImage(with: URL(string: group.imageURL))
         if group.isSubcrible {
             isSubcribleView.isHidden = true
         } else {

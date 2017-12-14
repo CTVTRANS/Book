@@ -18,7 +18,7 @@ class SettingChooseSex: BaseDailog {
     @IBOutlet weak var dotFemale: UIView!
     @IBOutlet weak var dotMale: UIView!
 
-    var sex: (String, Sex) = ("保密", Sex.sucurity)
+    var sex: (String, Sex) = ("security".localized, Sex.sucurity)
     var calBack:((_ name: (String, Sex)) -> Void) = {_ in}
 
     override func awakeFromNib() {
@@ -33,21 +33,21 @@ class SettingChooseSex: BaseDailog {
         dotSecurity.backgroundColor = UIColor.rgb(255, 102, 0)
         dotMale.backgroundColor = UIColor.white
         dotFemale.backgroundColor = UIColor.white
-        sex = ("保密", Sex.sucurity)
+        sex = ("security".localized, Sex.sucurity)
     }
     
     @IBAction func pressedFemale(_ sender: Any) {
         dotSecurity.backgroundColor = UIColor.white
         dotFemale.backgroundColor = UIColor.rgb(255, 102, 0)
         dotMale.backgroundColor = UIColor.white
-        sex = ("女", Sex.female)
+        sex = ("Female".localized, Sex.female)
     }
     
     @IBAction func pressMale(_ sender: Any) {
         dotFemale.backgroundColor = UIColor.white
         dotSecurity.backgroundColor = UIColor.white
         dotMale.backgroundColor = UIColor.rgb(255, 102, 0)
-        sex = ("男", Sex.male)
+        sex = ("Male".localized, Sex.male)
     }
 
     @IBAction func pressedChange(_ sender: Any) {

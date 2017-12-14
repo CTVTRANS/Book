@@ -36,7 +36,7 @@ class DetailSingleNewsForGroupController: BaseViewController, UIWebViewDelegate 
         idWeChat.text = groupOwner?.idWechat
         adress.text = groupOwner?.adress
         if (news?.groupOwner.isSubcrible)! {
-            joinButton.setTitle("   已关注   ", for: .normal)
+            joinButton.setTitle("Followed Group".localized, for: .normal)
         }
         
         titleNews.text = news?.title
@@ -73,10 +73,10 @@ class DetailSingleNewsForGroupController: BaseViewController, UIWebViewDelegate 
         requestWithTask(task: subcrible, success: { (data) in
             if let status = data as? Bool {
                 if status {
-                    self.joinButton.setTitle("   已关注   ", for: .normal)
+                    self.joinButton.setTitle("Followed Group".localized, for: .normal)
                     self.news?.groupOwner.isSubcrible = true
                 } else {
-                    self.joinButton.setTitle("   关注   ", for: .normal)
+                    self.joinButton.setTitle("Concerned".localized, for: .normal)
                     self.news?.groupOwner.isSubcrible = false
                 }
             }

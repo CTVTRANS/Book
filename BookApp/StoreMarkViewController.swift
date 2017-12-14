@@ -26,7 +26,7 @@ class StoreMarkViewController: BaseViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         showActivity(inView: self.view)
-        navigationItem.title = "积分商城"
+        navigationItem.title = "Store".localized
         collection.register(UINib.init(nibName: "StoreMarkViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
         collection.addSubview(refreshControl)
@@ -143,21 +143,21 @@ class StoreMarkViewController: BaseViewController, UICollectionViewDelegate, UIC
     @IBAction func pressedShowAllButton(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "DetailStoreMarkController") as? DetailStoreMarkController {
             vc.typeRequest = TypeProductRequest.all
-            vc.navigationTitle = "所有商品"
+            vc.navigationTitle = "All product".localized
             navigationController?.pushViewController(vc, animated: true)
         }
     }
     @IBAction func pressedShowMarkButton(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "DetailStoreMarkController") as? DetailStoreMarkController {
             vc.typeRequest = TypeProductRequest.point
-            vc.navigationTitle = "纯积分"
+            vc.navigationTitle = "Point product".localized
             navigationController?.pushViewController(vc, animated: true)
         }
     }
     @IBAction func pressedShowMarkAndMoney(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "DetailStoreMarkController") as? DetailStoreMarkController {
             vc.typeRequest = TypeProductRequest.pointAndMoney
-            vc.navigationTitle = "积分+现金"
+            vc.navigationTitle = "Point+Money Product".localized
             navigationController?.pushViewController(vc, animated: true)
         }
     }

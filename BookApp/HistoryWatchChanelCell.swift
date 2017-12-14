@@ -37,7 +37,7 @@ class HistoryWatchChanelCell: UITableViewCell {
         nameLesson.text = lesson.name
         numberChap.text = "第" + String(lesson.chapter) + "回"
         nameChanel.text = lesson.chanelOwner
-        avatar.sd_setImage(with: URL(string: lesson.imageChapURL), placeholderImage: #imageLiteral(resourceName: "userPlaceHolder"))
+        avatar.sd_setImage(with: URL(string: lesson.imageChapURL))
         if let chap = MP3Player.shareIntanse.currentAudio as? Lesson {
             if chap.idChap == lesson.idChap && MP3Player.shareIntanse.isPlaying() {
                 imagePlay.image = #imageLiteral(resourceName: "audio_pause")

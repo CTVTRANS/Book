@@ -13,7 +13,7 @@ class CustomStatusBarView: UIView {
     var statusLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Download Success"
+        label.text = "Download Success".localized
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 11)
         return label
