@@ -17,7 +17,14 @@ class SplashViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         simpleButton.layer.borderColor = UIColor.rgb(113, 112, 110).cgColor
-
+        let langStr = Locale.current.scriptCode
+        if langStr == "Hans" {//simple = 0
+            Constants.sharedInstance.language = 0
+        } else if langStr == "Hant" { //tradition
+             Constants.sharedInstance.language = 1
+        } else {
+            Constants.sharedInstance.language = 0
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,36 +46,34 @@ class SplashViewController: BaseViewController {
         }
     }
     
-    @IBAction func pressedTraditionnal(_ sender: Any) {
-        Constants.sharedInstance.language = 1
-        let getData = GetNotificationTask(limit: 1000, page: 1, memberID: (memberInstance?.idMember)!)
-        requestWithTask(task: getData, success: { (data) in
-            if let arrayNotice = data as? (Int, [NotificationApp]) {
-                let numberNotice = UserDefaults.standard.integer(forKey: "numberNotice")
-                if arrayNotice.0 > numberNotice {
-                    Constants.sharedInstance.hasNotification = true
-                    let notificationName = Notification.Name("reciveNotificaton")
-                    NotificationCenter.default.post(name: notificationName, object: nil)
-                }
-            }
-        }) { (_) in
-            
-        }
-        
-        let sendToken = SendTokenTask()
-        requestWithTask(task: sendToken, success: { (_) in
-            
-        }) { (_) in
-            
-        }
-        
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as? SWRevealViewController {
-            self.present(vc, animated: false, completion: nil)
-        }
-    }
+//    @IBAction func pressedTraditionnal(_ sender: Any) {
+//        let getData = GetNotificationTask(limit: 1000, page: 1, memberID: (memberInstance?.idMember)!)
+//        requestWithTask(task: getData, success: { (data) in
+//            if let arrayNotice = data as? (Int, [NotificationApp]) {
+//                let numberNotice = UserDefaults.standard.integer(forKey: "numberNotice")
+//                if arrayNotice.0 > numberNotice {
+//                    Constants.sharedInstance.hasNotification = true
+//                    let notificationName = Notification.Name("reciveNotificaton")
+//                    NotificationCenter.default.post(name: notificationName, object: nil)
+//                }
+//            }
+//        }) { (_) in
+//
+//        }
+//
+//        let sendToken = SendTokenTask()
+//        requestWithTask(task: sendToken, success: { (_) in
+//
+//        }) { (_) in
+//
+//        }
+//
+//        if let vc = storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as? SWRevealViewController {
+//            self.present(vc, animated: false, completion: nil)
+//        }
+//    }
 
     @IBAction func pressSimple(_ sender: Any) {
-        Constants.sharedInstance.language = 0
         let getData = GetNotificationTask(limit: 1000, page: 1, memberID: (memberInstance?.idMember)!)
         requestWithTask(task: getData, success: { (data) in
             if let arrayNotice = data as? (Int, [NotificationApp]) {

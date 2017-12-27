@@ -184,12 +184,20 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func pressedShowHistory(_ sender: Any) {
+        if checkLogin() {
+            goToSigIn()
+            return
+        }
         let myStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         if let vc = myStoryboard.instantiateViewController(withIdentifier: "HistoryWatchChanelViewController") as? HistoryWatchChanelViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
     @IBAction func pressedBookmark(_ sender: Any) {
+        if checkLogin() {
+            goToSigIn()
+            return
+        }
         let myStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         if let vc = myStoryboard.instantiateViewController(withIdentifier: "BookmarkedViewController") as? BookmarkedViewController {
             navigationController?.pushViewController(vc, animated: true)
@@ -197,6 +205,10 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func pressedDownloaded(_ sender: Any) {
+        if checkLogin() {
+            goToSigIn()
+            return
+        }
         let myStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         if let vc = myStoryboard.instantiateViewController(withIdentifier: "DownloadedViewController") as? DownloadedViewController {
             navigationController?.pushViewController(vc, animated: true)

@@ -58,12 +58,12 @@ class Constants: NSObject {
     var listBookType: [MenuType] = []
     var listChanelSubcribled: [Chanel] = []
     var listGroupJoined: [SecrectGroup] = []
-    var language: Int = 0
+    var language: Int = 0// simple, 1-traditonal
 
     var listCommentHot: [Comment] = []
     var hasNotification = false
     var deviceToken = ""
     
     static let sharedInstance = Constants()
-    private override init() {}
+//    private override init() {}
 }
