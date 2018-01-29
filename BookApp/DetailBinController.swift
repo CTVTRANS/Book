@@ -54,7 +54,6 @@ class DetailBinController: BaseViewController {
             return false
         }
         self.view.endEditing(true)
-        UIAlertController.showAler(title: "", message: ErrorCode.success.decodeError(), inViewController: self)
         return true
     }
 
@@ -63,6 +62,7 @@ class DetailBinController: BaseViewController {
             PeoleReciveProduct.sharedInstance.name = _name
             PeoleReciveProduct.sharedInstance.phone = _phone
             PeoleReciveProduct.sharedInstance.adress = _adress
+            navigationController?.popViewController(animated: true)
         }
     }
 

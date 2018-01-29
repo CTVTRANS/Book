@@ -12,6 +12,7 @@
 #import "FuqianlaPay.h"
 #import "WXApi.h"
 #import <CommonCrypto/CommonCrypto.h>
+#import "PaymentLib.h"
 
 
 #endif /* LibrariesPayment_Bridging_Header_h */

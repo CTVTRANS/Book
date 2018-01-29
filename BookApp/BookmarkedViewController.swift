@@ -23,6 +23,8 @@ class BookmarkedViewController: BaseViewController, UITableViewDataSource, UITab
         table.estimatedRowHeight = 140
         table.register(UINib.init(nibName: "BookDownloadCell", bundle: nil), forCellReuseIdentifier: "bookCell")
         showActivity(inView: self.view)
+        segment.setTitle("读".localized, forSegmentAt: 0)
+        segment.setTitle("学".localized, forSegmentAt: 1)
     }
 
     override func viewWillAppear(_ animated: Bool) {

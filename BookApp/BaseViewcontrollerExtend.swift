@@ -204,6 +204,17 @@ extension UIAlertController {
         inViewController.present(alertView, animated: true, completion: nil)
     }
     
+    static func showAlertWith(title: String, message: String, in viewController: UIViewController, compeletionHandler: @escaping () -> Void) {
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let accept = UIAlertAction(title: "OK", style: .default) { (_) in
+            compeletionHandler()
+        }
+        alert.addAction(cancel)
+        alert.addAction(accept)
+        viewController.present(alert, animated: true, completion: nil)
+    }
+    
     static func showActionSheetWith(arrayTitle: [String],
                                     handlerAction: @escaping ((_ index: Int) -> Void),
                                     in viewController: UIViewController) {

@@ -105,12 +105,14 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
             goToSigIn()
             return
         }
-        if product as? Vip != nil {
-            goToPayment()
+        if let vip = product as? Vip {
+            goToPayment(withSubject: "VIP", body: "Buy Vip", andPrice: vip.price.description)
             return
         }
         if PeoleReciveProduct.sharedInstance.phone == nil {
-            UIAlertController.showAler(title: "", message: "Please fill information recipient", inViewController: self)
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "DetailBinController") as? DetailBinController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
         } else {
             if numberMark.text?.range(of: "Point".localized) != nil {
                 let array = numberMark.text?.components(separatedBy: "Point".localized)
@@ -119,6 +121,8 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
                     UIAlertController.showAler(title: "", message: "not enough point".localized, inViewController: self)
                     return
                 }
+                oderBook()
+                return
             }
             if let vc = storyboard?.instantiateViewController(withIdentifier: "ConfirmBinViewController") as? ConfirmBinViewController {
                 vc.nameBook = nameproduct
@@ -126,6 +130,17 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
                 vc.methodPayment = numberMark.text
                 navigationController?.pushViewController(vc, animated: true)
             }
+        }
+    }
+}
+
+extension BuyProductViewController {
+    func oderBook() {
+        let oderBin = BuyBookTask(idMember: (memberInstance?.idMember)!, token: tokenInstance!, type: 0, bookID: (bookProduct?.idBook)!, nameUser: PeoleReciveProduct.sharedInstance.name!, phone: PeoleReciveProduct.sharedInstance.phone!, address: PeoleReciveProduct.sharedInstance.adress!)
+        requestWithTask(task: oderBin, success: { (_) in
+            UIAlertController.showAler(title: "", message: "success", inViewController: self)
+        }) { (error) in
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
 }

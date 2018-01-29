@@ -29,6 +29,8 @@ class HistoryWatchChanelViewController: BaseViewController {
         mp3.limitTime = { [weak self] in
             self?.table.reloadData()
         }
+        segment.setTitle("学".localized, forSegmentAt: 0)
+        segment.setTitle("视频".localized, forSegmentAt: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {

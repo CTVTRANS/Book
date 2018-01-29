@@ -64,7 +64,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
             }
             return
         }
-        loginButton.setTitle("Attend", for: .normal)
+        loginButton.setTitle("Attend".localized, for: .normal)
         profileView.isHidden = false
         let member = ProfileMember.getProfile()!
         let avatarURL = member.avatar! + "?"
@@ -184,7 +184,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func pressedShowHistory(_ sender: Any) {
-        if checkLogin() {
+        if !checkLogin() {
             goToSigIn()
             return
         }
@@ -194,7 +194,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
         }
     }
     @IBAction func pressedBookmark(_ sender: Any) {
-        if checkLogin() {
+        if !checkLogin() {
             goToSigIn()
             return
         }
@@ -205,7 +205,7 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func pressedDownloaded(_ sender: Any) {
-        if checkLogin() {
+        if !checkLogin() {
             goToSigIn()
             return
         }

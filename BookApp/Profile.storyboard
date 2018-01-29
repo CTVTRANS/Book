@@ -1398,6 +1398,6 @@
     </scenes>
     <resources>
         <image name="ic_arrow_next" width="64" height="64"/>
-        <image name="place_holder" width="32" height="32"/>
+        <image name="place_holder" width="160" height="160"/>
     </resources>
 </document>

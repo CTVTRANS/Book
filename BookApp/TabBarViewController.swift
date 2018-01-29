@@ -21,6 +21,16 @@ class TabBarViewController: UITabBarController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(showDownloadSuccess), name: Notification.Name(rawValue: "downloadSuccess"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showDownloadPrecess), name: Notification.Name(rawValue: "downloadStart"), object: nil)
+        if Constants.sharedInstance.language == 1 {
+            tabBar.items![0].image = #imageLiteral(resourceName: "tradition_news")
+            tabBar.items![0].selectedImage = #imageLiteral(resourceName: "tradition_news")
+            tabBar.items![1].image = #imageLiteral(resourceName: "tradition_book")
+            tabBar.items![1].selectedImage = #imageLiteral(resourceName: "tradition_book")
+            tabBar.items![2].image = #imageLiteral(resourceName: "tradition_teacher")
+            tabBar.items![2].selectedImage = #imageLiteral(resourceName: "tradition_teacher")
+            tabBar.items![3].image = #imageLiteral(resourceName: "traditon_member")
+            tabBar.items![3].selectedImage = #imageLiteral(resourceName: "traditon_member")
+        }
     }
 
     @objc func showDownloadSuccess() {

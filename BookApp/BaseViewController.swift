@@ -166,21 +166,51 @@ class BaseViewController: UIViewController {
         })
     }
     
-    func goToPayment() {
-        if let choosePay = ChooseMethodPayment.instance() as? ChooseMethodPayment {
-            choosePay.show()
-            choosePay.callBackWeChat = {
-                print("wechat")
-            }
-            
-            choosePay.callBackAlipay = {
-                print("alipay")
-            }
-            
-            choosePay.callBackIOS = {
-                print("ios")
-            }
+    func goToPayment(withSubject name: String, body: String, andPrice price: String) {
+        var subjectPayment = name
+        var bodyPayment = body
+        
+        if name.count > 32 {
+            let index32 = name.index(name.startIndex, offsetBy: 32)
+            subjectPayment = String(name[...index32])
         }
+        if body.count > 128 {
+            let index32 = name.index(name.startIndex, offsetBy: 128)
+            bodyPayment = String(body[...index32])
+        }
+        
+        UIAlertController.showAlertWith(title: "", message: "Vật phẩm này có giá 0.01 $, Bạn có muốn tiếp tục thực hiện giao dịch?", in: self) {
+            let payment = PaymentLib()
+            payment.appID = "4mfhKGzjjTxF0JnYgF05Xg"////4mfhKGzjjTxF0JnYgF05Xg//bm5ZHRTdvb89KYD1B6xg0Q
+            payment.amount = "0.01"
+            payment.body = bodyPayment
+            payment.subject = "BUY \(subjectPayment)"
+            payment.notifyUrl = "http://10.100.140.124:8081/adapter-client/receive/notify.htm"
+            let manager = payment.createPaymemtObject()
+            
+            manager?.payStatusCallBack = { (payStatus, result) in
+                if payStatus == .payResultSuccess {
+                    UIAlertController.showAler(title: "", message: "Thành công, chúng tôi sẽ liên lạc vào sđt đăng kí nhận hàng", inViewController: self)
+                }
+                print(result!)
+            }
+            manager?.startAction()
+        }
+        
+//        if let choosePay = ChooseMethodPayment.instance() as? ChooseMethodPayment {
+//            choosePay.show()
+//            choosePay.callBackWeChat = {
+//                print("wechat")
+//            }
+//
+//            choosePay.callBackAlipay = {
+//                print("alipay")
+//            }
+//
+//            choosePay.callBackIOS = {
+//                print("ios")
+//            }
+//        }
     }
 }
 

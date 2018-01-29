@@ -55,7 +55,9 @@ class ConfirmBinViewController: BaseViewController, UITextFieldDelegate {
     }
 
     @IBAction func pressedCorfimBin(_ sender: Any) {
-        goToPayment()
+        let totalMoney = total.text
+        let money: String = (totalMoney?.components(separatedBy: " ")[0])!
+        goToPayment(withSubject: "Book", body: nameBook!, andPrice: money)
     }
     
     @objc func keyboardNotification(notification: NSNotification) {

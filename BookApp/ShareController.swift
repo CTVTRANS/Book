@@ -19,31 +19,35 @@ class ShareController: BaseViewController {
     }
 
     func pressedShareWeibo() {
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeSinaWeibo) {
-            let vc = SLComposeViewController(forServiceType: SLServiceTypeSinaWeibo)
-            vc?.setInitialText(ShareModel.shareIntance.nameShare + "\n" + ShareModel.shareIntance.detailShare)
-            vc?.add(URL(string: ShareModel.shareIntance.linkDownApp))
-            vc?.popoverPresentationController?.sourceView = self.view
-            vc?.completionHandler = { status in
-                switch status {
-                case SLComposeViewControllerResult.done:
+        let textToShare = ShareModel.shareIntance.nameShare + "\n" + ShareModel.shareIntance.detailShare
+        if let myWebsite = NSURL(string: ShareModel.shareIntance.linkDownApp) {
+            let objectsToShare = [textToShare, myWebsite] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            activityVC.excludedActivityTypes = [UIActivityType.postToFacebook,
+                                                UIActivityType.postToTwitter,
+                                                UIActivityType.postToVimeo,
+                                                UIActivityType.print,
+                                                UIActivityType.airDrop,
+                                                UIActivityType.copyToPasteboard,
+                                                UIActivityType.assignToContact,
+                                                UIActivityType.saveToCameraRoll,
+                                                UIActivityType.addToReadingList,
+                                                UIActivityType.postToFlickr,
+                                                UIActivityType.mail,
+                                                UIActivityType.message
+            ]
+            activityVC.completionWithItemsHandler = { (activity, success, items, error) in
+                if success {
                     self.upDatePointBase(type: UpdatePointType.share.rawValue)
-                case SLComposeViewControllerResult.cancelled:
-                    break
                 }
             }
-            self.present(vc!, animated: true, completion: nil)
-        } else {
-            UIAlertController.showAler(title: "", message: "Please install weibo to continuce".localized, inViewController: self)
+            
+            activityVC.popoverPresentationController?.sourceView = self.view
+            self.present(activityVC, animated: true, completion: nil)
         }
     }
     
     func pressedShareWechat() {
-//        let message = SendMessageToWXReq()
-//        message.text = "Hello WeChat"
-//        message.bText = true
-//        message.scene = 1
-//        WXApi.send(message)
         let textToShare = ShareModel.shareIntance.nameShare + "\n" + ShareModel.shareIntance.detailShare
         if let myWebsite = NSURL(string: ShareModel.shareIntance.linkDownApp) {
             let objectsToShare = [textToShare, myWebsite] as [Any]
@@ -75,22 +79,32 @@ class ShareController: BaseViewController {
     }
     
     func pressedShareFacebook() {
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook) {
-            let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            vc?.add(URL(string: ShareModel.shareIntance.linkDownApp))
-            vc?.setInitialText(ShareModel.shareIntance.nameShare + "\n" + ShareModel.shareIntance.detailShare)
-            vc?.popoverPresentationController?.sourceView = self.view
-            vc?.completionHandler = { status in
-                switch status {
-                case SLComposeViewControllerResult.done:
+        let textToShare = ShareModel.shareIntance.nameShare + "\n" + ShareModel.shareIntance.detailShare
+        if let myWebsite = NSURL(string: ShareModel.shareIntance.linkDownApp) {
+            let objectsToShare = [textToShare, myWebsite] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            activityVC.excludedActivityTypes = [UIActivityType.postToTwitter,
+                                                UIActivityType.postToVimeo,
+                                                UIActivityType.postToTencentWeibo,
+                                                UIActivityType.print,
+                                                UIActivityType.airDrop,
+                                                UIActivityType.copyToPasteboard,
+                                                UIActivityType.assignToContact,
+                                                UIActivityType.saveToCameraRoll,
+                                                UIActivityType.addToReadingList,
+                                                UIActivityType.postToFlickr,
+                                                UIActivityType.mail,
+                                                UIActivityType.postToWeibo,
+                                                UIActivityType.message
+            ]
+            activityVC.completionWithItemsHandler = { (activity, success, items, error) in
+                if success {
                     self.upDatePointBase(type: UpdatePointType.share.rawValue)
-                case SLComposeViewControllerResult.cancelled:
-                    break
                 }
             }
-            self.present(vc!, animated: true, completion: nil)
-        } else {
-            UIAlertController.showAler(title: "", message: "Please install facebook to continuce".localized, inViewController: self)
+            
+            activityVC.popoverPresentationController?.sourceView = self.view
+            self.present(activityVC, animated: true, completion: nil)
         }
     }
 }
@@ -123,6 +137,7 @@ extension ShareController: UITableViewDelegate, UITableViewDataSource {
             goToSigIn()
             return
         }
+        self.revealViewController().revealToggle(animated: true)
         switch indexPath.row {
         case 0:
             pressedShareWeibo()

@@ -191,9 +191,6 @@
 		6DF418AA1F84838100BA9AE5 /* UpdateMemberTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF418A91F84838100BA9AE5 /* UpdateMemberTask.swift */; };
 		6DF4DF611F6A7D6500F46CA6 /* ChangeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF4DF601F6A7D6500F46CA6 /* ChangeProfileViewController.swift */; };
 		6DF4DF631F6A865A00F46CA6 /* AppInfomationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF4DF621F6A865A00F46CA6 /* AppInfomationViewController.swift */; };
-		6DF4EACC1FA091C7002B6B8B /* libJDPay_Adapter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EACB1FA091C7002B6B8B /* libJDPay_Adapter.a */; };
-		6DF4EAD11FA091D5002B6B8B /* libApplePay_Adapter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EACF1FA091D5002B6B8B /* libApplePay_Adapter.a */; };
-		6DF4EAD21FA091D5002B6B8B /* libUPAPayPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAD01FA091D5002B6B8B /* libUPAPayPlugin.a */; };
 		6DF4EAD61FA091DE002B6B8B /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAD31FA091DE002B6B8B /* AlipaySDK.framework */; };
 		6DF4EAD71FA091DE002B6B8B /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6DF4EAD41FA091DE002B6B8B /* AlipaySDK.bundle */; };
 		6DF4EAD81FA091DE002B6B8B /* libAli_Adapter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF4EAD51FA091DE002B6B8B /* libAli_Adapter.a */; };
@@ -250,9 +247,13 @@
 		6DF8892E1F418F40005F72D7 /* DetailChanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF8892D1F418F40005F72D7 /* DetailChanelViewController.swift */; };
 		6DF889301F418F68005F72D7 /* ChanelSubscribeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF8892F1F418F68005F72D7 /* ChanelSubscribeController.swift */; };
 		76E08F9DCE0410B70DD2B4D3 /* Pods_BookApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB3D8157F50B7433C570DE8 /* Pods_BookApp.framework */; };
+		9D0B6611201B3CF4005BC2F6 /* BuyBookTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B6610201B3CF4005BC2F6 /* BuyBookTask.swift */; };
 		9D0BA05F1FE2339000621760 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0BA05E1FE2339000621760 /* UIButton+Extension.swift */; };
 		9D0BA0611FE233F400621760 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0BA0601FE233F400621760 /* UILabel+Extension.swift */; };
+		9D0E2FD0201822420016C10C /* PaymentLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2FCF201822420016C10C /* PaymentLib.m */; };
+		9D0E2FD3201823900016C10C /* private_key61.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 9D0E2FD1201823900016C10C /* private_key61.p12 */; };
 		9D22159B1FA6BE2E001F0947 /* RemoveHistoryAudioTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D22159A1FA6BE2E001F0947 /* RemoveHistoryAudioTask.swift */; };
+		9D2312C620183093003E5BD3 /* public_privatekey.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 9D2312C520183093003E5BD3 /* public_privatekey.p12 */; };
 		9D9EB0EF1FE12945001EAD5D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EB0F11FE12945001EAD5D /* Localizable.strings */; };
 		9D9EB0F71FE12BA6001EAD5D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9EB0F61FE12BA6001EAD5D /* String+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -447,11 +448,6 @@
 		6DF4DF601F6A7D6500F46CA6 /* ChangeProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeProfileViewController.swift; sourceTree = "<group>"; };
 		6DF4DF621F6A865A00F46CA6 /* AppInfomationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfomationViewController.swift; sourceTree = "<group>"; };
 		6DF4EABF1FA090FF002B6B8B /* LibrariesPayment-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LibrariesPayment-Bridging-Header.h"; sourceTree = "<group>"; };
-		6DF4EACB1FA091C7002B6B8B /* libJDPay_Adapter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libJDPay_Adapter.a; sourceTree = "<group>"; };
-		6DF4EACD1FA091D5002B6B8B /* UPAPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPlugin.h; sourceTree = "<group>"; };
-		6DF4EACE1FA091D5002B6B8B /* UPAPayPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAPayPluginDelegate.h; sourceTree = "<group>"; };
-		6DF4EACF1FA091D5002B6B8B /* libApplePay_Adapter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libApplePay_Adapter.a; sourceTree = "<group>"; };
-		6DF4EAD01FA091D5002B6B8B /* libUPAPayPlugin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUPAPayPlugin.a; sourceTree = "<group>"; };
 		6DF4EAD31FA091DE002B6B8B /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		6DF4EAD41FA091DE002B6B8B /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		6DF4EAD51FA091DE002B6B8B /* libAli_Adapter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAli_Adapter.a; sourceTree = "<group>"; };
@@ -513,9 +509,14 @@
 		6DF8892F1F418F68005F72D7 /* ChanelSubscribeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChanelSubscribeController.swift; sourceTree = "<group>"; };
 		8CB3D8157F50B7433C570DE8 /* Pods_BookApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D3CDF92D2128A3885089EA /* Pods-BookApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookApp/Pods-BookApp.release.xcconfig"; sourceTree = "<group>"; };
+		9D0B6610201B3CF4005BC2F6 /* BuyBookTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyBookTask.swift; sourceTree = "<group>"; };
 		9D0BA05E1FE2339000621760 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		9D0BA0601FE233F400621760 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		9D0E2FCE201822410016C10C /* PaymentLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentLib.h; sourceTree = "<group>"; };
+		9D0E2FCF201822420016C10C /* PaymentLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentLib.m; sourceTree = "<group>"; };
+		9D0E2FD1201823900016C10C /* private_key61.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = private_key61.p12; sourceTree = "<group>"; };
 		9D22159A1FA6BE2E001F0947 /* RemoveHistoryAudioTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveHistoryAudioTask.swift; sourceTree = "<group>"; };
+		9D2312C520183093003E5BD3 /* public_privatekey.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_privatekey.p12; sourceTree = "<group>"; };
 		9D9EB0E91FE12865001EAD5D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		9D9EB0EA1FE12865001EAD5D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		9D9EB0EB1FE1286B001EAD5D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -542,14 +543,11 @@
 				6DF4EAE51FA09435002B6B8B /* LocalAuthentication.framework in Frameworks */,
 				6DF4EAE31FA0942C002B6B8B /* MessageUI.framework in Frameworks */,
 				6DF5507F1F75005A0088F1B7 /* libz.tbd in Frameworks */,
-				6DF4EAD21FA091D5002B6B8B /* libUPAPayPlugin.a in Frameworks */,
 				6DF4EADD1FA092A1002B6B8B /* libFuqianlaPay.a in Frameworks */,
 				6DF5507D1F75004C0088F1B7 /* libsqlite3.tbd in Frameworks */,
-				6DF4EACC1FA091C7002B6B8B /* libJDPay_Adapter.a in Frameworks */,
 				6DF550791F7500230088F1B7 /* libc++.tbd in Frameworks */,
 				6DF4EADF1FA092A9002B6B8B /* libFuqianlaSupport.a in Frameworks */,
 				6DF4EAE11FA092C5002B6B8B /* libWX_Adapter.a in Frameworks */,
-				6DF4EAD11FA091D5002B6B8B /* libApplePay_Adapter.a in Frameworks */,
 				6DF57FB91F4C808400FDC47B /* AVFoundation.framework in Frameworks */,
 				6DF4EAD81FA091DE002B6B8B /* libAli_Adapter.a in Frameworks */,
 				6DF4EAD61FA091DE002B6B8B /* AlipaySDK.framework in Frameworks */,
@@ -585,6 +583,8 @@
 		58C39DAE1F3C0489001741EB = {
 			isa = PBXGroup;
 			children = (
+				9D0E2FD1201823900016C10C /* private_key61.p12 */,
+				9D2312C520183093003E5BD3 /* public_privatekey.p12 */,
 				9D9EB0F11FE12945001EAD5D /* Localizable.strings */,
 				58C39DB91F3C0489001741EB /* BookApp */,
 				58C39DB81F3C0489001741EB /* Products */,
@@ -882,6 +882,7 @@
 				6DED58D61F72614300F13213 /* DownloadTask.swift */,
 				6DEDCA751F87885600686313 /* GetHotKeyWordTask.swift */,
 				6D8D764F1F97504E00B2C034 /* BuyVipPointTask.swift */,
+				9D0B6610201B3CF4005BC2F6 /* BuyBookTask.swift */,
 				6DEF67C71F550E7000D6BBCC /* News */,
 				6DEF67C81F550E7D00D6BBCC /* Book */,
 				6D2187E91F5E56B700C205CE /* Chanel */,
@@ -993,9 +994,7 @@
 		6DF4EAC31FA0911C002B6B8B /* Channels */ = {
 			isa = PBXGroup;
 			children = (
-				6DF4EAC81FA09184002B6B8B /* JDPay */,
 				6DF4EAC61FA0914D002B6B8B /* AlipaySDK */,
-				6DF4EAC51FA0914B002B6B8B /* ApplePay */,
 				6DF4EAC41FA09148002B6B8B /* wxSDK */,
 			);
 			name = Channels;
@@ -1013,17 +1012,6 @@
 			name = wxSDK;
 			sourceTree = "<group>";
 		};
-		6DF4EAC51FA0914B002B6B8B /* ApplePay */ = {
-			isa = PBXGroup;
-			children = (
-				6DF4EACD1FA091D5002B6B8B /* UPAPayPlugin.h */,
-				6DF4EACE1FA091D5002B6B8B /* UPAPayPluginDelegate.h */,
-				6DF4EACF1FA091D5002B6B8B /* libApplePay_Adapter.a */,
-				6DF4EAD01FA091D5002B6B8B /* libUPAPayPlugin.a */,
-			);
-			name = ApplePay;
-			sourceTree = "<group>";
-		};
 		6DF4EAC61FA0914D002B6B8B /* AlipaySDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -1032,14 +1020,6 @@
 				6DF4EAD51FA091DE002B6B8B /* libAli_Adapter.a */,
 			);
 			name = AlipaySDK;
-			sourceTree = "<group>";
-		};
-		6DF4EAC81FA09184002B6B8B /* JDPay */ = {
-			isa = PBXGroup;
-			children = (
-				6DF4EACB1FA091C7002B6B8B /* libJDPay_Adapter.a */,
-			);
-			name = JDPay;
 			sourceTree = "<group>";
 		};
 		6DF59A541F623EB7007DFB85 /* Histoty-Bookmarked-Downloaded */ = {
@@ -1088,6 +1068,8 @@
 				6DF727981F55505600E0D242 /* DFHeiStd-W7.otf */,
 				6DED77011F9F363000DB734B /* STHeiti-Light.ttc */,
 				6DED77021F9F363000DB734B /* STHeitiSCMedium.ttc */,
+				9D0E2FCE201822410016C10C /* PaymentLib.h */,
+				9D0E2FCF201822420016C10C /* PaymentLib.m */,
 				58C39DC31F3C0489001741EB /* LaunchScreen.storyboard */,
 				58C39DC61F3C0489001741EB /* Info.plist */,
 				6DF4EABF1FA090FF002B6B8B /* LibrariesPayment-Bridging-Header.h */,
@@ -1143,7 +1125,7 @@
 				TargetAttributes = {
 					58C39DB61F3C0489001741EB = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 66GNBMZK9J;
+						DevelopmentTeam = HDNMHL7M4Y;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1199,6 +1181,7 @@
 				6DF7279B1F55505600E0D242 /* DFHeiStd-W7.otf in Resources */,
 				6DF4EADC1FA092A1002B6B8B /* FuqianlaRes.bundle in Resources */,
 				6D9E6B7A1F8F760000BA7E30 /* ChooseMethodPayment.xib in Resources */,
+				9D2312C620183093003E5BD3 /* public_privatekey.p12 in Resources */,
 				6DF07B781F690A940017C1CB /* StoreMarkViewCell.xib in Resources */,
 				6DF889241F41847E005F72D7 /* Book.storyboard in Resources */,
 				6DEEF0011F612C8F0078EEE1 /* BookDownloadCell.xib in Resources */,
@@ -1210,6 +1193,7 @@
 				58C39DE21F3C5662001741EB /* BottomView.xib in Resources */,
 				6DF418A21F8476B300BA9AE5 /* CountryCell.xib in Resources */,
 				6DF889261F418496005F72D7 /* Chanel.storyboard in Resources */,
+				9D0E2FD3201823900016C10C /* private_key61.p12 in Resources */,
 				6DF1D7981F7B392D0075F26C /* SettingStatus.xib in Resources */,
 				6D07667A1F6F6AFB00097D8B /* CustomHistorySearch.xib in Resources */,
 				6DF3CE421F9453B50041EB87 /* CustomMenu.xib in Resources */,
@@ -1365,6 +1349,7 @@
 				6DEFD56C1F500C5400393E77 /* DefineURL.swift in Sources */,
 				6DEF91511F9DD1BF00CCA082 /* GetHistoryListenTask.swift in Sources */,
 				6DED804E1F66781400ACC77F /* DetailSingleGroupViewController.swift in Sources */,
+				9D0E2FD0201822420016C10C /* PaymentLib.m in Sources */,
 				6DF808EE1F6295D500608770 /* GroupJoinedViewController.swift in Sources */,
 				6DEE6E1F1F68D565005F80F4 /* HistoryMarkCell.swift in Sources */,
 				6DF889301F418F68005F72D7 /* ChanelSubscribeController.swift in Sources */,
@@ -1388,6 +1373,7 @@
 				6DED58D71F72614300F13213 /* DownloadTask.swift in Sources */,
 				6DEF67CA1F550EA000D6BBCC /* GetAllNewsTask.swift in Sources */,
 				6DE9229C1F676DEB00EE24EC /* NewsInGroups.swift in Sources */,
+				9D0B6611201B3CF4005BC2F6 /* BuyBookTask.swift in Sources */,
 				6DED5BFE1F8C7E4D004CE5BF /* GetNewsRelatedTask.swift in Sources */,
 				6DF243A91F4D6F9400366E2F /* Type2DetailNewsViewController.swift in Sources */,
 				6D9E6B7C1F8F762500BA7E30 /* ChooseMethodPayment.swift in Sources */,
@@ -1656,7 +1642,7 @@
 				CODE_SIGN_ENTITLEMENTS = BookApp/BookApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 66GNBMZK9J;
+				DEVELOPMENT_TEAM = HDNMHL7M4Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BookApp",
@@ -1668,7 +1654,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BookApp",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = qqLU.kienlv.BookApp;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.conglv.BookApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/LibrariesPayment-Bridging-Header.h";
@@ -1686,7 +1672,7 @@
 				CODE_SIGN_ENTITLEMENTS = BookApp/BookApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 66GNBMZK9J;
+				DEVELOPMENT_TEAM = HDNMHL7M4Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BookApp",
@@ -1698,7 +1684,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BookApp",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = qqLU.kienlv.BookApp;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.conglv.BookApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/LibrariesPayment-Bridging-Header.h";

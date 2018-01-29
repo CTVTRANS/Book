@@ -48,6 +48,7 @@ let bookMarkURL = "/api/collection/collect"
 let checkBookMarkedURL = "/api/collection/check_collect"
 let getAllCommentURL = "/api/comment/latest"
 let getAllCommentHotURL = "/api/comment/hot"
+let buyBookURL = "/api/orders/orders_book"
 
 // MARK: Golobal
 let searchBookURL = "/api/search/book"

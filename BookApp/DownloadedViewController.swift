@@ -27,6 +27,8 @@ class DownloadedViewController: BaseViewController, UITableViewDelegate, UITable
         table.register(UINib.init(nibName: "BookDownloadCell", bundle: nil), forCellReuseIdentifier: "bookCell")
         getBookDownloaded()
         getLessonDownloaded()
+        segment.setTitle("学".localized, forSegmentAt: 0)
+        segment.setTitle("视频".localized, forSegmentAt: 1)
     }
 
     override func viewWillAppear(_ animated: Bool) {
