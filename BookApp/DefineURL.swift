@@ -19,6 +19,7 @@ let getAllBookSuggestURL = "/api/book/list_all_suggest_posts"
 let getAllBookFreeURL = "/api/book/list_free"
 let getAllBookBookmarkedURL = "/api/collection/collection_book"
 let increaseViewBokoURL = "/api/book/views"
+let getBinForBookURL = "/api/orders/orders_book_by_mix"
 
 // MARK: Chanel
 let getAllChanelSuggestURL = "/api/teacher/list_all_suggest_teacher"
@@ -48,7 +49,7 @@ let bookMarkURL = "/api/collection/collect"
 let checkBookMarkedURL = "/api/collection/check_collect"
 let getAllCommentURL = "/api/comment/latest"
 let getAllCommentHotURL = "/api/comment/hot"
-let buyBookURL = "/api/orders/orders_book"
+let buyBookPointURL = "/api/orders/orders_book_by_point"
 
 // MARK: Golobal
 let searchBookURL = "/api/search/book"
@@ -84,12 +85,15 @@ let getAllProductByPointURL = "/api/product/list_product_point"
 let getAllProductByPointAndMoneyURL = "/api/product/list_product_price_mix"
 let getAllProductURL = "/api/product/list_all_product"
 let getAllVipProductURL = "/api/product/list_package"
-let buyVipPointURL = "/api/orders/orders_vip"
+let buyVipURL = "/api/orders/orders_vip"
 let getHistoryBuyBookURL = "/api/member/orders_history/orders_book"
 let getHistoryVipURL = "/api/member/orders_history/orders_vip"
 
 let css: String = "<style> img{max-width:100%} </style>"
-let appDownload = "https://itunes.apple.com/us/app/instant-heart-rate-hr-monitor/id409625068?mt=8"
+let appDownload = "https://itunes.apple.com/us/app/学致用书院/id1321844554?ls=1&mt=8"
+let appIDSDK = "4mfhKGzjjTxF0JnYgF05Xg"
+let urlNotificationBook = "http://studyapp.transoftvietnam.com/api/orders/notify_book"
+let urlNotificationVip = "http://studyapp.transoftvietnam.com/api/orders/notify_vip"
 
 enum ErrorCode: Int {
     case success = 200

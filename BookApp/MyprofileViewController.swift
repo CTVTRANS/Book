@@ -119,6 +119,7 @@ class MyprofileViewController: BaseViewController, UITableViewDelegate, UITableV
             self.dismiss(animated: false, completion: nil)
             return
         }
+        let listName: ListSetting = arraySetting[0]
         if let vc = storyboard?.instantiateViewController(withIdentifier: "ChangeProfileViewController") as? ChangeProfileViewController {
             switch indexPath.row {
             case TypeView.name.rawValue:
@@ -133,6 +134,7 @@ class MyprofileViewController: BaseViewController, UITableViewDelegate, UITableV
             default:
                 break
             }
+            vc.nameNavigation = listName.arr[indexPath.row].nameSetting
             navigationController?.pushViewController(vc, animated: false)
         }
     }

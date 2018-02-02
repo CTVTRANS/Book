@@ -175,4 +175,7 @@ class ProfileMember: NSObject, NSCoding {
         get { return _token}
         set { _token = newValue}
     }
+    var dateExpired: String? {
+        get { return _dateExpired}
+    }
 }

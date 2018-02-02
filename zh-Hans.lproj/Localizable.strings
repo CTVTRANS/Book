@@ -6,7 +6,6 @@
   
 */
 
-"简体中文" = "简体中文";
 "学致用书院" = "学致用书院";
 "相关杂谈" = "相关杂谈";
 "  句透   " = "  句透   ";
@@ -78,7 +77,6 @@
 "刪除" = "刪除";
 "萬" = "萬";
 "性别" = "性别";
-"確認送出" = "確認送出";
 "婚姻状况" = "婚姻状况";
 "确认送出" = "确认送出";
 
@@ -89,7 +87,7 @@
 "Access" = "确认";
 "success!" = "成功！";
 "Sigin" = "登入";
-"Singup" = "注册";
+"Signup" = "注册";
 "sign out" = "退出登录";
 "Get Code" = "获取验证码 ";
 "Reset Pass" = "重设密码";
@@ -100,7 +98,7 @@
 "Text Hot" = "热门搜索";
 "Comment Newest" = "最新评论";
 "Comment Hot" = "热门评论";
-"send message success, please wait review" = "send message success, please wait review";
+"send message success, please wait review" = "评论寄出成功，请等待管理者审核才能发布!";
 "Please install weibo to continuce" = "您要安裝微博來用這個功能";
 "Please install facebook to continuce" = "您要安裝FACEBOOK來用這個功能";
 "All" = "全部";
@@ -110,9 +108,9 @@
 "Date" = "日期";
 "NumberView" = "观看次数";
 "Chanel Hot" = "热门老师";
-"Subcrible Chanel" = "  已訂閱頻道  ";
+"Subcrible Chanel" = "  订阅频道  ";
 "Un Subcrible Chanel" = "  退订  ";
-"Subcribled" = "  订阅频道  ";
+"Subcribled" = "  已订阅频道  ";
 "List Activity" = "线下活动";
 "Store" = "积分商城";
 "History" = "购买记录";
@@ -175,3 +173,17 @@
 "学" = "学";
 "视频" = "视频";
 "读" = "读";
+"please change country area code" = "请更改国家地区代码";
+"This Product is" = "这个产品的价格是";
+"You want continuce?" = "你是否想买？";
+"We will contact to your phone number" = "我们会按照您收货手机号码通知您";
+"Start" = "开始";
+"学致用书院" = "学致用书院";
+"Remove" = "删除";
+"AboutApp" = "关于学致用书院";
+"Remove item success" = "删除删除成功！";
+"i am not Vip" = "我还不是VIP";
+"duration year" = "时长（年）:";
+"total money" = "总计 :";
+"buy now" = "立刻开通";
+"buy vip now" = "立刻购买VIP";

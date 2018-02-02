@@ -10,7 +10,8 @@ import UIKit
 
 class DefaultApp: NSObject {
 
-    var limitAudio: Int!
+    var audioFree = false
+    var timeLimitAudio: Int!
     var limitVideo: Int!
     var limitWord: Int!
     var defaultAvatar: String!

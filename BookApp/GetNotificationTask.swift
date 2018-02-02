@@ -44,8 +44,7 @@ class GetNotificationTask: BaseTaskNetwork {
                 let title = dictionary["title"] as? String ?? ""
                 let image = dictionary["image"] as? String ?? ""
                 let detail = dictionary["notification_text"] as? String ?? ""
-//                let appName = dictionary["description"] as? String ?? ""
-                let appName = "BookApp"
+                let appName = "学致用书院".localized
                 let isRead = dictionary["is_read"] as? Bool ?? false
                 let time = dictionary["updated_at"] as? String ?? ""
                 let notification = NotificationApp.init(idNotification, title: title, image: image, detailText: detail, appName: appName, readed: isRead, time: time)

@@ -50,14 +50,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         if phone == nil {
             return ErrorCode.numberPhoneEmty
         } else if pass == "" {
-            return ErrorCode.passwordEmty
-        }
-        if (pass?.count)! < 8 {
-            return ErrorCode.passwordShort
-        }
-        let array = pass?.components(separatedBy: " ")
-        if (array?.count)! > 1 {
-            return ErrorCode.passwordHasSpace
+            return ErrorCode.passwordError
         }
         return ErrorCode.success
     }
@@ -76,14 +69,9 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             let sigIn = SignInTaks(countryCode: country, phoneNumerber: phone, password: pass)
             requestWithTask(task: sigIn, success: { (data) in
                 if let status = data as? ErrorCode {
-                    let action = UIAlertAction(title: "确认".localized, style: .default, handler: { (_) in
-                        if status == ErrorCode.success {
-                            self.dismiss(animated: true, completion: nil)
-                        }
-                    })
-                    let alert = UIAlertController.init(title: "", message: status.decodeError(), preferredStyle: .alert)
-                    alert.addAction(action)
-                    self.present(alert, animated: true, completion: nil)
+                    if status == ErrorCode.success {
+                        self.dismiss(animated: true, completion: nil)
+                    }
                 }
             }, failure: { (_) in
                 

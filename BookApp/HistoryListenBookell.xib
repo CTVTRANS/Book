@@ -113,7 +113,7 @@
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                         </constraints>
-                        <state key="normal" title="播放">
+                        <state key="normal" title="Remove">
                             <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <userDefinedRuntimeAttributes>

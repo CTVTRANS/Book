@@ -146,10 +146,18 @@ class ProfileViewController: BaseViewController, UITableViewDelegate, UITableVie
                 navigationController?.pushViewController(vc, animated: true)
             }
         } else if indexPath.row == 1 {
+            if !checkLogin() {
+                goToSigIn()
+                return
+            }
             let _mystoryBoard = UIStoryboard(name: "Setting", bundle: nil)
             let vc = _mystoryBoard.instantiateViewController(withIdentifier: "StoreMarkViewController")
             navigationController?.pushViewController(vc, animated: true)
         } else {
+            if !checkLogin() {
+                goToSigIn()
+                return
+            }
             let vc = myStoryboard.instantiateViewController(withIdentifier: "HistoryBuyProductController")
             navigationController?.pushViewController(vc, animated: true)
         }

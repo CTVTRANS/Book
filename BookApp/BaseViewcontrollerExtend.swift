@@ -82,7 +82,7 @@ extension BaseTaskNetwork {
         let numberComment = dictionary["number_of_comments"] as? Int ?? 0
         let numberSubcrible = dictionary["number_of_subscribe"] as? Int ?? 0
         let isSubcrible = dictionary["is_subscribe"] as? Bool ?? false
-        let chanelTimeUp = dictionary[""] as? String ?? ""
+        let chanelTimeUp = dictionary["created_at"] as? String ?? ""
         let chanel: Chanel = Chanel(idChanel: chanelID,
                                     nameChanel: chanelName,
                                     imageChanelURL: chanelImage,

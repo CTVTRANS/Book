@@ -488,6 +488,7 @@
                         <outlet property="freeChanel" destination="qdz-0o-bZd" id="DFQ-cN-mOn"/>
                         <outlet property="navigationView" destination="bBU-eH-7HV" id="PLd-wR-i8v"/>
                         <outlet property="pageControlView" destination="Fyu-6e-RE4" id="ySV-o6-BxG"/>
+                        <outlet property="scroll" destination="GDQ-dH-YTZ" id="4mg-3g-O0V"/>
                         <outlet property="sliderShow" destination="NYQ-tI-PE5" id="fiX-ex-jcb"/>
                         <outlet property="suggestChanel" destination="REW-32-3Nx" id="6zU-eq-fxO"/>
                     </connections>
@@ -1244,6 +1245,7 @@
                         <outlet property="newestBookTimeUp" destination="HgF-y4-kla" id="8ij-rH-hat"/>
                         <outlet property="newestBooktype" destination="WzG-e6-w9U" id="2uf-4b-oWQ"/>
                         <outlet property="pageControlView" destination="nC7-pI-Dxg" id="75T-0L-Nhb"/>
+                        <outlet property="scroll" destination="AoK-Nl-KG9" id="efl-Ia-hq4"/>
                         <outlet property="sliderShow" destination="Qq1-Vz-sKG" id="kgC-mv-VCJ"/>
                         <outlet property="suggestBookView" destination="x9j-wf-R0d" id="meC-7o-xf8"/>
                         <outlet property="tableBookType" destination="YnH-i3-1Oh" id="mfZ-Ws-97S"/>
@@ -1322,7 +1324,7 @@
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="STHeiti TC" pointSize="17"/>
-                                <state key="normal" title="简体中文">
+                                <state key="normal" title="Start">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -1334,7 +1336,6 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontToRealIPhoneSize" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="textLocalized" value="简体中文"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="useLocalized" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -2003,6 +2004,6 @@
         <image name="ic_tabbar_member" width="22" height="22"/>
         <image name="ic_tabbar_news" width="22" height="22"/>
         <image name="ic_tabbar_teacher" width="22" height="22"/>
-        <image name="place_holder" width="160" height="160"/>
+        <image name="place_holder" width="32" height="32"/>
     </resources>
 </document>

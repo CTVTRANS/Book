@@ -142,7 +142,7 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
     func checkSubcribleed() {
         let allChanelSubcrible: [Chanel] = Constants.sharedInstance.listChanelSubcribled
         for chanelSubcribled in allChanelSubcrible where chanel.idChanel == chanelSubcribled.idChanel {
-            subcribedTeacher.setTitle("Subcrible Chanel".localized, for: .normal)
+            subcribedTeacher.setTitle("Subcribled".localized, for: .normal)
             subcribedTeacher.isEnabled = false
         }
     }
@@ -235,7 +235,7 @@ class DetailChanelViewController: BaseViewController, UITableViewDelegate, UITab
                     self.chanel.numberSubcrible += 1
                     self.numberSubcrible.text = String(self.chanel.numberSubcrible)
                     Constants.sharedInstance.listChanelSubcribled.append(self.chanel)
-                    self.subcribedTeacher.setTitle("Subcrible Chanel".localized, for: .normal)
+                    self.subcribedTeacher.setTitle("Subcribled".localized, for: .normal)
                     self.subcribedTeacher.isEnabled = false
                 }
             }

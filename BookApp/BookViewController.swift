@@ -12,6 +12,7 @@ import FSPagerView
 
 class BookViewController: BaseViewController {
 
+    @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var viewForNewestBook: UIView!
     @IBOutlet weak var navigationCustom: NavigationCustom!
     @IBOutlet weak var tableBookType: UICollectionView!
@@ -28,6 +29,14 @@ class BookViewController: BaseViewController {
     var suggestArray = [Book]()
     var freeArray = [Book]()
     var  newestBook: Book!
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        refresh.backgroundColor = UIColor.white
+        refresh.tintColor = UIColor.gray
+        refresh.addTarget(self, action: #selector(reloadMyData), for: .valueChanged)
+        return refresh
+    }()
     
     // MARK: Property Slider Show
     var listSlider: [SliderShow] = []
@@ -66,6 +75,14 @@ class BookViewController: BaseViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    @objc func reloadMyData() {
+        getBaner()
+        getBookNewest()
+        getBookSuggest()
+        getBookFree()
+        getTypeBook()
+    }
+    
     func setUpTitle() {
         suggestBookView.setupView(image: #imageLiteral(resourceName: "ic_reload"))
         suggestBookView.detailTitle.text = "Refresh".localized
@@ -73,6 +90,7 @@ class BookViewController: BaseViewController {
         freeBookView.setupView(image: #imageLiteral(resourceName: "ic_next"))
         freeBookView.detailTitle.text = "All".localized
         freeBookView.titleView.text = "Free".localized
+        scroll.addSubview(refreshControl)
     }
     
     // MARK: Call API
@@ -97,6 +115,7 @@ class BookViewController: BaseViewController {
             })
             self.tableBookType.reloadData()
         }) { (error) in
+            self.refreshControl.endRefreshing()
             self.stopActivityIndicator()
             UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
@@ -107,6 +126,7 @@ class BookViewController: BaseViewController {
         requestWithTask(task: getBookSuggest, success: { (data) in
             self.suggestBookView.reloadData(arrayOfBook: (data as? [Book])!)
         }) { (error) in
+            self.refreshControl.endRefreshing()
             self.stopActivityIndicator()
             UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
@@ -117,6 +137,7 @@ class BookViewController: BaseViewController {
         requestWithTask(task: getBookFree, success: { (data) in
             self.freeBookView.reloadData(arrayOfBook: (data as? [Book])!)
         }) { (error) in
+            self.refreshControl.endRefreshing()
             self.stopActivityIndicator()
             UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
@@ -143,11 +164,13 @@ class BookViewController: BaseViewController {
                 } else {
                     self.viewForNewestBook.isHidden = true
                 }
+                self.refreshControl.endRefreshing()
                 self.stopActivityIndicator()
             }
         }) { (error) in
             self.viewForNewestBook.isHidden = true
             self.stopActivityIndicator()
+            self.refreshControl.endRefreshing()
             UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
     }
@@ -174,6 +197,7 @@ class BookViewController: BaseViewController {
         
         freeBookView.callBackClickCell = {[weak self] (bookSelected: Book) in
             let vc = bookStoryboard.instantiateViewController(withIdentifier: "BookDetail") as? BookDetailViewController
+            vc?.free = true
             vc?.bookSelected = bookSelected
             self?.navigationController?.pushViewController(vc!, animated: true)
         }

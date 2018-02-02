@@ -43,6 +43,7 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
     
     // MARK: Property
     var typeViewShow: TypeView = TypeView(rawValue: 0)!
+    var nameNavigation = ""
     private var sexMember: Int = Sex.sucurity.rawValue
     private var statusMarrigeMember = StatusMarrige.sucurity.rawValue
     private var nameMember: String!
@@ -72,6 +73,7 @@ class ChangeProfileViewController: BaseViewController, UITextFieldDelegate {
         navigationController?.isNavigationBarHidden = false
         let rightButton = UIBarButtonItem(title: "Save".localized, style: .plain, target: self, action: #selector(saveInfomation))
         navigationItem.rightBarButtonItem = rightButton
+        navigationItem.title = nameNavigation
     }
     
     func setupKeyboard() {

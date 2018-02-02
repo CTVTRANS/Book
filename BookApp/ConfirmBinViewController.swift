@@ -56,8 +56,34 @@ class ConfirmBinViewController: BaseViewController, UITextFieldDelegate {
 
     @IBAction func pressedCorfimBin(_ sender: Any) {
         let totalMoney = total.text
-        let money: String = (totalMoney?.components(separatedBy: " ")[0])!
-        goToPayment(withSubject: "Book", body: nameBook!, andPrice: money)
+        let money: String = (totalMoney?.components(separatedBy: " ")[3])!
+        let point: String = (totalMoney?.components(separatedBy: " ")[0])!
+        let getOrder = GetBinForBookTask(idMember: (memberInstance?.idMember)!,
+                                         token: tokenInstance!,
+                                         bookID: (book?.idBook)!,
+                                         point: point, mark: money,
+                                         nameUser: PeoleReciveProduct.sharedInstance.name!,
+                                         phone: PeoleReciveProduct.sharedInstance.phone!,
+                                         address: PeoleReciveProduct.sharedInstance.adress!)
+        requestWithTask(task: getOrder, success: { (data) in
+            guard let orderInfo = data as? (String, String) else {
+                return
+            }
+            let orderID = orderInfo.0
+            let orderSignin = orderInfo.1
+            self.goToPayment(withSubject: "Book",
+                             body: self.nameBook!,
+                             orderID: orderID,
+                             urlNotice: urlNotificationBook,
+                             optionalPayment: orderSignin,
+                             andPrice: money, copmleted: {
+                self.memberInstance?.point -= Int(point)!
+                ProfileMember.saveProfile(myProfile: self.memberInstance!)
+                UIAlertController.showAler(title: "", message: "We will contact to your phone number".localized, inViewController: self)
+            })
+        }) { (error) in
+            UIAlertController.showAler(title: "", message: error!, inViewController: self)
+        }
     }
     
     @objc func keyboardNotification(notification: NSNotification) {

@@ -142,7 +142,7 @@
                                                 </constraint>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <state key="normal" title="已订阅频道">
+                                            <state key="normal" title="Subcrible Chanel">
                                                 <color key="titleColor" red="0.99607843137254903" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>

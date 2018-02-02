@@ -19,6 +19,7 @@ class BookDetailViewController: BaseViewController {
     var downloadImageSuccess = false
     var downloadAuidosucess = false
     var bookSelected: Book!
+    var free: Bool = false
     
     // MARK: Property Use For Hidden StatusBar
     var isHiddenBaterry: Bool = false {
@@ -179,7 +180,8 @@ class BookDetailViewController: BaseViewController {
                 self?.present(vc!, animated: false, completion: nil)
             case BottomButton.like: self?.pressedLike()
             case BottomButton.download:
-                if self?.memberInstance?.level != 1 {
+                
+                if self?.memberInstance?.level != 1 && !(self?.free)! {
                     UIAlertController.showAler(title: "", message: "Only VIP can download".localized, inViewController: self!)
                     return
                 }
@@ -249,34 +251,6 @@ extension BookDetailViewController: UIScrollViewDelegate {
 }
 
 extension BookDetailViewController {
-    
-    // MARK: Button Control
-    
-//    func pressedDowload() {
-//        let downloadImage = DownloadTask(path: bookSelected.imageURL)
-//        downloadFileSuccess(task: downloadImage, success: { (data) in
-//            if let imageOflline = data as? URL {
-//                self.downloadImageSuccess = true
-//                self.bookSelected.imageOffline = imageOflline
-//                if self.downloadAuidosucess && self.downloadImageSuccess {
-//                    self.setListBookBdownload()
-//                }
-//            }
-//        }) { (_) in
-//        }
-//        let downloadAudio = DownloadTask(path: bookSelected.audio)
-//        downloadFileSuccess(task: downloadAudio, success: { (data) in
-//            if let audioOffline = data as? URL {
-//                self.downloadAuidosucess = true
-//                self.bookSelected.audioOffline = audioOffline
-//                if self.downloadAuidosucess && self.downloadImageSuccess {
-//                    self.setListBookBdownload()
-//                }
-//            }
-//        }) { (_) in
-//        }
-//    }
-
     func pressedBookmark() {
         let bookMarkTask: BookMarkTask = BookMarkTask(bookMarkType: Object.book.rawValue, memberID: (memberInstance?.idMember)!, objectId: bookSelected.idBook, token: tokenInstance!)
         self.requestWithTask(task: bookMarkTask, success: { (data) in

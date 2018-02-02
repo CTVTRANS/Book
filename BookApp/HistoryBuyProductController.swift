@@ -82,13 +82,7 @@ class HistoryCellBook: UITableViewCell {
         name.text = historyBook.producBook?.name
         imageBook.sd_setImage(with: URL(string: (historyBook.producBook?.imageURL)!))
         time.text = historyBook.time.components(separatedBy: " ")[0]
-        let arrayString = historyBook.producBook?.descriptionBook.components(separatedBy: "</p>")
-        let firstString = arrayString?.first
-        if firstString != nil {
-            if firstString!.count > 4 {
-                let index = firstString!.index(firstString!.startIndex, offsetBy: 3)
-                detail.text = String(firstString![..<index])
-            }
-        }
+        let descriptionBook = historyBook.producBook?.descriptionBook.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+         detail.text = descriptionBook
     }
 }

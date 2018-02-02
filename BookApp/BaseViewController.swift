@@ -166,7 +166,13 @@ class BaseViewController: UIViewController {
         })
     }
     
-    func goToPayment(withSubject name: String, body: String, andPrice price: String) {
+    func goToPayment(withSubject name: String,
+                     body: String,
+                     orderID: String,
+                     urlNotice: String,
+                     optionalPayment: String,
+                     andPrice price: String,
+                     copmleted: @escaping () -> Void) {
         var subjectPayment = name
         var bodyPayment = body
         
@@ -178,19 +184,22 @@ class BaseViewController: UIViewController {
             let index32 = name.index(name.startIndex, offsetBy: 128)
             bodyPayment = String(body[...index32])
         }
-        
-        UIAlertController.showAlertWith(title: "", message: "Vật phẩm này có giá 0.01 $, Bạn có muốn tiếp tục thực hiện giao dịch?", in: self) {
+//        let messageShow = "This Product is".localized + " \(price)元. " + "You want continuce?".localized
+        let messageShow = "This Product is".localized + " 0.01元. " + "You want continuce?".localized
+        UIAlertController.showAlertWith(title: "", message: messageShow, in: self) {
             let payment = PaymentLib()
-            payment.appID = "4mfhKGzjjTxF0JnYgF05Xg"////4mfhKGzjjTxF0JnYgF05Xg//bm5ZHRTdvb89KYD1B6xg0Q
+            payment.appID = appIDSDK
+            payment.orderId = orderID
             payment.amount = "0.01"
             payment.body = bodyPayment
             payment.subject = "BUY \(subjectPayment)"
-            payment.notifyUrl = "http://10.100.140.124:8081/adapter-client/receive/notify.htm"
+            payment.notifyUrl = urlNotice
+            payment.optional = optionalPayment
             let manager = payment.createPaymemtObject()
             
             manager?.payStatusCallBack = { (payStatus, result) in
                 if payStatus == .payResultSuccess {
-                    UIAlertController.showAler(title: "", message: "Thành công, chúng tôi sẽ liên lạc vào sđt đăng kí nhận hàng", inViewController: self)
+                    copmleted()
                 }
                 print(result!)
             }

@@ -38,6 +38,7 @@ class GetBookFreeTask: BaseTaskNetwork {
         if let object = response as? [[String: Any]] {
             for dictionary in object {
                 let book = self.parseBook(dictionary: dictionary)
+                book.isFree = true
                 listBook.append(book)
             }
         }

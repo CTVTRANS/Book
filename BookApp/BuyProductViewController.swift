@@ -39,8 +39,8 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
         if let book = product as? Book {
             bookProduct = book
             imageProduct.sd_setImage(with: URL(string: book.imageURL), placeholderImage: #imageLiteral(resourceName: "place_holder"))
-            point1.text = String(book.priceMix[0].point) + "Point".localized + " + \(String(book.priceMix[0].mooney)) +" + "Money".localized
-            point2.text = String(book.priceMix[1].point) + "Point".localized + " + \(String(book.priceMix[1].mooney)) +" + "Money".localized
+            point1.text = String(book.priceMix[0].point) + "Point".localized + " + \(String(book.priceMix[0].mooney)) " + "Money".localized
+            point2.text = String(book.priceMix[1].point) + "Point".localized + " + \(String(book.priceMix[1].mooney)) " + "Money".localized
             if book.typePay == "point" || book.price != 0 {
                 titleProduct.text = "[积] " + book.name
                 nameproduct = "[积] " + book.name
@@ -48,7 +48,7 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
             } else {
                 titleProduct.text = "[现] " + book.name
                 nameproduct = "[现] " + book.name
-                numberMark.text = String(book.priceMix[0].point) + "Point".localized + " + \(String(book.priceMix[0].mooney)) +" + "Money".localized
+                numberMark.text = String(book.priceMix[0].point) + "Point".localized + " + \(String(book.priceMix[0].mooney)) " + "Money".localized
                 point1.removeFromSuperview()
                 buyButtonCase1.removeFromSuperview()
             }
@@ -105,8 +105,10 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
             goToSigIn()
             return
         }
-        if let vip = product as? Vip {
-            goToPayment(withSubject: "VIP", body: "Buy Vip", andPrice: vip.price.description)
+        let myStoryBoard = UIStoryboard(name: "Setting", bundle: nil)
+        if let vipProduct = product as? Vip, let vc = myStoryBoard.instantiateViewController(withIdentifier: "BuyVipMoneyViewController") as? BuyVipMoneyViewController {
+            vc.vip = vipProduct
+            navigationController?.pushViewController(vc, animated: true)
             return
         }
         if PeoleReciveProduct.sharedInstance.phone == nil {
@@ -114,16 +116,18 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
                 navigationController?.pushViewController(vc, animated: true)
             }
         } else {
-            if numberMark.text?.range(of: "Point".localized) != nil {
+            if numberMark.text?.range(of: "Point".localized) != nil, numberMark.text?.range(of: "Money".localized) == nil {
                 let array = numberMark.text?.components(separatedBy: "Point".localized)
-                let numberPoint = Int((array?.first)!)
-                if numberPoint! > (memberInstance?.point)! {
-                    UIAlertController.showAler(title: "", message: "not enough point".localized, inViewController: self)
-                    return
+                if let numberPoint = Int((array?.first)!) {
+                    if numberPoint > (memberInstance?.point)! {
+                        UIAlertController.showAler(title: "", message: "not enough point".localized, inViewController: self)
+                        return
+                    }
+                    oderBook(with: numberPoint)
                 }
-                oderBook()
                 return
             }
+            
             if let vc = storyboard?.instantiateViewController(withIdentifier: "ConfirmBinViewController") as? ConfirmBinViewController {
                 vc.nameBook = nameproduct
                 vc.book = bookProduct
@@ -135,10 +139,14 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
 }
 
 extension BuyProductViewController {
-    func oderBook() {
-        let oderBin = BuyBookTask(idMember: (memberInstance?.idMember)!, token: tokenInstance!, type: 0, bookID: (bookProduct?.idBook)!, nameUser: PeoleReciveProduct.sharedInstance.name!, phone: PeoleReciveProduct.sharedInstance.phone!, address: PeoleReciveProduct.sharedInstance.adress!)
-        requestWithTask(task: oderBin, success: { (_) in
-            UIAlertController.showAler(title: "", message: "success", inViewController: self)
+    func oderBook(with point: Int) {
+        let oderBin = BuyBookTask(idMember: (memberInstance?.idMember)!, token: tokenInstance!, bookID: (bookProduct?.idBook)!, nameUser: PeoleReciveProduct.sharedInstance.name!, phone: PeoleReciveProduct.sharedInstance.phone!, address: PeoleReciveProduct.sharedInstance.adress!)
+        requestWithTask(task: oderBin, success: { (response) in
+            if let status = response as? ErrorCode, status == ErrorCode.success {
+                self.memberInstance?.point -= point
+                ProfileMember.saveProfile(myProfile: self.memberInstance!)
+                UIAlertController.showAler(title: "", message: "success!".localized, inViewController: self)
+            }
         }) { (error) in
             UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }

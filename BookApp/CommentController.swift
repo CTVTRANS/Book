@@ -89,7 +89,7 @@ class CommentController: BaseViewController, UITextViewDelegate {
         }
         if let book = object as? Book {
             titleComment.text = " " + book.name + " "
-            detail.text = "Book App"
+            detail.text = "学致用书院".localized
         }
         if let chanel = object as? Chanel {
             titleComment.text = " " + chanel.nameChanel + " "

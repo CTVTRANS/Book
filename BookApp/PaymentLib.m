@@ -16,11 +16,12 @@
     manager.showPayStatusView = YES;
     manager.transactionParams = @{
                                   @"app_id": self.appID,
-                                  @"order_no":[self formatOrderId],
+                                  @"order_no": self.orderId,
                                   @"amount": self.amount,
                                   @"subject": self.subject,
                                   @"body": self.body,
                                   @"notify_url": self.notifyUrl,
+                                  @"optional": self.optional,
                                   };
     
     return manager;

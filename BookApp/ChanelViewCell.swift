@@ -30,10 +30,10 @@ class ChanelViewCell: UITableViewCell {
         let date = chanel.time.components(separatedBy: " ")
         timeUp.text = date[0]
         if chanel.isSubcrible {
-            subcribleButton.setTitle("Subcrible Chanel".localized, for: .normal)
+            subcribleButton.setTitle("Subcribled".localized, for: .normal)
             subcribleButton.isEnabled = false
         } else {
-            subcribleButton.setTitle("Subcribled".localized, for: .normal)
+            subcribleButton.setTitle("Subcrible Chanel".localized, for: .normal)
             subcribleButton.isEnabled = true
         }
     }

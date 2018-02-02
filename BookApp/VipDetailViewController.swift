@@ -35,10 +35,20 @@ class VipDetailViewController: BaseViewController, UIWebViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getInfo()
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
+    func getInfo() {
+        let updateInfo = GetProfileMemberTask(idMember: (self.memberInstance?.idMember)!)
+        requestWithTask(task: updateInfo, success: { (_) in
+            self.timeLimit.text = self.memberInstance?.dateExpired
+        }) { (_) in
+
+        }
+    }
+    
     func getVip() {
         let getProductVip: GetProductVipTask = GetProductVipTask()
         requestWithTask(task: getProductVip, success: { (data) in
@@ -58,12 +68,12 @@ class VipDetailViewController: BaseViewController, UIWebViewDelegate {
     
     @IBAction func pressBuyVip(_ sender: Any) {
         if (memberInstance?.point)! > (vip?.point)! {
-            let buyVip = BuyVipPointTask(memberiD: (memberInstance?.idMember)!, token: tokenInstance!, type: 0, idVip: (vip?.idVip)!, numberYear: 1)
+            let buyVip = BuyVipTask(memberiD: (memberInstance?.idMember)!, token: tokenInstance!, type: 0, idVip: (vip?.idVip)!, numberYear: 1)
             requestWithTask(task: buyVip, success: { (data) in
                 if let status = data as? (Bool, ErrorCode) {
                     if status.0 {
                         self.memberInstance?.point -= (self.vip?.point)!
-                        UIAlertController.showAler(title: "", message: "success", inViewController: self)
+                        UIAlertController.showAler(title: "", message: "success!".localized, inViewController: self)
                         return
                     }
                     UIAlertController.showAler(title: "", message: status.1.decodeError(), inViewController: self)

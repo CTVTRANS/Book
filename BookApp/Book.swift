@@ -20,7 +20,7 @@ class Book: NSObject, NSCoding {
     private var _content, _desCription: String!
     private var _numberLike, _numberComment, _numberBookMark: Int!
     private var _isPlay: Int = 0
-    private var _pause: Int = 0
+    private var _isFree: Bool = false
     private var _price: Int?
     private var _priceMix: [PriceMix]!
     private var _audioOffline: URL?
@@ -139,13 +139,13 @@ class Book: NSObject, NSCoding {
     var descriptionBook: String {
         return _desCription!
     }
-    var isPlay: Int {
-        get { return _isPlay}
-        set { _isPlay = newValue}
-    }
-    var pause: Int {
-        get { return _pause}
-        set { _pause = newValue}
+//    var isPlay: Int {
+//        get { return _isPlay}
+//        set { _isPlay = newValue}
+//    }
+    var isFree: Bool {
+        get { return _isFree}
+        set { _isFree = newValue}
     }
     var price: Int? {
         return _price

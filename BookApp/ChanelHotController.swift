@@ -65,7 +65,7 @@ class ChanelHotController: BaseViewController, UITableViewDelegate, UITableViewD
                         return
                     }
                     Constants.sharedInstance.listChanelSubcribled.append(chanel)
-                    cell?.subcribleButton.setTitle("Subcrible Chanel".localized, for: .normal)
+                    cell?.subcribleButton.setTitle("Subcribled".localized, for: .normal)
                     cell?.subcribleButton.isEnabled = false
                 }
             }) { (error) in

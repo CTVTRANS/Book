@@ -12,8 +12,7 @@ class AppInfomationViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        navigationItem.title = "AboutApp".localized
     }
     
     override func viewWillAppear(_ animated: Bool) {

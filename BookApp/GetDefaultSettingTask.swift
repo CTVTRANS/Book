@@ -33,7 +33,7 @@ class GetDefaultSettingTask: BaseTaskNetwork {
             if let termOfUseLanguage = dictionary["terms_of_use"] as? [String: Any] {
                 DefaultApp.sharedInstance.termOffUse = termOfUseLanguage["gian_the"] as? String ?? ""
             }
-            DefaultApp.sharedInstance.limitAudio = limitAudio
+            DefaultApp.sharedInstance.timeLimitAudio = limitAudio
             DefaultApp.sharedInstance.limitVideo = limitVideo
             DefaultApp.sharedInstance.limitWord = linitWord
             DefaultApp.sharedInstance.defaultAvatar = avatardefault

@@ -204,6 +204,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         let type = arrayNews[indexPath.row].typeNews
         ShareModel.shareIntance.nameShare = arrayNews[indexPath.row].title
         ShareModel.shareIntance.detailShare = arrayNews[indexPath.row].detailNews
+        Constants.sharedInstance.currentNews = arrayNews[indexPath.row]
         if type == 1 {
             if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailNewsController {
                 vc.news = arrayNews[indexPath.row]

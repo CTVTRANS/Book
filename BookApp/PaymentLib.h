@@ -20,6 +20,7 @@
 @property (strong, nonatomic) NSString *siginRsa;
 @property (strong, nonatomic) NSString *orderId;
 @property (strong, nonatomic) NSString *chargeID;
+@property (strong, nonatomic) NSString *optional;
 
 -(FuqianlaPay *)createPaymemtObject;
 

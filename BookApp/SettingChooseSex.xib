@@ -248,7 +248,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="tUq-hA-fmi"/>
                             </constraints>
-                            <state key="normal" title="確認送出">
+                            <state key="normal" title="确认送出">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <userDefinedRuntimeAttributes>

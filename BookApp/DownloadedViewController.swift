@@ -165,6 +165,7 @@ class DownloadedViewController: BaseViewController, UITableViewDelegate, UITable
                 listLesson.remove(at: index)
                 break
             }
+            UIAlertController.showAler(title: "", message: "Remove item success".localized, inViewController: self)
             Lesson.saveLesson(lesson: listLesson)
         }
     }
@@ -175,6 +176,7 @@ class DownloadedViewController: BaseViewController, UITableViewDelegate, UITable
             listBook.remove(at: index)
             break
         }
+        UIAlertController.showAler(title: "", message: "Remove item success".localized, inViewController: self)
         Book.saveBook(myBook: listBook)
     }
     

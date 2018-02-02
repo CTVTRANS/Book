@@ -9,7 +9,7 @@
 import UIKit
 import LCNetwork
 
-class BuyVipPointTask: BaseTaskNetwork {
+class BuyVipTask: BaseTaskNetwork {
     
     private let _memberID: Int!
     private let _token: String!
@@ -26,7 +26,7 @@ class BuyVipPointTask: BaseTaskNetwork {
     }
 
     override func path() -> String! {
-        return buyVipPointURL
+        return buyVipURL
     }
     
     override func method() -> String! {
@@ -43,8 +43,14 @@ class BuyVipPointTask: BaseTaskNetwork {
     
     override func data(withResponse response: Any!) -> Any! {
         if let dictionary = response as? [String: Any] {
-            let status = dictionary[""] as? String ?? ""
+            let status = dictionary["status"] as? String ?? ""
             let statusCode = dictionary["status_code"] as? Int ?? 0
+            let data = dictionary["data"] as? [String: Any] ?? ["": ""]
+            let oderNo = data["order_no"] as? String ?? ""
+            let oderSign = data["orders_sign"] as? String ?? ""
+            if oderNo != "" && oderSign != "" {
+                return (oderNo, oderSign)
+            }
             let error = ErrorCode(rawValue: statusCode)
             if status == "success" {
                 return (true, error)

@@ -28,7 +28,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Singup".localized
+        navigationItem.title = "Signup".localized
         navigationController?.navigationBar.backItem?.title = ""
         showAreButton.layer.borderColor = UIColor.rgb(255, 102, 0).cgColor
         sendCodebutton.layer.borderColor = UIColor.rgb(255, 102, 0).cgColor
@@ -38,6 +38,8 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         phoneNumber.delegate = self
         nameUser.delegate = self
         passWord.delegate = self
+        
+        UIAlertController.showAler(title: "", message: "please change country area code".localized, inViewController: self)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

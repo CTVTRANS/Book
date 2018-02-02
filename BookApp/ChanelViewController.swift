@@ -11,6 +11,7 @@ import FSPagerView
 
 class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerViewDataSource {
 
+    @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var navigationView: NavigationCustom!
     @IBOutlet weak var suggestChanel: CustomChanelCollection!
     var indicatorSuggest = UIView()
@@ -18,6 +19,14 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
     var indicatorViewFree = UIView()
     var currentPageSuggest = 1
     var currentFree = 1
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        refresh.backgroundColor = UIColor.white
+        refresh.tintColor = UIColor.gray
+        refresh.addTarget(self, action: #selector(reloadMyData), for: .valueChanged)
+        return refresh
+    }()
     
     private var listSlider: [SliderShow] = []
     @IBOutlet weak var pageControlView: FSPageControl! {
@@ -45,7 +54,7 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
         freeChanel.name.text = "Suggest".localized
         getBaner()
         getData()
-        
+        scroll.addSubview(refreshControl)
         let getChaelSubcrible: GetAllChanelSubcribledTask = GetAllChanelSubcribledTask(memberID: (memberInstance?.idMember)!)
         requestWithTask(task: getChaelSubcrible, success: { (_) in
             
@@ -58,6 +67,11 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
         super.viewWillAppear(animated)
         navigationView.checkNotifocation()
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    @objc func reloadMyData() {
+        getBaner()
+        getData()
     }
 
     // MARK: Get Baner From Server
@@ -84,8 +98,10 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
                 self?.currentPageSuggest += 1
                 self?.suggestChanel.reloadChanel(arrayChanel: suggestArray)
                 self?.indicatorSuggest.stopActivityIndicator()
+                self?.refreshControl.endRefreshing()
             }
         }) { (error) in
+            self.refreshControl.endRefreshing()
             self.indicatorSuggest.stopActivityIndicator()
             UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }
@@ -98,8 +114,10 @@ class ChanelViewController: BaseViewController, FSPagerViewDelegate, FSPagerView
                 self?.currentFree += 1
                 self?.freeChanel.reloadChanel(arrayChanel: freeArray)
                 self?.indicatorViewFree.stopActivityIndicator()
+                self?.refreshControl.endRefreshing()
             }
         }) { (error) in
+            self.refreshControl.endRefreshing()
             self.indicatorSuggest.stopActivityIndicator()
             UIAlertController.showAler(title: "", message: error!, inViewController: self)
         }

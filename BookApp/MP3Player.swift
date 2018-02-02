@@ -53,7 +53,7 @@ class MP3Player: NSObject {
                 self.playerItem = AVPlayerItem(asset: self.asset!)
                 self.player = AVPlayer(playerItem: self.playerItem)
                 self.didLoadAudio(self.getTotalTime(), self.getTotalTimeString())
-                self.limitTimePlay()
+                self.limitTimePlay(isFree: audio.isFree, type: 0)//0 book
                 self.play()
                 self.currentAudio = audio
             }
@@ -80,7 +80,7 @@ class MP3Player: NSObject {
                 self.playerItem = AVPlayerItem(asset: self.asset!)
                 self.player = AVPlayer(playerItem: self.playerItem)
                 self.didLoadAudio(self.getTotalTime(), self.getTotalTimeString())
-                self.limitTimePlay()
+                self.limitTimePlay(isFree: true, type: 1)//1 lesson0
                 self.play()
                 self.currentAudio = audio
             }
@@ -193,16 +193,25 @@ class MP3Player: NSObject {
         return 0.0
     }
     
-    func limitTimePlay() {
+    func limitTimePlay(isFree: Bool, type: Int) {//0 is book, 1 islesson
         player?.addPeriodicTimeObserver(forInterval: CMTimeMake(1, 1), queue: DispatchQueue.main, using: { [weak self] progressTime in
             let seconds = CMTimeGetSeconds(progressTime)
             print(seconds)
             if ProfileMember.getToken() == "" || ProfileMember.getProfile()?.level == 0 {
-                if seconds > Double(DefaultApp.sharedInstance.limitAudio) {
-                    self?.pause()
-                    self?.player?.seek(to: kCMTimeZero)
-                    self?.limitTime()
+                if type == 0 {
+                    if seconds > Double(DefaultApp.sharedInstance.timeLimitAudio) && !isFree {
+                        self?.pause()
+                        self?.player?.seek(to: kCMTimeZero)
+                        self?.limitTime()
+                    }
+                } else {
+                    if seconds > Double(DefaultApp.sharedInstance.timeLimitAudio) {
+                        self?.pause()
+                        self?.player?.seek(to: kCMTimeZero)
+                        self?.limitTime()
+                    }
                 }
+                
             }
         })
     }

@@ -63,7 +63,9 @@ class Constants: NSObject {
     var listCommentHot: [Comment] = []
     var hasNotification = false
     var deviceToken = ""
+    var currentBook: Book!
+    var currentNews: NewsModel!
+    var currentChanel: Chanel!
     
     static let sharedInstance = Constants()
-//    private override init() {}
 }

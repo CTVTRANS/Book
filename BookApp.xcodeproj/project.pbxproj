@@ -42,7 +42,7 @@
 		6D87DCBB1F54191600269351 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D87DCBA1F54191600269351 /* CommentCell.swift */; };
 		6D87DCBD1F54196A00269351 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D87DCBC1F54196A00269351 /* Comment.swift */; };
 		6D87DCBF1F54197700269351 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D87DCBE1F54197700269351 /* User.swift */; };
-		6D8D76501F97504E00B2C034 /* BuyVipPointTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8D764F1F97504E00B2C034 /* BuyVipPointTask.swift */; };
+		6D8D76501F97504E00B2C034 /* BuyVipTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8D764F1F97504E00B2C034 /* BuyVipTask.swift */; };
 		6D9E6B7A1F8F760000BA7E30 /* ChooseMethodPayment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D9E6B791F8F760000BA7E30 /* ChooseMethodPayment.xib */; };
 		6D9E6B7C1F8F762500BA7E30 /* ChooseMethodPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9E6B7B1F8F762500BA7E30 /* ChooseMethodPayment.swift */; };
 		6DE04FD41F414F33002C5E25 /* BaseViewcontrollerExtend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE04FD31F414F33002C5E25 /* BaseViewcontrollerExtend.swift */; };
@@ -247,9 +247,11 @@
 		6DF8892E1F418F40005F72D7 /* DetailChanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF8892D1F418F40005F72D7 /* DetailChanelViewController.swift */; };
 		6DF889301F418F68005F72D7 /* ChanelSubscribeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF8892F1F418F68005F72D7 /* ChanelSubscribeController.swift */; };
 		76E08F9DCE0410B70DD2B4D3 /* Pods_BookApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB3D8157F50B7433C570DE8 /* Pods_BookApp.framework */; };
+		9D0207942022F1C500CE6D1E /* GetBinForBookTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0207932022F1C500CE6D1E /* GetBinForBookTask.swift */; };
 		9D0B6611201B3CF4005BC2F6 /* BuyBookTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B6610201B3CF4005BC2F6 /* BuyBookTask.swift */; };
 		9D0BA05F1FE2339000621760 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0BA05E1FE2339000621760 /* UIButton+Extension.swift */; };
 		9D0BA0611FE233F400621760 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0BA0601FE233F400621760 /* UILabel+Extension.swift */; };
+		9D0C29E720244F1E0018B9BB /* BuyVipMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C29E620244F1E0018B9BB /* BuyVipMoneyViewController.swift */; };
 		9D0E2FD0201822420016C10C /* PaymentLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2FCF201822420016C10C /* PaymentLib.m */; };
 		9D0E2FD3201823900016C10C /* private_key61.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 9D0E2FD1201823900016C10C /* private_key61.p12 */; };
 		9D22159B1FA6BE2E001F0947 /* RemoveHistoryAudioTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D22159A1FA6BE2E001F0947 /* RemoveHistoryAudioTask.swift */; };
@@ -297,7 +299,7 @@
 		6D87DCBA1F54191600269351 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		6D87DCBC1F54196A00269351 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		6D87DCBE1F54197700269351 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		6D8D764F1F97504E00B2C034 /* BuyVipPointTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyVipPointTask.swift; sourceTree = "<group>"; };
+		6D8D764F1F97504E00B2C034 /* BuyVipTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyVipTask.swift; sourceTree = "<group>"; };
 		6D9E6B791F8F760000BA7E30 /* ChooseMethodPayment.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseMethodPayment.xib; sourceTree = "<group>"; };
 		6D9E6B7B1F8F762500BA7E30 /* ChooseMethodPayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseMethodPayment.swift; sourceTree = "<group>"; };
 		6DE04FD31F414F33002C5E25 /* BaseViewcontrollerExtend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewcontrollerExtend.swift; sourceTree = "<group>"; };
@@ -509,9 +511,11 @@
 		6DF8892F1F418F68005F72D7 /* ChanelSubscribeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChanelSubscribeController.swift; sourceTree = "<group>"; };
 		8CB3D8157F50B7433C570DE8 /* Pods_BookApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D3CDF92D2128A3885089EA /* Pods-BookApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookApp/Pods-BookApp.release.xcconfig"; sourceTree = "<group>"; };
+		9D0207932022F1C500CE6D1E /* GetBinForBookTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBinForBookTask.swift; sourceTree = "<group>"; };
 		9D0B6610201B3CF4005BC2F6 /* BuyBookTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyBookTask.swift; sourceTree = "<group>"; };
 		9D0BA05E1FE2339000621760 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		9D0BA0601FE233F400621760 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		9D0C29E620244F1E0018B9BB /* BuyVipMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyVipMoneyViewController.swift; sourceTree = "<group>"; };
 		9D0E2FCE201822410016C10C /* PaymentLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentLib.h; sourceTree = "<group>"; };
 		9D0E2FCF201822420016C10C /* PaymentLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentLib.m; sourceTree = "<group>"; };
 		9D0E2FD1201823900016C10C /* private_key61.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = private_key61.p12; sourceTree = "<group>"; };
@@ -722,6 +726,7 @@
 				6D9E6B7B1F8F762500BA7E30 /* ChooseMethodPayment.swift */,
 				6D9E6B791F8F760000BA7E30 /* ChooseMethodPayment.xib */,
 				6DF0DA2F1F91A7A100635E81 /* ConfirmBinViewController.swift */,
+				9D0C29E620244F1E0018B9BB /* BuyVipMoneyViewController.swift */,
 				6DF59A541F623EB7007DFB85 /* Histoty-Bookmarked-Downloaded */,
 				6DF702F01F6102C100FAF762 /* Setting */,
 				6DED804C1F6677E500ACC77F /* Group */,
@@ -861,6 +866,8 @@
 				6DF0284D1F56AB3700CEE331 /* GetBookFreeTask.swift */,
 				6DEFEFDE1F71FB2800916C98 /* GetAllBookBookmarkedTask.swift */,
 				6DED828E1F94B22B000A1AE3 /* IncreaseViewBookTask.swift */,
+				9D0B6610201B3CF4005BC2F6 /* BuyBookTask.swift */,
+				9D0207932022F1C500CE6D1E /* GetBinForBookTask.swift */,
 			);
 			name = Book;
 			sourceTree = "<group>";
@@ -881,8 +888,7 @@
 				6DF1F4E41F710B320078349B /* GetSliderBanerTask.swift */,
 				6DED58D61F72614300F13213 /* DownloadTask.swift */,
 				6DEDCA751F87885600686313 /* GetHotKeyWordTask.swift */,
-				6D8D764F1F97504E00B2C034 /* BuyVipPointTask.swift */,
-				9D0B6610201B3CF4005BC2F6 /* BuyBookTask.swift */,
+				6D8D764F1F97504E00B2C034 /* BuyVipTask.swift */,
 				6DEF67C71F550E7000D6BBCC /* News */,
 				6DEF67C81F550E7D00D6BBCC /* Book */,
 				6D2187E91F5E56B700C205CE /* Chanel */,
@@ -1357,6 +1363,7 @@
 				9D0BA05F1FE2339000621760 /* UIButton+Extension.swift in Sources */,
 				6DF2FD751F5D2E3E0004CF04 /* HistoryPlayAudioController.swift in Sources */,
 				6DF1D78C1F7B34BD0075F26C /* BaseDailog.swift in Sources */,
+				9D0C29E720244F1E0018B9BB /* BuyVipMoneyViewController.swift in Sources */,
 				6DED40071F92828900890BB3 /* CustomVideoViewController.swift in Sources */,
 				6DF0DA301F91A7A100635E81 /* ConfirmBinViewController.swift in Sources */,
 				6DF50DBD1F6CD54A004E908A /* ResultSearch.swift in Sources */,
@@ -1366,7 +1373,7 @@
 				6DF31A2B1F8DFB7E0081D263 /* SubcribleOneGroupTask.swift in Sources */,
 				6DE9229A1F676CB700EE24EC /* SecrectGroup.swift in Sources */,
 				9D22159B1FA6BE2E001F0947 /* RemoveHistoryAudioTask.swift in Sources */,
-				6D8D76501F97504E00B2C034 /* BuyVipPointTask.swift in Sources */,
+				6D8D76501F97504E00B2C034 /* BuyVipTask.swift in Sources */,
 				6D13F6591F8B11E300B4B229 /* ChangePasswordTask.swift in Sources */,
 				58C39DE61F3C5B0B001741EB /* BottomView.swift in Sources */,
 				6DF0284C1F56AA6900CEE331 /* GetBookSuggestForTypeTask.swift in Sources */,
@@ -1458,6 +1465,7 @@
 				6DF310FD1F4288AC008B2878 /* Book.swift in Sources */,
 				6DF59A561F623F3F007DFB85 /* ActivityOfflineViewController.swift in Sources */,
 				6DEFA8971F60F10400374113 /* MyprofileViewController.swift in Sources */,
+				9D0207942022F1C500CE6D1E /* GetBinForBookTask.swift in Sources */,
 				6DEE63E91F73CB2D00C10E5E /* ShareController.swift in Sources */,
 				6D2187ED1F5E649A00C205CE /* GetChanelFreeTask.swift in Sources */,
 				6DEFA8901F60E15C00374113 /* SettingViewCell.swift in Sources */,
