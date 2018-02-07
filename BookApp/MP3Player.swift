@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 class MP3Player: NSObject {
     private var asset: AVAsset?
@@ -17,11 +18,23 @@ class MP3Player: NSObject {
     var currentAudio: AnyObject?
     var oldIndexListPlay: Int?
     
+    let mpNowPlaying = MPNowPlayingInfoCenter.default()
+    
     static let shareIntanse = MP3Player()
     var didLoadAudio:((_ time: Float, _ timeSting: String) -> Void) = {_, _  in}
     var limitTime = {}
     
     func track(object: AnyObject, types: TypePlay) {
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+//            self.becomeFirstResponder()
+            print("Playback OK")
+            try AVAudioSession.sharedInstance().setActive(true)
+            print("Session is Active")
+        } catch {
+            print(error)
+        }
         if let book = object as? Book {
             playBook(audio: book, type: types)
             addBookListPlay(newBook: book)
@@ -56,11 +69,13 @@ class MP3Player: NSObject {
                 self.limitTimePlay(isFree: audio.isFree, type: 0)//0 book
                 self.play()
                 self.currentAudio = audio
+                self.setInfoCenterCredentials(name: audio.name, artist: audio.author, imageURL: audio.imageURL, 0, duration: self.getTotalTime(), 1)
             }
         }
     }
     
     func playLesson(audio: Lesson, type: TypePlay) {
+      
         if type == TypePlay.offLine {
             currentAudio = audio
             player = AVPlayer(url: audio.audioOffline)
@@ -83,6 +98,7 @@ class MP3Player: NSObject {
                 self.limitTimePlay(isFree: true, type: 1)//1 lesson0
                 self.play()
                 self.currentAudio = audio
+                self.setInfoCenterCredentials(name: audio.name, artist: audio.chanelOwner, imageURL: audio.imageChapURL, 0, duration: self.getTotalTime(), 1)
             }
         }
     }
@@ -211,8 +227,25 @@ class MP3Player: NSObject {
                         self?.limitTime()
                     }
                 }
-                
             }
         })
+    }
+    
+    func setInfoCenterCredentials(name: String, artist: String, imageURL: String , _ postion: NSNumber, duration: Float, _ playbackState: Int) {
+        let imageView = UIImageView()
+        var image = UIImage()
+        if let url = URL(string: imageURL) {
+            imageView.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "place_holder"), options: .refreshCached, completed: { (imageReturn, _, _, _) in
+                image = imageReturn!
+            })
+        }
+        let artwork = MPMediaItemArtwork(image: image)
+        let numberDiration = NSNumber(value: duration)
+        mpNowPlaying.nowPlayingInfo = [MPMediaItemPropertyTitle: name,
+                               MPMediaItemPropertyArtist: artist,
+                               MPMediaItemPropertyArtwork: artwork,
+                               MPNowPlayingInfoPropertyElapsedPlaybackTime: postion,
+                               MPMediaItemPropertyPlaybackDuration: numberDiration,
+                               MPNowPlayingInfoPropertyPlaybackRate: playbackState]
     }
 }

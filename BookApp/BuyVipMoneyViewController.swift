@@ -29,7 +29,7 @@ class BuyVipMoneyViewController: BaseViewController {
             numberYear -= 1
         }
         year.text = numberYear.description
-        money.text = (vip.price * numberYear).description
+        money.text = (vip.price * Float(numberYear)).description
     }
     
     @IBAction func addPress(_ sender: Any) {
@@ -37,7 +37,7 @@ class BuyVipMoneyViewController: BaseViewController {
            numberYear += 1
         }
         year.text = numberYear.description
-        money.text = (vip.price * numberYear).description
+        money.text = (vip.price * Float(numberYear)).description
     }
     
     @IBAction func pressBuy(_ sender: Any) {

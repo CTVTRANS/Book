@@ -52,7 +52,7 @@ class VipDetailViewController: BaseViewController, UIWebViewDelegate {
     func getVip() {
         let getProductVip: GetProductVipTask = GetProductVipTask()
         requestWithTask(task: getProductVip, success: { (data) in
-            if let arrayVip = data as? [Vip] {
+            if let arrayVip = data as? [Vip], arrayVip.first != nil {
                 self.vip = arrayVip.first
                 self.webView.loadHTMLString( css + (self.vip?.conten)!, baseURL: nil)
                 self.priceVip.text = "BuyVipPoint: ".localized + String((self.vip?.point)!) +  "元   "
@@ -67,20 +67,26 @@ class VipDetailViewController: BaseViewController, UIWebViewDelegate {
     }
     
     @IBAction func pressBuyVip(_ sender: Any) {
-        if (memberInstance?.point)! > (vip?.point)! {
-            let buyVip = BuyVipTask(memberiD: (memberInstance?.idMember)!, token: tokenInstance!, type: 0, idVip: (vip?.idVip)!, numberYear: 1)
-            requestWithTask(task: buyVip, success: { (data) in
-                if let status = data as? (Bool, ErrorCode) {
-                    if status.0 {
-                        self.memberInstance?.point -= (self.vip?.point)!
-                        UIAlertController.showAler(title: "", message: "success!".localized, inViewController: self)
-                        return
-                    }
-                    UIAlertController.showAler(title: "", message: status.1.decodeError(), inViewController: self)
-                }
-            }, failure: { (_) in
-                
-            })
+        let myStoryBoard = UIStoryboard(name: "Setting", bundle: nil)
+        if let vc = myStoryBoard.instantiateViewController(withIdentifier: "BuyVipMoneyViewController") as? BuyVipMoneyViewController {
+            vc.vip = self.vip
+            navigationController?.pushViewController(vc, animated: true)
         }
+        
+//        if (memberInstance?.point)! > (vip?.point)! {
+//            let buyVip = BuyVipTask(memberiD: (memberInstance?.idMember)!, token: tokenInstance!, type: 0, idVip: (vip?.idVip)!, numberYear: 1)
+//            requestWithTask(task: buyVip, success: { (data) in
+//                if let status = data as? (Bool, ErrorCode) {
+//                    if status.0 {
+//                        self.memberInstance?.point -= (self.vip?.point)!
+//                        UIAlertController.showAler(title: "", message: "success!".localized, inViewController: self)
+//                        return
+//                    }
+//                    UIAlertController.showAler(title: "", message: status.1.decodeError(), inViewController: self)
+//                }
+//            }, failure: { (_) in
+//                
+//            })
+//        }
     }
 }

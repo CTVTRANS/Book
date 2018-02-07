@@ -20,7 +20,7 @@ extension BaseTaskNetwork {
         var array: [PriceMix] = []
         for object in arrayPrice {
             let point = object["point"] as? Int ?? 0
-            let money = object["money"] as? Int ?? 0
+            let money = object["money"] as? Float ?? 0.0
             let price = PriceMix(point: point, money: money)
             array.append(price)
         }
@@ -178,7 +178,7 @@ extension BaseTaskNetwork {
         let imageVip = dictionary["image"] as? String ?? ""
         let descriptionVip = dictionary["description"] as? String ?? ""
         let contentVip = dictionary["content"] as? String ?? ""
-        let priceVip = dictionary["price_money"] as? Int ?? 0
+        let priceVip = dictionary["price_money"] as? Float ?? 0
         let point = dictionary["price_point"] as? Int ?? 0
         let vip = Vip(idVip: idVip,
                   title: titleVip,

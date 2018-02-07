@@ -408,7 +408,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="换一换" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEo-Il-7e0">
-                                                <rect key="frame" x="16" y="32.5" width="45" height="17.5"/>
+                                                <rect key="frame" x="16" y="32" width="45" height="17.5"/>
                                                 <fontDescription key="fontDescription" name="DFHeiStd-W5" family="DFHei Std" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2004,6 +2004,6 @@
         <image name="ic_tabbar_member" width="22" height="22"/>
         <image name="ic_tabbar_news" width="22" height="22"/>
         <image name="ic_tabbar_teacher" width="22" height="22"/>
-        <image name="place_holder" width="32" height="32"/>
+        <image name="place_holder" width="160" height="160"/>
     </resources>
 </document>

@@ -11,13 +11,13 @@ import UIKit
 class DefaultApp: NSObject {
 
     var audioFree = false
-    var timeLimitAudio: Int!
-    var limitVideo: Int!
-    var limitWord: Int!
-    var defaultAvatar: String!
-    var defaultBackground: String!
-    var suporter: String!
-    var termOffUse: String!
+    var timeLimitAudio = 0
+    var limitVideo = 0
+    var limitWord = 0
+    var defaultAvatar = ""
+    var defaultBackground = ""
+    var suporter = ""
+    var termOffUse = ""
     
     static let sharedInstance = DefaultApp()
 }

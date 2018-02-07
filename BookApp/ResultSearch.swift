@@ -20,12 +20,8 @@ class ResultSearch: UITableViewCell {
     func binData(objec: Any) {
         if let book = objec as? Book {
             title.text = book.name
-            let arrayString = book.descriptionBook.components(separatedBy: "</p>")
-            let firstString = arrayString[0]
-            if firstString.count > 3 {
-                let index = firstString.index(firstString.startIndex, offsetBy: 3)
-                descriptionTitle.text = String(firstString[index...])
-            }
+            let detail = book.descriptionBook.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+            descriptionTitle.text = detail
             return
         }
         if let news = objec as? NewsModel {

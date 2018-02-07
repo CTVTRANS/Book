@@ -3,7 +3,7 @@
   BookApp
 
   Created by le kien on 12/13/17.
-  
+
 */
 
 "学致用书院" = "学致用书院";
@@ -131,7 +131,7 @@
 "Downloaded" = "已下載";
 "Play history" = "播放记录";
 "My collection" = "我的收藏";
-"Settings" = "設置";
+"Settings" = "设置";
 "Help Center" = "帮助中心";
 "Personal information" = "个人信息";
 "Clear download" = "清空下载";
@@ -187,3 +187,4 @@
 "total money" = "总计 :";
 "buy now" = "立刻开通";
 "buy vip now" = "立刻购买VIP";
+"clear Download" = "清空成功";

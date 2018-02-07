@@ -40,15 +40,8 @@ class HistoryListenBookell: UITableViewCell {
         imageBook.sd_setImage(with: URL(string:book.imageURL))
         typeBook.text = book.typeName
         nameBook.text = book.name
-        let arrayString = book.descriptionBook.components(separatedBy: "</p>")
-        if let firstString = arrayString.first {
-            if firstString.count > 10 {
-                let index = firstString.index(firstString.startIndex, offsetBy: 3)
-                detailBook.text = String(firstString[..<index])
-            } else {
-                detailBook.text = " "
-            }
-        }
+        let detail = book.descriptionBook.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        detailBook.text = detail
         if let currentBok = MP3Player.shareIntanse.currentAudio as? Book {
             if currentBok.idBook == book.idBook && MP3Player.shareIntanse.isPlaying() {
                 imagePlay.image = #imageLiteral(resourceName: "audio_pause")

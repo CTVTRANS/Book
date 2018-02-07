@@ -11,16 +11,16 @@ import UIKit
 class PriceMix: NSObject {
     
     private var _point: Int!
-    private var _money: Int!
+    private var _money: Float!
     
-    init(point: Int, money: Int) {
+    init(point: Int, money: Float) {
         _point = point
         _money = money
     }
     var point: Int {
         return _point
     }
-    var mooney: Int {
+    var mooney: Float {
         return _money
     }
 }

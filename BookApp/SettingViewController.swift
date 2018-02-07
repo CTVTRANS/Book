@@ -39,7 +39,7 @@ class SettingViewController: BaseViewController, UITableViewDataSource, UITableV
     func customData() {
         let setting1 = SettingCellModel(name: "Personal information".localized, specialName: "", arrrowDetail: true, nameDetail: "")
         let setting2 = SettingCellModel(name: "Clear download".localized, specialName: "", arrrowDetail: false, nameDetail: "")
-        let setting3 = SettingCellModel(name: "About Reading Club".localized, specialName: "", arrrowDetail: true, nameDetail: "")
+        let setting3 = SettingCellModel(name: "AboutApp".localized, specialName: "", arrrowDetail: true, nameDetail: "")
 
         let arraySetting1 = ListSetting(array: [setting1])
         let arraySetting2 = ListSetting(array: [setting2, setting3])
@@ -99,7 +99,11 @@ class SettingViewController: BaseViewController, UITableViewDataSource, UITableV
         let row = indexPath.row
         switch row {
         case 0:
-           print("0")
+            let listBook = [Book]()
+            Book.saveBook(myBook: listBook)
+            let listLesson = [Lesson]()
+            Lesson.saveLesson(lesson: listLesson)
+            UIAlertController.showAler(title: "", message: "clear Download".localized, inViewController: self)
         case 1:
             if let vc = storyboard?.instantiateViewController(withIdentifier: "AppInfomationViewController") as? AppInfomationViewController {
                 navigationController?.pushViewController(vc, animated: true)

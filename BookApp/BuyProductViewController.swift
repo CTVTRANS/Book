@@ -105,10 +105,8 @@ class BuyProductViewController: BaseViewController, UIWebViewDelegate {
             goToSigIn()
             return
         }
-        let myStoryBoard = UIStoryboard(name: "Setting", bundle: nil)
-        if let vipProduct = product as? Vip, let vc = myStoryBoard.instantiateViewController(withIdentifier: "BuyVipMoneyViewController") as? BuyVipMoneyViewController {
-            vc.vip = vipProduct
-            navigationController?.pushViewController(vc, animated: true)
+        if let vipProduct = product as? Vip {
+            buyVipPoint(vip: vipProduct)
             return
         }
         if PeoleReciveProduct.sharedInstance.phone == nil {
@@ -149,6 +147,24 @@ extension BuyProductViewController {
             }
         }) { (error) in
             UIAlertController.showAler(title: "", message: error!, inViewController: self)
+        }
+    }
+    
+    func buyVipPoint(vip: Vip) {
+        if (memberInstance?.point)! > vip.point {
+            let buyVip = BuyVipTask(memberiD: (memberInstance?.idMember)!, token: tokenInstance!, type: 0, idVip: vip.idVip, numberYear: 1)
+            requestWithTask(task: buyVip, success: { (data) in
+                if let status = data as? (Bool, ErrorCode) {
+                    if status.0 {
+                        self.memberInstance?.point -= vip.point
+                        UIAlertController.showAler(title: "", message: "success!".localized, inViewController: self)
+                        return
+                    }
+                    UIAlertController.showAler(title: "", message: status.1.decodeError(), inViewController: self)
+                }
+            }, failure: { (_) in
+                
+            })
         }
     }
 }

@@ -33,6 +33,37 @@ class BaseViewController: UIViewController {
         AFNetworkReachabilityManager.shared().startMonitoring()
     }
     
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    override func remoteControlReceived(with event: UIEvent?) {
+        let listPlay = MP3Player.shareIntanse.listPlay
+        let currentIndex = MP3Player.shareIntanse.getCurrentIndex()
+        if let rc: UIEventSubtype = event?.subtype {
+            switch rc {
+            case .remoteControlPause:
+                mp3.pause()
+            case .remoteControlPlay:
+               mp3.play()
+            case .remoteControlNextTrack:
+                if currentIndex != 999999 && (listPlay.count - 1) > currentIndex {
+                    mp3.track(object: listPlay[currentIndex + 1], types: .onLine)
+                } else if currentIndex == (listPlay.count - 1) {
+                    mp3.track(object: listPlay[0], types: .onLine)
+                }
+            case .remoteControlPreviousTrack:
+                if currentIndex != 999999 && currentIndex > 0 {
+                    mp3.track(object: listPlay[currentIndex - 1], types: .onLine)
+                } else if currentIndex == 0 {
+                    mp3.track(object: listPlay[listPlay.count - 1], types: .onLine)
+                }
+            default:
+                break
+            }
+        }
+    }
+    
     func setupRightSlideOut() {
         if self.revealViewController() != nil {
             revealViewController().rightViewRevealWidth = 80
@@ -81,37 +112,6 @@ class BaseViewController: UIViewController {
         }) { (error) in
             failure(error)
         }
-    }
-    
-    func showActivity(inView myView: UIView) {
-//        backGroundview = UIView(frame: UIScreen.main.bounds)
-        backGroundview = UIView(frame: myView.bounds)
-        backGroundview?.backgroundColor = UIColor.white
-        let loadingView = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-        loadingView.backgroundColor = UIColor.clear
-        activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        loadingView.addSubview(activity!)
-        let nameLoading = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 20))
-        nameLoading.font = UIFont(name: "Helvetica Neue", size: 15)
-        nameLoading.text = "loading..."
-        nameLoading.textAlignment = .center
-        nameLoading.textColor = UIColor.gray
-        nameLoading.backgroundColor = UIColor.clear
-        nameLoading.translatesAutoresizingMaskIntoConstraints = true
-        loadingView.addSubview(nameLoading)
-        
-        backGroundview?.addSubview(loadingView)
-        nameLoading.center = CGPoint(x: loadingView.center.x, y: loadingView.center.y + 23)
-        activity?.center = loadingView.center
-        loadingView.center = (backGroundview?.center)!
-        myView.addSubview(backGroundview!)
-//        UIApplication.shared.keyWindow?.addSubview(backGroundview!)
-        activity?.startAnimating()
-    }
-    
-    func stopActivityIndicator() {
-        activity?.stopAnimating()
-        backGroundview?.removeFromSuperview()
     }
     
     func goToSigIn() {
@@ -184,13 +184,12 @@ class BaseViewController: UIViewController {
             let index32 = name.index(name.startIndex, offsetBy: 128)
             bodyPayment = String(body[...index32])
         }
-//        let messageShow = "This Product is".localized + " \(price)元. " + "You want continuce?".localized
-        let messageShow = "This Product is".localized + " 0.01元. " + "You want continuce?".localized
+        let messageShow = "This Product is".localized + " \(price)元. " + "You want continuce?".localized
         UIAlertController.showAlertWith(title: "", message: messageShow, in: self) {
             let payment = PaymentLib()
             payment.appID = appIDSDK
             payment.orderId = orderID
-            payment.amount = "0.01"
+            payment.amount = price
             payment.body = bodyPayment
             payment.subject = "BUY \(subjectPayment)"
             payment.notifyUrl = urlNotice
@@ -205,21 +204,6 @@ class BaseViewController: UIViewController {
             }
             manager?.startAction()
         }
-        
-//        if let choosePay = ChooseMethodPayment.instance() as? ChooseMethodPayment {
-//            choosePay.show()
-//            choosePay.callBackWeChat = {
-//                print("wechat")
-//            }
-//
-//            choosePay.callBackAlipay = {
-//                print("alipay")
-//            }
-//
-//            choosePay.callBackIOS = {
-//                print("ios")
-//            }
-//        }
     }
 }
 
@@ -284,5 +268,38 @@ extension UITableView {
         label.textAlignment = .center
         view.addSubview(label)
         return view
+    }
+}
+
+extension BaseViewController {
+    func showActivity(inView myView: UIView) {
+        //        backGroundview = UIView(frame: UIScreen.main.bounds)
+        backGroundview = UIView(frame: myView.bounds)
+        backGroundview?.backgroundColor = UIColor.white
+        let loadingView = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+        loadingView.backgroundColor = UIColor.clear
+        activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        loadingView.addSubview(activity!)
+        let nameLoading = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 20))
+        nameLoading.font = UIFont(name: "Helvetica Neue", size: 15)
+        nameLoading.text = "loading..."
+        nameLoading.textAlignment = .center
+        nameLoading.textColor = UIColor.gray
+        nameLoading.backgroundColor = UIColor.clear
+        nameLoading.translatesAutoresizingMaskIntoConstraints = true
+        loadingView.addSubview(nameLoading)
+        
+        backGroundview?.addSubview(loadingView)
+        nameLoading.center = CGPoint(x: loadingView.center.x, y: loadingView.center.y + 23)
+        activity?.center = loadingView.center
+        loadingView.center = (backGroundview?.center)!
+        myView.addSubview(backGroundview!)
+        //        UIApplication.shared.keyWindow?.addSubview(backGroundview!)
+        activity?.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        activity?.stopAnimating()
+        backGroundview?.removeFromSuperview()
     }
 }

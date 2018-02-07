@@ -16,7 +16,13 @@ class SupportCustomController: BaseViewController, UIWebViewDelegate {
         super.viewDidLoad()
         showActivity(inView: self.view)
         bodyWebView.delegate = self
-        bodyWebView.loadHTMLString(DefaultApp.sharedInstance.suporter, baseURL: nil)
+        let getDefault = GetDefaultSettingTask()
+        getDefault.request(blockSucess: { (_) in
+            self.bodyWebView.loadHTMLString(DefaultApp.sharedInstance.suporter, baseURL: nil)
+        }) { (_) in
+            self.stopActivityIndicator()
+        }
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
